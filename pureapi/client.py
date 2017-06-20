@@ -1,10 +1,7 @@
-from dotenv import load_dotenv, find_dotenv
 import os
 import requests
 import math
 import xml.etree.ElementTree as et
-
-load_dotenv(find_dotenv())
 
 pure_api_url = os.environ.get('PURE_API_URL')
 pure_api_user = os.environ.get('PURE_API_USER')
