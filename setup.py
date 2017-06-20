@@ -7,5 +7,5 @@ setup(
   url='https://github.com/UMNLibraries/pureapi',
   author='David Naughton',
   author_email='nihiliad@gmail.com',
-  packages=find_packages(excluse=['tests','docs'])
+  packages=find_packages(exclude=['tests','docs'])
 )
