@@ -1,26 +1,29 @@
 import os
 import requests
 import math
-import xml.etree.ElementTree as et
 
 pure_api_url = os.environ.get('PURE_API_URL')
-pure_api_user = os.environ.get('PURE_API_USER')
-pure_api_pass = os.environ.get('PURE_API_PASS')
+pure_api_key = os.environ.get('PURE_API_KEY')
 
-def get(family, params={}):
+headers = {
+  'Accept': 'application/json',
+  'api-key': pure_api_key,
+}
+
+def get(endpoint, params={}, headers=headers):
   return requests.get(
-    pure_api_url + family,
-    auth=(pure_api_user, pure_api_pass),
-    params=params
+    pure_api_url + endpoint,
+    params=params,
+    headers=headers
   )
   
-def get_all(family, params={}):
-  r = get(family, {"window.size": 1, "namespaces":"remove"})
-  xml = et.fromstring(r.text)
-  record_count = int(xml.find("count").text)
-  window_size = int(params['window.size']) if 'window.size' in params else 20
+def get_all(endpoint, params={}, headers=headers):
+  r = get(endpoint, {'size': 0, 'offset': 0})
+  json = r.json()
+  record_count = int(json['count'])
+  window_size = int(params['size']) if 'size' in params else 20
   window_count = int(math.ceil(float(record_count) / window_size))
 
   for window in range(0, window_count):
-     window_params = {'window.offset': window * window_size}
-     yield get(family, {**params, **window_params})
+     window_params = {'offset': window * window_size}
+     yield get(endpoint, {**params, **window_params})
