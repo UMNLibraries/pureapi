@@ -36,24 +36,3 @@ def test_get_all_transformed():
     assert 'uuid' in org
     transformed_count += 1
   assert transformed_count == count
-
-#navlinks = parser.list(d, 'navigationLink')
-##navlinks = parser.list(org, 'bogus')
-#print(navlinks)
-#for navlink in navlinks:
-#  for key,val in navlink.items():
-#    print("{} = {}".format(key, val))
-#
-#for org in d['items']:
-#
-#  name = org.name[0].value
-#  #print(name)
-#
-#  start_date = org.period.startDate
-#  #print(start_date)
-#
-#  # Test accessing a non-existent key:
-#  bogus = parser.scalar(org, 'bogus')
-#  #print(bogus)
-#  
-#

@@ -31,6 +31,5 @@ def get_all(endpoint, params={}, headers=headers):
 
 def get_all_transformed(endpoint, params={}, headers=headers):
   for r in get_all(endpoint, params, headers):
-    body_dict = r.json()
-    for item in body_dict['items']:
+    for item in r.json()['items']:
       yield response.transform(endpoint, item)
