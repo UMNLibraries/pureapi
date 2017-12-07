@@ -25,17 +25,17 @@ def test_get():
   org_uuid = d_uuid['items'][0]
   assert org_uuid['uuid'] == uuid
 
-def test_get_all_addicts():
+def test_get_all_transformed():
   r = client.get('organisational-units', {'size':1, 'offset':0})
   d = r.json()
   count = d['count']
 
-  addicts_count = 0
-  for org in client.get_all_addicts('organisational-units'):
+  transformed_count = 0
+  for org in client.get_all_transformed('organisational-units'):
     assert isinstance(org, Dict)
     assert 'uuid' in org
-    addicts_count += 1
-  assert addicts_count == count
+    transformed_count += 1
+  assert transformed_count == count
 
 #navlinks = parser.list(d, 'navigationLink')
 ##navlinks = parser.list(org, 'bogus')

@@ -1,7 +1,7 @@
 import os
 import math
 import requests
-from addict import Dict
+from pureapi import response
 
 pure_api_url = os.environ.get('PURE_API_URL')
 pure_api_key = os.environ.get('PURE_API_KEY')
@@ -29,8 +29,8 @@ def get_all(endpoint, params={}, headers=headers):
      window_params = {'offset': window * window_size, 'size': window_size}
      yield get(endpoint, {**params, **window_params})
 
-def get_all_addicts(endpoint, params={}, headers=headers):
-  for response in get_all(endpoint, params, headers):
-    body_dict = response.json()
+def get_all_transformed(endpoint, params={}, headers=headers):
+  for r in get_all(endpoint, params, headers):
+    body_dict = r.json()
     for item in body_dict['items']:
-      yield Dict(item)
+      yield response.transform(endpoint, item)
