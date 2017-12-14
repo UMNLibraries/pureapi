@@ -36,3 +36,21 @@ def test_get_all_transformed():
     assert 'uuid' in org
     transformed_count += 1
   assert transformed_count == count
+
+def test_filter():
+  payload = {
+    "size": 1,
+    "offset": 0,
+    "forOrganisationalUnits": {
+      "uuids": [
+        "2db56085-27ed-460a-8037-aeef0fd38efa"
+      ]
+    }
+  }
+  r = client.filter('research-outputs', payload=payload)
+  assert r.status_code == 200
+
+  d = r.json()
+  assert d['count'] > 0
+  assert len(d['items']) == 1
+

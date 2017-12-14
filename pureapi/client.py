@@ -15,7 +15,7 @@ def get(endpoint, params={}, headers=headers):
   return requests.get(
     pure_api_url + endpoint,
     params=params,
-    headers=headers
+    headers=headers,
   )
   
 def get_all(endpoint, params={}, headers=headers):
@@ -33,3 +33,10 @@ def get_all_transformed(endpoint, params={}, headers=headers):
   for r in get_all(endpoint, params, headers):
     for item in r.json()['items']:
       yield response.transform(endpoint, item)
+
+def filter(endpoint, payload={}, headers=headers):
+  return requests.post(
+    pure_api_url + endpoint,
+    json=payload,
+    headers=headers,
+  )
