@@ -47,10 +47,29 @@ def test_filter():
       ]
     }
   }
-  r = client.filter('research-outputs', payload=payload)
+  r = client.filter('research-outputs', payload)
   assert r.status_code == 200
 
   d = r.json()
   assert d['count'] > 0
   assert len(d['items']) == 1
+
+def test_filter_all_transformed():
+  type_uri = "/dk/atira/pure/organisation/organisationtypes/organisation/peoplesoft_deptid"
+  payload = {
+    "organisationalUnitTypeUri": [ 
+      type_uri
+    ]
+  }
+  r = client.filter('organisational-units', payload)
+  d = r.json()
+  count = d['count']
+
+  transformed_count = 0
+  for org in client.filter_all_transformed('organisational-units', payload):
+    assert isinstance(org, Dict)
+    assert 'uuid' in org
+    assert org['type'][0]['uri'] == type_uri
+    transformed_count += 1
+  assert transformed_count == count
 
