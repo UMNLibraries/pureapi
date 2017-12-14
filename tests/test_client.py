@@ -5,6 +5,9 @@ import pprint
 from addict import Dict
 
 def test_get():
+  r_persons = client.get('persons', {'size':1, 'offset':0})
+  assert r_persons.status_code == 200
+
   r = client.get('organisational-units', {'size':1, 'offset':0})
   assert r.status_code == 200
 
@@ -36,6 +39,11 @@ def test_get_all_transformed():
     assert 'uuid' in org
     transformed_count += 1
   assert transformed_count == count
+
+  for person in client.get_all_transformed('persons'):
+    assert isinstance(person, Dict)
+    assert 'uuid' in person
+    break
 
 def test_filter():
   payload = {
