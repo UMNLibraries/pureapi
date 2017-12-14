@@ -19,7 +19,7 @@ def get(endpoint, params={}, headers=headers):
   )
   
 def get_all(endpoint, params={}, headers=headers):
-  r = get(endpoint, {'size': 0, 'offset': 0})
+  r = get(endpoint, {'size': 0, 'offset': 0}, headers)
   json = r.json()
   record_count = int(json['count'])
   window_size = int(params['size']) if 'size' in params else 100
@@ -27,7 +27,7 @@ def get_all(endpoint, params={}, headers=headers):
 
   for window in range(0, window_count):
      window_params = {'offset': window * window_size, 'size': window_size}
-     yield get(endpoint, {**params, **window_params})
+     yield get(endpoint, {**params, **window_params}, headers)
 
 def get_all_transformed(endpoint, params={}, headers=headers):
   for r in get_all(endpoint, params, headers):
