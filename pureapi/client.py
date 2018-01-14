@@ -8,6 +8,7 @@ pure_api_key = os.environ.get('PURE_API_KEY')
 
 headers = {
   'Accept': 'application/json',
+  'Accept-Charset': 'utf-8',
   'api-key': pure_api_key,
 }
 
