@@ -28,6 +28,20 @@ def test_get():
   org_uuid = d_uuid['items'][0]
   assert org_uuid['uuid'] == uuid
 
+def test_get_person_by_classified_source_id():
+  emplid = '2110454'
+  r = client.get('persons', {'q':emplid, 'idClassification':'classified_source'})
+  assert r.status_code == 200
+
+  d = r.json()
+  assert d['count'] > 0
+  assert len(d['items']) == 1
+
+  person = d['items'][0]
+  for id in person['ids']:
+    if id['typeUri'] == '/dk/atira/pure/person/personsources/employee':
+      assert id['value'] == emplid
+
 def test_get_all_transformed():
   r = client.get('organisational-units', {'size':1, 'offset':0})
   d = r.json()
