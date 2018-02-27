@@ -30,14 +30,10 @@ def test_get():
 
 def test_get_person_by_classified_source_id():
   emplid = '2110454'
-  r = client.get('persons', {'q':emplid, 'idClassification':'classified_source'})
+  r = client.get('persons/' + emplid, {'idClassification':'classified_source'})
   assert r.status_code == 200
 
-  d = r.json()
-  assert d['count'] > 0
-  assert len(d['items']) == 1
-
-  person = d['items'][0]
+  person = r.json()
   for id in person['ids']:
     if id['typeUri'] == '/dk/atira/pure/person/personsources/employee':
       assert id['value'] == emplid
