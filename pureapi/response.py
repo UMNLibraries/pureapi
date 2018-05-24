@@ -1,5 +1,9 @@
 from addict import Dict
 
+def change(dictionary):
+  ou = Dict(dictionary)
+  return ou
+
 def organisational_unit(dictionary):
   ou = Dict(dictionary)
   return ou
@@ -15,6 +19,7 @@ def research_output(dictionary):
 
 def transformer_for_family(family):
   return {
+    'changes': 'change',
     'organisational-units': 'organisational_unit',
     'persons': 'person',
     'research-outputs': 'research_output',

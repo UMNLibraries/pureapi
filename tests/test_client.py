@@ -1,5 +1,6 @@
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
+from datetime import date, timedelta
 from pureapi import client
 import pprint
 from addict import Dict
@@ -37,6 +38,24 @@ def test_get_person_by_classified_source_id():
   for id in person['ids']:
     if id['typeUri'] == '/dk/atira/pure/person/personsources/employee':
       assert id['value'] == emplid
+
+def test_get_all_changes():
+  yesterday = date.today() - timedelta(days=1)
+  for r in client.get_all_changes(yesterday.isoformat()):
+    assert r.status_code == 200
+    json = r.json()
+    assert json['count'] > 0
+    assert len(json['items']) > 0
+
+def test_get_all_changes_transformed():
+  yesterday = date.today() - timedelta(days=1)
+  transformed_count = 0
+  for change in client.get_all_changes_transformed(yesterday.isoformat()):
+    assert isinstance(change, Dict)
+    for k in ['uuid', 'changeType', 'familySystemName', 'version']:
+      assert k in change
+    transformed_count += 1
+  assert transformed_count > 0
 
 def test_get_all_transformed():
   r = client.get('organisational-units', {'size':1, 'offset':0})

@@ -35,6 +35,24 @@ def get_all_transformed(endpoint, params={}, headers=headers):
     for item in r.json()['items']:
       yield response.transform(endpoint, item)
 
+def get_all_changes(id_or_date, params={}, headers=headers):
+  next_id_or_date = id_or_date
+  while(True):
+    r = get('changes/' + next_id_or_date, params, headers)
+    yield r
+    
+    json = r.json()
+    more_changes = json['moreChanges'] if 'moreChanges' in json else False
+    if more_changes:
+      next_id_or_date = str(json['lastId'])
+    else:
+      break
+
+def get_all_changes_transformed(id_or_date, params={}, headers=headers):
+  for r in get_all_changes(id_or_date, params, headers):
+    for item in r.json()['items']:
+      yield response.transform('changes', item)
+
 def filter(endpoint, payload={}, headers=headers):
   return requests.post(
     pure_api_url + endpoint,
