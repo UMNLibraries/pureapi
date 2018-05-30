@@ -4,6 +4,14 @@ def change(dictionary):
   ou = Dict(dictionary)
   return ou
 
+def external_organisation(dictionary):
+  p = Dict(dictionary)
+  return p
+
+def external_person(dictionary):
+  p = Dict(dictionary)
+  return p
+
 def organisational_unit(dictionary):
   ou = Dict(dictionary)
   return ou
@@ -20,6 +28,8 @@ def research_output(dictionary):
 def transformer_for_family(family):
   return {
     'changes': 'change',
+    'external-organisations': 'external_organisation',
+    'external-persons': 'external_person',
     'organisational-units': 'organisational_unit',
     'persons': 'person',
     'research-outputs': 'research_output',
