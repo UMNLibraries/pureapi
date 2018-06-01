@@ -6,6 +6,11 @@ def test_organisational_unit():
   ou = response.organisational_unit({})
   assert isinstance(ou, Dict)
 
+def test_external_organisation():
+  eo = response.external_organisation({})
+  assert isinstance(eo, Dict)
+  assert eo.pureId == None
+
 def test_research_output():
   ro1_citation_count = 100
   ro1 = response.research_output({'totalScopusCitations': ro1_citation_count})

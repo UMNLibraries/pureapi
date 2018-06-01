@@ -1,29 +1,30 @@
 from addict import Dict
 
 def change(dictionary):
-  ou = Dict(dictionary)
-  return ou
+  d = Dict(dictionary)
+  return d
 
 def external_organisation(dictionary):
-  p = Dict(dictionary)
-  return p
+  d = Dict(dictionary)
+  d.setdefault('pureId', None)
+  return d
 
 def external_person(dictionary):
-  p = Dict(dictionary)
-  return p
+  d = Dict(dictionary)
+  return d
 
 def organisational_unit(dictionary):
-  ou = Dict(dictionary)
-  return ou
+  d = Dict(dictionary)
+  return d
 
 def person(dictionary):
-  p = Dict(dictionary)
-  return p
+  d = Dict(dictionary)
+  return d
 
 def research_output(dictionary):
-  ro = Dict(dictionary)
-  ro.setdefault('totalScopusCitations', None)
-  return ro
+  d = Dict(dictionary)
+  d.setdefault('totalScopusCitations', None)
+  return d
 
 def transformer_for_family(family):
   return {
