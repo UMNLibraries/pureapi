@@ -15,6 +15,17 @@ def external_person(dictionary):
 
 def organisational_unit(dictionary):
   d = Dict(dictionary)
+
+  # We've been calling the externalId the pure_id, but really it's our old
+  # internal (SciVal?) identifier. Pure defines a separate pureId, which we 
+  # may want to store later.
+  # Also, it seems not all internal orgs have such identifiers in Pure. Investigate.
+  # Maybe at least some of these are orgs we created to store umn deptid's in Pure?
+  d.setdefault('externalId', None)
+
+  # Some orgs may not have parents, e.g., University of Minnesota.
+  d.setdefault('parents', [Dict({'uuid': None})])
+
   return d
 
 def person(dictionary):
