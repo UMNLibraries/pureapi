@@ -2,6 +2,11 @@ from pureapi import response
 from addict import Dict
 import pytest
 
+def test_person():
+  p = response.person({})
+  assert isinstance(p, Dict)
+  assert p.orcid == None
+
 def test_organisational_unit():
   ou = response.organisational_unit({})
   assert isinstance(ou, Dict)

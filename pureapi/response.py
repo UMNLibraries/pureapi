@@ -30,6 +30,7 @@ def organisational_unit(dictionary):
 
 def person(dictionary):
   d = Dict(dictionary)
+  d.setdefault('orcid', None)
   return d
 
 def research_output(dictionary):
