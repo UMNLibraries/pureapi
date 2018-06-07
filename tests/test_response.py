@@ -6,6 +6,7 @@ def test_person():
   p = response.person({})
   assert isinstance(p, Dict)
   assert p.externalId == None
+  assert p.scopusHIndex == None
   assert p.orcid == None
 
 def test_organisational_unit():

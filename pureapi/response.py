@@ -34,6 +34,7 @@ def person(dictionary):
   # internal (SciVal?) identifier. Pure defines a separate pureId, which we 
   # may want to store later.
   d.setdefault('externalId', None)
+  d.setdefault('scopusHIndex', None)
   d.setdefault('orcid', None)
   return d
 
