@@ -11,11 +11,19 @@ def test_person():
   assert p.scopusHIndex == None
   assert p.orcid == None
 
+  p2 = response.person({'name': {'lastName': 'Valiullin'}})
+  assert p2.name.firstName == None
+  assert p2.name.lastName == 'Valiullin'
+
 def test_external_person():
   p = response.external_person({})
   assert isinstance(p, Dict)
   assert p.name.firstName == None
   assert p.name.lastName == None
+
+  p2 = response.external_person({'name': {'firstName': 'Darth', 'lastName': 'Vader'}})
+  assert p2.name.firstName == 'Darth'
+  assert p2.name.lastName == 'Vader'
 
 def test_organisational_unit():
   ou = response.organisational_unit({})
