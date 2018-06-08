@@ -5,9 +5,17 @@ import pytest
 def test_person():
   p = response.person({})
   assert isinstance(p, Dict)
+  assert p.name.firstName == None
+  assert p.name.lastName == None
   assert p.externalId == None
   assert p.scopusHIndex == None
   assert p.orcid == None
+
+def test_external_person():
+  p = response.external_person({})
+  assert isinstance(p, Dict)
+  assert p.name.firstName == None
+  assert p.name.lastName == None
 
 def test_organisational_unit():
   ou = response.organisational_unit({})

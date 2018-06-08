@@ -11,6 +11,7 @@ def external_organisation(dictionary):
 
 def external_person(dictionary):
   d = Dict(dictionary)
+  d.setdefault('name', Dict({'firstName': None, 'lastName': None}))
   return d
 
 def organisational_unit(dictionary):
@@ -30,6 +31,7 @@ def organisational_unit(dictionary):
 
 def person(dictionary):
   d = Dict(dictionary)
+  d.setdefault('name', Dict({'firstName': None, 'lastName': None}))
   # We've been calling the externalId the pure_id, but really it's our old
   # internal (SciVal?) identifier. Pure defines a separate pureId, which we 
   # may want to store later.
