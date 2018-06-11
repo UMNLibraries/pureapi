@@ -47,6 +47,9 @@ def person(dictionary):
 
 def research_output(dictionary):
   d = Dict(dictionary)
+  d.setdefault('volume', None)
+  d.setdefault('journalNumber', None)
+  d.setdefault('pages', None)
   d.setdefault('totalScopusCitations', None)
   return d
 
