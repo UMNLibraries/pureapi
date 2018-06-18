@@ -9,6 +9,7 @@ name = "pypi"
 
 requests = "*"
 addict = "*"
+tenacity = "*"
 
 
 [dev-packages]

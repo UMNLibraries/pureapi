@@ -1,6 +1,7 @@
 import os
 import math
 import requests
+from tenacity import retry, wait_exponential
 from pureapi import response
 
 pure_api_url = os.environ.get('PURE_API_URL')
@@ -12,6 +13,7 @@ headers = {
   'api-key': pure_api_key,
 }
 
+@retry(wait=wait_exponential(multiplier=1, max=60))
 def get(endpoint, params={}, headers=headers):
   return requests.get(
     pure_api_url + endpoint,
@@ -21,14 +23,22 @@ def get(endpoint, params={}, headers=headers):
   
 def get_all(endpoint, params={}, headers=headers):
   r = get(endpoint, {'size': 0, 'offset': 0}, headers)
+
   json = r.json()
   record_count = int(json['count'])
   window_size = int(params['size']) if 'size' in params else 100
   window_count = int(math.ceil(float(record_count) / window_size))
 
   for window in range(0, window_count):
-     window_params = {'offset': window * window_size, 'size': window_size}
-     yield get(endpoint, {**params, **window_params}, headers)
+    offset = window * window_size
+    size = window_size
+    window_params = {'offset': offset, 'size': size}
+    try:
+       yield get(endpoint, {**params, **window_params}, headers)
+    except Exception as e:
+      print('Failed request for endpoint {} with offset {} and size {}'.format(endpoint, offset, size))
+      print(get.retry.statistics)
+      raise e
 
 def get_all_transformed(endpoint, params={}, headers=headers):
   for r in get_all(endpoint, params, headers):
