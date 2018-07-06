@@ -39,6 +39,9 @@ Pipfile.lock
 pip-log.txt
 pip-delete-this-directory.txt
 
+# pytest
+.pytest_cache/
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
