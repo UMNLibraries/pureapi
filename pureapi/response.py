@@ -1,4 +1,5 @@
 from addict import Dict
+from .exceptions import PureAPIResponseException, PureAPIResponseKeyError
 
 def change(dictionary):
   d = Dict(dictionary)
@@ -66,12 +67,5 @@ def transformer_for_family(family):
 def transform(family, dictionary):
   transformer = transformer_for_family(family)
   if (transformer == None):
-    raise NoSuchFamilyError('Unrecognized family "{}"'.format(family))
+    raise PureAPIResponseKeyError('Unrecognized family "{}"'.format(family))
   return globals()[transformer_for_family(family)](dictionary)
-
-class Error(Exception):
-  pass
-
-class NoSuchFamilyError(Error):
-  def __init__(self, message):
-    self.message = message

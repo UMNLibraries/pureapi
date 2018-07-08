@@ -1,9 +1,10 @@
 from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 from datetime import date, timedelta
-from pureapi import client
-import pprint
 from addict import Dict
+import pytest
+from pureapi import client
+from pureapi.exceptions import PureAPIClientRequestException
 
 def test_get():
   r_persons = client.get('persons', {'size':1, 'offset':0})
@@ -52,8 +53,11 @@ def test_get_all_changes_transformed():
   transformed_count = 0
   for change in client.get_all_changes_transformed(yesterday.isoformat()):
     assert isinstance(change, Dict)
-    for k in ['uuid', 'changeType', 'familySystemName', 'version']:
-      assert k in change
+    if 'configurationType' in change:
+      assert 'identifier' in change
+    else:
+      for k in ['uuid', 'changeType', 'familySystemName', 'version']:
+        assert k in change
     transformed_count += 1
   assert transformed_count > 0
 
@@ -110,3 +114,10 @@ def test_filter_all_transformed():
     transformed_count += 1
   assert transformed_count == count
 
+def test_get_exception():
+  with pytest.raises(PureAPIClientRequestException):
+    r = client.get('bogus', {'size':1, 'offset':0})
+
+def test_filter_exception():
+  with pytest.raises(PureAPIClientRequestException):
+    r = client.filter('bogus', payload={})

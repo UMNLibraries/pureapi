@@ -1,4 +1,5 @@
 from pureapi import response
+from pureapi.exceptions import PureAPIResponseException, PureAPIResponseKeyError
 from addict import Dict
 import pytest
 
@@ -61,5 +62,5 @@ def test_transform():
   assert ro.totalScopusCitations == citation_count
 
 def test_transform_error():
-  with pytest.raises(response.NoSuchFamilyError):
+  with pytest.raises(PureAPIResponseKeyError):
     response.transform('no-such-family', {})
