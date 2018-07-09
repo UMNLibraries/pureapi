@@ -17,70 +17,30 @@ Successfully tested against Pure API versions 5.10.x - 5.12.x.
 
 pureapi requires Python 3.
 
-To install and manage Python versions and dependencies, we use
-[pyenv](https://github.com/pyenv/pyenv) and [pipenv](https://docs.pipenv.org/). While using
-multiple other tools should work, here we document the tools we use, which are most likely
-to work.
+To install and manage Python versions we use [pyenv](https://github.com/pyenv/pyenv) and to manage
+dependencies we use [poetry](https://poetry.eustace.io/). For now, poetry is required. We may consider
+adding support for other dependency management tools if there is considerable demand for them.
 
 To connect to the Pure server, including when running `tests/test_client.py`, the
 `PURE_API_URL` and `PURE_API_KEY` environment variables must be set. See `env.dist` for
 an example.
 
-### Installing as an Application Dependency
+### Installing as a Dependency
 
-Add to the application `Pipfile`:
-
-```
-pureapi = {git = "git://github.com/UMNLibraries/pureapi.git", editable = true}
-```
-
-### Installing as a Package/Library Dependency
-
-Add to the package/library `setup.py`:
+Add to `pyproject.toml`:
 
 ```
-install_requires=[
-  'pureapi',
-],
-dependency_links=[
-  'git+https://github.com/UMNLibraries/pureapi.git#egg=pureapi',
-],
-``` 
+pureapi = {git = "git://github.com/UMNLibraries/pureapi.git", tag = "1.0.0"}
+```
 
 ### Installing for Development
 
-Clone this repo, then run in the repo directory:
-
-```
-pipenv install -e '.[dev]'
-```
-
-That should install all dependencies, including dev dependencies, create a `Pipfile` with contents similar to...
-
-```
-[[source]]
-url = "https://pypi.org/simple"
-verify_ssl = true
-name = "pypi"
-
-[packages]
-pureapi = {editable = true, path = ".", extras = ["dev"]}
-
-[dev-packages]
-
-[requires]
-python_version = "3.6"
-
-```
-
-...and put the dependency versions and/or hashes in `Pipfile.lock`.
-
-Do _not_ commit `Pipfile` and `Pipfile.lock`! Those files are used only for local development, and
-may cause breakage when installing pureapi as an application dependency. We use `setup.py` for that.
+Clone this repo, but do _not_ commit `pyproject.lock`!
 
 ## Testing
 
-After [installing for development](#installing-for-development), run the following, either as arguments to `pipenv run`, or after running `pipenv shell`:
+After [installing for development](#installing-for-development), run the following, either as arguments
+to `poetry run`, or after running `poetry shell`:
 
 ```
 pytest tests/test_client.py
