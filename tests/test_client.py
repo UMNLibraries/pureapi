@@ -49,12 +49,21 @@ def test_get_all_changes():
     assert len(json['items']) > 0
 
 def test_get_all_changes_transformed():
+  """
+  Strange change records:
+  {'family': 'dk.atira.pure.api.shared.model.event.Event', 'familySystemName': 'Event'}
+  {'family': 'dk.atira.pure.api.shared.model.researchoutput.ResearchOutput', 'familySystemName': 'ResearchOutput'}
+  """
   yesterday = date.today() - timedelta(days=1)
   transformed_count = 0
   for change in client.get_all_changes_transformed(yesterday.isoformat()):
     assert isinstance(change, Dict)
     if 'configurationType' in change:
       assert 'identifier' in change
+    elif change.familySystemName == 'Event':
+      assert change.family == 'dk.atira.pure.api.shared.model.event.Event'
+    elif change.familySystemName == 'ResearchOutput':
+      assert change.family == 'dk.atira.pure.api.shared.model.researchoutput.ResearchOutput'
     else:
       for k in ['uuid', 'changeType', 'familySystemName', 'version']:
         assert k in change
