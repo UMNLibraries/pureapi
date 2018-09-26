@@ -94,12 +94,17 @@ def test_get_all_transformed():
     break
 
 def test_filter():
+  org_uuid = None
+  for org in client.get_all_transformed('organisational-units', params={'size':1, 'offset':0}):
+    org_uuid = org.uuid
+    break
+
   payload = {
     "size": 1,
     "offset": 0,
     "forOrganisationalUnits": {
       "uuids": [
-        "2db56085-27ed-460a-8037-aeef0fd38efa"
+        org_uuid
       ]
     }
   }
@@ -153,7 +158,7 @@ def test_filter_all_by_id():
     assert d['count'] == expected_count 
     assert len(d['items']) == expected_count
 
-def test_filter_all_by_uuid_transformed():
+def test_filter_all_by_id_transformed():
   limit = 10
   ids = []
   for person in client.get_all_transformed('persons', params={'size': limit}):
