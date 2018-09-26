@@ -100,6 +100,13 @@ def filter_all(endpoint, payload={}, headers=headers, retryer=retryer):
      payload['offset'] = window * window_size
      yield filter(endpoint, payload=payload, headers=headers, retryer=retryer)
 
+def filter_all_by_uuid(endpoint, uuids=[], size=100, headers=headers, retryer=retryer):
+  payload = {
+    'uuids': uuids,
+    'size': size
+  }
+  return filter_all(endpoint, payload=payload, headers=headers, retryer=retryer)
+
 def filter_all_transformed(endpoint, payload={}, headers=headers, retryer=retryer):
   for r in filter_all(endpoint, payload, headers, retryer):
     for item in r.json()['items']:

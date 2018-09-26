@@ -47,6 +47,8 @@ def test_get_all_changes():
     json = r.json()
     assert json['count'] > 0
     assert len(json['items']) > 0
+    # There could be thousands of changes in a day, so we limit the test to one request:
+    break
 
 def test_get_all_changes_transformed():
   """
@@ -56,6 +58,7 @@ def test_get_all_changes_transformed():
   """
   yesterday = date.today() - timedelta(days=1)
   transformed_count = 0
+  transformed_limit = 10
   for change in client.get_all_changes_transformed(yesterday.isoformat()):
     assert isinstance(change, Dict)
     if 'configurationType' in change:
@@ -68,7 +71,10 @@ def test_get_all_changes_transformed():
       for k in ['uuid', 'changeType', 'familySystemName', 'version']:
         assert k in change
     transformed_count += 1
-  assert transformed_count > 0
+    # There could be thousands of changes in a day, so we limit the records under test:
+    if transformed_count == transformed_limit:
+      break
+  assert transformed_count == transformed_limit
 
 def test_get_all_transformed():
   r = client.get('organisational-units', {'size':1, 'offset':0})
@@ -103,6 +109,20 @@ def test_filter():
   d = r.json()
   assert d['count'] > 0
   assert len(d['items']) == 1
+
+def test_filter_all_by_uuid():
+  expected_count = 10
+  uuids = []
+  for ro in client.get_all_transformed('research-outputs', params={'size': expected_count}):
+    uuids.append(ro.uuid)
+    if len(uuids) == expected_count:
+      break
+  for r in client.filter_all_by_uuid('research-outputs', uuids=uuids):
+    assert r.status_code == 200
+    d = r.json()
+    # Should get only one response:
+    assert d['count'] == expected_count 
+    assert len(d['items']) == expected_count
 
 def test_filter_all_transformed():
   type_uri = "/dk/atira/pure/organisation/organisationtypes/organisation/peoplesoft_deptid"
