@@ -124,6 +124,22 @@ def test_filter_all_by_uuid():
     assert d['count'] == expected_count 
     assert len(d['items']) == expected_count
 
+def test_filter_all_by_id():
+  expected_count = 10
+  ids = []
+  for person in client.get_all_transformed('persons', params={'size': expected_count}):
+    for _id in person.ids:
+      if _id.type == 'Employee ID':
+        ids.append(_id.value)
+    if len(ids) == expected_count:
+      break
+  for r in client.filter_all_by_id('persons', ids=ids):
+    assert r.status_code == 200
+    d = r.json()
+    # Should get only one response:
+    assert d['count'] == expected_count 
+    assert len(d['items']) == expected_count
+
 def test_filter_all_transformed():
   type_uri = "/dk/atira/pure/organisation/organisationtypes/organisation/peoplesoft_deptid"
   payload = {
