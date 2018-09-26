@@ -109,7 +109,17 @@ def filter_all_by_id(endpoint, ids=[], payload={}, headers=headers, retryer=retr
   return filter_all(endpoint, payload=payload, headers=headers, retryer=retryer)
 
 def filter_all_transformed(endpoint, payload={}, headers=headers, retryer=retryer):
-  for r in filter_all(endpoint, payload, headers, retryer):
+  for r in filter_all(endpoint, payload=payload, headers=headers, retryer=retryer):
+    for item in r.json()['items']:
+      yield response.transform(endpoint, item)
+
+def filter_all_by_uuid_transformed(endpoint, uuids=[], payload={}, headers=headers, retryer=retryer):
+  for r in filter_all_by_uuid(endpoint, uuids=uuids, payload=payload, headers=headers, retryer=retryer):
+    for item in r.json()['items']:
+      yield response.transform(endpoint, item)
+
+def filter_all_by_id_transformed(endpoint, ids=[], payload={}, headers=headers, retryer=retryer):
+  for r in filter_all_by_id(endpoint, ids=ids, payload=payload, headers=headers, retryer=retryer):
     for item in r.json()['items']:
       yield response.transform(endpoint, item)
 

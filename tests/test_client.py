@@ -124,6 +124,19 @@ def test_filter_all_by_uuid():
     assert d['count'] == expected_count 
     assert len(d['items']) == expected_count
 
+def test_filter_all_by_uuid_transformed():
+  limit = 10
+  uuids = []
+  for ro in client.get_all_transformed('research-outputs', params={'size': limit}):
+    uuids.append(ro.uuid)
+    if len(uuids) == limit:
+      break
+  ros_by_uuid = []
+  for ro in client.filter_all_by_uuid_transformed('research-outputs', uuids=uuids):
+    assert ro.uuid in uuids
+    ros_by_uuid.append(ro)
+  assert len(ros_by_uuid) == len(uuids)
+
 def test_filter_all_by_id():
   expected_count = 10
   ids = []
@@ -139,6 +152,23 @@ def test_filter_all_by_id():
     # Should get only one response:
     assert d['count'] == expected_count 
     assert len(d['items']) == expected_count
+
+def test_filter_all_by_uuid_transformed():
+  limit = 10
+  ids = []
+  for person in client.get_all_transformed('persons', params={'size': limit}):
+    for _id in person.ids:
+      if _id.type == 'Employee ID':
+        ids.append(_id.value)
+    if len(ids) == limit:
+      break
+  persons_by_id = []
+  for person in client.filter_all_by_id_transformed('persons', ids=ids):
+    for _id in person.ids:
+      if _id.type == 'Employee ID':
+        assert _id.value in ids
+    persons_by_id.append(person)
+  assert len(persons_by_id) == len(ids)
 
 def test_filter_all_transformed():
   type_uri = "/dk/atira/pure/organisation/organisationtypes/organisation/peoplesoft_deptid"
