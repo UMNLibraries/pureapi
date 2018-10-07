@@ -115,19 +115,93 @@ def test_filter():
   assert d['count'] > 0
   assert len(d['items']) == 1
 
+@pytest.fixture(params=[x for x in range(0,3)])
+def  test_group_items_params(request):
+  params_sets = [
+    {
+     'items_per_group': 1,
+     'expected_groups_count': 10,
+     'items_in_last_group': 1,
+    },
+    {
+     'items_per_group': 2,
+     'expected_groups_count': 5,
+     'items_in_last_group': 2,
+    },
+    {
+     'items_per_group': 3,
+     'expected_groups_count': 4,
+     'items_in_last_group': 1,
+    },
+    {
+     'items_per_group': 4,
+     'expected_groups_count': 3,
+     'items_in_last_group': 2,
+    },
+    {
+     'items_per_group': 5,
+     'expected_groups_count': 2,
+     'items_in_last_group': 5,
+    },
+    {
+     'items_per_group': 6,
+     'expected_groups_count': 2,
+     'items_in_last_group': 4,
+    },
+    {
+     'items_per_group': 7,
+     'expected_groups_count': 2,
+     'items_in_last_group': 3,
+    },
+    {
+     'items_per_group': 8,
+     'expected_groups_count': 2,
+     'items_in_last_group': 2,
+    },
+    {
+     'items_per_group': 9,
+     'expected_groups_count': 2,
+     'items_in_last_group': 1,
+    },
+    {
+     'items_per_group': 10,
+     'expected_groups_count': 1,
+     'items_in_last_group': 10,
+    },
+    # Kind of flukey that this works, but it does, due to there being only one expected group in this case:
+    {
+     'items_per_group': 11,
+     'expected_groups_count': 1,
+     'items_in_last_group': 10,
+    },
+  ]
+  params_set = params_sets[request.param]
+  yield params_set
+
+def test_group_items(test_group_items_params):
+  expected_groups_count = test_group_items_params['expected_groups_count']
+  items_per_group = test_group_items_params['items_per_group']
+  items_in_last_group = test_group_items_params['items_in_last_group']
+  groups_count = 0
+  for group in client.group_items([x for x in range(0,10)], items_per_group=items_per_group):
+    groups_count += 1
+    expected_items_in_group = items_in_last_group if groups_count == expected_groups_count else items_per_group
+    assert len(group) == expected_items_in_group
+  assert groups_count == expected_groups_count
+
 def test_filter_all_by_uuid():
-  expected_count = 10
+  expected_count = 13
   uuids = []
   for ro in client.get_all_transformed('research-outputs', params={'size': expected_count}):
     uuids.append(ro.uuid)
     if len(uuids) == expected_count:
       break
-  for r in client.filter_all_by_uuid('research-outputs', uuids=uuids):
+  downloaded_count = 0
+  for r in client.filter_all_by_uuid('research-outputs', uuids=uuids, uuids_per_request=10):
     assert r.status_code == 200
     d = r.json()
-    # Should get only one response:
-    assert d['count'] == expected_count 
-    assert len(d['items']) == expected_count
+    downloaded_count += d['count']
+  downloaded_count == expected_count 
 
 def test_filter_all_by_uuid_transformed():
   limit = 10
