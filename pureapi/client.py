@@ -2,7 +2,6 @@ import copy
 import os
 import math
 import requests
-#from requests import Request, Session
 from tenacity import Retrying, wait_exponential
 from . import response
 from .exceptions import PureAPIClientException, PureAPIClientRequestException
