@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pureapi"
-version = "1.3.0"
+version = "1.3.1"
 description = "Tools for working with Elsevier's Pure API."
 readme = "README.md"
 authors = ["David Naughton <naughton@umn.edu>"]
@@ -9,7 +9,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "3.*.*"
 addict = "*"
-requests = "*"
+requests = "^2.20.0"
 tenacity = "*"
 
 [tool.poetry.dev-dependencies]
