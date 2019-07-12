@@ -30,6 +30,7 @@ def test_organisational_unit():
   ou = response.organisational_unit({})
   assert isinstance(ou, Dict)
   assert ou.externalId == None
+  assert ou.ids == []
   assert ou.parents[0].uuid == None
 
 def test_external_organisation():

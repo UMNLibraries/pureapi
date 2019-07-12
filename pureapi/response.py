@@ -23,9 +23,12 @@ def organisational_unit(dictionary):
   # We've been calling the externalId the pure_id, but really it's our old
   # internal (SciVal?) identifier. Pure defines a separate pureId, which we 
   # may want to store later.
-  # Also, it seems not all internal orgs have such identifiers in Pure. Investigate.
-  # Maybe at least some of these are orgs we created to store umn deptid's in Pure?
   d.setdefault('externalId', None)
+
+  # Also, now that we are doing all organisation data entry in Pure, we sometimes
+  # add our pure_id the same way we do PeopleSoft DeptIDs. In this case, it will
+  # be in the list of ids in the json record. Make sure this list always exists:
+  d.setdefault('ids', [])
 
   # Some orgs may not have parents, e.g., University of Minnesota.
   d.setdefault('parents', [Dict({'uuid': None})])
