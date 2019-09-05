@@ -1,0 +1,17 @@
+root = true
+
+# Project defaults
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+# This applies to things like markdown, sql
+indent_size = 2
+
+# PEP-8 requirements
+[*.py]
+indent_size = 4
+# If we want to be really compliant
+# max_line_length = 79
