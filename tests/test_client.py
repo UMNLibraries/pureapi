@@ -4,7 +4,8 @@ from datetime import date, timedelta
 from addict import Dict
 import pytest
 from pureapi import client
-from pureapi.exceptions import PureAPIClientRequestException
+from pureapi.exceptions import PureAPIClientRequestException, PureAPIClientHTTPError
+from requests.exceptions import HTTPError
 
 def test_get():
   r_persons = client.get('persons', {'size':1, 'offset':0})
@@ -201,7 +202,7 @@ def test_filter_all_by_uuid():
     assert r.status_code == 200
     d = r.json()
     downloaded_count += d['count']
-  downloaded_count == expected_count 
+  downloaded_count == expected_count
 
 def test_filter_all_by_uuid_transformed():
   limit = 10
@@ -229,7 +230,7 @@ def test_filter_all_by_id():
     assert r.status_code == 200
     d = r.json()
     # Should get only one response:
-    assert d['count'] == expected_count 
+    assert d['count'] == expected_count
     assert len(d['items']) == expected_count
 
 def test_filter_all_by_id_transformed():
@@ -252,7 +253,7 @@ def test_filter_all_by_id_transformed():
 def test_filter_all_transformed():
   type_uri = "/dk/atira/pure/organisation/organisationtypes/organisation/peoplesoft_deptid"
   payload = {
-    "organisationalUnitTypeUris": [ 
+    "organisationalUnitTypeUris": [
       type_uri
     ]
   }
@@ -269,9 +270,11 @@ def test_filter_all_transformed():
   assert transformed_count == count
 
 def test_get_exception():
-  with pytest.raises(PureAPIClientRequestException):
+  with pytest.raises(PureAPIClientHTTPError, match='404') as exc_info:
     r = client.get('bogus', {'size':1, 'offset':0})
+  assert exc_info.errisinstance(HTTPError)
 
 def test_filter_exception():
-  with pytest.raises(PureAPIClientRequestException):
+  with pytest.raises(PureAPIClientHTTPError, match='404') as exc_info:
     r = client.filter('bogus', payload={})
+  assert exc_info.errisinstance(HTTPError)

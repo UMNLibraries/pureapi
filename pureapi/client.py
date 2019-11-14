@@ -4,7 +4,8 @@ import math
 import requests
 from tenacity import Retrying, wait_exponential
 from . import response
-from .exceptions import PureAPIClientException, PureAPIClientRequestException
+from .exceptions import PureAPIClientException, PureAPIClientRequestException, PureAPIClientHTTPError
+from requests.exceptions import RequestException, HTTPError
 
 pure_api_url = os.environ.get('PURE_API_URL')
 pure_api_key = os.environ.get('PURE_API_KEY')
@@ -22,7 +23,7 @@ def get(endpoint, params={}, headers=headers, retryer=retryer):
   with requests.Session() as s:
     prepped = s.prepare_request(requests.Request('GET', pure_api_url + endpoint, params=params))
     prepped.headers = {**prepped.headers, **headers}
-  
+
     try:
       r= retryer(
          s.send,
@@ -30,11 +31,13 @@ def get(endpoint, params={}, headers=headers, retryer=retryer):
       )
       r.raise_for_status()
       return r
-    except requests.exceptions.RequestException as req_exc:
+    except HTTPError as http_exc:
+      raise PureAPIClientHTTPError('GET request for endpoint {} with params {} returned HTTP status {}'.format(endpoint, params, http_exc.response.status_code), request=http_exc.request, response=http_exc.response) from http_exc
+    except RequestException as req_exc:
       raise PureAPIClientRequestException('Failed GET request for endpoint {} with params {}'.format(endpoint, params), request=req_exc.request, response=req_exc.response) from req_exc
     except Exception as e:
       raise PureAPIClientException('Unexpected exception for GET request for endpoint {} with params {}'.format(endpoint, params)) from e
-  
+
 def get_all(endpoint, params={}, headers=headers, retryer=retryer):
   r = get(endpoint, params={'size': 0, 'offset': 0}, headers=headers, retryer=retryer)
 
@@ -59,7 +62,7 @@ def get_all_changes(id_or_date, params={}, headers=headers, retryer=retryer):
   while(True):
     r = get('changes/' + next_id_or_date, params=params, headers=headers, retryer=retryer)
     yield r
-    
+
     json = r.json()
     more_changes = json['moreChanges'] if 'moreChanges' in json else False
     if more_changes:
@@ -76,7 +79,7 @@ def filter(endpoint, payload={}, headers=headers, retryer=retryer):
   with requests.Session() as s:
     prepped = s.prepare_request(requests.Request('POST', pure_api_url + endpoint, json=payload))
     prepped.headers = {**prepped.headers, **headers}
-  
+
   try:
     r = retryer(
       s.send,
@@ -84,6 +87,8 @@ def filter(endpoint, payload={}, headers=headers, retryer=retryer):
     )
     r.raise_for_status()
     return r
+  except HTTPError as http_exc:
+    raise PureAPIClientHTTPError('GET request for endpoint {} with payload {} returned HTTP status {}'.format(endpoint, payload, http_exc.response.status_code), request=http_exc.request, response=http_exc.response) from http_exc
   except requests.exceptions.RequestException as req_exc:
     raise PureAPIClientRequestException('Failed POST request for endpoint {} with payload {}'.format(endpoint, payload), request=req_exc.request, response=req_exc.response) from req_exc
   except Exception as e:
