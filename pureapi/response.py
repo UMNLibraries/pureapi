@@ -7,11 +7,13 @@ def change(dictionary):
 
 def external_organisation(dictionary):
   d = Dict(dictionary)
+  d.info.setdefault('previousUuids', [])
   d.setdefault('pureId', None)
   return d
 
 def external_person(dictionary):
   d = Dict(dictionary)
+  d.info.setdefault('previousUuids', [])
   d.setdefault('name', Dict())
   d.name.setdefault('firstName', None)
   d.name.setdefault('lastName', None)
@@ -19,9 +21,10 @@ def external_person(dictionary):
 
 def organisational_unit(dictionary):
   d = Dict(dictionary)
+  d.info.setdefault('previousUuids', [])
 
   # We've been calling the externalId the pure_id, but really it's our old
-  # internal (SciVal?) identifier. Pure defines a separate pureId, which we 
+  # internal (SciVal?) identifier. Pure defines a separate pureId, which we
   # may want to store later.
   d.setdefault('externalId', None)
 
@@ -37,12 +40,13 @@ def organisational_unit(dictionary):
 
 def person(dictionary):
   d = Dict(dictionary)
+  d.info.setdefault('previousUuids', [])
   d.setdefault('name', Dict())
   d.name.setdefault('firstName', None)
   d.name.setdefault('lastName', None)
 
   # We've been calling the externalId the pure_id, but really it's our old
-  # internal (SciVal?) identifier. Pure defines a separate pureId, which we 
+  # internal (SciVal?) identifier. Pure defines a separate pureId, which we
   # may want to store later.
   d.setdefault('externalId', None)
   d.setdefault('scopusHIndex', None)
@@ -51,6 +55,7 @@ def person(dictionary):
 
 def research_output(dictionary):
   d = Dict(dictionary)
+  d.info.setdefault('previousUuids', [])
   d.setdefault('volume', None)
   d.setdefault('journalNumber', None)
   d.setdefault('pages', None)
