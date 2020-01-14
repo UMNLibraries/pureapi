@@ -38,8 +38,8 @@ def test_get_person_by_classified_source_id():
 
   person = r.json()
   for id in person['ids']:
-    if id['typeUri'] == '/dk/atira/pure/person/personsources/employee':
-      assert id['value'] == emplid
+    if id['type']['uri'] == '/dk/atira/pure/person/personsources/employee':
+      assert id['value']['value'] == emplid
 
 def test_get_all_changes():
   yesterday = date.today() - timedelta(days=1)
@@ -222,8 +222,8 @@ def test_filter_all_by_id():
   ids = []
   for person in client.get_all_transformed('persons', params={'size': expected_count}):
     for _id in person.ids:
-      if _id.type == 'Employee ID':
-        ids.append(_id.value)
+      if _id.type.uri == '/dk/atira/pure/person/personsources/employee':
+        ids.append(_id.value.value)
     if len(ids) == expected_count:
       break
   for r in client.filter_all_by_id('persons', ids=ids):
@@ -238,15 +238,15 @@ def test_filter_all_by_id_transformed():
   ids = []
   for person in client.get_all_transformed('persons', params={'size': limit}):
     for _id in person.ids:
-      if _id.type == 'Employee ID':
-        ids.append(_id.value)
+      if _id.type.uri == '/dk/atira/pure/person/personsources/employee':
+        ids.append(_id.value.value)
     if len(ids) == limit:
       break
   persons_by_id = []
   for person in client.filter_all_by_id_transformed('persons', ids=ids):
     for _id in person.ids:
-      if _id.type == 'Employee ID':
-        assert _id.value in ids
+      if _id.type.uri == '/dk/atira/pure/person/personsources/employee':
+        assert _id.value.value in ids
     persons_by_id.append(person)
   assert len(persons_by_id) == len(ids)
 
