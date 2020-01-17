@@ -43,13 +43,17 @@ def test_get_person_by_classified_source_id():
 
 def test_get_all_changes():
   yesterday = date.today() - timedelta(days=1)
+  request_count = 0
   for r in client.get_all_changes(yesterday.isoformat()):
     assert r.status_code == 200
     json = r.json()
     assert json['count'] > 0
     assert len(json['items']) > 0
-    # There could be thousands of changes in a day, so we limit the test to one request:
-    break
+
+    # There could be thousands of changes in a day, so we limit the number of requests:
+    request_count += 1
+    if request_count > 2:
+      break
 
 def test_get_all_changes_transformed():
   """
