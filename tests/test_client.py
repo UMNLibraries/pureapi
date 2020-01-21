@@ -280,8 +280,9 @@ def test_group_items(test_group_items_params):
   assert groups_count == expected_groups_count
 
 def test_filter_all_by_uuid():
-  expected_count = 13
-  uuids = []
+  expected_count = 14
+  ro_uuid_with_author_collaboration = '16e1efc1-92a2-4eca-a8d0-628bb2deda8a' # Not many records have these.
+  uuids = [ro_uuid_with_author_collaboration]
   for ro in client.get_all_transformed('research-outputs', params={'size': expected_count}):
     uuids.append(ro.uuid)
     if len(uuids) == expected_count:
@@ -291,6 +292,21 @@ def test_filter_all_by_uuid():
     assert r.status_code == 200
     d = r.json()
     downloaded_count += d['count']
+
+    # Tests for 5.16 schema changes:
+    for ro in d['items']:
+        if ro['uuid'] == ro_uuid_with_author_collaboration:
+            for person_assoc in ro['personAssociations']:
+                if not 'authorCollaboration' in person_assoc:
+                    continue
+                author_collab_text_en_us = None
+                for author_collab_text in person_assoc['authorCollaboration']['name']['text']:
+                    if author_collab_text['locale'] == 'en_US':
+                        author_collab_text_en_us = author_collab_text
+                        break
+                assert isinstance(author_collab_text_en_us['value'], str)
+                assert len(author_collab_text_en_us['value']) > 0
+
   downloaded_count == expected_count
 
 def test_filter_all_by_uuid_transformed():
