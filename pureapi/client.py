@@ -57,16 +57,16 @@ def get_all_transformed(endpoint, params={}, headers=headers, retryer=retryer):
     for item in r.json()['items']:
       yield response.transform(endpoint, item)
 
-def get_all_changes(id_or_date, params={}, headers=headers, retryer=retryer):
-  next_id_or_date = id_or_date
+def get_all_changes(token_or_date, params={}, headers=headers, retryer=retryer):
+  next_token_or_date = token_or_date
   while(True):
-    r = get('changes/' + next_id_or_date, params=params, headers=headers, retryer=retryer)
+    r = get('changes/' + next_token_or_date, params=params, headers=headers, retryer=retryer)
     yield r
 
     json = r.json()
     more_changes = json['moreChanges'] if 'moreChanges' in json else False
     if more_changes:
-      next_id_or_date = str(json['lastId'])
+      next_token_or_date = str(json['resumptionToken'])
     else:
       break
 

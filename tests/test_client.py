@@ -8,48 +8,122 @@ from pureapi.exceptions import PureAPIClientRequestException, PureAPIClientHTTPE
 from requests.exceptions import HTTPError
 
 def test_get():
-  r_persons = client.get('persons', {'size':1, 'offset':0})
-  assert r_persons.status_code == 200
+    r_persons = client.get('persons', {'size':1, 'offset':0})
+    assert r_persons.status_code == 200
 
-  r = client.get('organisational-units', {'size':1, 'offset':0})
-  assert r.status_code == 200
+    r = client.get('organisational-units', {'size':1, 'offset':0})
+    assert r.status_code == 200
 
-  d = r.json()
-  assert d['count'] > 0
-  assert len(d['items']) == 1
+    d = r.json()
+    assert d['count'] > 0
+    assert len(d['items']) == 1
 
-  org = d['items'][0]
-  uuid = org['uuid']
+    org = d['items'][0]
+    uuid = org['uuid']
 
-  r_uuid = client.get('organisational-units/' + uuid, {'size':1, 'offset':0})
-  assert r_uuid.status_code == 200
+    r_uuid = client.get('organisational-units/' + uuid, {'size':1, 'offset':0})
+    assert r_uuid.status_code == 200
 
-  d_uuid = r.json()
-  assert d_uuid['count'] > 0
-  assert len(d_uuid['items']) == 1
+    d_uuid = r.json()
+    assert d_uuid['count'] > 0
+    assert len(d_uuid['items']) == 1
 
-  org_uuid = d_uuid['items'][0]
-  assert org_uuid['uuid'] == uuid
+    org_uuid = d_uuid['items'][0]
+    assert org_uuid['uuid'] == uuid
+
+    # Tests for 5.16 schema changes:
+
+    name_en = next(
+        (name_text['value']
+            for name_text
+            in org_uuid['name']['text']
+            if name_text['locale'] =='en_US'
+        ),
+        None
+    )
+    assert isinstance(name_en, str)
+    assert len(name_en) > 0
+
+    _type = next(
+        (type_text['value']
+            for type_text
+            in org_uuid['type']['term']['text']
+            if type_text['locale'] =='en_US'
+        ),
+        None
+    ).lower()
+    assert isinstance(_type, str)
+    assert len(_type) > 0
+    assert _type.islower()
+
+    for _id in org_uuid['ids']:
+        id_type_uri = _id['type']['uri']
+        assert isinstance(id_type_uri, str)
+        assert len(id_type_uri) > 0
+
+        id_value = _id['value']['value']
+        assert isinstance(id_value, str)
+        assert len(id_value) > 0
 
 def test_get_person_by_classified_source_id():
-  emplid = '2110454'
-  r = client.get('persons/' + emplid, {'idClassification':'classified_source'})
-  assert r.status_code == 200
+    emplid = '2110454'
+    r = client.get('persons/' + emplid, {'idClassification':'classified_source'})
+    assert r.status_code == 200
 
-  person = r.json()
-  for id in person['ids']:
-    if id['typeUri'] == '/dk/atira/pure/person/personsources/employee':
-      assert id['value'] == emplid
+    person = r.json()
+    for _id in person['ids']:
+        if _id['type']['uri'] == '/dk/atira/pure/person/personsources/employee':
+            assert _id['value']['value'] == emplid
+
+    # Tests for 5.16 schema changes:
+
+    for staff_org_assoc in person['staffOrganisationAssociations']:
+        job_descr = next(
+            (job_descr_text['value']
+                for job_descr_text
+                in staff_org_assoc['jobDescription']['text']
+                if job_descr_text['locale'] =='en_US'
+            ),
+            None
+        )
+        assert isinstance(job_descr, str)
+        assert len(job_descr) > 0
+
+        employment_type = next(
+            (employment_type_text['value']
+                for employment_type_text
+                in staff_org_assoc['employmentType']['term']['text']
+                if employment_type_text['locale'] =='en_US'
+            ),
+            None
+        )
+        assert isinstance(employment_type, str)
+        assert len(employment_type) > 0
+
+        staff_type = next(
+            (staff_type_text['value']
+                for staff_type_text
+                in staff_org_assoc['staffType']['term']['text']
+                if staff_type_text['locale'] =='en_US'
+            ),
+            None
+        )
+        assert isinstance(staff_type, str)
+        assert len(staff_type) > 0
 
 def test_get_all_changes():
   yesterday = date.today() - timedelta(days=1)
+  request_count = 0
   for r in client.get_all_changes(yesterday.isoformat()):
     assert r.status_code == 200
     json = r.json()
     assert json['count'] > 0
     assert len(json['items']) > 0
-    # There could be thousands of changes in a day, so we limit the test to one request:
-    break
+
+    # There could be thousands of changes in a day, so we limit the number of requests:
+    request_count += 1
+    if request_count > 2:
+      break
 
 def test_get_all_changes_transformed():
   """
@@ -95,26 +169,65 @@ def test_get_all_transformed():
     break
 
 def test_filter():
-  org_uuid = None
-  for org in client.get_all_transformed('organisational-units', params={'size':1, 'offset':0}):
-    org_uuid = org.uuid
-    break
+    org_uuid = None
+    for org in client.get_all_transformed('organisational-units', params={'size':1, 'offset':0}):
+        org_uuid = org.uuid
+        break
 
-  payload = {
-    "size": 1,
-    "offset": 0,
-    "forOrganisationalUnits": {
-      "uuids": [
-        org_uuid
-      ]
+    payload = {
+        "size": 1,
+        "offset": 0,
+        "forOrganisationalUnits": {
+            "uuids": [
+                org_uuid
+            ]
+        }
     }
-  }
-  r = client.filter('research-outputs', payload)
-  assert r.status_code == 200
+    r = client.filter('research-outputs', payload)
+    assert r.status_code == 200
 
-  d = r.json()
-  assert d['count'] > 0
-  assert len(d['items']) == 1
+    d = r.json()
+    assert d['count'] > 0
+    assert len(d['items']) == 1
+
+    # Tests for 5.16 schema changes:
+
+    ro = d['items'][0]
+
+    assert isinstance(ro['title']['value'], str)
+    assert len(ro['title']['value']) > 0
+
+    assert isinstance(ro['type']['uri'], str)
+    assert len(ro['type']['uri']) > 0
+
+    for pub_status in ro['publicationStatuses']:
+        assert isinstance(pub_status['publicationStatus']['uri'], str)
+        assert len(pub_status['publicationStatus']['uri']) > 0
+
+    _type = next(
+        (type_text['value']
+            for type_text
+            in ro['type']['term']['text']
+            if type_text['locale'] =='en_US'
+        ),
+        None
+    ).lower()
+    assert isinstance(_type, str)
+    assert len(_type) > 0
+    assert _type.islower()
+
+    for person_assoc in ro['personAssociations']:
+        person_role = next(
+            (person_role_text['value']
+                for person_role_text
+                in person_assoc['personRole']['term']['text']
+                if person_role_text['locale'] =='en_US'
+            ),
+            None
+        )
+        assert isinstance(person_role, str)
+        assert len(person_role) > 0
+
 
 @pytest.fixture(params=[x for x in range(0,3)])
 def  test_group_items_params(request):
@@ -191,8 +304,9 @@ def test_group_items(test_group_items_params):
   assert groups_count == expected_groups_count
 
 def test_filter_all_by_uuid():
-  expected_count = 13
-  uuids = []
+  expected_count = 14
+  ro_uuid_with_author_collaboration = '16e1efc1-92a2-4eca-a8d0-628bb2deda8a' # Not many records have these.
+  uuids = [ro_uuid_with_author_collaboration]
   for ro in client.get_all_transformed('research-outputs', params={'size': expected_count}):
     uuids.append(ro.uuid)
     if len(uuids) == expected_count:
@@ -202,6 +316,24 @@ def test_filter_all_by_uuid():
     assert r.status_code == 200
     d = r.json()
     downloaded_count += d['count']
+
+    # Tests for 5.16 schema changes:
+    for ro in d['items']:
+        if ro['uuid'] == ro_uuid_with_author_collaboration:
+            for person_assoc in ro['personAssociations']:
+                if not 'authorCollaboration' in person_assoc:
+                    continue
+                author_collab = next(
+                    (author_collab_text['value']
+                        for author_collab_text
+                        in person_assoc['authorCollaboration']['name']['text']
+                        if author_collab_text['locale'] =='en_US'
+                    ),
+                    None
+                )
+                assert isinstance(author_collab, str)
+                assert len(author_collab) > 0
+
   downloaded_count == expected_count
 
 def test_filter_all_by_uuid_transformed():
@@ -222,8 +354,8 @@ def test_filter_all_by_id():
   ids = []
   for person in client.get_all_transformed('persons', params={'size': expected_count}):
     for _id in person.ids:
-      if _id.type == 'Employee ID':
-        ids.append(_id.value)
+      if _id.type.uri == '/dk/atira/pure/person/personsources/employee':
+        ids.append(_id.value.value)
     if len(ids) == expected_count:
       break
   for r in client.filter_all_by_id('persons', ids=ids):
@@ -238,15 +370,15 @@ def test_filter_all_by_id_transformed():
   ids = []
   for person in client.get_all_transformed('persons', params={'size': limit}):
     for _id in person.ids:
-      if _id.type == 'Employee ID':
-        ids.append(_id.value)
+      if _id.type.uri == '/dk/atira/pure/person/personsources/employee':
+        ids.append(_id.value.value)
     if len(ids) == limit:
       break
   persons_by_id = []
   for person in client.filter_all_by_id_transformed('persons', ids=ids):
     for _id in person.ids:
-      if _id.type == 'Employee ID':
-        assert _id.value in ids
+      if _id.type.uri == '/dk/atira/pure/person/personsources/employee':
+        assert _id.value.value in ids
     persons_by_id.append(person)
   assert len(persons_by_id) == len(ids)
 
