@@ -51,9 +51,10 @@ def test_get():
             if type_text['locale'] =='en_US'
         ),
         None
-    )
+    ).lower()
     assert isinstance(_type, str)
     assert len(_type) > 0
+    assert _type.islower()
 
     for _id in org_uuid['ids']:
         id_type_uri = _id['type']['uri']
@@ -210,9 +211,10 @@ def test_filter():
             if type_text['locale'] =='en_US'
         ),
         None
-    )
+    ).lower()
     assert isinstance(_type, str)
     assert len(_type) > 0
+    assert _type.islower()
 
     for person_assoc in ro['personAssociations']:
         person_role = next(
