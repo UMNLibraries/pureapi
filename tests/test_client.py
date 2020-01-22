@@ -8,54 +8,61 @@ from pureapi.exceptions import PureAPIClientRequestException, PureAPIClientHTTPE
 from requests.exceptions import HTTPError
 
 def test_get():
-  r_persons = client.get('persons', {'size':1, 'offset':0})
-  assert r_persons.status_code == 200
+    r_persons = client.get('persons', {'size':1, 'offset':0})
+    assert r_persons.status_code == 200
 
-  r = client.get('organisational-units', {'size':1, 'offset':0})
-  assert r.status_code == 200
+    r = client.get('organisational-units', {'size':1, 'offset':0})
+    assert r.status_code == 200
 
-  d = r.json()
-  assert d['count'] > 0
-  assert len(d['items']) == 1
+    d = r.json()
+    assert d['count'] > 0
+    assert len(d['items']) == 1
 
-  org = d['items'][0]
-  uuid = org['uuid']
+    org = d['items'][0]
+    uuid = org['uuid']
 
-  r_uuid = client.get('organisational-units/' + uuid, {'size':1, 'offset':0})
-  assert r_uuid.status_code == 200
+    r_uuid = client.get('organisational-units/' + uuid, {'size':1, 'offset':0})
+    assert r_uuid.status_code == 200
 
-  d_uuid = r.json()
-  assert d_uuid['count'] > 0
-  assert len(d_uuid['items']) == 1
+    d_uuid = r.json()
+    assert d_uuid['count'] > 0
+    assert len(d_uuid['items']) == 1
 
-  org_uuid = d_uuid['items'][0]
-  assert org_uuid['uuid'] == uuid
+    org_uuid = d_uuid['items'][0]
+    assert org_uuid['uuid'] == uuid
 
-  # Tests for 5.16 schema changes:
+    # Tests for 5.16 schema changes:
 
-  name_text_en_us = None
-  for name_text in org_uuid['name']['text']:
-      if name_text['locale'] == 'en_US':
-          name_text_en_us = name_text
-          break
-  assert isinstance(name_text_en_us['value'], str)
-  assert len(name_text_en_us['value']) > 0
+    name_en = next(
+        (name_text['value']
+            for name_text
+            in org_uuid['name']['text']
+            if name_text['locale'] =='en_US'
+        ),
+        None
+    )
+    assert isinstance(name_en, str)
+    assert len(name_en) > 0
 
-  type_text_en_us = None
-  for type_text in org_uuid['type']['term']['text']:
-      if type_text['locale'] == 'en_US':
-          type_text_en_us = type_text
-          break
-  assert isinstance(type_text_en_us['value'], str)
-  assert len(type_text_en_us['value']) > 0
+    _type = next(
+        (type_text['value']
+            for type_text
+            in org_uuid['type']['term']['text']
+            if type_text['locale'] =='en_US'
+        ),
+        None
+    )
+    assert isinstance(_type, str)
+    assert len(_type) > 0
 
-  for _id in org_uuid['ids']:
-      id_type_uri = _id['type']['uri']
-      id_value = _id['value']['value']
-      assert isinstance(id_type_uri, str)
-      assert len(id_type_uri) > 0
-      assert isinstance(id_value, str)
-      assert len(id_value) > 0
+    for _id in org_uuid['ids']:
+        id_type_uri = _id['type']['uri']
+        assert isinstance(id_type_uri, str)
+        assert len(id_type_uri) > 0
+
+        id_value = _id['value']['value']
+        assert isinstance(id_value, str)
+        assert len(id_value) > 0
 
 def test_get_person_by_classified_source_id():
     emplid = '2110454'
@@ -70,29 +77,38 @@ def test_get_person_by_classified_source_id():
     # Tests for 5.16 schema changes:
 
     for staff_org_assoc in person['staffOrganisationAssociations']:
-        job_descr_text_en_us = None
-        for job_descr_text in staff_org_assoc['jobDescription']['text']:
-            if job_descr_text['locale'] == 'en_US':
-                job_descr_text_en_us = job_descr_text
-                break
-        assert isinstance(job_descr_text_en_us['value'], str)
-        assert len(job_descr_text_en_us['value']) > 0
+        job_descr = next(
+            (job_descr_text['value']
+                for job_descr_text
+                in staff_org_assoc['jobDescription']['text']
+                if job_descr_text['locale'] =='en_US'
+            ),
+            None
+        )
+        assert isinstance(job_descr, str)
+        assert len(job_descr) > 0
 
-        employment_type_text_en_us = None
-        for employment_type_text in staff_org_assoc['employmentType']['term']['text']:
-            if employment_type_text['locale'] == 'en_US':
-                employment_type_text_en_us = employment_type_text
-                break
-        assert isinstance(employment_type_text_en_us['value'], str)
-        assert len(employment_type_text_en_us['value']) > 0
+        employment_type = next(
+            (employment_type_text['value']
+                for employment_type_text
+                in staff_org_assoc['employmentType']['term']['text']
+                if employment_type_text['locale'] =='en_US'
+            ),
+            None
+        )
+        assert isinstance(employment_type, str)
+        assert len(employment_type) > 0
 
-        staff_type_text_en_us = None
-        for staff_type_text in staff_org_assoc['staffType']['term']['text']:
-            if staff_type_text['locale'] == 'en_US':
-                staff_type_text_en_us = staff_type_text
-                break
-        assert isinstance(staff_type_text_en_us['value'], str)
-        assert len(staff_type_text_en_us['value']) > 0
+        staff_type = next(
+            (staff_type_text['value']
+                for staff_type_text
+                in staff_org_assoc['staffType']['term']['text']
+                if staff_type_text['locale'] =='en_US'
+            ),
+            None
+        )
+        assert isinstance(staff_type, str)
+        assert len(staff_type) > 0
 
 def test_get_all_changes():
   yesterday = date.today() - timedelta(days=1)
@@ -187,22 +203,28 @@ def test_filter():
         assert isinstance(pub_status['publicationStatus']['uri'], str)
         assert len(pub_status['publicationStatus']['uri']) > 0
 
-    type_text_en_us = None
-    for type_text in ro['type']['term']['text']:
-        if type_text['locale'] == 'en_US':
-            type_text_en_us = type_text
-            break
-    assert isinstance(type_text_en_us['value'], str)
-    assert len(type_text_en_us['value']) > 0
+    _type = next(
+        (type_text['value']
+            for type_text
+            in ro['type']['term']['text']
+            if type_text['locale'] =='en_US'
+        ),
+        None
+    )
+    assert isinstance(_type, str)
+    assert len(_type) > 0
 
     for person_assoc in ro['personAssociations']:
-        person_role_text_en_us = None
-        for person_role_text in person_assoc['personRole']['term']['text']:
-            if person_role_text['locale'] == 'en_US':
-                person_role_text_en_us = person_role_text
-                break
-        assert isinstance(person_role_text_en_us['value'], str)
-        assert len(person_role_text_en_us['value']) > 0
+        person_role = next(
+            (person_role_text['value']
+                for person_role_text
+                in person_assoc['personRole']['term']['text']
+                if person_role_text['locale'] =='en_US'
+            ),
+            None
+        )
+        assert isinstance(person_role, str)
+        assert len(person_role) > 0
 
 
 @pytest.fixture(params=[x for x in range(0,3)])
@@ -299,13 +321,16 @@ def test_filter_all_by_uuid():
             for person_assoc in ro['personAssociations']:
                 if not 'authorCollaboration' in person_assoc:
                     continue
-                author_collab_text_en_us = None
-                for author_collab_text in person_assoc['authorCollaboration']['name']['text']:
-                    if author_collab_text['locale'] == 'en_US':
-                        author_collab_text_en_us = author_collab_text
-                        break
-                assert isinstance(author_collab_text_en_us['value'], str)
-                assert len(author_collab_text_en_us['value']) > 0
+                author_collab = next(
+                    (author_collab_text['value']
+                        for author_collab_text
+                        in person_assoc['authorCollaboration']['name']['text']
+                        if author_collab_text['locale'] =='en_US'
+                    ),
+                    None
+                )
+                assert isinstance(author_collab, str)
+                assert len(author_collab) > 0
 
   downloaded_count == expected_count
 
