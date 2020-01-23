@@ -64,8 +64,7 @@ def get_all_changes(token_or_date, params={}, headers=headers, retryer=retryer):
     yield r
 
     json = r.json()
-    more_changes = json['moreChanges'] if 'moreChanges' in json else False
-    if more_changes:
+    if json['moreChanges']:
       next_token_or_date = str(json['resumptionToken'])
     else:
       break
