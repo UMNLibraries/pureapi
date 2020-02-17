@@ -55,6 +55,8 @@ def person(dictionary):
 
 def research_output(dictionary):
   d = Dict(dictionary)
+  d.setdefault('electronicVersions', [])
+  d.info.setdefault('additionalExternalIds', [])
   d.info.setdefault('previousUuids', [])
   d.setdefault('volume', None)
   d.setdefault('journalNumber', None)

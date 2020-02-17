@@ -46,6 +46,8 @@ def test_research_output():
   ro1_citation_count = 100
   ro1 = response.research_output({'totalScopusCitations': ro1_citation_count})
   assert isinstance(ro1, Dict)
+  assert ro1.electronicVersions == []
+  assert ro1.info.additionalExternalIds == []
   assert ro1.info.previousUuids == []
   assert ro1.totalScopusCitations == ro1_citation_count
   assert ro1.volume == None
