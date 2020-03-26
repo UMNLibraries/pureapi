@@ -2,6 +2,7 @@ import functools
 import json
 import os
 import pathlib
+from .exceptions import PureAPIInvalidVersionError, PureAPIInvalidCollectionError
 
 default_version = os.environ.get('PURE_API_VERSION')
 default_base_url = os.environ.get('PURE_API_BASE_URL')
@@ -23,7 +24,7 @@ def validate_version(func):
         if 'version' not in kwargs:
             kwargs['version'] = default_version
         if not valid_version(kwargs['version']):
-            raise ValueError
+            raise PureAPIInvalidVersionError(version=kwargs['version'])
         value = func(*args, **kwargs)
         return value
     return wrapper_validate_version
@@ -46,27 +47,27 @@ def schema_517():
 def schema(*, version=None):
     return globals()[f'schema_{version}']()
 
-def endpoints_516():
-    return [endpoint['name'] for endpoint in schema(version='516')['tags']]
+def collections_516():
+    return [collection['name'] for collection in schema(version='516')['tags']]
 
-def endpoints_517():
-    return [endpoint['name'] for endpoint in schema(version='517')['tags']]
+def collections_517():
+    return [collection['name'] for collection in schema(version='517')['tags']]
 
 @functools.lru_cache(maxsize=None)
 @validate_version
-def endpoints(*, version):
-    return globals()[f'endpoints_{version}']()
+def collections(*, version):
+    return globals()[f'collections_{version}']()
 
 @validate_version
-def valid_endpoint(*, endpoint, version=None):
-    return (endpoint in endpoints(version=version))
+def valid_collection(*, collection, version=None):
+    return (collection in collections(version=version))
 
-def validate_endpoint(func):
+def validate_collection(func):
     @functools.wraps(func)
-    def wrapper_validate_endpoint(*args, **kwargs):
-        if not valid_endpoint(endpoint=kwargs['endpoint'], version=kwargs['version']):
-            raise ValueError
+    def wrapper_validate_collection(*args, **kwargs):
+        if not valid_collection(collection=kwargs['collection'], version=kwargs['version']):
+            raise PureAPIInvalidCollectionError(collection=kwargs['collection'], version=kwargs['version'])
         value = func(*args, **kwargs)
         return value
-    return wrapper_validate_endpoint
+    return wrapper_validate_collection
 

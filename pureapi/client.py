@@ -7,6 +7,7 @@ from . import response
 from .exceptions import PureAPIClientException, PureAPIClientRequestException, PureAPIClientHTTPError
 from requests.exceptions import RequestException, HTTPError
 
+pure_api_version = os.environ.get('PURE_API_VERSION')
 pure_api_url = os.environ.get('PURE_API_URL')
 pure_api_key = os.environ.get('PURE_API_KEY')
 
