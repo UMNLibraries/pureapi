@@ -13,7 +13,7 @@ default_url = os.environ.get('PURE_API_URL')
 default_key = os.environ.get('PURE_API_KEY')
 
 schemas_path = pathlib.Path(__file__).parent.parent / 'schemas'
-versions = [item.name for item in os.scandir(schemas_path) if item.is_dir()]
+versions = tuple((item.name for item in os.scandir(schemas_path) if item.is_dir()))
 
 def valid_version(version):
     return (version in versions)
@@ -32,7 +32,7 @@ def validate_version(func):
 @validate_version
 def url(*, base_url=None, version=None):
     base_url = default_base_url if base_url is None else base_url
-    return f'{default_base_url}/{version}/'
+    return f'{base_url}/{version}/'
 
 def schema_516():
     with open(schemas_path  / '516/swagger.json') as json_file:
@@ -48,10 +48,10 @@ def schema(*, version=None):
     return globals()[f'schema_{version}']()
 
 def collections_516():
-    return [collection['name'] for collection in schema(version='516')['tags']]
+    return tuple((collection['name'] for collection in schema(version='516')['tags']))
 
 def collections_517():
-    return [collection['name'] for collection in schema(version='517')['tags']]
+    return tuple((collection['name'] for collection in schema(version='517')['tags']))
 
 @functools.lru_cache(maxsize=None)
 @validate_version
