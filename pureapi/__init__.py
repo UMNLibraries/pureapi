@@ -13,7 +13,15 @@ default_url = os.environ.get('PURE_API_URL')
 default_key = os.environ.get('PURE_API_KEY')
 
 schemas_path = pathlib.Path(__file__).parent.parent / 'schemas'
-versions = tuple((item.name for item in os.scandir(schemas_path) if item.is_dir()))
+
+# The commented out version seems more elegant, but using map() and filter() as an
+# exercise in functional programming in Python.
+#versions = tuple((item.name for item in os.scandir(schemas_path) if item.is_dir()))
+versions = tuple(
+    map(lambda item: item.name,
+        filter(lambda item: item.name if item.is_dir() else None, os.scandir(schemas_path))
+    )
+)
 
 def valid_version(version):
     return (version in versions)
@@ -47,10 +55,10 @@ def schema(*, version=None):
     return globals()[f'schema_{version}']()
 
 def collections_516():
-    return tuple(filter(lambda tag: tag['name'], schema(version='516')['tags']))
+    return tuple(map(lambda tag: tag['name'], schema(version='516')['tags']))
 
 def collections_517():
-    return tuple(filter(lambda tag: tag['name'], schema(version='517')['tags']))
+    return tuple(map(lambda tag: tag['name'], schema(version='517')['tags']))
 
 @functools.lru_cache(maxsize=None)
 @validate_version
