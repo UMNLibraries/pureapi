@@ -25,8 +25,7 @@ def validate_version(func):
             kwargs['version'] = default_version
         if not valid_version(kwargs['version']):
             raise PureAPIInvalidVersionError(version=kwargs['version'])
-        value = func(*args, **kwargs)
-        return value
+        return func(*args, **kwargs)
     return wrapper_validate_version
 
 @validate_version
@@ -67,7 +66,6 @@ def validate_collection(func):
     def wrapper_validate_collection(*args, **kwargs):
         if not valid_collection(collection=kwargs['collection'], version=kwargs['version']):
             raise PureAPIInvalidCollectionError(collection=kwargs['collection'], version=kwargs['version'])
-        value = func(*args, **kwargs)
-        return value
+        return func(*args, **kwargs)
     return wrapper_validate_collection
 
