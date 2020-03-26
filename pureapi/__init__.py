@@ -47,10 +47,10 @@ def schema(*, version=None):
     return globals()[f'schema_{version}']()
 
 def collections_516():
-    return tuple((collection['name'] for collection in schema(version='516')['tags']))
+    return tuple(filter(lambda tag: tag['name'], schema(version='516')['tags']))
 
 def collections_517():
-    return tuple((collection['name'] for collection in schema(version='517')['tags']))
+    return tuple(filter(lambda tag: tag['name'], schema(version='517')['tags']))
 
 @functools.lru_cache(maxsize=None)
 @validate_version
