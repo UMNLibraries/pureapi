@@ -61,9 +61,16 @@ def get_all_changes(token_or_date, params={}, headers=headers, retryer=retryer):
   next_token_or_date = token_or_date
   while(True):
     r = get('changes/' + next_token_or_date, params=params, headers=headers, retryer=retryer)
-    yield r
 
     json = r.json()
+    # In version 5.16, starting sometime before 2020-03-27, the Pure API started always returning
+    # 'moreChanges': True, even when there are no more changes. So we now also check to ensure that
+    # we break out of the loop if the item count == 0 in a response:
+    if int(json['count']) == 0:
+      break
+
+    yield r
+
     if json['moreChanges']:
       next_token_or_date = str(json['resumptionToken'])
     else:
