@@ -61,20 +61,26 @@ def get_all_changes(token_or_date, params={}, headers=headers, retryer=retryer):
   next_token_or_date = token_or_date
   while(True):
     r = get('changes/' + next_token_or_date, params=params, headers=headers, retryer=retryer)
-
     json = r.json()
-    # In version 5.16, starting sometime before 2020-03-27, the Pure API started always returning
-    # 'moreChanges': True, even when there are no more changes. So we now also check to ensure that
-    # we break out of the loop if the item count == 0 in a response:
-    if int(json['count']) == 0:
+
+    if json['moreChanges'] is True:
+      next_token_or_date = str(json['resumptionToken'])
+      if int(json['count']) == 0 or 'items' not in json:
+        # We skip these responses, under the assumption that a caller wanting all changes will
+        # have no use for a response that contains no changes.
+        # The "count" in changes responses has different semantics from all other endpoints.
+        # While for all others "count" is the total number of records that matched the request,
+        # for changes it is the number of records in the current response. According to Elsevier,
+        # "In an extreme scenario the count can be 0 while moreChanges is true, if for example
+        # all 100 changes are on confidential content"
+        # -- https://support.pure.elsevier.com/browse/PURESUPPORT-63657?focusedCommentId=560888&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-560888
+        # We have seen counts of 0, sometimes in multiple, consecutive responses. When "count"
+        # is zero, there will be no "items", so we check for that, too, for some extra protection.
+        continue
+    else:
       break
 
     yield r
-
-    if json['moreChanges']:
-      next_token_or_date = str(json['resumptionToken'])
-    else:
-      break
 
 def get_all_changes_transformed(id_or_date, params={}, headers=headers, retryer=retryer):
   for r in get_all_changes(id_or_date, params=params, headers=headers, retryer=retryer):

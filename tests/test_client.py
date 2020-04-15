@@ -2,10 +2,13 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv())
 from datetime import date, timedelta
 from addict import Dict
+import json
 import pytest
 from pureapi import client
 from pureapi.exceptions import PureAPIClientRequestException, PureAPIClientHTTPError
 from requests.exceptions import HTTPError
+
+from . import changes_including_zero_counts
 
 def test_get():
     r_persons = client.get('persons', {'size':1, 'offset':0})
@@ -124,6 +127,25 @@ def test_get_all_changes():
     request_count += 1
     if request_count > 2:
       break
+
+class MockResponse:
+    def __init__(self, token_or_date):
+        self.token_or_date = token_or_date
+
+    def json(self):
+        return json.loads(changes_including_zero_counts.changes[self.token_or_date])
+
+def test_get_all_changes_skipping_zero_counts(monkeypatch):
+    def mock_get(path, **kwargs):
+        (endpoint, token_or_date) = path.split('/')
+        return MockResponse(token_or_date)
+
+    monkeypatch.setattr(client, "get", mock_get)
+
+    for r in client.get_all_changes('2020-03-12'):
+        json = r.json()
+        assert json['count'] > 0
+        assert 'items' in json
 
 def test_get_all_changes_transformed():
   """
