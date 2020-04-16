@@ -438,7 +438,7 @@ changes = {
     'eyJzZXF1ZW5jZU51bWJlciI6MTk0MTM1NzcyfQ==': '''
 {
   "count": 24,
-  "resumptionToken": "eyJzZXF1ZW5jZU51bWJlciI6MTk0MTM1ODcyfQ==",
+  "resumptionToken": "eyJzZXF1ZW5jZU51bWJlciI6MTk0MTM1NzcyfQ==",
   "moreChanges": false,
   "items": [
     {
@@ -629,7 +629,7 @@ changes = {
   "navigationLinks": [
     {
       "ref": "next",
-      "href": "https://experts.umn.edu/ws/api/516/changes/eyJzZXF1ZW5jZU51bWJlciI6MTk0MTM1ODcyfQ=="
+      "href": "https://experts.umn.edu/ws/api/516/changes/eyJzZXF1ZW5jZU51bWJlciI6MTk0MTM1NzcyfQ=="
     }
   ]
 }
