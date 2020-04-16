@@ -1,10 +1,10 @@
 from requests.exceptions import RequestException, HTTPError
 
 class PureAPIException(Exception):
-  pass
+    pass
 
 class PureAPIClientException(PureAPIException):
-  pass
+    pass
 
 class PureAPIClientHTTPError(HTTPError, PureAPIException):
     def __init__(self, *args, **kwargs):
@@ -15,7 +15,7 @@ class PureAPIClientRequestException(RequestException, PureAPIException):
         super().__init__(*args, **kwargs)
 
 class PureAPIResponseException(PureAPIException):
-  pass
+    pass
 
 class PureAPIResponseKeyError(KeyError, PureAPIResponseException):
-  pass
+    pass
