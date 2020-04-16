@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pureapi"
-version = "3.3.0"
+version = "3.3.1"
 description = "Tools for working with Elsevier's Pure API."
 readme = "README.md"
 authors = ["David Naughton <naughton@umn.edu>"]
