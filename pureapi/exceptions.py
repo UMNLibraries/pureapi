@@ -3,6 +3,10 @@ from requests.exceptions import RequestException, HTTPError
 class PureAPIException(Exception):
     pass
 
+class PureAPIMissingDomainError(ValueError, PureAPIException):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
 class PureAPIInvalidCollectionError(ValueError, PureAPIException):
     def __init__(self, *args, collection, version, **kwargs):
         super().__init__(f'Invalid collection "{collection}" for version "{version}"')
@@ -13,7 +17,10 @@ class PureAPIInvalidFamilyError(ValueError, PureAPIException):
 
 class PureAPIInvalidVersionError(ValueError, PureAPIException):
     def __init__(self, *args, version, **kwargs):
-        super().__init__(f'Invalid version "{version}"')
+        message = f'Invalid version "{version}"'
+        if 'extra_message' in kwargs:
+            message = f'{message} {kwargs["extra_message"]}'
+        super().__init__(message)
 
 class PureAPIClientException(PureAPIException):
     pass

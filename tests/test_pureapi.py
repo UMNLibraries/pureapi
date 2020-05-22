@@ -1,5 +1,5 @@
 import pureapi
-from pureapi.exceptions import PureAPIInvalidVersionError, PureAPIInvalidCollectionError
+from pureapi.exceptions import PureAPIInvalidVersionError, PureAPIInvalidCollectionError, PureAPIMissingDomainError
 import pytest
 
 def test_valid_version():
@@ -7,6 +7,31 @@ def test_valid_version():
     assert len(versions) > 0
     assert all(pureapi.valid_version(version) for version in versions)
     assert not pureapi.valid_version('bogus')
+
+def test_latest_version():
+    # Doesn't test that latest_version actually is the latest version,
+    # because that would just duplicate the code under test.
+    assert pureapi.latest_version in pureapi.versions
+    assert pureapi.valid_version(pureapi.latest_version)
+
+def test_default_version():
+    assert pureapi.default_version in pureapi.versions
+    assert pureapi.valid_version(pureapi.default_version)
+
+def test_construct_base_url():
+    domain='experts.umn.edu'
+
+    assert (
+        pureapi.construct_base_url(domain=domain, version=pureapi.default_version)
+        ==
+        f'{pureapi.default_protocol}://{domain}/{pureapi.default_path}/{pureapi.default_version}/'
+    )
+
+    with pytest.raises(PureAPIInvalidVersionError):
+        pureapi.construct_base_url(domain='experts.umn.edu', version='bogus')
+
+    with pytest.raises(PureAPIMissingDomainError):
+        pureapi.construct_base_url()
 
 def test_schemas_for_all_versions():
     # For here and now, at least, we just assert that the schema for each version is an

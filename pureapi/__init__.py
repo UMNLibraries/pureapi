@@ -2,13 +2,7 @@ import functools
 import json
 import os
 import pathlib
-from .exceptions import PureAPIInvalidVersionError, PureAPIInvalidCollectionError
-
-default_version = os.environ.get('PURE_API_VERSION')
-default_base_url = os.environ.get('PURE_API_BASE_URL')
-
-# Keep the following just for backward compatibility, or what?
-default_url = os.environ.get('PURE_API_URL')
+from .exceptions import PureAPIInvalidVersionError, PureAPIInvalidCollectionError, PureAPIMissingDomainError
 
 default_key = os.environ.get('PURE_API_KEY')
 
@@ -23,8 +17,24 @@ versions = tuple(
     )
 )
 
+latest_version = str(max([int(version) for version in versions]))
+
 def valid_version(version):
     return (version in versions)
+
+def _find_default_version():
+    env_version = os.environ.get('PURE_API_VERSION')
+    if env_version is not None:
+        if valid_version(env_version):
+            return env_version
+        else:
+            raise PureAPIInvalidVersionError(
+                version=env_version,
+                extra_message='in PURE_API_VERSION'
+            )
+    else:
+        return latest_version
+default_version = _find_default_version()
 
 def validate_version(func):
     @functools.wraps(func)
@@ -36,10 +46,22 @@ def validate_version(func):
         return func(*args, **kwargs)
     return wrapper_validate_version
 
+# Deprecate this:
+default_url = os.environ.get('PURE_API_URL')
+
+default_domain = os.environ.get('PURE_API_DOMAIN')
+default_protocol = 'https'
+default_path = 'ws/api'
+
+@functools.lru_cache(maxsize=None)
 @validate_version
-def url(*, base_url=None, version=None):
-    base_url = default_base_url if base_url is None else base_url
-    return f'{base_url}/{version}/'
+def construct_base_url(*, protocol=None, domain=None, path=None, version=None):
+    url_domain = domain if domain is not None else default_domain
+    if url_domain is None:
+        raise PureAPIMissingDomainError('No domain passed in args and PURE_API_DOMAIN is undefined')
+    url_protocol = protocol if protocol is not None else default_protocol
+    url_path = path if path is not None else default_path
+    return f'{url_protocol}://{url_domain}/{url_path}/{version}/'
 
 def schema_516():
     with open(schemas_path  / '516/swagger.json') as json_file:
