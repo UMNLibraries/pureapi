@@ -1,5 +1,7 @@
+import importlib
 import os
 import pytest
+import pureapi
 
 @pytest.mark.forked
 def test_env_version():
@@ -7,7 +9,11 @@ def test_env_version():
     os.environ['PURE_API_VERSION'] = version
     domain = 'experts.umn.edu'
     os.environ['PURE_API_DOMAIN'] = domain
-    import pureapi
+
+    # Doesn't test that latest_version actually is the latest version,
+    # because that would just duplicate the code under test.
+    importlib.reload(pureapi)
+
     assert pureapi.default_version == os.environ.get('PURE_API_VERSION')
     assert pureapi.default_version == version
     assert pureapi.default_domain == os.environ.get('PURE_API_DOMAIN')

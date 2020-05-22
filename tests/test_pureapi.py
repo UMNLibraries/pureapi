@@ -1,6 +1,7 @@
+import pytest
+import importlib
 import pureapi
 from pureapi.exceptions import PureAPIInvalidVersionError, PureAPIInvalidCollectionError, PureAPIMissingDomainError
-import pytest
 
 def test_valid_version():
     versions = pureapi.versions
@@ -15,10 +16,16 @@ def test_latest_version():
     assert pureapi.valid_version(pureapi.latest_version)
 
 def test_default_version():
+    # We reload pureapi here because the behavior under test is affected by env vars,
+    # which may have been set by previously run tests.
+    importlib.reload(pureapi)
     assert pureapi.default_version in pureapi.versions
     assert pureapi.valid_version(pureapi.default_version)
 
 def test_construct_base_url():
+    # We reload pureapi here because the behavior under test is affected by env vars,
+    # which may have been set by previously run tests.
+    importlib.reload(pureapi)
     domain='experts.umn.edu'
 
     assert (
