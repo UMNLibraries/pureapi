@@ -1,18 +1,25 @@
 import os
 from addict import Dict
-from .exceptions import PureAPIUnknownFamilyError, PureAPIUnknownVersionError
+from . import *
+#from .exceptions import PureAPIUnknownFamilyError, PureAPIUnknownVersionError
 
 pure_api_version = os.environ.get('PURE_API_VERSION')
+
+def default(dictionary):
+    d = Dict(dictionary)
+    return d
 
 def change(dictionary):
     d = Dict(dictionary)
     return d
+change_516 = change
 
 def external_organisation(dictionary):
     d = Dict(dictionary)
     d.info.setdefault('previousUuids', [])
     d.setdefault('pureId', None)
     return d
+external_organisation_516 = external_organisation
 
 def external_person(dictionary):
     d = Dict(dictionary)
@@ -21,6 +28,7 @@ def external_person(dictionary):
     d.name.setdefault('firstName', None)
     d.name.setdefault('lastName', None)
     return d
+external_person_516 = external_person
 
 def organisational_unit(dictionary):
     d = Dict(dictionary)
@@ -40,6 +48,7 @@ def organisational_unit(dictionary):
     d.setdefault('parents', [Dict({'uuid': None})])
 
     return d
+organisational_unit_516 = organisational_unit
 
 def person(dictionary):
     d = Dict(dictionary)
@@ -55,6 +64,7 @@ def person(dictionary):
     d.setdefault('scopusHIndex', None)
     d.setdefault('orcid', None)
     return d
+person_516 = person
 
 def research_output(dictionary):
     d = Dict(dictionary)
@@ -66,8 +76,10 @@ def research_output(dictionary):
     d.setdefault('pages', None)
     d.setdefault('totalScopusCitations', None)
     return d
+research_output_516 = research_output
 
-def transformer_for_family_version(*, family=None, version=None):
+@validate_collection
+def transformer_for(*, collection, version=None):
     transformer_basename = {
         'changes': 'change',
         'external-organisations': 'external_organisation',
@@ -75,14 +87,10 @@ def transformer_for_family_version(*, family=None, version=None):
         'organisational-units': 'organisational_unit',
         'persons': 'person',
         'research-outputs': 'research_output',
-    }.get(family, None)
-    if transformer_basename is None:
-        raise PureAPIUnknownFamilyError(family)
-    version = pure_api_version if version is None else version
-    return transformer_basename
+    }.get(collection, None)
+    transformer_name = 'default' if transformer_basename is None else f'{transformer_basename}_{version}'
+    return globals()[transformer_name]
 
-def transform(family, dictionary):
-    transformer = transformer_for_family(family)
-    if (transformer == None):
-        raise PureAPIResponseKeyError('Unrecognized family "{}"'.format(family))
-    return globals()[transformer_for_family(family)](dictionary)
+def transform(*, collection, version=None, resource):
+    transformer = transformer_for(collection=collection, version=version)
+    return transformer(resource)
