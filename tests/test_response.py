@@ -31,25 +31,25 @@ def test_transformer_for():
 def test_transform():
     citation_count = None
     ro = response.transform(
-        collection='research-outputs',
-        version='516',
-        resource={}
+        'research-outputs',
+        {},
+        version='516'
     )
     assert isinstance(ro, Dict)
     assert ro.totalScopusCitations == citation_count
 
     with pytest.raises(PureAPIInvalidCollectionError):
         response.transform(
-            collection='bogus',
-            version='516',
-            resource={}
+            'bogus',
+            {},
+            version='516'
         )
 
     with pytest.raises(PureAPIInvalidVersionError):
         response.transform(
-            collection='persons',
-            version='bogus',
-            resource={}
+            'persons',
+            {},
+            version='bogus'
         )
 
 def test_person():

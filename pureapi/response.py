@@ -5,24 +5,24 @@ from . import *
 
 pure_api_version = os.environ.get('PURE_API_VERSION')
 
-def default(dictionary):
-    d = Dict(dictionary)
+def default(record):
+    d = Dict(record)
     return d
 
-def change(dictionary):
-    d = Dict(dictionary)
+def change(record):
+    d = Dict(record)
     return d
 change_516 = change
 
-def external_organisation(dictionary):
-    d = Dict(dictionary)
+def external_organisation(record):
+    d = Dict(record)
     d.info.setdefault('previousUuids', [])
     d.setdefault('pureId', None)
     return d
 external_organisation_516 = external_organisation
 
-def external_person(dictionary):
-    d = Dict(dictionary)
+def external_person(record):
+    d = Dict(record)
     d.info.setdefault('previousUuids', [])
     d.setdefault('name', Dict())
     d.name.setdefault('firstName', None)
@@ -30,8 +30,8 @@ def external_person(dictionary):
     return d
 external_person_516 = external_person
 
-def organisational_unit(dictionary):
-    d = Dict(dictionary)
+def organisational_unit(record):
+    d = Dict(record)
     d.info.setdefault('previousUuids', [])
 
     # We've been calling the externalId the pure_id, but really it's our old
@@ -50,8 +50,8 @@ def organisational_unit(dictionary):
     return d
 organisational_unit_516 = organisational_unit
 
-def person(dictionary):
-    d = Dict(dictionary)
+def person(record):
+    d = Dict(record)
     d.info.setdefault('previousUuids', [])
     d.setdefault('name', Dict())
     d.name.setdefault('firstName', None)
@@ -66,8 +66,8 @@ def person(dictionary):
     return d
 person_516 = person
 
-def research_output(dictionary):
-    d = Dict(dictionary)
+def research_output(record):
+    d = Dict(record)
     d.setdefault('electronicVersions', [])
     d.info.setdefault('additionalExternalIds', [])
     d.info.setdefault('previousUuids', [])
@@ -91,6 +91,6 @@ def transformer_for(*, collection, version=None):
     transformer_name = 'default' if transformer_basename is None else f'{transformer_basename}_{version}'
     return globals()[transformer_name]
 
-def transform(*, collection, version=None, resource):
+def transform(collection, record, *, version=None):
     transformer = transformer_for(collection=collection, version=version)
-    return transformer(resource)
+    return transformer(record)
