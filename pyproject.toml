@@ -14,4 +14,5 @@ tenacity = "*"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
+pytest-forked = "*"
 python_dotenv = "*"

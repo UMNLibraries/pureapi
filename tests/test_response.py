@@ -1,5 +1,5 @@
 from pureapi import response
-from pureapi.exceptions import PureAPIInvalidCollectionError, PureAPIInvalidVersionError
+from pureapi.common import PureAPIInvalidCollectionError, PureAPIInvalidVersionError
 from addict import Dict
 import pytest
 

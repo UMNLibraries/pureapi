@@ -1,9 +1,8 @@
 import os
-from addict import Dict
-from . import *
-#from .exceptions import PureAPIUnknownFamilyError, PureAPIUnknownVersionError
 
-pure_api_version = os.environ.get('PURE_API_VERSION')
+from addict import Dict
+
+from pureapi.common import validate_collection
 
 def default(record):
     d = Dict(record)
@@ -80,6 +79,9 @@ research_output_516 = research_output
 
 @validate_collection
 def transformer_for(*, collection, version=None):
+    #print('version = ', version)
+    #print('default_version = ', default_version)
+    #print('env_version = ', env_version)
     transformer_basename = {
         'changes': 'change',
         'external-organisations': 'external_organisation',
