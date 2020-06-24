@@ -121,10 +121,7 @@ def get(
         prepped.headers = {**prepped.headers, **headers}
 
         try:
-            r = retryer(
-                s.send,
-                prepped
-            )
+            r = retryer(s.send, prepped)
             r.raise_for_status()
             return r
         except HTTPError as http_exc:
@@ -289,10 +286,7 @@ def filter(
         prepped.headers = {**prepped.headers, **headers}
 
         try:
-            r = retryer(
-                s.send,
-                prepped
-            )
+            r = retryer(s.send, prepped)
             r.raise_for_status()
             return r
         except HTTPError as http_exc:
