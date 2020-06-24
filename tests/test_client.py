@@ -560,7 +560,7 @@ def test_filter_all_by_id_transformed():
 def test_filter_all_transformed():
     type_uri = "/dk/atira/pure/organisation/organisationtypes/organisation/peoplesoft_deptid"
     payload = {
-            "organisationalUnitTypeUris": [
+        "organisationalUnitTypeUris": [
             type_uri
         ]
     }
