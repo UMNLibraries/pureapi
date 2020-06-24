@@ -162,6 +162,7 @@ def test_get_validated_params():
     assert client.default_headers['api-key'] != client.env_key()
     assert client.default_headers['api-key'] != client.default_key
 
+@pytest.mark.integration
 def test_get():
     r_persons = client.get('persons', {'size':1, 'offset':0})
     assert r_persons.status_code == 200
@@ -220,6 +221,7 @@ def test_get():
         assert isinstance(id_value, str)
         assert len(id_value) > 0
 
+@pytest.mark.integration
 def test_get_person_by_classified_source_id():
     emplid = '2110454'
     r = client.get('persons/' + emplid, {'idClassification':'classified_source'})
@@ -266,6 +268,7 @@ def test_get_person_by_classified_source_id():
         assert isinstance(staff_type, str)
         assert len(staff_type) > 0
 
+@pytest.mark.integration
 def test_get_all_changes():
     yesterday = date.today() - timedelta(days=1)
     request_count = 0
@@ -299,6 +302,7 @@ def test_get_all_changes_skipping_zero_counts(monkeypatch):
         assert json['count'] > 0
         assert 'items' in json
 
+@pytest.mark.integration
 def test_get_all_changes_transformed():
     """
     Strange change records:
@@ -325,6 +329,7 @@ def test_get_all_changes_transformed():
             break
     assert transformed_count == transformed_limit
 
+@pytest.mark.integration
 def test_get_all_transformed():
     r = client.get('organisational-units', {'size':1, 'offset':0})
     d = r.json()
@@ -342,6 +347,7 @@ def test_get_all_transformed():
         assert 'uuid' in person
         break
 
+@pytest.mark.integration
 def test_filter():
     org_uuid = None
     for org in client.get_all_transformed('organisational-units', params={'size':1, 'offset':0}):
@@ -477,6 +483,7 @@ def test_group_items(test_group_items_params):
         assert len(group) == expected_items_in_group
     assert groups_count == expected_groups_count
 
+@pytest.mark.integration
 def test_filter_all_by_uuid():
     expected_count = 14
     ro_uuid_with_author_collaboration = '16e1efc1-92a2-4eca-a8d0-628bb2deda8a' # Not many records have these.
@@ -511,6 +518,7 @@ def test_filter_all_by_uuid():
 
     assert downloaded_count == expected_count
 
+@pytest.mark.integration
 def test_filter_all_by_uuid_transformed():
     limit = 10
     uuids = []
@@ -524,6 +532,7 @@ def test_filter_all_by_uuid_transformed():
         ros_by_uuid.append(ro)
     assert len(ros_by_uuid) == len(uuids)
 
+@pytest.mark.integration
 def test_filter_all_by_id():
     expected_count = 10
     ids = []
@@ -540,6 +549,7 @@ def test_filter_all_by_id():
         assert d['count'] == expected_count
         assert len(d['items']) == expected_count
 
+@pytest.mark.integration
 def test_filter_all_by_id_transformed():
     limit = 10
     ids = []
@@ -557,6 +567,7 @@ def test_filter_all_by_id_transformed():
         persons_by_id.append(person)
     assert len(persons_by_id) == len(ids)
 
+@pytest.mark.integration
 def test_filter_all_transformed():
     type_uri = "/dk/atira/pure/organisation/organisationtypes/organisation/peoplesoft_deptid"
     payload = {
@@ -576,11 +587,13 @@ def test_filter_all_transformed():
         transformed_count += 1
     assert transformed_count == count
 
+@pytest.mark.integration
 def test_get_exception():
     with pytest.raises(client.PureAPIHTTPError, match='404') as exc_info:
         client.get('persons/bogus-id')
     assert exc_info.errisinstance(HTTPError)
 
+@pytest.mark.integration
 def test_filter_exception():
     #with pytest.raises(client.PureAPIHTTPError, match='404') as exc_info:
     with pytest.raises(client.PureAPIHTTPError, match='500') as exc_info:
