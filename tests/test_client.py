@@ -26,13 +26,13 @@ def test_get_collection_from_resource_path():
         client.get_collection_from_resource_path('bogus', version=common.latest_version)
 
 @pytest.mark.forked
-def test_construct_base_url():
+def test_base_url_for():
     test_domain = 'example.com'
     # Ensure that default_domain is defined, in case the caller did not define the env var:
     client.default_domain = test_domain
 
     assert (
-        client.construct_base_url()
+        client.base_url_for()
         ==
         f'{client.default_protocol}://{client.default_domain}/{client.default_path}/{common.default_version}/'
     )
@@ -42,7 +42,7 @@ def test_construct_base_url():
     os.environ.pop(common.env_version_varname)
     common.default_version = None
     with pytest.raises(common.PureAPIMissingVersionError):
-        client.construct_base_url()
+        client.base_url_for()
 
     # The next few tests test the precedence of version settings:
     # 1. kwargs
@@ -51,35 +51,35 @@ def test_construct_base_url():
 
     os.environ[common.env_version_varname] = 'bogus'
     with pytest.raises(common.PureAPIInvalidVersionError, match=common.env_version_varname):
-        client.construct_base_url()
+        client.base_url_for()
 
     os.environ[common.env_version_varname] = common.latest_version
     assert (
-        client.construct_base_url()
+        client.base_url_for()
         ==
         f'{client.default_protocol}://{client.default_domain}/{client.default_path}/{common.env_version()}/'
     )
 
     common.default_version = 'bogus'
     with pytest.raises(common.PureAPIInvalidVersionError, match='default_version'):
-        client.construct_base_url()
+        client.base_url_for()
 
     if common.oldest_version != common.latest_version:
         common.default_version = common.oldest_version
         assert common.default_version != common.env_version()
         assert (
-            client.construct_base_url()
+            client.base_url_for()
             ==
             f'{client.default_protocol}://{client.default_domain}/{client.default_path}/{common.default_version}/'
         )
 
     with pytest.raises(common.PureAPIInvalidVersionError, match='kwargs'):
-        client.construct_base_url(version='bogus')
+        client.base_url_for(version='bogus')
 
     if common.oldest_version != common.latest_version:
         common.default_version = common.latest_version
         assert (
-            client.construct_base_url(version=common.oldest_version)
+            client.base_url_for(version=common.oldest_version)
             ==
             f'{client.default_protocol}://{client.default_domain}/{client.default_path}/{common.oldest_version}/'
         )
@@ -92,7 +92,7 @@ def test_construct_base_url():
     os.environ.pop(client.env_domain_varname)
     client.default_domain = None
     with pytest.raises(client.PureAPIMissingDomainError):
-        client.construct_base_url()
+        client.base_url_for()
 
     # The next few tests test the precedence of domain settings:
     # 1. kwargs
@@ -102,7 +102,7 @@ def test_construct_base_url():
     env_test_domain = 'env.' + test_domain
     os.environ[client.env_domain_varname] = env_test_domain
     assert (
-        client.construct_base_url()
+        client.base_url_for()
         ==
         f'{client.default_protocol}://{env_test_domain}/{client.default_path}/{common.default_version}/'
     )
@@ -110,7 +110,7 @@ def test_construct_base_url():
     default_test_domain = 'default.' + test_domain
     client.default_domain = default_test_domain
     assert (
-        client.construct_base_url()
+        client.base_url_for()
         ==
         f'{client.default_protocol}://{default_test_domain}/{client.default_path}/{common.default_version}/'
     )
@@ -118,7 +118,7 @@ def test_construct_base_url():
     kwargs_test_domain = 'kwargs.' + test_domain
     client.default_domain = kwargs_test_domain
     assert (
-        client.construct_base_url(domain=kwargs_test_domain)
+        client.base_url_for(domain=kwargs_test_domain)
         ==
         f'{client.default_protocol}://{kwargs_test_domain}/{client.default_path}/{common.default_version}/'
     )

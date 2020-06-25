@@ -77,23 +77,23 @@ def schema_517():
 
 @functools.lru_cache(maxsize=None)
 @validate_version
-def schema(*, version=None):
+def schema_for(*, version=None):
     return globals()[f'schema_{version}']()
 
 def collections_516():
-    return tuple(map(lambda tag: tag['name'], schema(version='516')['tags']))
+    return tuple(map(lambda tag: tag['name'], schema_for(version='516')['tags']))
 
 def collections_517():
-    return tuple(map(lambda tag: tag['name'], schema(version='517')['tags']))
+    return tuple(map(lambda tag: tag['name'], schema_for(version='517')['tags']))
 
 @functools.lru_cache(maxsize=None)
 @validate_version
-def collections(*, version):
+def collections_for(*, version):
     return globals()[f'collections_{version}']()
 
 @validate_version
 def valid_collection(*, collection, version=None):
-    return (collection in collections(version=version))
+    return (collection in collections_for(version=version))
 
 class PureAPIInvalidCollectionError(ValueError, PureAPIException):
     def __init__(self, *args, collection, version, **kwargs):

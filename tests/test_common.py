@@ -54,16 +54,16 @@ def test_default_version_override():
         assert common.default_version != common.env_version()
 
 def test_schemas_for_all_versions():
-    assert all(len(common.schema(version=version)) for version in common.versions)
+    assert all(len(common.schema_for(version=version)) for version in common.versions)
     with pytest.raises(common.PureAPIInvalidVersionError):
-        schema = common.schema(version='bogus')
+        schema = common.schema_for(version='bogus')
 
 def test_collections_for_all_versions():
     for version in common.versions:
-        collections = common.collections(version=version)
+        collections = common.collections_for(version=version)
         assert len(collections) > 0
         for collection in collections:
             assert common.valid_collection(collection=collection, version=version)
         assert not common.valid_collection(collection='bogus', version=version)
         with pytest.raises(common.PureAPIInvalidVersionError):
-            collections = common.collections(version='bogus')
+            collections = common.collections_for(version='bogus')

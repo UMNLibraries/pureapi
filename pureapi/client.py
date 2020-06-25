@@ -85,7 +85,7 @@ default_path = 'ws/api'
 #@functools.lru_cache(maxsize=None)
 @validate_version
 @validate_domain
-def construct_base_url(*, protocol=default_protocol, domain=None, path=default_path, version=None):
+def base_url_for(*, protocol=default_protocol, domain=None, path=default_path, version=None):
     return f'{protocol}://{domain}/{path}/{version}/'
 
 def get_collection_from_resource_path(resource_path, *, version=None):
@@ -114,7 +114,7 @@ def get(
     retryer=default_retryer
 ):
 
-    base_url = construct_base_url(domain=domain, version=version)
+    base_url = base_url_for(domain=domain, version=version)
     collection = get_collection_from_resource_path(resource_path, version=version)
     with requests.Session() as s:
         prepped = s.prepare_request(requests.Request('GET', base_url + resource_path, params=params))
@@ -279,7 +279,7 @@ def filter(
     retryer=default_retryer
 ):
 
-    base_url = construct_base_url(domain=domain, version=version)
+    base_url = base_url_for(domain=domain, version=version)
     collection = get_collection_from_resource_path(resource_path, version=version)
     with requests.Session() as s:
         prepped = s.prepare_request(requests.Request('POST', base_url + resource_path, json=payload))
