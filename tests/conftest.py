@@ -1,5 +1,7 @@
 import pytest
 
+from pureapi import common
+
 def pytest_addoption(parser):
     parser.addoption(
         '--run-integration',
@@ -19,3 +21,7 @@ def pytest_collection_modifyitems(config, items):
     for item in items:
         if 'integration' in item.keywords:
             item.add_marker(skip_integration)
+
+@pytest.fixture(params=common.versions)
+def version(request):
+    return request.param

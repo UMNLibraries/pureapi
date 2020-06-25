@@ -163,7 +163,8 @@ def test_get_validated_params():
     assert client.default_headers['api-key'] != client.default_key
 
 @pytest.mark.integration
-def test_get():
+def test_get(version):
+    common.default_version = version
     r_persons = client.get('persons', {'size':1, 'offset':0})
     assert r_persons.status_code == 200
 
@@ -222,7 +223,8 @@ def test_get():
         assert len(id_value) > 0
 
 @pytest.mark.integration
-def test_get_person_by_classified_source_id():
+def test_get_person_by_classified_source_id(version):
+    common.default_version = version
     emplid = '2110454'
     r = client.get('persons/' + emplid, {'idClassification':'classified_source'})
     assert r.status_code == 200
@@ -269,7 +271,8 @@ def test_get_person_by_classified_source_id():
         assert len(staff_type) > 0
 
 @pytest.mark.integration
-def test_get_all_changes():
+def test_get_all_changes(version):
+    common.default_version = version
     yesterday = date.today() - timedelta(days=1)
     request_count = 0
     for r in client.get_all_changes(yesterday.isoformat()):
@@ -303,7 +306,8 @@ def test_get_all_changes_skipping_zero_counts(monkeypatch):
         assert 'items' in json
 
 @pytest.mark.integration
-def test_get_all_changes_transformed():
+def test_get_all_changes_transformed(version):
+    common.default_version = version
     """
     Strange change records:
     {'family': 'dk.atira.pure.api.shared.model.event.Event', 'familySystemName': 'Event'}
@@ -330,7 +334,8 @@ def test_get_all_changes_transformed():
     assert transformed_count == transformed_limit
 
 @pytest.mark.integration
-def test_get_all_transformed():
+def test_get_all_transformed(version):
+    common.default_version = version
     r = client.get('organisational-units', {'size':1, 'offset':0})
     d = r.json()
     count = d['count']
@@ -348,7 +353,8 @@ def test_get_all_transformed():
         break
 
 @pytest.mark.integration
-def test_filter():
+def test_filter(version):
+    common.default_version = version
     org_uuid = None
     for org in client.get_all_transformed('organisational-units', params={'size':1, 'offset':0}):
         org_uuid = org.uuid
@@ -484,7 +490,8 @@ def test_group_items(test_group_items_params):
     assert groups_count == expected_groups_count
 
 @pytest.mark.integration
-def test_filter_all_by_uuid():
+def test_filter_all_by_uuid(version):
+    common.default_version = version
     expected_count = 14
     ro_uuid_with_author_collaboration = '16e1efc1-92a2-4eca-a8d0-628bb2deda8a' # Not many records have these.
     uuids = [ro_uuid_with_author_collaboration]
@@ -519,7 +526,8 @@ def test_filter_all_by_uuid():
     assert downloaded_count == expected_count
 
 @pytest.mark.integration
-def test_filter_all_by_uuid_transformed():
+def test_filter_all_by_uuid_transformed(version):
+    common.default_version = version
     limit = 10
     uuids = []
     for ro in client.get_all_transformed('research-outputs', params={'size': limit}):
@@ -533,7 +541,8 @@ def test_filter_all_by_uuid_transformed():
     assert len(ros_by_uuid) == len(uuids)
 
 @pytest.mark.integration
-def test_filter_all_by_id():
+def test_filter_all_by_id(version):
+    common.default_version = version
     expected_count = 10
     ids = []
     for person in client.get_all_transformed('persons', params={'size': expected_count}):
@@ -550,7 +559,8 @@ def test_filter_all_by_id():
         assert len(d['items']) == expected_count
 
 @pytest.mark.integration
-def test_filter_all_by_id_transformed():
+def test_filter_all_by_id_transformed(version):
+    common.default_version = version
     limit = 10
     ids = []
     for person in client.get_all_transformed('persons', params={'size': limit}):
@@ -568,7 +578,8 @@ def test_filter_all_by_id_transformed():
     assert len(persons_by_id) == len(ids)
 
 @pytest.mark.integration
-def test_filter_all_transformed():
+def test_filter_all_transformed(version):
+    common.default_version = version
     type_uri = "/dk/atira/pure/organisation/organisationtypes/organisation/peoplesoft_deptid"
     payload = {
         "organisationalUnitTypeUris": [
@@ -588,13 +599,15 @@ def test_filter_all_transformed():
     assert transformed_count == count
 
 @pytest.mark.integration
-def test_get_exception():
+def test_get_exception(version):
+    common.default_version = version
     with pytest.raises(client.PureAPIHTTPError, match='404') as exc_info:
         client.get('persons/bogus-id')
     assert exc_info.errisinstance(HTTPError)
 
 @pytest.mark.integration
-def test_filter_exception():
+def test_filter_exception(version):
+    common.default_version = version
     #with pytest.raises(client.PureAPIHTTPError, match='404') as exc_info:
     with pytest.raises(client.PureAPIHTTPError, match='500') as exc_info:
         payload = {

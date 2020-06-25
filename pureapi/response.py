@@ -11,14 +11,14 @@ def default(record):
 def change(record):
     d = Dict(record)
     return d
-change_516 = change
+change_516 = change_517 = change
 
 def external_organisation(record):
     d = Dict(record)
     d.info.setdefault('previousUuids', [])
     d.setdefault('pureId', None)
     return d
-external_organisation_516 = external_organisation
+external_organisation_516 = external_organisation_517 = external_organisation
 
 def external_person(record):
     d = Dict(record)
@@ -27,7 +27,7 @@ def external_person(record):
     d.name.setdefault('firstName', None)
     d.name.setdefault('lastName', None)
     return d
-external_person_516 = external_person
+external_person_516 = external_person_517 = external_person
 
 def organisational_unit(record):
     d = Dict(record)
@@ -47,7 +47,7 @@ def organisational_unit(record):
     d.setdefault('parents', [Dict({'uuid': None})])
 
     return d
-organisational_unit_516 = organisational_unit
+organisational_unit_516 = organisational_unit_517 = organisational_unit
 
 def person(record):
     d = Dict(record)
@@ -63,7 +63,7 @@ def person(record):
     d.setdefault('scopusHIndex', None)
     d.setdefault('orcid', None)
     return d
-person_516 = person
+person_516 = person_517 = person
 
 def research_output(record):
     d = Dict(record)
@@ -75,7 +75,7 @@ def research_output(record):
     d.setdefault('pages', None)
     d.setdefault('totalScopusCitations', None)
     return d
-research_output_516 = research_output
+research_output_516 = research_output_517 = research_output
 
 @validate_collection
 def transformer_for(*, collection, version=None):
