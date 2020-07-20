@@ -75,9 +75,6 @@ def validate_domain(func):
         return func(*args, **kwargs)
     return wrapper_validate_domain
 
-# Deprecate this:
-default_url = env_url = os.environ.get('PURE_API_URL')
-
 # Not going to allow env var settings for these, because I doubt anyone would ever use them.
 default_protocol = 'https'
 default_path = 'ws/api'
@@ -113,7 +110,6 @@ def get(
     headers=None,
     retryer=default_retryer
 ):
-
     base_url = base_url_for(domain=domain, version=version)
     collection = get_collection_from_resource_path(resource_path, version=version)
     with requests.Session() as s:
@@ -278,7 +274,6 @@ def filter(
     headers=None,
     retryer=default_retryer
 ):
-
     base_url = base_url_for(domain=domain, version=version)
     collection = get_collection_from_resource_path(resource_path, version=version)
     with requests.Session() as s:
