@@ -102,7 +102,7 @@ class PureAPIRequestException(RequestException, PureAPIClientException):
 @validate_key
 def get(
     resource_path,
-    params={},
+    params=None,
     *,
     domain=None,
     version=None,
@@ -110,6 +110,9 @@ def get(
     headers=None,
     retryer=default_retryer
 ):
+    if params is None:
+        params = {}
+
     base_url = base_url_for(domain=domain, version=version)
     collection = get_collection_from_resource_path(resource_path, version=version)
     with requests.Session() as s:
@@ -139,7 +142,7 @@ def get(
 
 def get_all(
     resource_path,
-    params={},
+    params=None,
     *,
     domain=None,
     version=None,
@@ -147,6 +150,9 @@ def get_all(
     headers=None,
     retryer=default_retryer
 ):
+    if params is None:
+        params = {}
+
     r = get(
         resource_path,
         params={'size': 0, 'offset': 0},
@@ -178,7 +184,7 @@ def get_all(
 
 def get_all_transformed(
     resource_path,
-    params={},
+    params=None,
     *,
     domain=None,
     version=None,
@@ -186,6 +192,9 @@ def get_all_transformed(
     headers=None,
     retryer=default_retryer
 ):
+    if params is None:
+        params = {}
+
     collection = get_collection_from_resource_path(resource_path, version=version)
     for r in get_all(
         resource_path,
@@ -201,7 +210,7 @@ def get_all_transformed(
 
 def get_all_changes(
     token_or_date,
-    params={},
+    params=None,
     *,
     domain=None,
     version=None,
@@ -209,6 +218,9 @@ def get_all_changes(
     headers=None,
     retryer=default_retryer
 ):
+    if params is None:
+        params = {}
+
     next_token_or_date = token_or_date
     while(True):
         r = get(
@@ -243,7 +255,7 @@ def get_all_changes(
 
 def get_all_changes_transformed(
     token_or_date,
-    params={},
+    params=None,
     *,
     domain=None,
     version=None,
@@ -251,6 +263,9 @@ def get_all_changes_transformed(
     headers=None,
     retryer=default_retryer
 ):
+    if params is None:
+        params = {}
+
     for r in get_all_changes(
         token_or_date,
         params=params,
@@ -266,7 +281,7 @@ def get_all_changes_transformed(
 @validate_key
 def filter(
     resource_path,
-    payload={},
+    payload=None,
     *,
     domain=None,
     version=None,
@@ -274,6 +289,9 @@ def filter(
     headers=None,
     retryer=default_retryer
 ):
+    if payload is None:
+        payload = {}
+
     base_url = base_url_for(domain=domain, version=version)
     collection = get_collection_from_resource_path(resource_path, version=version)
     with requests.Session() as s:
@@ -303,7 +321,7 @@ def filter(
 
 def filter_all(
     resource_path,
-    payload={},
+    payload=None,
     *,
     domain=None,
     version=None,
@@ -311,6 +329,9 @@ def filter_all(
     headers=None,
     retryer=default_retryer
 ):
+    if payload is None:
+        payload = {}
+
     count_payload = copy.deepcopy(payload)
     count_payload = payload
     count_payload['size'] = 0
