@@ -16,14 +16,14 @@ from . import changes_including_zero_counts
 
 def test_get_collection_from_resource_path():
     for resource_path in ('persons', 'persons/12345'):
-        collection = client.get_collection_from_resource_path(
+        collection = client._get_collection_from_resource_path(
             resource_path,
             version=common.latest_version
         )
         assert collection == 'persons'
 
     with pytest.raises(common.PureAPIInvalidCollectionError):
-        client.get_collection_from_resource_path('bogus', version=common.latest_version)
+        client._get_collection_from_resource_path('bogus', version=common.latest_version)
 
 @pytest.mark.forked
 def test_base_url_for():
@@ -32,7 +32,7 @@ def test_base_url_for():
     client.default_domain = test_domain
 
     assert (
-        client.base_url_for()
+        client._base_url_for()
         ==
         f'{client.default_protocol}://{client.default_domain}/{client.default_path}/{common.default_version}/'
     )
@@ -42,7 +42,7 @@ def test_base_url_for():
     os.environ.pop(common.env_version_varname)
     common.default_version = None
     with pytest.raises(common.PureAPIMissingVersionError):
-        client.base_url_for()
+        client._base_url_for()
 
     # The next few tests test the precedence of version settings:
     # 1. kwargs
@@ -51,35 +51,35 @@ def test_base_url_for():
 
     os.environ[common.env_version_varname] = 'bogus'
     with pytest.raises(common.PureAPIInvalidVersionError, match=common.env_version_varname):
-        client.base_url_for()
+        client._base_url_for()
 
     os.environ[common.env_version_varname] = common.latest_version
     assert (
-        client.base_url_for()
+        client._base_url_for()
         ==
         f'{client.default_protocol}://{client.default_domain}/{client.default_path}/{common.env_version()}/'
     )
 
     common.default_version = 'bogus'
     with pytest.raises(common.PureAPIInvalidVersionError, match='default_version'):
-        client.base_url_for()
+        client._base_url_for()
 
     if common.oldest_version != common.latest_version:
         common.default_version = common.oldest_version
         assert common.default_version != common.env_version()
         assert (
-            client.base_url_for()
+            client._base_url_for()
             ==
             f'{client.default_protocol}://{client.default_domain}/{client.default_path}/{common.default_version}/'
         )
 
     with pytest.raises(common.PureAPIInvalidVersionError, match='kwargs'):
-        client.base_url_for(version='bogus')
+        client._base_url_for(version='bogus')
 
     if common.oldest_version != common.latest_version:
         common.default_version = common.latest_version
         assert (
-            client.base_url_for(version=common.oldest_version)
+            client._base_url_for(version=common.oldest_version)
             ==
             f'{client.default_protocol}://{client.default_domain}/{client.default_path}/{common.oldest_version}/'
         )
@@ -92,7 +92,7 @@ def test_base_url_for():
     os.environ.pop(client.env_domain_varname)
     client.default_domain = None
     with pytest.raises(client.PureAPIMissingDomainError):
-        client.base_url_for()
+        client._base_url_for()
 
     # The next few tests test the precedence of domain settings:
     # 1. kwargs
@@ -102,7 +102,7 @@ def test_base_url_for():
     env_test_domain = 'env.' + test_domain
     os.environ[client.env_domain_varname] = env_test_domain
     assert (
-        client.base_url_for()
+        client._base_url_for()
         ==
         f'{client.default_protocol}://{env_test_domain}/{client.default_path}/{common.default_version}/'
     )
@@ -110,7 +110,7 @@ def test_base_url_for():
     default_test_domain = 'default.' + test_domain
     client.default_domain = default_test_domain
     assert (
-        client.base_url_for()
+        client._base_url_for()
         ==
         f'{client.default_protocol}://{default_test_domain}/{client.default_path}/{common.default_version}/'
     )
@@ -118,7 +118,7 @@ def test_base_url_for():
     kwargs_test_domain = 'kwargs.' + test_domain
     client.default_domain = kwargs_test_domain
     assert (
-        client.base_url_for(domain=kwargs_test_domain)
+        client._base_url_for(domain=kwargs_test_domain)
         ==
         f'{client.default_protocol}://{kwargs_test_domain}/{client.default_path}/{common.default_version}/'
     )

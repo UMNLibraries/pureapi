@@ -1,94 +1,55 @@
-from collections.abc import Mapping # all dict-like classes
+import builtins
 import copy
-import functools
+#import functools
 import os
 import math
+from typing import Callable, List, Mapping, MutableMapping
 
+import attr
 import requests
 from requests.exceptions import RequestException, HTTPError
 from tenacity import Retrying, wait_exponential
 
 from pureapi import response
-from pureapi.common import valid_collection, validate_version, PureAPIInvalidCollectionError
+from pureapi.common import default_version, env_version, latest_version, valid_collection, valid_version, validate_version, PureAPIInvalidCollectionError, PureAPIMissingVersionError, PureAPIInvalidVersionError
 from pureapi.exceptions import PureAPIException
 
-default_retryer = Retrying(wait=wait_exponential(multiplier=1, max=60), reraise=True)
-
 env_key_varname = 'PURE_API_KEY'
-def env_key():
+def env_key() -> str:
     return os.environ.get(env_key_varname)
-default_key = env_key()
 
-default_headers = {
-  'Accept': 'application/json',
-  'Accept-Charset': 'utf-8',
-  'api-key': default_key,
-}
+def default_headers() -> MutableMapping:
+    return {
+        'Accept': 'application/json',
+        'Accept-Charset': 'utf-8',
+    }
+
+def default_retryer() -> Callable:
+    return Retrying(wait=wait_exponential(multiplier=1, max=60), reraise=True)
 
 class PureAPIClientException(PureAPIException):
     pass
 
-class PureAPIMissingKeyError(ValueError, PureAPIClientException):
-    def __init__(self, *args, **kwargs):
-        super().__init__(f'No API key found in kwargs, default_key, or {env_key_varname}', *args, **kwargs)
-
-def validate_key(func):
-    @functools.wraps(func)
-    def wrapper_validate_key(*args, **kwargs):
-        if 'headers' not in kwargs or kwargs['headers'] is None:
-            kwargs['headers'] = default_headers if isinstance(default_headers, Mapping) else {}
-        if 'api-key' not in kwargs['headers']:
-            kwargs['headers']['api-key'] = None
-        if kwargs['headers']['api-key'] is None:
-            if 'key' in kwargs and kwargs['key'] is not None:
-                kwargs['headers']['api-key'] = kwargs['key']
-            elif default_key is not None:
-                kwargs['headers']['api-key'] = default_key
-            elif env_key() is not None:
-                kwargs['headers']['api-key'] = env_key()
-            else:
-                raise PureAPIMissingKeyError()
-        return func(*args, **kwargs)
-    return wrapper_validate_key
-
 env_domain_varname = 'PURE_API_DOMAIN'
-def env_domain():
+def env_domain() -> str:
     return os.environ.get(env_domain_varname)
-default_domain = env_domain()
 
-class PureAPIMissingDomainError(ValueError, PureAPIClientException):
-    def __init__(self, *args, **kwargs):
-        super().__init__(f'No domain found in kwargs, default_domain, or {env_domain_varname}', *args, **kwargs)
+def _get_collection_from_resource_path(resource_path: str, config: Config) -> str:
+    '''Extracts the collection name from a Pure API URL resource path.
 
-def validate_domain(func):
-    @functools.wraps(func)
-    def wrapper_validate_domain(*args, **kwargs):
-        if 'domain' not in kwargs:
-            kwargs['domain'] = None
-        if kwargs['domain'] is None:
-            if default_domain is not None:
-                kwargs['domain'] = default_domain
-            elif env_domain() is not None:
-                kwargs['domain'] = env_domain()
-            else:
-                raise PureAPIMissingDomainError()
-        return func(*args, **kwargs)
-    return wrapper_validate_domain
+    Args:
+        resource_path: URL path, without the base URL, to a Pure API resource.
+        config: Instance of pureapi.client.Config.
 
-# Not going to allow env var settings for these, because I doubt anyone would ever use them.
-default_protocol = 'https'
-default_path = 'ws/api'
+    Returns:
+        The name of the collection.
 
-#@functools.lru_cache(maxsize=None)
-@validate_version
-@validate_domain
-def base_url_for(*, protocol=default_protocol, domain=None, path=default_path, version=None):
-    return f'{protocol}://{domain}/{path}/{version}/'
-
-def get_collection_from_resource_path(resource_path, *, version=None):
+    Raises:
+        common.PureAPIInvalidCollectionError: If the extracted collection is invalid for the given API version.
+    '''
     collection = resource_path.split('/')[0]
-    if not valid_collection(collection=collection, version=version):
-        raise PureAPIInvalidCollectionError(collection=collection, version=version)
+    if not valid_collection(collection=collection, version=config.version):
+        raise PureAPIInvalidCollectionError(collection=collection, version=config.version)
     return collection
 
 class PureAPIHTTPError(HTTPError, PureAPIClientException):
@@ -99,28 +60,20 @@ class PureAPIRequestException(RequestException, PureAPIClientException):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-@validate_key
-def get(
-    resource_path,
-    params=None,
-    *,
-    domain=None,
-    version=None,
-    key=None,
-    headers=None,
-    retryer=default_retryer
-):
+def get(resource_path: str, params: Mapping = None, config: Config = None) -> requests.Response:
     if params is None:
         params = {}
 
-    base_url = base_url_for(domain=domain, version=version)
-    collection = get_collection_from_resource_path(resource_path, version=version)
+    if config is None:
+        config = Config()
+
+    collection = _get_collection_from_resource_path(resource_path, config)
     with requests.Session() as s:
-        prepped = s.prepare_request(requests.Request('GET', base_url + resource_path, params=params))
-        prepped.headers = {**prepped.headers, **headers}
+        prepped = s.prepare_request(requests.Request('GET', config.base_url + resource_path, params=params))
+        prepped.headers = {**prepped.headers, **config.headers}
 
         try:
-            r = retryer(s.send, prepped)
+            r = config.retryer(s.send, prepped)
             r.raise_for_status()
             return r
         except HTTPError as http_exc:
@@ -140,29 +93,14 @@ def get(
                 f'Unexpected exception for GET request for resource path {resource_path} with params {params}'
             ) from e
 
-def get_all(
-    resource_path,
-    params=None,
-    *,
-    domain=None,
-    version=None,
-    key=None,
-    headers=None,
-    retryer=default_retryer
-):
+def get_all(resource_path: str, params: Mapping = None, config: Config = None) -> Iterator[requests.Response]:
     if params is None:
         params = {}
 
-    r = get(
-        resource_path,
-        params={'size': 0, 'offset': 0},
-        domain=domain,
-        version=version,
-        key=key,
-        headers=headers,
-        retryer=retryer
-    )
+    if config is None:
+        config = Config()
 
+    r = get(resource_path, params={'size': 0, 'offset': 0}, config=config)
     json = r.json()
     record_count = int(json['count'])
     window_size = int(params['size']) if 'size' in params else 100
@@ -172,66 +110,34 @@ def get_all(
         offset = window * window_size
         size = window_size
         window_params = {'offset': offset, 'size': size}
-        yield get(
-            resource_path,
-            params={**params, **window_params},
-            domain=domain,
-            version=version,
-            key=key,
-            headers=headers,
-            retryer=retryer
-        )
+        yield get(resource_path, params={**params, **window_params}, config=config)
 
 def get_all_transformed(
-    resource_path,
-    params=None,
-    *,
-    domain=None,
-    version=None,
-    key=None,
-    headers=None,
-    retryer=default_retryer
-):
+    resource_path: str,
+    params: Mapping = None,
+    config: Config = None
+) -> Iterator[addict.Dict]:
     if params is None:
         params = {}
 
-    collection = get_collection_from_resource_path(resource_path, version=version)
-    for r in get_all(
-        resource_path,
-        params=params,
-        domain=domain,
-        version=version,
-        key=key,
-        headers=headers,
-        retryer=retryer
-    ):
+    if config is None:
+        config = Config()
+
+    collection = _get_collection_from_resource_path(resource_path, config)
+    for r in get_all(resource_path, params, config):
         for item in r.json()['items']:
-            yield response.transform(collection, item, version=version)
+            yield response.transform(collection, item, version=config.version)
 
-def get_all_changes(
-    token_or_date,
-    params=None,
-    *,
-    domain=None,
-    version=None,
-    key=None,
-    headers=None,
-    retryer=default_retryer
-):
+def get_all_changes(token_or_date: str, params: Mapping = None, config: Config = None) -> Iterator[requests.Response]:
     if params is None:
         params = {}
+
+    if config is None:
+        config = Config()
 
     next_token_or_date = token_or_date
     while(True):
-        r = get(
-            'changes/' + next_token_or_date,
-            params=params,
-            domain=domain,
-            version=version,
-            key=key,
-            headers=headers,
-            retryer=retryer
-        )
+        r = get( 'changes/' + next_token_or_date, params, config)
         json = r.json()
 
         if json['moreChanges'] is True:
@@ -254,52 +160,34 @@ def get_all_changes(
         yield r
 
 def get_all_changes_transformed(
-    token_or_date,
-    params=None,
-    *,
-    domain=None,
-    version=None,
-    key=None,
-    headers=None,
-    retryer=default_retryer
-):
+    token_or_date: str,
+    params: Mapping = None,
+    config: Config = None
+) -> Iterator[addict.Dict]:
     if params is None:
         params = {}
 
-    for r in get_all_changes(
-        token_or_date,
-        params=params,
-        domain=domain,
-        version=version,
-        key=key,
-        headers=headers,
-        retryer=retryer
-    ):
-        for item in r.json()['items']:
-            yield response.transform('changes', item, version=version)
+    if config is None:
+        config = Config()
 
-@validate_key
-def filter(
-    resource_path,
-    payload=None,
-    *,
-    domain=None,
-    version=None,
-    key=None,
-    headers=None,
-    retryer=default_retryer
-):
+    for r in get_all_changes(token_or_date, params, config):
+        for item in r.json()['items']:
+            yield response.transform('changes', item, version=config.version)
+
+def filter(resource_path: str, payload: Mapping = None, config: Config = None) -> requests.Response:
     if payload is None:
         payload = {}
 
-    base_url = base_url_for(domain=domain, version=version)
-    collection = get_collection_from_resource_path(resource_path, version=version)
+    if config is None:
+        config = Config()
+
+    collection = _get_collection_from_resource_path(resource_path, config)
     with requests.Session() as s:
-        prepped = s.prepare_request(requests.Request('POST', base_url + resource_path, json=payload))
+        prepped = s.prepare_request(requests.Request('POST', config.base_url + resource_path, json=payload))
         prepped.headers = {**prepped.headers, **headers}
 
         try:
-            r = retryer(s.send, prepped)
+            r = config.retryer(s.send, prepped)
             r.raise_for_status()
             return r
         except HTTPError as http_exc:
@@ -319,32 +207,19 @@ def filter(
                 f'Unexpected exception for POST request for resource path {resource_path} with payload {payload}'
             ) from e
 
-def filter_all(
-    resource_path,
-    payload=None,
-    *,
-    domain=None,
-    version=None,
-    key=None,
-    headers=None,
-    retryer=default_retryer
-):
+def filter_all(resource_path: str, payload: Mapping = None, config: Config = None) -> Iterator[requests.Response]:
     if payload is None:
         payload = {}
 
+    if config is None:
+        config = Config()
+
+    # TODO: Problems with these next few lines!
     count_payload = copy.deepcopy(payload)
     count_payload = payload
     count_payload['size'] = 0
     count_payload['offset'] = 0
-    r = filter(
-        resource_path,
-        payload=count_payload,
-        domain=domain,
-        version=version,
-        key=key,
-        headers=headers,
-        retryer=retryer
-    )
+    r = filter(resource_path, count_payload, config)
     json = r.json()
     record_count = int(json['count'])
     window_size = int(payload.setdefault('size', 100))
@@ -355,18 +230,11 @@ def filter_all(
 
     for window in range(0, window_count):
         payload['offset'] = window * window_size
-        yield filter(
-            resource_path,
-            payload=payload,
-            domain=domain,
-            version=version,
-            key=key,
-            headers=headers,
-            retryer=retryer
-        )
+        yield filter(resource_path, payload, config)
 
-default_items_per_group = 100
-def group_items(items=[], items_per_group=default_items_per_group):
+def group_items(items: List = None, items_per_group: int = 100) -> Iterator[List]:
+    if items is None:
+        items = []
     items_per_group = int(items_per_group)
     if items_per_group <= 0:
         items_per_group = default_items_per_group
@@ -378,133 +246,169 @@ def group_items(items=[], items_per_group=default_items_per_group):
         end += items_per_group
 
 def filter_all_by_uuid(
-    resource_path,
-    payload={},
-    *,
-    uuids=[],
-    uuids_per_request=100,
-    domain=None,
-    version=None,
-    key=None,
-    headers=None,
-    retryer=default_retryer
-):
+    resource_path: str,
+    payload: Mapping = None,
+    uuids: List = None,
+    uuids_per_request: int = 100,
+    config: Config = None
+) -> Iterator[requests.Response]:
+    if payload is None:
+        payload = {}
+
+    if uuids is None:
+        uuids = []
+
+    if config is None:
+        config = Config()
+
     for uuid_group in group_items(items=uuids, items_per_group=uuids_per_request):
+        # TODO: Merge this with any payload passed in by the caller!
         payload = {
             'uuids': uuid_group,
             'size': len(uuid_group),
         }
-        yield filter(
-            resource_path,
-            payload=payload,
-            domain=domain,
-            version=version,
-            key=key,
-            headers=headers,
-            retryer=retryer
-        )
+        yield filter(resource_path, payload, config)
 
 def filter_all_by_id(
-    resource_path,
-    payload={},
-    *,
-    ids=[],
-    ids_per_request=100,
-    domain=None,
-    version=None,
-    key=None,
-    headers=None,
-    retryer=default_retryer
-):
+    resource_path: str,
+    payload: Mapping = None,
+    ids: List = None,
+    ids_per_request: int = 100,
+    config: Config = None
+) -> Iterator[requests.Response]:
+    if payload is None:
+        payload = {}
+
+    if ids is None:
+        ids = []
+
+    if config is None:
+        config = Config()
+
     for id_group in group_items(items=ids, items_per_group=ids_per_request):
+        # TODO: Merge this with any payload passed in by the caller!
         payload = {
             'ids': id_group,
             'size': len(id_group),
         }
-        yield filter(
-            resource_path,
-            payload=payload,
-            domain=domain,
-            version=version,
-            key=key,
-            headers=headers,
-            retryer=retryer
-        )
+        yield filter(resource_path, payload, config)
 
 def filter_all_transformed(
-    resource_path,
-    payload={},
-    *,
-    domain=None,
-    version=None,
-    key=None,
-    headers=None,
-    retryer=default_retryer
-):
-    collection = get_collection_from_resource_path(resource_path, version=version)
-    for r in filter_all(
-        resource_path,
-        payload=payload,
-        domain=domain,
-        version=version,
-        key=key,
-        headers=headers,
-        retryer=retryer
-    ):
+    resource_path: str,
+    payload: Mapping = None,
+    config: Config = None
+) -> Iterator[addict.Dict]:
+    if payload is None:
+        payload = {}
+
+    if ids is None:
+        ids = []
+
+    if config is None:
+        config = Config()
+
+    collection = _get_collection_from_resource_path(resource_path, config)
+    for r in filter_all(resource_path, payload, config):
         for item in r.json()['items']:
-            yield response.transform(collection, item, version=version)
+            yield response.transform(collection, item, version=config.version)
 
 def filter_all_by_uuid_transformed(
-    resource_path,
-    payload={},
-    *,
-    uuids=[],
-    uuids_per_request=100,
-    domain=None,
-    version=None,
-    key=None,
-    headers=None,
-    retryer=default_retryer
-):
-    collection = get_collection_from_resource_path(resource_path, version=version)
+    resource_path: str,
+    payload: Mapping = None,
+    uuids: List = None,
+    uuids_per_request: int = 100,
+    config: Config = None
+) -> Iterator[addict.Dict]:
+    if payload is None:
+        payload = {}
+
+    if uuids is None:
+        uuids = []
+
+    if config is None:
+        config = Config()
+
+    collection = _get_collection_from_resource_path(resource_path, config)
     for r in filter_all_by_uuid(
         resource_path,
         payload=payload,
         uuids=uuids,
         uuids_per_request=uuids_per_request,
-        domain=domain,
-        version=version,
-        key=key,
-        headers=headers,
-        retryer=retryer
+        config=config
     ):
         for item in r.json()['items']:
-            yield response.transform(collection, item, version=version)
+            yield response.transform(collection, item, version=config.version)
 
 def filter_all_by_id_transformed(
-    resource_path,
-    payload={},
-    *,
-    ids=[],
-    ids_per_request=100,
-    domain=None,
-    version=None,
-    key=None,
-    headers=None,
-    retryer=default_retryer
-):
-    collection = get_collection_from_resource_path(resource_path, version=version)
+    resource_path: str,
+    payload: Mapping = None,
+    ids: List = None,
+    ids_per_request: int = 100,
+    config: Config = None
+) -> Iterator[addict.Dict]:
+    if payload is None:
+        payload = {}
+
+    if ids is None:
+        ids = []
+
+    if config is None:
+        config = Config()
+
+    collection = _get_collection_from_resource_path(resource_path, config)
     for r in filter_all_by_id(
         resource_path,
         payload=payload,
         ids=ids,
         ids_per_request=ids_per_request,
-        domain=domain,
-        version=version,
-        key=key,
-        headers=headers,
-        retryer=retryer
+        config=config
     ):
         for item in r.json()['items']:
-            yield response.transform(collection, item, version=version)
+            yield response.transform(collection, item, version=config.version)
 
+@attr.s(auto_attribs=True, frozen=True)
+class Config():
+    protocol: str = attr.ib(
+        default='https',
+        validator=[
+            attr.validators.instance_of(str),
+            attr.validators.in_(['http','https']),
+        ]
+    )
+    domain: str = attr.ib(
+        factory=env_domain,
+        validator=attr.validators.instance_of(str)
+    )
+    path: str = attr.ib(
+        default='ws/api',
+        validator=[
+            attr.validators.instance_of(str),
+        ]
+    )
+    version: str = attr.ib(
+        factory=default_version,
+        validator=attr.validators.instance_of(str)
+    )
+    @version.validator
+    def validate_version(self, attribute, value):
+        if not valid_version(value):
+            # This needs work. Received this error:
+            # TypeError: __init__() missing 2 required keyword-only arguments: 'version' and 'version_varname'
+            raise PureAPIInvalidVersionError()
+    key: str = attr.ib(
+        factory=env_key,
+        validator=attr.validators.instance_of(str)
+    )
+    headers: Mapping = attr.ib(
+        factory=default_headers,
+        validator=attr.validators.instance_of(MutableMapping)
+    )
+    retryer: Callable = attr.ib(
+        factory=default_retryer,
+        validator=attr.validators.is_callable()
+    )
+    base_url: str = attr.ib(init=False)
+
+    def __attrs_post_init__(self):
+        self.headers['api-key'] = self.key
+        object.__setattr__(self, 'base_url', f'{self.protocol}://{self.domain}/{self.path}/{self.version}/')

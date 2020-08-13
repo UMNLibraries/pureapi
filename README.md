@@ -20,8 +20,10 @@ pureapi requires Python >= 3.
 ### Environment Variables
 
 To connect to the Pure server, including when running `tests/test_client.py`, the
-`PURE_API_DOMAIN` and `PURE_API_KEY` environment variables must be set. One option is to set them in a
-`.env` file. See `env.dist` for an example.
+`PURE_API_DOMAIN` and `PURE_API_KEY` environment variables must be set. An optional variable,
+`PURE_API_VERSION`, sets the default version.
+
+One to set these environment variables is via a `.env` file. See `env.dist` for an example.
 
 ### pyenv, venv, and poetry
 
