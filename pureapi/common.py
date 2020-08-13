@@ -25,7 +25,8 @@ env_version_varname = 'PURE_API_VERSION'
 def env_version():
     return os.environ.get(env_version_varname)
 
-default_version = env_version() if env_version() is not None else latest_version
+def default_version():
+    return env_version() if env_version() is not None else latest_version
 
 class PureAPIMissingVersionError(ValueError, PureAPIException):
     def __init__(self, *args, **kwargs):
