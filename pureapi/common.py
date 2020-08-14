@@ -33,36 +33,22 @@ class PureAPIMissingVersionError(ValueError, PureAPIException):
         super().__init__(f'No version found in kwargs, default_version, or {env_version_varname}', *args, **kwargs)
 
 class PureAPIInvalidVersionError(ValueError, PureAPIException):
-    def __init__(self, *args, version, version_varname, **kwargs):
-        super().__init__(f'Invalid version "{version}" in {version_varname}', *args, **kwargs)
+    def __init__(self, version, *args, **kwargs):
+        super().__init__(f'Invalid version "{version}"', *args, **kwargs)
 
 def validate_version(func):
     @functools.wraps(func)
     def wrapper_validate_version(*args, **kwargs):
         if 'version' in kwargs and kwargs['version'] is not None:
             if not valid_version(kwargs['version']):
-                raise PureAPIInvalidVersionError(
-                    version=kwargs['version'],
-                    version_varname="kwargs['version']"
-                )
+                raise PureAPIInvalidVersionError(kwargs['version'])
         else:
             kwargs['version'] = None
-        if kwargs['version'] is None and default_version is not None:
-            if valid_version(default_version):
-                kwargs['version'] = default_version
+        if kwargs['version'] is None and default_version() is not None:
+            if valid_version(default_version()):
+                kwargs['version'] = default_version()
             else:
-                raise PureAPIInvalidVersionError(
-                    version=default_version,
-                    version_varname='default_version'
-                )
-        if kwargs['version'] is None and env_version() is not None:
-            if valid_version(env_version()):
-                kwargs['version'] = env_version()
-            else:
-                raise PureAPIInvalidVersionError(
-                    version=env_version(),
-                    version_varname=env_version_varname
-                )
+                raise PureAPIInvalidVersionError(default_version())
         if kwargs['version'] is None:
             raise PureAPIMissingVersionError()
         return func(*args, **kwargs)

@@ -15,8 +15,8 @@ def test_valid_version():
     assert not common.valid_version('bogus')
 
 def test_default_version():
-    assert common.default_version in common.versions
-    assert common.valid_version(common.default_version)
+    assert common.default_version() in common.versions
+    assert common.valid_version(common.default_version())
 
 def test_latest_version():
     assert common.latest_version in common.versions
@@ -28,7 +28,7 @@ def test_env_version_is_none():
     importlib.reload(common)
 
     assert common.env_version() is None
-    assert common.default_version == common.latest_version
+    assert common.default_version() == common.latest_version
 
 @pytest.mark.forked
 def test_env_version_is_not_none():
@@ -37,7 +37,7 @@ def test_env_version_is_not_none():
 
     assert common.env_version() == os.environ.get(common.env_version_varname)
     assert common.env_version() == common.latest_version
-    assert common.default_version == common.env_version()
+    assert common.default_version() == common.env_version()
 
 @pytest.mark.forked
 def test_default_version_override():
@@ -47,11 +47,7 @@ def test_default_version_override():
 
         assert common.env_version() == os.environ.get(common.env_version_varname)
         assert common.env_version() == common.oldest_version
-        assert common.default_version == common.env_version()
-
-        common.default_version = common.latest_version
-        assert common.default_version != os.environ.get(common.env_version_varname)
-        assert common.default_version != common.env_version()
+        assert common.default_version() == common.env_version()
 
 def test_schemas_for_all_versions():
     assert all(len(common.schema_for(version=version)) for version in common.versions)

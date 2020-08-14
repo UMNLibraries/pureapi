@@ -14,6 +14,57 @@ from pureapi import client, common
 
 from . import changes_including_zero_counts
 
+@pytest.mark.forked
+def test_config():
+    # Remove any default config data from env vars:
+    os.environ.pop(client.env_domain_varname)
+    os.environ.pop(client.env_key_varname)
+    os.environ.pop(common.env_version_varname)
+
+    test_domain = 'example.com'
+    test_key = '123'
+
+    with pytest.raises(TypeError, match='domain'):
+        client.Config()
+    with pytest.raises(TypeError, match='key'):
+        client.Config(domain=test_domain)
+    with pytest.raises(common.PureAPIInvalidVersionError):
+        client.Config(domain=test_domain, key=test_key, version='bogus')
+    with pytest.raises(ValueError, match='protocol'):
+        client.Config(domain=test_domain, key=test_key, protocol='bogus')
+    with pytest.raises(TypeError, match='MutableMapping'):
+        client.Config(domain=test_domain, key=test_key, headers='bogus')
+    with pytest.raises(TypeError, match='callable'):
+        client.Config(domain=test_domain, key=test_key, retryer='bogus')
+
+    config = client.Config(domain=test_domain, key=test_key)
+    assert config.headers['api-key'] == test_key
+    assert (
+        config.base_url
+        ==
+        f'{client.default_protocol()}://{test_domain}/{client.default_path()}/{common.default_version()}/'
+    )
+
+    if common.oldest_version != common.latest_version:
+        # The default is the latest version. Test that we can override it with the Config param...
+        config_oldest = client.Config(domain=test_domain, key=test_key, version=common.oldest_version)
+        assert config_oldest.version == common.oldest_version
+        assert (
+            config_oldest.base_url
+            ==
+            f'{client.default_protocol()}://{test_domain}/{client.default_path()}/{common.oldest_version}/'
+        )
+
+        # ...and with an env var:
+        os.environ[common.env_version_varname] = common.oldest_version
+        config_oldest_env = client.Config(domain=test_domain, key=test_key)
+        assert config_oldest_env.version == common.oldest_version
+        assert (
+            config_oldest_env.base_url
+            ==
+            f'{client.default_protocol()}://{test_domain}/{client.default_path()}/{common.oldest_version}/'
+        )
+
 def test_get_collection_from_resource_path():
     for resource_path in ('persons', 'persons/12345'):
         collection = client._get_collection_from_resource_path(
@@ -25,150 +76,13 @@ def test_get_collection_from_resource_path():
     with pytest.raises(common.PureAPIInvalidCollectionError):
         client._get_collection_from_resource_path('bogus', version=common.latest_version)
 
-@pytest.mark.forked
-def test_base_url_for():
-    test_domain = 'example.com'
-    # Ensure that default_domain is defined, in case the caller did not define the env var:
-    client.default_domain = test_domain
-
-    assert (
-        client._base_url_for()
-        ==
-        f'{client.default_protocol}://{client.default_domain}/{client.default_path}/{common.default_version}/'
-    )
-
-    # Start version tests with all values missing...
-
-    os.environ.pop(common.env_version_varname)
-    common.default_version = None
-    with pytest.raises(common.PureAPIMissingVersionError):
-        client._base_url_for()
-
-    # The next few tests test the precedence of version settings:
-    # 1. kwargs
-    # 2. common.default_version
-    # 3. env var
-
-    os.environ[common.env_version_varname] = 'bogus'
-    with pytest.raises(common.PureAPIInvalidVersionError, match=common.env_version_varname):
-        client._base_url_for()
-
-    os.environ[common.env_version_varname] = common.latest_version
-    assert (
-        client._base_url_for()
-        ==
-        f'{client.default_protocol}://{client.default_domain}/{client.default_path}/{common.env_version()}/'
-    )
-
-    common.default_version = 'bogus'
-    with pytest.raises(common.PureAPIInvalidVersionError, match='default_version'):
-        client._base_url_for()
-
-    if common.oldest_version != common.latest_version:
-        common.default_version = common.oldest_version
-        assert common.default_version != common.env_version()
-        assert (
-            client._base_url_for()
-            ==
-            f'{client.default_protocol}://{client.default_domain}/{client.default_path}/{common.default_version}/'
-        )
-
-    with pytest.raises(common.PureAPIInvalidVersionError, match='kwargs'):
-        client._base_url_for(version='bogus')
-
-    if common.oldest_version != common.latest_version:
-        common.default_version = common.latest_version
-        assert (
-            client._base_url_for(version=common.oldest_version)
-            ==
-            f'{client.default_protocol}://{client.default_domain}/{client.default_path}/{common.oldest_version}/'
-        )
-
-    # Done with version tests, so make sure these have valid values for later tests:
-    os.environ[common.env_version_varname] = common.default_version = common.latest_version
-
-    # Start domain tests with all values missing...
-
-    os.environ.pop(client.env_domain_varname)
-    client.default_domain = None
-    with pytest.raises(client.PureAPIMissingDomainError):
-        client._base_url_for()
-
-    # The next few tests test the precedence of domain settings:
-    # 1. kwargs
-    # 2. common.default_domain
-    # 3. env var
-
-    env_test_domain = 'env.' + test_domain
-    os.environ[client.env_domain_varname] = env_test_domain
-    assert (
-        client._base_url_for()
-        ==
-        f'{client.default_protocol}://{env_test_domain}/{client.default_path}/{common.default_version}/'
-    )
-
-    default_test_domain = 'default.' + test_domain
-    client.default_domain = default_test_domain
-    assert (
-        client._base_url_for()
-        ==
-        f'{client.default_protocol}://{default_test_domain}/{client.default_path}/{common.default_version}/'
-    )
-
-    kwargs_test_domain = 'kwargs.' + test_domain
-    client.default_domain = kwargs_test_domain
-    assert (
-        client._base_url_for(domain=kwargs_test_domain)
-        ==
-        f'{client.default_protocol}://{kwargs_test_domain}/{client.default_path}/{common.default_version}/'
-    )
-
-@pytest.mark.forked
-def test_get_validated_params():
-    ''''This tests only params unique to get(). The rest are validated by construct_base_uri(),
-    which get() calls, and so are ignored here.'''
-
-    test_domain = 'example.com'
-    # Ensure that default_domain is defined, in case the caller did not define the env var:
-    client.default_domain = test_domain
-
-    # Start key tests with all values missing...
-
-    os.environ.pop(client.env_key_varname)
-    client.default_key = None
-    client.default_headers['api-key'] = None
-    with pytest.raises(client.PureAPIMissingKeyError):
-        client.get('persons')
-
-    # Test that (in)dependence of key settings:
-
-    env_test_key = 'env_key'
-    os.environ[client.env_key_varname] = env_test_key
-    assert client.env_key() == env_test_key
-    assert client.default_key is None
-    assert client.default_headers['api-key'] is None
-
-    importlib.reload(client)
-
-    assert client.env_key() == env_test_key
-    assert client.default_key == env_test_key
-    assert client.default_headers['api-key'] == env_test_key
-
-    client.default_key = 'default_test_key'
-    assert client.default_key != client.env_key()
-    assert client.default_key != client.default_headers['api-key']
-
-    client.default_headers['api-key'] = 'header_test_key'
-    assert client.default_headers['api-key'] != client.env_key()
-    assert client.default_headers['api-key'] != client.default_key
-
 @pytest.mark.integration
 def test_get(version):
-    common.default_version = version
-    r_persons = client.get('persons', {'size':1, 'offset':0})
+    config = client.Config(version=version)
+    r_persons = client.get('persons', {'size':1, 'offset':0}, config)
     assert r_persons.status_code == 200
 
-    r = client.get('organisational-units', {'size':1, 'offset':0})
+    r = client.get('organisational-units', {'size':1, 'offset':0}, config)
     assert r.status_code == 200
 
     d = r.json()
@@ -178,7 +92,7 @@ def test_get(version):
     org = d['items'][0]
     uuid = org['uuid']
 
-    r_uuid = client.get('organisational-units/' + uuid, {'size':1, 'offset':0})
+    r_uuid = client.get('organisational-units/' + uuid, {'size':1, 'offset':0}, config)
     assert r_uuid.status_code == 200
 
     d_uuid = r.json()
@@ -224,9 +138,9 @@ def test_get(version):
 
 @pytest.mark.integration
 def test_get_person_by_classified_source_id(version):
-    common.default_version = version
+    config = client.Config(version=version)
     emplid = '2110454'
-    r = client.get('persons/' + emplid, {'idClassification':'classified_source'})
+    r = client.get('persons/' + emplid, {'idClassification':'classified_source'}, config)
     assert r.status_code == 200
 
     person = r.json()
@@ -272,10 +186,10 @@ def test_get_person_by_classified_source_id(version):
 
 @pytest.mark.integration
 def test_get_all_changes(version):
-    common.default_version = version
+    config = client.Config(version=version)
     yesterday = date.today() - timedelta(days=1)
     request_count = 0
-    for r in client.get_all_changes(yesterday.isoformat()):
+    for r in client.get_all_changes(yesterday.isoformat(), config=config):
         assert r.status_code == 200
         json = r.json()
         assert json['count'] > 0
@@ -294,7 +208,7 @@ class MockResponse:
         return json.loads(changes_including_zero_counts.changes[self.token_or_date])
 
 def test_get_all_changes_skipping_zero_counts(monkeypatch):
-    def mock_get(path, **kwargs):
+    def mock_get(path, *args, **kwargs):
         (resource_path, token_or_date) = path.split('/')
         return MockResponse(token_or_date)
 
@@ -307,7 +221,7 @@ def test_get_all_changes_skipping_zero_counts(monkeypatch):
 
 @pytest.mark.integration
 def test_get_all_changes_transformed(version):
-    common.default_version = version
+    config = client.Config(version=version)
     """
     Strange change records:
     {'family': 'dk.atira.pure.api.shared.model.event.Event', 'familySystemName': 'Event'}
@@ -316,7 +230,7 @@ def test_get_all_changes_transformed(version):
     yesterday = date.today() - timedelta(days=1)
     transformed_count = 0
     transformed_limit = 10
-    for change in client.get_all_changes_transformed(yesterday.isoformat()):
+    for change in client.get_all_changes_transformed(yesterday.isoformat(), config=config):
         assert isinstance(change, Dict)
         if 'configurationType' in change:
             assert 'identifier' in change
@@ -335,28 +249,28 @@ def test_get_all_changes_transformed(version):
 
 @pytest.mark.integration
 def test_get_all_transformed(version):
-    common.default_version = version
-    r = client.get('organisational-units', {'size':1, 'offset':0})
+    config = client.Config(version=version)
+    r = client.get('organisational-units', {'size':1, 'offset':0}, config)
     d = r.json()
     count = d['count']
 
     transformed_count = 0
-    for org in client.get_all_transformed('organisational-units'):
+    for org in client.get_all_transformed('organisational-units', config=config):
         assert isinstance(org, Dict)
         assert 'uuid' in org
         transformed_count += 1
     assert transformed_count == count
 
-    for person in client.get_all_transformed('persons'):
+    for person in client.get_all_transformed('persons', config=config):
         assert isinstance(person, Dict)
         assert 'uuid' in person
         break
 
 @pytest.mark.integration
 def test_filter(version):
-    common.default_version = version
+    config = client.Config(version=version)
     org_uuid = None
-    for org in client.get_all_transformed('organisational-units', params={'size':1, 'offset':0}):
+    for org in client.get_all_transformed('organisational-units', params={'size':1, 'offset':0}, config=config):
         org_uuid = org.uuid
         break
 
@@ -369,7 +283,7 @@ def test_filter(version):
             ]
         }
     }
-    r = client.filter('research-outputs', payload)
+    r = client.filter('research-outputs', payload, config)
     assert r.status_code == 200
 
     d = r.json()
@@ -416,7 +330,7 @@ def test_filter(version):
 
 
 @pytest.fixture(params=[x for x in range(0,3)])
-def  test_group_items_params(request):
+def test_group_items_params(request):
     params_sets = [
         {
             'items_per_group': 1,
@@ -491,16 +405,16 @@ def test_group_items(test_group_items_params):
 
 @pytest.mark.integration
 def test_filter_all_by_uuid(version):
-    common.default_version = version
+    config = client.Config(version=version)
     expected_count = 14
     ro_uuid_with_author_collaboration = '16e1efc1-92a2-4eca-a8d0-628bb2deda8a' # Not many records have these.
     uuids = [ro_uuid_with_author_collaboration]
-    for ro in client.get_all_transformed('research-outputs', params={'size': expected_count}):
+    for ro in client.get_all_transformed('research-outputs', params={'size': expected_count}, config=config):
         uuids.append(ro.uuid)
         if len(uuids) == expected_count:
             break
     downloaded_count = 0
-    for r in client.filter_all_by_uuid('research-outputs', uuids=uuids, uuids_per_request=10):
+    for r in client.filter_all_by_uuid('research-outputs', uuids=uuids, uuids_per_request=10, config=config):
         assert r.status_code == 200
         d = r.json()
         downloaded_count += d['count']
@@ -527,31 +441,31 @@ def test_filter_all_by_uuid(version):
 
 @pytest.mark.integration
 def test_filter_all_by_uuid_transformed(version):
-    common.default_version = version
+    config = client.Config(version=version)
     limit = 10
     uuids = []
-    for ro in client.get_all_transformed('research-outputs', params={'size': limit}):
+    for ro in client.get_all_transformed('research-outputs', params={'size': limit}, config=config):
         uuids.append(ro.uuid)
         if len(uuids) == limit:
             break
     ros_by_uuid = []
-    for ro in client.filter_all_by_uuid_transformed('research-outputs', uuids=uuids):
+    for ro in client.filter_all_by_uuid_transformed('research-outputs', uuids=uuids, config=config):
         assert ro.uuid in uuids
         ros_by_uuid.append(ro)
     assert len(ros_by_uuid) == len(uuids)
 
 @pytest.mark.integration
 def test_filter_all_by_id(version):
-    common.default_version = version
+    config = client.Config(version=version)
     expected_count = 10
     ids = []
-    for person in client.get_all_transformed('persons', params={'size': expected_count}):
+    for person in client.get_all_transformed('persons', params={'size': expected_count}, config=config):
         for _id in person.ids:
             if _id.type.uri == '/dk/atira/pure/person/personsources/employee':
                 ids.append(_id.value.value)
         if len(ids) == expected_count:
             break
-    for r in client.filter_all_by_id('persons', ids=ids):
+    for r in client.filter_all_by_id('persons', ids=ids, config=config):
         assert r.status_code == 200
         d = r.json()
         # Should get only one response:
@@ -560,17 +474,17 @@ def test_filter_all_by_id(version):
 
 @pytest.mark.integration
 def test_filter_all_by_id_transformed(version):
-    common.default_version = version
+    config = client.Config(version=version)
     limit = 10
     ids = []
-    for person in client.get_all_transformed('persons', params={'size': limit}):
+    for person in client.get_all_transformed('persons', params={'size': limit}, config=config):
         for _id in person.ids:
             if _id.type.uri == '/dk/atira/pure/person/personsources/employee':
                 ids.append(_id.value.value)
         if len(ids) == limit:
             break
     persons_by_id = []
-    for person in client.filter_all_by_id_transformed('persons', ids=ids):
+    for person in client.filter_all_by_id_transformed('persons', ids=ids, config=config):
         for _id in person.ids:
             if _id.type.uri == '/dk/atira/pure/person/personsources/employee':
                 assert _id.value.value in ids
@@ -579,19 +493,19 @@ def test_filter_all_by_id_transformed(version):
 
 @pytest.mark.integration
 def test_filter_all_transformed(version):
-    common.default_version = version
+    config = client.Config(version=version)
     type_uri = "/dk/atira/pure/organisation/organisationtypes/organisation/peoplesoft_deptid"
     payload = {
         "organisationalUnitTypeUris": [
             type_uri
         ]
     }
-    r = client.filter('organisational-units', payload)
+    r = client.filter('organisational-units', payload, config)
     d = r.json()
     count = d['count']
 
     transformed_count = 0
-    for org in client.filter_all_transformed('organisational-units', payload):
+    for org in client.filter_all_transformed('organisational-units', payload, config=config):
         assert isinstance(org, Dict)
         assert 'uuid' in org
         assert org['type'][0]['uri'] == type_uri
@@ -600,14 +514,14 @@ def test_filter_all_transformed(version):
 
 @pytest.mark.integration
 def test_get_exception(version):
-    common.default_version = version
+    config = client.Config(version=version)
     with pytest.raises(client.PureAPIHTTPError, match='404') as exc_info:
-        client.get('persons/bogus-id')
+        client.get('persons/bogus-id', config=config)
     assert exc_info.errisinstance(HTTPError)
 
 @pytest.mark.integration
 def test_filter_exception(version):
-    common.default_version = version
+    config = client.Config(version=version)
     #with pytest.raises(client.PureAPIHTTPError, match='404') as exc_info:
     with pytest.raises(client.PureAPIHTTPError, match='500') as exc_info:
         payload = {
@@ -619,5 +533,5 @@ def test_filter_exception(version):
                 ]
             }
         }
-        r = client.filter('persons', payload=payload)
+        r = client.filter('persons', payload=payload, config=config)
     assert exc_info.errisinstance(HTTPError)

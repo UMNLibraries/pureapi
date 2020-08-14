@@ -1,22 +1,28 @@
-import builtins
 import copy
 #import functools
-import os
 import math
-from typing import Callable, List, Mapping, MutableMapping
+import os
+from typing import Callable, Iterator, List, Mapping, MutableMapping
 
+import addict
 import attr
 import requests
 from requests.exceptions import RequestException, HTTPError
 from tenacity import Retrying, wait_exponential
 
 from pureapi import response
-from pureapi.common import default_version, env_version, latest_version, valid_collection, valid_version, validate_version, PureAPIInvalidCollectionError, PureAPIMissingVersionError, PureAPIInvalidVersionError
+from pureapi.common import default_version, valid_collection, valid_version, PureAPIInvalidCollectionError, PureAPIInvalidVersionError
 from pureapi.exceptions import PureAPIException
 
 env_key_varname = 'PURE_API_KEY'
 def env_key() -> str:
     return os.environ.get(env_key_varname)
+
+def default_protocol() -> str:
+    return 'https'
+
+def default_path() -> str:
+    return 'ws/api'
 
 def default_headers() -> MutableMapping:
     return {
@@ -34,7 +40,7 @@ env_domain_varname = 'PURE_API_DOMAIN'
 def env_domain() -> str:
     return os.environ.get(env_domain_varname)
 
-def _get_collection_from_resource_path(resource_path: str, config: Config) -> str:
+def _get_collection_from_resource_path(resource_path: str, version: str) -> str:
     '''Extracts the collection name from a Pure API URL resource path.
 
     Args:
@@ -48,8 +54,8 @@ def _get_collection_from_resource_path(resource_path: str, config: Config) -> st
         common.PureAPIInvalidCollectionError: If the extracted collection is invalid for the given API version.
     '''
     collection = resource_path.split('/')[0]
-    if not valid_collection(collection=collection, version=config.version):
-        raise PureAPIInvalidCollectionError(collection=collection, version=config.version)
+    if not valid_collection(collection=collection, version=version):
+        raise PureAPIInvalidCollectionError(collection=collection, version=version)
     return collection
 
 class PureAPIHTTPError(HTTPError, PureAPIClientException):
@@ -60,6 +66,51 @@ class PureAPIRequestException(RequestException, PureAPIClientException):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
+@attr.s(auto_attribs=True, frozen=True)
+class Config():
+    protocol: str = attr.ib(
+        factory=default_protocol,
+        validator=[
+            attr.validators.instance_of(str),
+            attr.validators.in_(['http','https']),
+        ]
+    )
+    domain: str = attr.ib(
+        factory=env_domain,
+        validator=attr.validators.instance_of(str)
+    )
+    path: str = attr.ib(
+        factory=default_path,
+        validator=[
+            attr.validators.instance_of(str),
+        ]
+    )
+    version: str = attr.ib(
+        factory=default_version,
+        validator=attr.validators.instance_of(str)
+    )
+    @version.validator
+    def validate_version(self, attribute, value):
+        if not valid_version(value):
+            raise PureAPIInvalidVersionError(value)
+    key: str = attr.ib(
+        factory=env_key,
+        validator=attr.validators.instance_of(str)
+    )
+    headers: Mapping = attr.ib(
+        factory=default_headers,
+        validator=attr.validators.instance_of(MutableMapping)
+    )
+    retryer: Callable = attr.ib(
+        factory=default_retryer,
+        validator=attr.validators.is_callable()
+    )
+    base_url: str = attr.ib(init=False)
+
+    def __attrs_post_init__(self):
+        self.headers['api-key'] = self.key
+        object.__setattr__(self, 'base_url', f'{self.protocol}://{self.domain}/{self.path}/{self.version}/')
+
 def get(resource_path: str, params: Mapping = None, config: Config = None) -> requests.Response:
     if params is None:
         params = {}
@@ -67,7 +118,7 @@ def get(resource_path: str, params: Mapping = None, config: Config = None) -> re
     if config is None:
         config = Config()
 
-    collection = _get_collection_from_resource_path(resource_path, config)
+    collection = _get_collection_from_resource_path(resource_path, config.version)
     with requests.Session() as s:
         prepped = s.prepare_request(requests.Request('GET', config.base_url + resource_path, params=params))
         prepped.headers = {**prepped.headers, **config.headers}
@@ -123,7 +174,7 @@ def get_all_transformed(
     if config is None:
         config = Config()
 
-    collection = _get_collection_from_resource_path(resource_path, config)
+    collection = _get_collection_from_resource_path(resource_path, config.version)
     for r in get_all(resource_path, params, config):
         for item in r.json()['items']:
             yield response.transform(collection, item, version=config.version)
@@ -137,7 +188,7 @@ def get_all_changes(token_or_date: str, params: Mapping = None, config: Config =
 
     next_token_or_date = token_or_date
     while(True):
-        r = get( 'changes/' + next_token_or_date, params, config)
+        r = get('changes/' + next_token_or_date, params, config)
         json = r.json()
 
         if json['moreChanges'] is True:
@@ -181,10 +232,10 @@ def filter(resource_path: str, payload: Mapping = None, config: Config = None) -
     if config is None:
         config = Config()
 
-    collection = _get_collection_from_resource_path(resource_path, config)
+    collection = _get_collection_from_resource_path(resource_path, config.version)
     with requests.Session() as s:
         prepped = s.prepare_request(requests.Request('POST', config.base_url + resource_path, json=payload))
-        prepped.headers = {**prepped.headers, **headers}
+        prepped.headers = {**prepped.headers, **config.headers}
 
         try:
             r = config.retryer(s.send, prepped)
@@ -301,13 +352,10 @@ def filter_all_transformed(
     if payload is None:
         payload = {}
 
-    if ids is None:
-        ids = []
-
     if config is None:
         config = Config()
 
-    collection = _get_collection_from_resource_path(resource_path, config)
+    collection = _get_collection_from_resource_path(resource_path, config.version)
     for r in filter_all(resource_path, payload, config):
         for item in r.json()['items']:
             yield response.transform(collection, item, version=config.version)
@@ -328,7 +376,7 @@ def filter_all_by_uuid_transformed(
     if config is None:
         config = Config()
 
-    collection = _get_collection_from_resource_path(resource_path, config)
+    collection = _get_collection_from_resource_path(resource_path, config.version)
     for r in filter_all_by_uuid(
         resource_path,
         payload=payload,
@@ -355,7 +403,7 @@ def filter_all_by_id_transformed(
     if config is None:
         config = Config()
 
-    collection = _get_collection_from_resource_path(resource_path, config)
+    collection = _get_collection_from_resource_path(resource_path, config.version)
     for r in filter_all_by_id(
         resource_path,
         payload=payload,
@@ -366,49 +414,3 @@ def filter_all_by_id_transformed(
         for item in r.json()['items']:
             yield response.transform(collection, item, version=config.version)
 
-@attr.s(auto_attribs=True, frozen=True)
-class Config():
-    protocol: str = attr.ib(
-        default='https',
-        validator=[
-            attr.validators.instance_of(str),
-            attr.validators.in_(['http','https']),
-        ]
-    )
-    domain: str = attr.ib(
-        factory=env_domain,
-        validator=attr.validators.instance_of(str)
-    )
-    path: str = attr.ib(
-        default='ws/api',
-        validator=[
-            attr.validators.instance_of(str),
-        ]
-    )
-    version: str = attr.ib(
-        factory=default_version,
-        validator=attr.validators.instance_of(str)
-    )
-    @version.validator
-    def validate_version(self, attribute, value):
-        if not valid_version(value):
-            # This needs work. Received this error:
-            # TypeError: __init__() missing 2 required keyword-only arguments: 'version' and 'version_varname'
-            raise PureAPIInvalidVersionError()
-    key: str = attr.ib(
-        factory=env_key,
-        validator=attr.validators.instance_of(str)
-    )
-    headers: Mapping = attr.ib(
-        factory=default_headers,
-        validator=attr.validators.instance_of(MutableMapping)
-    )
-    retryer: Callable = attr.ib(
-        factory=default_retryer,
-        validator=attr.validators.is_callable()
-    )
-    base_url: str = attr.ib(init=False)
-
-    def __attrs_post_init__(self):
-        self.headers['api-key'] = self.key
-        object.__setattr__(self, 'base_url', f'{self.protocol}://{self.domain}/{self.path}/{self.version}/')
