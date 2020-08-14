@@ -1,5 +1,4 @@
 import copy
-#import functools
 import math
 import os
 from typing import Callable, Iterator, List, Mapping, MutableMapping
@@ -265,9 +264,7 @@ def filter_all(resource_path: str, payload: Mapping = None, config: Config = Non
     if config is None:
         config = Config()
 
-    # TODO: Problems with these next few lines!
     count_payload = copy.deepcopy(payload)
-    count_payload = payload
     count_payload['size'] = 0
     count_payload['offset'] = 0
     r = filter(resource_path, count_payload, config)
