@@ -1,4 +1,3 @@
-import copy
 import math
 import os
 from typing import Callable, Iterator, List, Mapping, MutableMapping
@@ -150,17 +149,24 @@ def get_all(resource_path: str, params: Mapping = None, config: Config = None) -
     if config is None:
         config = Config()
 
-    r = get(resource_path, params={'size': 0, 'offset': 0}, config=config)
+    count_params = {
+        **params,
+        'size': 0,
+        'offset': 0,
+    }
+    r = get(resource_path, count_params, config)
     json = r.json()
     record_count = int(json['count'])
     window_size = int(params['size']) if 'size' in params else 100
     window_count = int(math.ceil(float(record_count) / window_size))
 
     for window in range(0, window_count):
-        offset = window * window_size
-        size = window_size
-        window_params = {'offset': offset, 'size': size}
-        yield get(resource_path, params={**params, **window_params}, config=config)
+        window_params = {
+            **params,
+            'offset': window * window_size,
+            'size': window_size,
+        }
+        yield get(resource_path, window_params, config)
 
 def get_all_transformed(
     resource_path: str,
@@ -264,9 +270,11 @@ def filter_all(resource_path: str, payload: Mapping = None, config: Config = Non
     if config is None:
         config = Config()
 
-    count_payload = copy.deepcopy(payload)
-    count_payload['size'] = 0
-    count_payload['offset'] = 0
+    count_payload = {
+        **payload,
+        'size': 0,
+        'offset': 0,
+    }
     r = filter(resource_path, count_payload, config)
     json = r.json()
     record_count = int(json['count'])
@@ -277,8 +285,11 @@ def filter_all(resource_path: str, payload: Mapping = None, config: Config = Non
     window_count = int(math.ceil(float(record_count) / window_size))
 
     for window in range(0, window_count):
-        payload['offset'] = window * window_size
-        yield filter(resource_path, payload, config)
+        window_payload = {
+            **payload,
+            'offset': window * window_size,
+        }
+        yield filter(resource_path, window_payload, config)
 
 def group_items(items: List = None, items_per_group: int = 100) -> Iterator[List]:
     if items is None:
@@ -310,12 +321,12 @@ def filter_all_by_uuid(
         config = Config()
 
     for uuid_group in group_items(items=uuids, items_per_group=uuids_per_request):
-        # TODO: Merge this with any payload passed in by the caller!
-        payload = {
+        group_payload = {
+            **payload,
             'uuids': uuid_group,
             'size': len(uuid_group),
         }
-        yield filter(resource_path, payload, config)
+        yield filter(resource_path, group_payload, config)
 
 def filter_all_by_id(
     resource_path: str,
@@ -334,12 +345,12 @@ def filter_all_by_id(
         config = Config()
 
     for id_group in group_items(items=ids, items_per_group=ids_per_request):
-        # TODO: Merge this with any payload passed in by the caller!
-        payload = {
+        group_payload = {
+            **payload,
             'ids': id_group,
             'size': len(id_group),
         }
-        yield filter(resource_path, payload, config)
+        yield filter(resource_path, group_payload, config)
 
 def filter_all_transformed(
     resource_path: str,
