@@ -1,26 +1,27 @@
 import os
+from typing import Callable, MutableMapping
 
 from addict import Dict
 
 from pureapi.common import validate_collection
 
-def default(record):
+def default(record: MutableMapping) -> Dict:
     d = Dict(record)
     return d
 
-def change(record):
+def change(record: MutableMapping) -> Dict:
     d = Dict(record)
     return d
 change_516 = change_517 = change
 
-def external_organisation(record):
+def external_organisation(record: MutableMapping) -> Dict:
     d = Dict(record)
     d.info.setdefault('previousUuids', [])
     d.setdefault('pureId', None)
     return d
 external_organisation_516 = external_organisation_517 = external_organisation
 
-def external_person(record):
+def external_person(record: MutableMapping) -> Dict:
     d = Dict(record)
     d.info.setdefault('previousUuids', [])
     d.setdefault('name', Dict())
@@ -29,7 +30,7 @@ def external_person(record):
     return d
 external_person_516 = external_person_517 = external_person
 
-def organisational_unit(record):
+def organisational_unit(record: MutableMapping) -> Dict:
     d = Dict(record)
     d.info.setdefault('previousUuids', [])
 
@@ -49,7 +50,7 @@ def organisational_unit(record):
     return d
 organisational_unit_516 = organisational_unit_517 = organisational_unit
 
-def person(record):
+def person(record: MutableMapping) -> Dict:
     d = Dict(record)
     d.info.setdefault('previousUuids', [])
     d.setdefault('name', Dict())
@@ -65,7 +66,7 @@ def person(record):
     return d
 person_516 = person_517 = person
 
-def research_output(record):
+def research_output(record: MutableMapping) -> Dict:
     d = Dict(record)
     d.setdefault('electronicVersions', [])
     d.info.setdefault('additionalExternalIds', [])
@@ -78,10 +79,7 @@ def research_output(record):
 research_output_516 = research_output_517 = research_output
 
 @validate_collection
-def transformer_for(*, collection, version=None):
-    #print('version = ', version)
-    #print('default_version = ', default_version)
-    #print('env_version = ', env_version)
+def transformer_for(*, collection: str, version: str = None) -> Callable[[MutableMapping], Dict]:
     transformer_basename = {
         'changes': 'change',
         'external-organisations': 'external_organisation',
@@ -93,6 +91,6 @@ def transformer_for(*, collection, version=None):
     transformer_name = 'default' if transformer_basename is None else f'{transformer_basename}_{version}'
     return globals()[transformer_name]
 
-def transform(collection, record, *, version=None):
+def transform(collection: str, record: MutableMapping, *, version: str = None) -> Dict:
     transformer = transformer_for(collection=collection, version=version)
     return transformer(record)
