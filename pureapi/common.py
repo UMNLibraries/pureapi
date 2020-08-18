@@ -2,6 +2,7 @@ import functools
 import json
 import os
 import pathlib
+from typing import Callable, MutableMapping, Tuple
 
 from pureapi.exceptions import PureAPIException
 
@@ -16,16 +17,16 @@ versions = tuple(
     )
 )
 
-def valid_version(version):
+def valid_version(version: str) -> bool:
     return (version in versions)
 
 latest_version = str(max([int(version) for version in versions]))
 oldest_version = str(min([int(version) for version in versions]))
 env_version_varname = 'PURE_API_VERSION'
-def env_version():
+def env_version() -> str:
     return os.environ.get(env_version_varname)
 
-def default_version():
+def default_version() -> str:
     return env_version() if env_version() is not None else latest_version
 
 class PureAPIMissingVersionError(ValueError, PureAPIException):
@@ -54,32 +55,32 @@ def validate_version(func):
         return func(*args, **kwargs)
     return wrapper_validate_version
 
-def schema_516():
+def schema_516() -> MutableMapping:
     with open(schemas_path  / '516/swagger.json') as json_file:
         return json.load(json_file)
 
-def schema_517():
+def schema_517() -> MutableMapping:
     with open(schemas_path  / '517/swagger.json') as json_file:
         return json.load(json_file)
 
 @functools.lru_cache(maxsize=None)
 @validate_version
-def schema_for(*, version=None):
+def schema_for(*, version: str = None) -> MutableMapping:
     return globals()[f'schema_{version}']()
 
-def collections_516():
+def collections_516() -> Tuple[str]:
     return tuple(map(lambda tag: tag['name'], schema_for(version='516')['tags']))
 
-def collections_517():
+def collections_517() -> Tuple[str]:
     return tuple(map(lambda tag: tag['name'], schema_for(version='517')['tags']))
 
 @functools.lru_cache(maxsize=None)
 @validate_version
-def collections_for(*, version):
+def collections_for(*, version: str) -> Tuple[str]:
     return globals()[f'collections_{version}']()
 
 @validate_version
-def valid_collection(*, collection, version=None):
+def valid_collection(*, collection: str, version: str = None) -> bool:
     return (collection in collections_for(version=version))
 
 class PureAPIInvalidCollectionError(ValueError, PureAPIException):
