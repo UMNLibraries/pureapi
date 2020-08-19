@@ -88,7 +88,7 @@ class Config():
         validator=attr.validators.instance_of(str)
     )
     @version.validator
-    def validate_version(self, attribute, value):
+    def validate_version(self, attribute: str, value: str) -> None:
         if not valid_version(value):
             raise PureAPIInvalidVersionError(value)
     key: str = attr.ib(
@@ -105,7 +105,7 @@ class Config():
     )
     base_url: str = attr.ib(init=False)
 
-    def __attrs_post_init__(self):
+    def __attrs_post_init__(self) -> None:
         self.headers['api-key'] = self.key
         object.__setattr__(self, 'base_url', f'{self.protocol}://{self.domain}/{self.path}/{self.version}/')
 
