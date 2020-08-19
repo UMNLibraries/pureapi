@@ -1,17 +1,17 @@
 import functools
 import json
 import os
-import pathlib
+from pathlib import Path
 from typing import Any, Callable, MutableMapping, Tuple, TypeVar, cast
 
 from pureapi.exceptions import PureAPIException
 
-schemas_path = pathlib.Path(__file__).parent.parent / 'schemas'
+schemas_path: Path = Path(__file__).parent.parent / 'schemas'
 
 # The commented out version seems more elegant, but using map() and filter() as an
 # exercise in functional programming in Python.
 #versions = tuple((item.name for item in os.scandir(schemas_path) if item.is_dir()))
-versions = tuple(
+versions: Tuple[str] = tuple(
     map(lambda item: item.name,
         filter(lambda item: item.name if item.is_dir() else None, os.scandir(schemas_path))
     )
@@ -20,9 +20,9 @@ versions = tuple(
 def valid_version(version: str) -> bool:
     return (version in versions)
 
-latest_version = str(max([int(version) for version in versions]))
-oldest_version = str(min([int(version) for version in versions]))
-env_version_varname = 'PURE_API_VERSION'
+latest_version: str = str(max([int(version) for version in versions]))
+oldest_version: str = str(min([int(version) for version in versions]))
+env_version_varname: str = 'PURE_API_VERSION'
 def env_version() -> str:
     return os.environ.get(env_version_varname)
 
