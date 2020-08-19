@@ -2,7 +2,7 @@ import functools
 import json
 import os
 import pathlib
-from typing import Callable, MutableMapping, Tuple
+from typing import Any, Callable, MutableMapping, Tuple, TypeVar, cast
 
 from pureapi.exceptions import PureAPIException
 
@@ -37,7 +37,9 @@ class PureAPIInvalidVersionError(ValueError, PureAPIException):
     def __init__(self, version, *args, **kwargs):
         super().__init__(f'Invalid version "{version}"', *args, **kwargs)
 
-def validate_version(func):
+F = TypeVar('F', bound=Callable[..., Any])
+
+def validate_version(func: F) -> F:
     @functools.wraps(func)
     def wrapper_validate_version(*args, **kwargs):
         if 'version' in kwargs and kwargs['version'] is not None:
@@ -53,7 +55,7 @@ def validate_version(func):
         if kwargs['version'] is None:
             raise PureAPIMissingVersionError()
         return func(*args, **kwargs)
-    return wrapper_validate_version
+    return cast(F, wrapper_validate_version)
 
 def schema_516() -> MutableMapping:
     with open(schemas_path  / '516/swagger.json') as json_file:
@@ -87,12 +89,12 @@ class PureAPIInvalidCollectionError(ValueError, PureAPIException):
     def __init__(self, *args, collection, version, **kwargs):
         super().__init__(f'Invalid collection "{collection}" for version "{version}"', *args, **kwargs)
 
-def validate_collection(func):
+def validate_collection(func: F) -> F:
     @functools.wraps(func)
     @validate_version
     def wrapper_validate_collection(*args, **kwargs):
         if not valid_collection(collection=kwargs['collection'], version=kwargs['version']):
             raise PureAPIInvalidCollectionError(collection=kwargs['collection'], version=kwargs['version'])
         return func(*args, **kwargs)
-    return wrapper_validate_collection
+    return cast(F, wrapper_validate_collection)
 
