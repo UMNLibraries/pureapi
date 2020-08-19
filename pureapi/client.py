@@ -12,7 +12,7 @@ from pureapi import response
 from pureapi.common import default_version, valid_collection, valid_version, PureAPIInvalidCollectionError, PureAPIInvalidVersionError
 from pureapi.exceptions import PureAPIException
 
-env_key_varname = 'PURE_API_KEY'
+env_key_varname: str = 'PURE_API_KEY'
 def env_key() -> str:
     return os.environ.get(env_key_varname)
 
@@ -34,7 +34,7 @@ def default_retryer() -> Callable:
 class PureAPIClientException(PureAPIException):
     pass
 
-env_domain_varname = 'PURE_API_DOMAIN'
+env_domain_varname: str = 'PURE_API_DOMAIN'
 def env_domain() -> str:
     return os.environ.get(env_domain_varname)
 
