@@ -13,13 +13,18 @@ from pureapi.common import default_version, valid_collection, valid_version, Pur
 from pureapi.exceptions import PureAPIException
 
 env_key_varname: str = 'PURE_API_KEY'
+'''Environment variable name for a Pure API key. Defaults to PURE_API_KEY.'''
+
 def env_key() -> str:
+    '''Returns the value of environment variable env_key_varname, or None if undefined.'''
     return os.environ.get(env_key_varname)
 
 def default_protocol() -> str:
+    '''Returns 'https'.'''
     return 'https'
 
-def default_path() -> str:
+def default_base_path() -> str:
+    '''Returns 'ws/api'.'''
     return 'ws/api'
 
 def default_headers() -> MutableMapping:
@@ -77,8 +82,8 @@ class Config():
         factory=env_domain,
         validator=attr.validators.instance_of(str)
     )
-    path: str = attr.ib(
-        factory=default_path,
+    base_path: str = attr.ib(
+        factory=default_base_path,
         validator=[
             attr.validators.instance_of(str),
         ]
@@ -107,7 +112,7 @@ class Config():
 
     def __attrs_post_init__(self) -> None:
         self.headers['api-key'] = self.key
-        object.__setattr__(self, 'base_url', f'{self.protocol}://{self.domain}/{self.path}/{self.version}/')
+        object.__setattr__(self, 'base_url', f'{self.protocol}://{self.domain}/{self.base_path}/{self.version}/')
 
 def get(resource_path: str, params: Mapping = None, config: Config = None) -> requests.Response:
     if params is None:

@@ -42,7 +42,7 @@ def test_config():
     assert (
         config.base_url
         ==
-        f'{client.default_protocol()}://{test_domain}/{client.default_path()}/{common.default_version()}/'
+        f'{client.default_protocol()}://{test_domain}/{client.default_base_path()}/{common.default_version()}/'
     )
 
     if common.oldest_version != common.latest_version:
@@ -52,7 +52,7 @@ def test_config():
         assert (
             config_oldest.base_url
             ==
-            f'{client.default_protocol()}://{test_domain}/{client.default_path()}/{common.oldest_version}/'
+            f'{client.default_protocol()}://{test_domain}/{client.default_base_path()}/{common.oldest_version}/'
         )
 
         # ...and with an env var:
@@ -62,7 +62,7 @@ def test_config():
         assert (
             config_oldest_env.base_url
             ==
-            f'{client.default_protocol()}://{test_domain}/{client.default_path()}/{common.oldest_version}/'
+            f'{client.default_protocol()}://{test_domain}/{client.default_base_path()}/{common.oldest_version}/'
         )
 
 def test_get_collection_from_resource_path():
