@@ -476,7 +476,7 @@ def filter_all(resource_path: str, payload: Mapping = None, config: Config = Non
         }
         yield filter(resource_path, window_payload, config)
 
-def group_items(items: List = None, items_per_group: int = 100) -> Iterator[List]:
+def _group_items(items: List = None, items_per_group: int = 100) -> Iterator[List]:
     if items is None:
         items = []
     items_per_group = int(items_per_group)
@@ -505,7 +505,7 @@ def filter_all_by_uuid(
     if config is None:
         config = Config()
 
-    for uuid_group in group_items(items=uuids, items_per_group=uuids_per_request):
+    for uuid_group in _group_items(items=uuids, items_per_group=uuids_per_request):
         group_payload = {
             **payload,
             'uuids': uuid_group,
@@ -529,7 +529,7 @@ def filter_all_by_id(
     if config is None:
         config = Config()
 
-    for id_group in group_items(items=ids, items_per_group=ids_per_request):
+    for id_group in _group_items(items=ids, items_per_group=ids_per_request):
         group_payload = {
             **payload,
             'ids': id_group,

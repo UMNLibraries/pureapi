@@ -397,7 +397,7 @@ def test_group_items(test_group_items_params):
     items_per_group = test_group_items_params['items_per_group']
     items_in_last_group = test_group_items_params['items_in_last_group']
     groups_count = 0
-    for group in client.group_items([x for x in range(0,10)], items_per_group=items_per_group):
+    for group in client._group_items([x for x in range(0,10)], items_per_group=items_per_group):
         groups_count += 1
         expected_items_in_group = items_in_last_group if groups_count == expected_groups_count else items_per_group
         assert len(group) == expected_items_in_group
