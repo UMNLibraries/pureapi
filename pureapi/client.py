@@ -389,11 +389,12 @@ def get_all_changes_transformed(
             yield response.transform('changes', item, version=config.version)
 
 def filter(resource_path: str, payload: Mapping = None, config: Config = None) -> requests.Response:
-    '''Makes an HTTP POST request for Pure API resources, filtered according to the payload.
+    '''Makes an HTTP POST request for Pure API resources, filtered according to
+        the ``payload``.
 
     Note that many collections likely contain more resources than can be
-    practically downloaded in a single request. To filter all resources
-    in a collection, see ``filter_all()``.
+    practically downloaded in a single request. To retrieve all filtered
+    resources in a collection, see ``filter_all()``.
 
     Args:
         resource_path: URL path to a Pure API resource, to be appended to the
@@ -449,6 +450,34 @@ def filter(resource_path: str, payload: Mapping = None, config: Config = None) -
             ) from e
 
 def filter_all(resource_path: str, payload: Mapping = None, config: Config = None) -> Iterator[requests.Response]:
+    '''Makes as many HTTP POST requests as necessary to retrieve all resources in
+    a collection, filtered according to the ``payload``.
+
+    Conveniently calculates the offset for each request, based on the desired
+    number of records per request, as given by ``payload['size']``.
+
+    Args:
+        resource_path: URL path to a Pure API resource, to be appended to the
+            ``Config.base_url``. Do not include a leading forward slash (``/``).
+        payload: A mapping representing JSON filters of the collection. Default:
+            ``{'size': 100}``
+        config: An instance of Config. If not provided, this function attempts
+            to automatically instantiate a Config based on environment variables
+            and default values.
+
+    Yields:
+        HTTP response objects.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection, the first
+            segment in the resource_path, is invalid for the given API version.
+        PureAPIHTTPError: If the response includes an HTTP error code, possibly
+            after multiple retries.
+        PureAPIRequestException: If the request generated some error unrelated
+            to any HTTP error status.
+        PureAPIClientException: Some unexpected exception that is none of the
+            above.
+    '''
     if payload is None:
         payload = {}
 
