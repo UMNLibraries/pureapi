@@ -13,34 +13,60 @@ from pureapi.common import default_version, valid_collection, valid_version, Pur
 from pureapi.exceptions import PureAPIException
 
 env_key_varname: str = 'PURE_API_KEY'
-'''Environment variable name for a Pure API key. Defaults to PURE_API_KEY.'''
+'''Environment variable name for a Pure API key. Defaults to PURE_API_KEY.
+Used by env_key().
+'''
 
 def env_key() -> str:
-    '''Returns the value of environment variable env_key_varname, or None if undefined.'''
+    '''Returns the value of environment variable env_key_varname, or None if undefined.
+    See Config for more details.
+    '''
     return os.environ.get(env_key_varname)
 
 def default_protocol() -> str:
-    '''Returns 'https'.'''
+    '''Returns 'https'. See Config for more details.'''
     return 'https'
 
 def default_base_path() -> str:
-    '''Returns 'ws/api'.'''
+    '''Returns 'ws/api'. See Config for more details.'''
     return 'ws/api'
 
 def default_headers() -> MutableMapping:
+    '''See Config for more details.
+
+    Returns:
+        {
+            'Accept': 'application/json',
+            'Accept-Charset': 'utf-8',
+        }
+    '''
     return {
         'Accept': 'application/json',
         'Accept-Charset': 'utf-8',
     }
 
 def default_retryer() -> Callable:
+    '''A function that retries HTTP requests to the Pure API server.
+
+    Returns:
+        Retrying(wait=wait_exponential(multiplier=1, max=60), reraise=True)
+    '''
     return Retrying(wait=wait_exponential(multiplier=1, max=60), reraise=True)
 
 class PureAPIClientException(PureAPIException):
-    pass
+    '''Base class for exceptions specific to pureapi.client.'''
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
 env_domain_varname: str = 'PURE_API_DOMAIN'
+'''Environment variable name for a Pure API domain. Defaults to PURE_API_DOMAIN.
+Used by env_domain().
+'''
+
 def env_domain() -> str:
+    '''Returns the value of environment variable env_domain_varname, or None if undefined.
+    See Config for more details.
+    '''
     return os.environ.get(env_domain_varname)
 
 def _get_collection_from_resource_path(resource_path: str, version: str) -> str:
@@ -54,7 +80,8 @@ def _get_collection_from_resource_path(resource_path: str, version: str) -> str:
         The name of the collection.
 
     Raises:
-        common.PureAPIInvalidCollectionError: If the extracted collection is invalid for the given API version.
+        common.PureAPIInvalidCollectionError: If the extracted collection is
+            invalid for the given API version.
     '''
     collection = resource_path.split('/')[0]
     if not valid_collection(collection=collection, version=version):
@@ -62,15 +89,36 @@ def _get_collection_from_resource_path(resource_path: str, version: str) -> str:
     return collection
 
 class PureAPIHTTPError(HTTPError, PureAPIClientException):
+    '''Raised in case of an HTTP error response.'''
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
 class PureAPIRequestException(RequestException, PureAPIClientException):
+    '''Raised in case of an HTTP-request-related exception that is something
+    other than an HTTP error status code.'''
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
 @attr.s(auto_attribs=True, frozen=True)
-class Config():
+class Config:
+    '''Common client configuration settings. Used by most functions.
+
+    Most attributes have defaults and are not required. Only ``domain`` and
+    ``key`` are required, and both can be set with environment variables as
+    well as constructor parameters.
+
+    Config instances are immutable. To use different configurations for different
+    function calls, pass different Config objects.
+
+    Examples:
+        >>> from pureapi import client
+        >>> client.Config(domain='example.com', key='123-abc')
+        Config(protocol='https', domain='example.com', base_path='ws/api', version='517', key='123-abc', headers={'Accept': 'application/json', 'Accept-Charset': 'utf-8', 'api-key': '123-abc'}, retryer=<Retrying object at 0x7fec3af4c278 (stop=<tenacity.stop._stop_never object at 0x7fec34a76908>, wait=<tenacity.wait.wait_exponential object at 0x7fec3af4c208>, sleep=<built-in function sleep>, retry=<tenacity.retry.retry_if_exception_type object at 0x7fec34a82ba8>, before=<function before_nothing at 0x7fec34a6d950>, after=<function after_nothing at 0x7fec34a85378>)>, base_url='https://example.com/ws/api/517/')
+
+        >>> client.Config(domain='test.example.com', key='456-def', version='516')
+        Config(protocol='https', domain='test.example.com', base_path='ws/api', version='516', key='456-def', headers={'Accept': 'application/json', 'Accept-Charset': 'utf-8', 'api-key': '456-def'}, retryer=<Retrying object at 0x7fec3454d828 (stop=<tenacity.stop._stop_never object at 0x7fec34a76908>, wait=<tenacity.wait.wait_exponential object at 0x7fec3454d860>, sleep=<built-in function sleep>, retry=<tenacity.retry.retry_if_exception_type object at 0x7fec34a82ba8>, before=<function before_nothing at 0x7fec34a6d950>, after=<function after_nothing at 0x7fec34a85378>)>, base_url='https://test.example.com/ws/api/516/')
+    '''
+
     protocol: str = attr.ib(
         factory=default_protocol,
         validator=[
@@ -78,43 +126,93 @@ class Config():
             attr.validators.in_(['http','https']),
         ]
     )
+    '''HTTP protocol. Must be either ``https`` or ``http``. Default: ``https``'''
+
     domain: str = attr.ib(
         factory=env_domain,
         validator=attr.validators.instance_of(str)
     )
+    '''Domain of a Pure API server. Required. Default: Return value of ``env_domain()``.'''
+
     base_path: str = attr.ib(
         factory=default_base_path,
         validator=[
             attr.validators.instance_of(str),
         ]
     )
+    '''Base path of the Pure API URL entry point, without the version number segment.
+    Default: Return value of ``default_base_path()``.'''
+
     version: str = attr.ib(
         factory=default_version,
         validator=attr.validators.instance_of(str)
     )
+    '''Pure API version, without the decimal point. For example, ``517`` for version 5.17.
+    Default: Return value of ``default_version()``.'''
     @version.validator
     def validate_version(self, attribute: str, value: str) -> None:
         if not valid_version(value):
             raise PureAPIInvalidVersionError(value)
+
     key: str = attr.ib(
         factory=env_key,
         validator=attr.validators.instance_of(str)
     )
-    headers: Mapping = attr.ib(
+    '''Pure API key. Required. Default: Return value of ``env_key()``.'''
+
+    headers: MutableMapping = attr.ib(
         factory=default_headers,
         validator=attr.validators.instance_of(MutableMapping)
     )
+    '''HTTP headers. Default: Return value of ``default_headers()``. The
+    constructor automatically adds an ``api-key`` header, using the value of
+    the ``key`` attribute.'''
+
     retryer: Callable = attr.ib(
         factory=default_retryer,
         validator=attr.validators.is_callable()
     )
+    '''A function that retries HTTP requests to the Pure API server. Must have
+    inputs and outputs interchangeable with those of ``tenacity.Retrying()``.
+    Default: Return value of ``default_retryer()``.'''
+
     base_url: str = attr.ib(init=False)
+    '''Pure API entrypoint URL. Should not be included in constructor
+    parameters. The constructor generates this automatically based on
+    other attributes.'''
 
     def __attrs_post_init__(self) -> None:
         self.headers['api-key'] = self.key
         object.__setattr__(self, 'base_url', f'{self.protocol}://{self.domain}/{self.base_path}/{self.version}/')
 
 def get(resource_path: str, params: Mapping = None, config: Config = None) -> requests.Response:
+    '''Makes an HTTP GET request for Pure API resources.
+
+    Note that many collections likely contain more resources than can be
+    practically downloaded in a single request. To get all resources
+    in a collection, see ``get_all()``.
+
+    Args:
+        resource_path: URL path to a Pure API resource, to be appended to the
+            ``Config.base_url``. Do not include a leading forward slash (``/``).
+        params: A mapping representing URL query string params. Default: ``{}``.
+        config: An instance of Config. If not provided, this function attempts
+            to automatically instantiate a Config based on environment variables
+            and default values.
+
+    Returns:
+        An HTTP response object.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection, the first
+            segment in the resource_path, is invalid for the given API version.
+        PureAPIHTTPError: If the response includes an HTTP error code, possibly
+            after multiple retries.
+        PureAPIRequestException: If the request generated some error unrelated
+            to any HTTP error status.
+        PureAPIClientException: Some unexpected exception that is none of the
+            above.
+    '''
     if params is None:
         params = {}
 
@@ -148,6 +246,34 @@ def get(resource_path: str, params: Mapping = None, config: Config = None) -> re
             ) from e
 
 def get_all(resource_path: str, params: Mapping = None, config: Config = None) -> Iterator[requests.Response]:
+    '''Makes as many HTTP GET requests as necessary to get all resources in a
+    collection, possibly restricted by the ``params``.
+
+    Conveniently calculates the offset for each request, based on the desired
+    number of records per request, as given by ``params['size']``.
+
+    Args:
+        resource_path: URL path to a Pure API resource, to be appended to the
+            ``Config.base_url``. Do not include a leading forward slash (``/``).
+        params: A mapping representing URL query string params. Default:
+            ``{'size': 100}``
+        config: An instance of Config. If not provided, this function attempts
+            to automatically instantiate a Config based on environment variables
+            and default values.
+
+    Yields:
+        HTTP response objects.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection, the first
+            segment in the resource_path, is invalid for the given API version.
+        PureAPIHTTPError: If the response includes an HTTP error code, possibly
+            after multiple retries.
+        PureAPIRequestException: If the request generated some error unrelated
+            to any HTTP error status.
+        PureAPIClientException: Some unexpected exception that is none of the
+            above.
+    '''
     if params is None:
         params = {}
 
@@ -189,14 +315,41 @@ def get_all_transformed(
         for item in r.json()['items']:
             yield response.transform(collection, item, version=config.version)
 
-def get_all_changes(token_or_date: str, params: Mapping = None, config: Config = None) -> Iterator[requests.Response]:
+def get_all_changes(start_date: str, params: Mapping = None, config: Config = None) -> Iterator[requests.Response]:
+    '''Makes as many HTTP GET requests as necessary to get all resources from
+    the changes collection, from a start date forward.
+
+    Conveniently finds resumption tokens and automatically adds them to each
+    subsequent request.
+
+    Args:
+        start_date: Date in ISO 8601 format, YYYY-MM-DD.
+        params: A mapping representing URL query string params. Default:
+            ``{'size': 100}``
+        config: An instance of Config. If not provided, this function attempts
+            to automatically instantiate a Config based on environment variables
+            and default values.
+
+    Yields:
+        HTTP response objects.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection, the first
+            segment in the resource_path, is invalid for the given API version.
+        PureAPIHTTPError: If the response includes an HTTP error code, possibly
+            after multiple retries.
+        PureAPIRequestException: If the request generated some error unrelated
+            to any HTTP error status.
+        PureAPIClientException: Some unexpected exception that is none of the
+            above.
+    '''
     if params is None:
-        params = {}
+        params = {'size': 100}
 
     if config is None:
         config = Config()
 
-    next_token_or_date = token_or_date
+    next_token_or_date = start_date
     while(True):
         r = get('changes/' + next_token_or_date, params, config)
         json = r.json()
@@ -221,7 +374,7 @@ def get_all_changes(token_or_date: str, params: Mapping = None, config: Config =
         yield r
 
 def get_all_changes_transformed(
-    token_or_date: str,
+    start_date: str,
     params: Mapping = None,
     config: Config = None
 ) -> Iterator[addict.Dict]:
@@ -231,11 +384,38 @@ def get_all_changes_transformed(
     if config is None:
         config = Config()
 
-    for r in get_all_changes(token_or_date, params, config):
+    for r in get_all_changes(start_date, params, config):
         for item in r.json()['items']:
             yield response.transform('changes', item, version=config.version)
 
 def filter(resource_path: str, payload: Mapping = None, config: Config = None) -> requests.Response:
+    '''Makes an HTTP POST request for Pure API resources, filtered according to the payload.
+
+    Note that many collections likely contain more resources than can be
+    practically downloaded in a single request. To filter all resources
+    in a collection, see ``filter_all()``.
+
+    Args:
+        resource_path: URL path to a Pure API resource, to be appended to the
+            ``Config.base_url``. Do not include a leading forward slash (``/``).
+        payload: A mapping representing JSON filters of the collection. Default: ``{}``.
+        config: An instance of Config. If not provided, this function attempts
+            to automatically instantiate a Config based on environment variables
+            and default values.
+
+    Returns:
+        An HTTP response object.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection, the first
+            segment in the resource_path, is invalid for the given API version.
+        PureAPIHTTPError: If the response includes an HTTP error code, possibly
+            after multiple retries.
+        PureAPIRequestException: If the request generated some error unrelated
+            to any HTTP error status.
+        PureAPIClientException: Some unexpected exception that is none of the
+            above.
+    '''
     if payload is None:
         payload = {}
 
