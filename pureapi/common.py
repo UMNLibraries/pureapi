@@ -7,6 +7,9 @@ from typing import Any, Callable, MutableMapping, Tuple, TypeVar, cast
 from pureapi.exceptions import PureAPIException
 
 schemas_path: Path = Path(__file__).parent.parent / 'schemas'
+'''Parent path of swagger.io/json schema files for Pure API versions. Child
+directories are named for versions, without the periods, e.g., ``517`` for
+version 5.17.'''
 
 # The commented out version seems more elegant, but using map() and filter() as an
 # exercise in functional programming in Python.
@@ -16,30 +19,60 @@ versions: Tuple[str] = tuple(
         filter(lambda item: item.name if item.is_dir() else None, os.scandir(schemas_path))
     )
 )
+'''All Pure API versions this package recognizes and supports.'''
 
 def valid_version(version: str) -> bool:
+    '''For the given ``version``, returns true or false according to its
+    validity.'''
     return (version in versions)
 
 latest_version: str = str(max([int(version) for version in versions]))
+'''Latest valid Pure API version.'''
+
 oldest_version: str = str(min([int(version) for version in versions]))
+'''Oldest valid Pure API version.'''
+
 env_version_varname: str = 'PURE_API_VERSION'
+'''Environment variable name for a Pure API version. Defaults to
+PURE_API_VERSION.  Used by ``env_version()``.
+'''
+
 def env_version() -> str:
+    '''Returns the value of environment variable ``env_version_varname``, or
+    None if undefined.'''
     return os.environ.get(env_version_varname)
 
 def default_version() -> str:
+    '''Returns the value of environment variable ``env_version_varname``, or
+    ``latest_version`` if the environment variable is undefined.'''
     return env_version() if env_version() is not None else latest_version
 
 class PureAPIMissingVersionError(ValueError, PureAPIException):
+    '''Raised when a Pure API version is expected but missing.'''
     def __init__(self, *args, **kwargs):
         super().__init__(f'No version found in kwargs, default_version, or {env_version_varname}', *args, **kwargs)
 
 class PureAPIInvalidVersionError(ValueError, PureAPIException):
+    '''Raised when a Pure API version is unrecognized.'''
     def __init__(self, version, *args, **kwargs):
         super().__init__(f'Invalid version "{version}"', *args, **kwargs)
 
 F = TypeVar('F', bound=Callable[..., Any])
 
 def validate_version(func: F) -> F:
+    '''A decorator wrapper that validates a kwarg Pure API version.
+
+    Args:
+        func: The function to be wrapped.
+
+    Return:
+        The wrapped function.
+
+    Raises:
+        PureAPIMissingVersionError: If the ``version`` kwarg is missing or
+            the value is None.
+        PureAPIInvalidVersionError: If the ``version`` is unrecognized.
+    '''
     @functools.wraps(func)
     def wrapper_validate_version(*args, **kwargs):
         if 'version' in kwargs and kwargs['version'] is not None:
@@ -58,38 +91,65 @@ def validate_version(func: F) -> F:
     return cast(F, wrapper_validate_version)
 
 def schema_516() -> MutableMapping:
+    '''Returns a mapping representation of the Pure API version 5.16 schema.'''
     with open(schemas_path  / '516/swagger.json') as json_file:
         return json.load(json_file)
 
 def schema_517() -> MutableMapping:
+    '''Returns a mapping representation of the Pure API version 5.17 schema.'''
     with open(schemas_path  / '517/swagger.json') as json_file:
         return json.load(json_file)
 
 @functools.lru_cache(maxsize=None)
 @validate_version
 def schema_for(*, version: str = None) -> MutableMapping:
+    '''Returns a mapping representation of the schema for the given Pure API
+    ``version``.'''
     return globals()[f'schema_{version}']()
 
 def collections_516() -> Tuple[str]:
+    '''Returns a tuple of all collection names in the Pure API version 5.16
+    schema.'''
     return tuple(map(lambda tag: tag['name'], schema_for(version='516')['tags']))
 
 def collections_517() -> Tuple[str]:
+    '''Returns a tuple of all collection names in the Pure API version 5.17
+    schema.'''
     return tuple(map(lambda tag: tag['name'], schema_for(version='517')['tags']))
 
 @functools.lru_cache(maxsize=None)
 @validate_version
 def collections_for(*, version: str) -> Tuple[str]:
+    '''Returns a tuple of all collection names in the schema for the given Pure
+    API ``version``.'''
     return globals()[f'collections_{version}']()
 
 @validate_version
 def valid_collection(*, collection: str, version: str = None) -> bool:
+    '''For the given ``collection``, returns ``True`` or ``False`` according to whether
+    or not it is valid for the given ``version``.'''
     return (collection in collections_for(version=version))
 
 class PureAPIInvalidCollectionError(ValueError, PureAPIException):
+    '''Raised when the given ``collection`` name is invalid for the given Pure
+    API ``version``.'''
     def __init__(self, *args, collection, version, **kwargs):
         super().__init__(f'Invalid collection "{collection}" for version "{version}"', *args, **kwargs)
 
 def validate_collection(func: F) -> F:
+    '''A decorator wrapper that validates a kwarg Pure API ``collection`` for a
+    kwarg ``version``.
+
+    Args:
+        func: The function to be wrapped.
+
+    Return:
+        The wrapped function.
+
+    Raises:
+        PureAPIInvalidCollectionError: If the given ``collection`` is invalid
+        for the ``version``.
+    '''
     @functools.wraps(func)
     @validate_version
     def wrapper_validate_collection(*args, **kwargs):
@@ -97,4 +157,3 @@ def validate_collection(func: F) -> F:
             raise PureAPIInvalidCollectionError(collection=kwargs['collection'], version=kwargs['version'])
         return func(*args, **kwargs)
     return cast(F, wrapper_validate_collection)
-
