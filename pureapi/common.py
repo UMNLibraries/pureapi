@@ -22,7 +22,7 @@ versions: Tuple[str] = tuple(
 '''All Pure API versions this package recognizes and supports.'''
 
 def valid_version(version: str) -> bool:
-    '''For the given ``version``, returns true or false according to its
+    '''For the given ``version``, returns ``True`` or ``False`` according to its
     validity.'''
     return (version in versions)
 
