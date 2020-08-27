@@ -79,9 +79,10 @@ pytest tests/test_response.py
 
 Or to run all tests: `pytest`
 
-Note that `tests/test_client.py` includes integration tests that make requests against a Pure server.
-To run those tests, pass the `--run-integration` option to pytest, and set the environment variables
-described in [Requirements and Recommendations](#requirements-and-recommendations).
+Note that `tests/test_client.py` includes integration tests that make requests
+against a Pure API server. To run those tests, pass the `--integration` option
+to pytest, and set the environment variables described in
+[Requirements and Recommendations](#requirements-and-recommendations).
 
 ## Contributing
 
