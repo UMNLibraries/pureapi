@@ -288,7 +288,7 @@ def get_all(resource_path: str, params: Mapping = None, config: Config = None) -
     r = get(resource_path, count_params, config)
     json = r.json()
     record_count = int(json['count'])
-    window_size = int(params['size']) if 'size' in params else 100
+    window_size = int(params.setdefault('size', 100))
     window_count = int(math.ceil(float(record_count) / window_size))
 
     for window in range(0, window_count):
@@ -320,12 +320,14 @@ def get_all_changes(start_date: str, params: Mapping = None, config: Config = No
     the changes collection, from a start date forward.
 
     Conveniently finds resumption tokens and automatically adds them to each
-    subsequent request.
+    subsequent request. Note that there is no default ``size`` for number of
+    records per request. Though the Pure API documentation includes support
+    for that parameter, it seems to be ignored. The Pure API may actually
+    ignore all parameters for this collection.
 
     Args:
         start_date: Date in ISO 8601 format, YYYY-MM-DD.
-        params: A mapping representing URL query string params. Default:
-            ``{'size': 100}``
+        params: A mapping representing URL query string params. Default: ``{}``
         config: An instance of Config. If not provided, this function attempts
             to automatically instantiate a Config based on environment variables
             and default values.
@@ -344,7 +346,7 @@ def get_all_changes(start_date: str, params: Mapping = None, config: Config = No
             above.
     '''
     if params is None:
-        params = {'size': 100}
+        params = {}
 
     if config is None:
         config = Config()
@@ -506,6 +508,16 @@ def filter_all(resource_path: str, payload: Mapping = None, config: Config = Non
         yield filter(resource_path, window_payload, config)
 
 def _group_items(items: List = None, items_per_group: int = 100) -> Iterator[List]:
+    '''Groups a list of items into multiple, smaller groups, each with no more
+    items than ``items_per_group``.
+
+    Args:
+        items: Items to group into smaller sub-groups.
+        items_per_group: Number of items in each sub-group.
+
+    Yields:
+        Sub-group with <= ``items_per_group`` items.
+    '''
     if items is None:
         items = []
     items_per_group = int(items_per_group)
@@ -525,6 +537,34 @@ def filter_all_by_uuid(
     uuids_per_request: int = 100,
     config: Config = None
 ) -> Iterator[requests.Response]:
+    '''Like ``filter_all``, with added convenience for requesting a set of
+    records by uuid.
+
+    Args:
+        resource_path: URL path to a Pure API resource, to be appended to the
+            ``Config.base_url``. Do not include a leading forward slash (``/``).
+        payload: A mapping representing JSON filters, in addition to the uuids,
+            of the collection. Default: ``{}``
+        uuids: The list of uuids to retrieve. Default: ``[]``
+        uuids_per_request: The number of records to retrieve in each request.
+          Default: 100
+        config: An instance of Config. If not provided, this function attempts
+            to automatically instantiate a Config based on environment variables
+            and default values.
+
+    Yields:
+        HTTP response objects.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection, the first
+            segment in the resource_path, is invalid for the given API version.
+        PureAPIHTTPError: If the response includes an HTTP error code, possibly
+            after multiple retries.
+        PureAPIRequestException: If the request generated some error unrelated
+            to any HTTP error status.
+        PureAPIClientException: Some unexpected exception that is none of the
+            above.
+    '''
     if payload is None:
         payload = {}
 
@@ -549,6 +589,34 @@ def filter_all_by_id(
     ids_per_request: int = 100,
     config: Config = None
 ) -> Iterator[requests.Response]:
+    '''Like ``filter_all``, with added convenience for requesting a set of
+    records by some non-uuid identifier.
+
+    Args:
+        resource_path: URL path to a Pure API resource, to be appended to the
+            ``Config.base_url``. Do not include a leading forward slash (``/``).
+        payload: A mapping representing JSON filters, in addition to the uuids,
+            of the collection. Default: ``{}``
+        ids: The list of ids to retrieve. Default: ``[]``
+        ids_per_request: The number of records to retrieve in each request.
+          Default: 100
+        config: An instance of Config. If not provided, this function attempts
+            to automatically instantiate a Config based on environment variables
+            and default values.
+
+    Yields:
+        HTTP response objects.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection, the first
+            segment in the resource_path, is invalid for the given API version.
+        PureAPIHTTPError: If the response includes an HTTP error code, possibly
+            after multiple retries.
+        PureAPIRequestException: If the request generated some error unrelated
+            to any HTTP error status.
+        PureAPIClientException: Some unexpected exception that is none of the
+            above.
+    '''
     if payload is None:
         payload = {}
 
