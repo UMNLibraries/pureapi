@@ -14,7 +14,7 @@ from pureapi.exceptions import PureAPIException
 
 env_key_varname: str = 'PURE_API_KEY'
 '''Environment variable name for a Pure API key. Defaults to PURE_API_KEY.
-Used by env_key().
+Used by ``env_key()``.
 '''
 
 def env_key() -> str:
@@ -401,7 +401,7 @@ def filter(resource_path: str, payload: Mapping = None, config: Config = None) -
     Args:
         resource_path: URL path to a Pure API resource, to be appended to the
             ``Config.base_url``. Do not include a leading forward slash (``/``).
-        payload: A mapping representing JSON filters of the collection. Default: ``{}``.
+        payload: A mapping representing JSON filters of the collection. Default: ``{}``
         config: An instance of Config. If not provided, this function attempts
             to automatically instantiate a Config based on environment variables
             and default values.
@@ -537,7 +537,7 @@ def filter_all_by_uuid(
     uuids_per_request: int = 100,
     config: Config = None
 ) -> Iterator[requests.Response]:
-    '''Like ``filter_all``, with added convenience for requesting a set of
+    '''Like ``filter_all()``, with added convenience for requesting a set of
     records by uuid.
 
     Args:
@@ -589,7 +589,7 @@ def filter_all_by_id(
     ids_per_request: int = 100,
     config: Config = None
 ) -> Iterator[requests.Response]:
-    '''Like ``filter_all``, with added convenience for requesting a set of
+    '''Like ``filter_all()``, with added convenience for requesting a set of
     records by some non-uuid identifier.
 
     Args:
