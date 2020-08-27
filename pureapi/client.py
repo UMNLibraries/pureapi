@@ -304,6 +304,32 @@ def get_all_transformed(
     params: Mapping = None,
     config: Config = None
 ) -> Iterator[addict.Dict]:
+    '''Like ``get_all()``, but with the added convenience of yielding
+    individual records, transformed from raw JSON into ``addict.Dict`` objects,
+    for easier access to deeply nested fields.
+
+    Args:
+        resource_path: URL path to a Pure API resource, to be appended to the
+            ``Config.base_url``. Do not include a leading forward slash (``/``).
+        params: A mapping representing URL query string params. Default:
+            ``{'size': 100}``
+        config: An instance of Config. If not provided, this function attempts
+            to automatically instantiate a Config based on environment variables
+            and default values.
+
+    Yields:
+        Individual records.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection, the first
+            segment in the resource_path, is invalid for the given API version.
+        PureAPIHTTPError: If the response includes an HTTP error code, possibly
+            after multiple retries.
+        PureAPIRequestException: If the request generated some error unrelated
+            to any HTTP error status.
+        PureAPIClientException: Some unexpected exception that is none of the
+            above.
+    '''
     if params is None:
         params = {}
 
@@ -380,6 +406,31 @@ def get_all_changes_transformed(
     params: Mapping = None,
     config: Config = None
 ) -> Iterator[addict.Dict]:
+    '''Like ``get_all_changes()``, but with the added convenience of yielding
+    individual records, transformed from raw JSON into ``addict.Dict`` objects,
+    for easier access to deeply nested fields.
+
+    Args:
+        start_date: Date in ISO 8601 format, YYYY-MM-DD.
+        params: A mapping representing URL query string params. Default:
+            ``{'size': 100}``
+        config: An instance of Config. If not provided, this function attempts
+            to automatically instantiate a Config based on environment variables
+            and default values.
+
+    Yields:
+        Individual records.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection, the first
+            segment in the resource_path, is invalid for the given API version.
+        PureAPIHTTPError: If the response includes an HTTP error code, possibly
+            after multiple retries.
+        PureAPIRequestException: If the request generated some error unrelated
+            to any HTTP error status.
+        PureAPIClientException: Some unexpected exception that is none of the
+            above.
+    '''
     if params is None:
         params = {}
 
@@ -537,7 +588,7 @@ def filter_all_by_uuid(
     uuids_per_request: int = 100,
     config: Config = None
 ) -> Iterator[requests.Response]:
-    '''Like ``filter_all()``, with added convenience for requesting a set of
+    '''Like ``filter_all()``, but with added convenience for requesting a set of
     records by uuid.
 
     Args:
@@ -589,7 +640,7 @@ def filter_all_by_id(
     ids_per_request: int = 100,
     config: Config = None
 ) -> Iterator[requests.Response]:
-    '''Like ``filter_all()``, with added convenience for requesting a set of
+    '''Like ``filter_all()``, but with added convenience for requesting a set of
     records by some non-uuid identifier.
 
     Args:
@@ -639,6 +690,32 @@ def filter_all_transformed(
     payload: Mapping = None,
     config: Config = None
 ) -> Iterator[addict.Dict]:
+    '''Like ``filter_all()``, but with the added convenience of yielding
+    individual records, transformed from raw JSON into ``addict.Dict`` objects,
+    for easier access to deeply nested fields.
+
+    Args:
+        resource_path: URL path to a Pure API resource, to be appended to the
+            ``Config.base_url``. Do not include a leading forward slash (``/``).
+        payload: A mapping representing JSON filters of the collection. Default:
+            ``{'size': 100}``
+        config: An instance of Config. If not provided, this function attempts
+            to automatically instantiate a Config based on environment variables
+            and default values.
+
+    Yields:
+        Individual records.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection, the first
+            segment in the resource_path, is invalid for the given API version.
+        PureAPIHTTPError: If the response includes an HTTP error code, possibly
+            after multiple retries.
+        PureAPIRequestException: If the request generated some error unrelated
+            to any HTTP error status.
+        PureAPIClientException: Some unexpected exception that is none of the
+            above.
+    '''
     if payload is None:
         payload = {}
 
@@ -657,6 +734,35 @@ def filter_all_by_uuid_transformed(
     uuids_per_request: int = 100,
     config: Config = None
 ) -> Iterator[addict.Dict]:
+    '''Like ``filter_all_by_uuid()``, but with the added convenience of yielding
+    individual records, transformed from raw JSON into ``addict.Dict`` objects,
+    for easier access to deeply nested fields.
+
+    Args:
+        resource_path: URL path to a Pure API resource, to be appended to the
+            ``Config.base_url``. Do not include a leading forward slash (``/``).
+        payload: A mapping representing JSON filters, in addition to the uuids,
+            of the collection. Default: ``{}``
+        uuids: The list of uuids to retrieve. Default: ``[]``
+        uuids_per_request: The number of records to retrieve in each request.
+          Default: 100
+        config: An instance of Config. If not provided, this function attempts
+            to automatically instantiate a Config based on environment variables
+            and default values.
+
+    Yields:
+        Individual records.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection, the first
+            segment in the resource_path, is invalid for the given API version.
+        PureAPIHTTPError: If the response includes an HTTP error code, possibly
+            after multiple retries.
+        PureAPIRequestException: If the request generated some error unrelated
+            to any HTTP error status.
+        PureAPIClientException: Some unexpected exception that is none of the
+            above.
+    '''
     if payload is None:
         payload = {}
 
@@ -684,6 +790,35 @@ def filter_all_by_id_transformed(
     ids_per_request: int = 100,
     config: Config = None
 ) -> Iterator[addict.Dict]:
+    '''Like ``filter_all_by_id()``, but with the added convenience of yielding
+    individual records, transformed from raw JSON into ``addict.Dict`` objects,
+    for easier access to deeply nested fields.
+
+    Args:
+        resource_path: URL path to a Pure API resource, to be appended to the
+            ``Config.base_url``. Do not include a leading forward slash (``/``).
+        payload: A mapping representing JSON filters, in addition to the uuids,
+            of the collection. Default: ``{}``
+        ids: The list of ids to retrieve. Default: ``[]``
+        ids_per_request: The number of records to retrieve in each request.
+          Default: 100
+        config: An instance of Config. If not provided, this function attempts
+            to automatically instantiate a Config based on environment variables
+            and default values.
+
+    Yields:
+        Individual records.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection, the first
+            segment in the resource_path, is invalid for the given API version.
+        PureAPIHTTPError: If the response includes an HTTP error code, possibly
+            after multiple retries.
+        PureAPIRequestException: If the request generated some error unrelated
+            to any HTTP error status.
+        PureAPIClientException: Some unexpected exception that is none of the
+            above.
+    '''
     if payload is None:
         payload = {}
 
