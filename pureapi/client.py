@@ -838,4 +838,3 @@ def filter_all_by_id_transformed(
     ):
         for item in r.json()['items']:
             yield response.transform(collection, item, version=config.version)
-
