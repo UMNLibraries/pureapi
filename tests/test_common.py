@@ -24,8 +24,9 @@ def test_latest_version():
 
 @pytest.mark.forked
 def test_env_version_is_none():
-    os.environ.pop(common.env_version_varname)
-    importlib.reload(common)
+    if common.env_version_varname in os.environ:
+        os.environ.pop(common.env_version_varname)
+        importlib.reload(common)
 
     assert common.env_version() is None
     assert common.default_version() == common.latest_version
