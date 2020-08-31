@@ -1,26 +1,93 @@
-from addict import Dict
-from .exceptions import PureAPIResponseException, PureAPIResponseKeyError
+import os
+from typing import Callable, MutableMapping
 
-def change(dictionary):
-    d = Dict(dictionary)
+from addict import Dict
+
+from pureapi.common import validate_collection
+
+def default(record: MutableMapping) -> Dict:
+    '''Default record transformer. Just transforms a mapping (most likely a
+    ``dict``) to an ``addict.Dict`` object.
+
+    Args:
+        record: A mapping represenation of a Pure API JSON record.
+
+    Returns:
+        A transformed record.
+    '''
+    d = Dict(record)
     return d
 
-def external_organisation(dictionary):
-    d = Dict(dictionary)
+def change(record: MutableMapping) -> Dict:
+    '''Transforms a record from the ``changes`` collection.
+
+    Args:
+        record: A mapping represenation of a Pure API JSON record.
+
+    Returns:
+        A transformed record.
+    '''
+    d = Dict(record)
+    return d
+change_516 = change_517 = change
+'''``change_516()`` and ``change_517()`` are aliases of ``change()``.'''
+
+def external_organisation(record: MutableMapping) -> Dict:
+    '''Transforms a record from the ``external-organisations`` collection.
+
+    Ensures that the ``pureId`` (default ``None``) and ``info.previousUuids``
+    (default ``[]``) fields exist.
+
+    Args:
+        record: A mapping represenation of a Pure API JSON record.
+
+    Returns:
+        A transformed record.
+    '''
+    d = Dict(record)
     d.info.setdefault('previousUuids', [])
     d.setdefault('pureId', None)
     return d
+external_organisation_516 = external_organisation_517 = external_organisation
+'''``external_organisation_516()`` and ``external_organisation_517()`` are
+aliases of ``external_organisation()``.'''
 
-def external_person(dictionary):
-    d = Dict(dictionary)
+def external_person(record: MutableMapping) -> Dict:
+    '''Transforms a record from the ``external-persons`` collection.
+
+    Ensures that the ``info.previousUuids`` (default ``[]``), ``name.firstName``
+    (default ``None``), and ``name.lastName`` (default ``None``) fields exist.
+
+    Args:
+        record: A mapping represenation of a Pure API JSON record.
+
+    Returns:
+        A transformed record.
+    '''
+    d = Dict(record)
     d.info.setdefault('previousUuids', [])
     d.setdefault('name', Dict())
     d.name.setdefault('firstName', None)
     d.name.setdefault('lastName', None)
     return d
+external_person_516 = external_person_517 = external_person
+'''``external_person_516()`` and ``external_person_517()`` are
+aliases of ``external_person()``.'''
 
-def organisational_unit(dictionary):
-    d = Dict(dictionary)
+def organisational_unit(record: MutableMapping) -> Dict:
+    '''Transforms a record from the ``organisational-units`` collection.
+
+    Ensures that the ``externalId`` (default ``None``), ``ids`` (default ``[]``),
+    ``info.previousUuids`` (default ``[]``), and ``parents`` (default
+    ``[{Dict({'uuid'}: None})]``) fields exist.
+
+    Args:
+        record: A mapping represenation of a Pure API JSON record.
+
+    Returns:
+        A transformed record.
+    '''
+    d = Dict(record)
     d.info.setdefault('previousUuids', [])
 
     # We've been calling the externalId the pure_id, but really it's our old
@@ -37,9 +104,25 @@ def organisational_unit(dictionary):
     d.setdefault('parents', [Dict({'uuid': None})])
 
     return d
+organisational_unit_516 = organisational_unit_517 = organisational_unit
+'''``organisational_unit_516()`` and ``organisational_unit_517()`` are
+aliases of ``organisational_unit()``.'''
 
-def person(dictionary):
-    d = Dict(dictionary)
+def person(record: MutableMapping) -> Dict:
+    '''Transforms a record from the ``persons`` collection.
+
+    Ensures that the ``info.previousUuids`` (default ``[]``), ``name.firstName``
+    (default ``None``), ``name.lastName`` (default ``None``), ``externalId``
+    (default ``None``), ``scopusHIndex`` (default ``None``), and ``orcid``
+    (default ``None``) fields exist.
+
+    Args:
+        record: A mapping represenation of a Pure API JSON record.
+
+    Returns:
+        A transformed record.
+    '''
+    d = Dict(record)
     d.info.setdefault('previousUuids', [])
     d.setdefault('name', Dict())
     d.name.setdefault('firstName', None)
@@ -52,9 +135,25 @@ def person(dictionary):
     d.setdefault('scopusHIndex', None)
     d.setdefault('orcid', None)
     return d
+person_516 = person_517 = person
+'''``person_516()`` and ``person_517()`` are aliases of ``person()``.'''
 
-def research_output(dictionary):
-    d = Dict(dictionary)
+def research_output(record: MutableMapping) -> Dict:
+    '''Transforms a record from the ``research-outputs`` collection.
+
+    Ensures that the ``info.additionalExternalIds`` (default ``[]``),
+    ``info.previousUuids`` (default ``[]``), ``electronicVersions``
+    (default ``[]``), ``volume`` (default ``None``), ``journalNumber``
+    (default ``None``), ``pages`` (default ``None``), and
+    ``totalScopusCitations`` (default ``None``) fields exist.
+
+    Args:
+        record: A mapping represenation of a Pure API JSON record.
+
+    Returns:
+        A transformed record.
+    '''
+    d = Dict(record)
     d.setdefault('electronicVersions', [])
     d.info.setdefault('additionalExternalIds', [])
     d.info.setdefault('previousUuids', [])
@@ -63,19 +162,60 @@ def research_output(dictionary):
     d.setdefault('pages', None)
     d.setdefault('totalScopusCitations', None)
     return d
+research_output_516 = research_output_517 = research_output
+'''``research_output_516()`` and ``research_output_517()`` are aliases of
+``research_output()``.'''
 
-def transformer_for_family(family):
-    return {
+@validate_collection
+def transformer_for(*, collection: str, version: str = None) -> Callable[[MutableMapping], Dict]:
+    '''Returns a record transformer function for a given collection name and
+    version.
+
+    Args:
+        collection: The name of the collection to which the record belongs.
+        version: The Pure API version, without the decimal point.
+
+    Returns:
+        A transformer function.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection name is
+            invalid for the given API version.
+        common.PureAPIInvalidVersionError: If the API version number
+            is unrecognized.
+    '''
+    transformer_basename = {
         'changes': 'change',
         'external-organisations': 'external_organisation',
         'external-persons': 'external_person',
         'organisational-units': 'organisational_unit',
         'persons': 'person',
         'research-outputs': 'research_output',
-    }.get(family, None)
+    }.get(collection, None)
+    transformer_name = 'default' if transformer_basename is None else f'{transformer_basename}_{version}'
+    return globals()[transformer_name]
 
-def transform(family, dictionary):
-    transformer = transformer_for_family(family)
-    if (transformer == None):
-        raise PureAPIResponseKeyError('Unrecognized family "{}"'.format(family))
-    return globals()[transformer_for_family(family)](dictionary)
+def transform(collection: str, record: MutableMapping, *, version: str = None) -> Dict:
+    '''Transforms a ``record`` mapping (most likely a ``dict``) from a given
+    ``collection`` and ``version`` to an ``addict.Dict`` object.
+
+    The returned objects allow for easier access to deeply nested fields, and
+    possibly also ensure that some critical fields exist, even if the values
+    are empty, for some collections.
+
+    Args:
+        collection: The name of the collection to which the record belongs.
+        record: A mapping representing a JSON record.
+        version: The Pure API version, without the decimal point.
+
+    Returns:
+        A transformed record.
+
+    Raises:
+        common.PureAPIInvalidCollectionError: If the collection name is
+            invalid for the given API version.
+        common.PureAPIInvalidVersionError: If the API version number
+            is unrecognized.
+    '''
+    transformer = transformer_for(collection=collection, version=version)
+    return transformer(record)

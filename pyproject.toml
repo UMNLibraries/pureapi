@@ -7,11 +7,13 @@ authors = ["David Naughton <naughton@umn.edu>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.6.3"
+python = "^3.7.2"
 addict = "*"
 requests = "^2.20.0"
 tenacity = "*"
+attrs = "^19.3.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "*"
+pytest-forked = "*"
 python_dotenv = "*"
