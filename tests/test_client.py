@@ -20,7 +20,8 @@ def test_config():
     # Remove any default config data from env vars:
     os.environ.pop(client.env_domain_varname)
     os.environ.pop(client.env_key_varname)
-    os.environ.pop(common.env_version_varname)
+    if common.env_version_varname in os.environ:
+        os.environ.pop(common.env_version_varname)
 
     test_domain = 'example.com'
     test_key = '123'
