@@ -144,6 +144,12 @@ to pytest, and set the environment variables described in
 
 ## Contributing
 
+### Google-Style Docstrings
+
+We use [Google-style docstrings](https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings).
+The [Napoleon extension for Sphinx](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html)
+has some [good examples](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html#example-google).
+
 ### Include an updated `setup.py`.
 
 Python package managers, including poetry, will be unable to install a VCS-based package without a
