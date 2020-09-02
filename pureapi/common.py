@@ -6,7 +6,7 @@ from typing import Any, Callable, MutableMapping, Tuple, TypeVar, cast
 
 from pureapi.exceptions import PureAPIException
 
-schemas_path: Path = Path(__file__).parent.parent / 'schemas'
+schemas_path: Path = Path(__file__).parent / 'schemas'
 '''Parent path of swagger.io/json schema files for Pure API versions. Child
 directories are named for versions, without the periods, e.g., ``517`` for
 version 5.17.'''
