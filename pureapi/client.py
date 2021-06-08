@@ -115,8 +115,8 @@ class Config:
         >>> client.Config(domain='example.com', key='123-abc')
         Config(protocol='https', domain='example.com', base_path='ws/api', version='517', key='123-abc', headers={'Accept': 'application/json', 'Accept-Charset': 'utf-8', 'api-key': '123-abc'}, retryer=<Retrying object at 0x7fec3af4c278 (stop=<tenacity.stop._stop_never object at 0x7fec34a76908>, wait=<tenacity.wait.wait_exponential object at 0x7fec3af4c208>, sleep=<built-in function sleep>, retry=<tenacity.retry.retry_if_exception_type object at 0x7fec34a82ba8>, before=<function before_nothing at 0x7fec34a6d950>, after=<function after_nothing at 0x7fec34a85378>)>, base_url='https://example.com/ws/api/517/')
 
-        >>> client.Config(domain='test.example.com', key='456-def', version='516')
-        Config(protocol='https', domain='test.example.com', base_path='ws/api', version='516', key='456-def', headers={'Accept': 'application/json', 'Accept-Charset': 'utf-8', 'api-key': '456-def'}, retryer=<Retrying object at 0x7fec3454d828 (stop=<tenacity.stop._stop_never object at 0x7fec34a76908>, wait=<tenacity.wait.wait_exponential object at 0x7fec3454d860>, sleep=<built-in function sleep>, retry=<tenacity.retry.retry_if_exception_type object at 0x7fec34a82ba8>, before=<function before_nothing at 0x7fec34a6d950>, after=<function after_nothing at 0x7fec34a85378>)>, base_url='https://test.example.com/ws/api/516/')
+        >>> client.Config(domain='test.example.com', key='456-def', version='518')
+        Config(protocol='https', domain='test.example.com', base_path='ws/api', version='518', key='456-def', headers={'Accept': 'application/json', 'Accept-Charset': 'utf-8', 'api-key': '456-def'}, retryer=<Retrying object at 0x7fec3454d828 (stop=<tenacity.stop._stop_never object at 0x7fec34a76908>, wait=<tenacity.wait.wait_exponential object at 0x7fec3454d860>, sleep=<built-in function sleep>, retry=<tenacity.retry.retry_if_exception_type object at 0x7fec34a82ba8>, before=<function before_nothing at 0x7fec34a6d950>, after=<function after_nothing at 0x7fec34a85378>)>, base_url='https://test.example.com/ws/api/518/')
     '''
 
     protocol: str = attr.ib(
