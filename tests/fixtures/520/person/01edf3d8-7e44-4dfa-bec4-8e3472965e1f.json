@@ -1,0 +1,884 @@
+{
+  "pureId": 4256866,
+  "externalId": "3568",
+  "externalIdSource": "synchronisedUnifiedPerson",
+  "externallyManaged": true,
+  "uuid": "01edf3d8-7e44-4dfa-bec4-8e3472965e1f",
+  "name": {
+    "firstName": "Jan",
+    "lastName": "Fransen"
+  },
+  "orcid": "0000-0002-0302-2761",
+  "profiled": true,
+  "scopusHIndex": 7,
+  "employeeStartDate": "2008-05-20T12:00:00.000+0000",
+  "fte": 0,
+  "willTakePhdStudents": false,
+  "info": {
+    "createdBy": "root",
+    "createdDate": "2015-06-24T18:39:18.675+0000",
+    "modifiedBy": "fransen@umn.edu",
+    "modifiedDate": "2021-09-28T16:41:57.747+0000",
+    "portalUrl": "https://experts.umn.edu/en/persons/01edf3d8-7e44-4dfa-bec4-8e3472965e1f",
+    "prettyURLIdentifiers": [
+      "jan-fransen"
+    ]
+  },
+  "visibility": {
+    "key": "FREE",
+    "value": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "Public - No restriction"
+        }
+      ]
+    }
+  },
+  "nameVariants": [
+    {
+      "pureId": 32780629,
+      "name": {
+        "firstName": "Jan",
+        "lastName": "Fransen"
+      },
+      "type": {
+        "pureId": 3434246,
+        "uri": "/dk/atira/pure/person/names/knownas",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Known as name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pureId": 22840980,
+      "name": {
+        "firstName": "Janet",
+        "lastName": "Fransen"
+      },
+      "type": {
+        "pureId": 3434246,
+        "uri": "/dk/atira/pure/person/names/knownas",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Known as name"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "titles": [
+    {
+      "pureId": 71328735,
+      "value": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Service Lead for Research Information Management Systems"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3434234,
+        "uri": "/dk/atira/pure/person/titles/generic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Title"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pureId": 233609196,
+      "value": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "(she/her/hers)"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 233609173,
+        "uri": "/dk/atira/pure/person/titles/pronouns",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Pronouns"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "ids": [
+    {
+      "pureId": 88094093,
+      "value": {
+        "formatted": false,
+        "value": "36713379400"
+      },
+      "type": {
+        "pureId": 3434256,
+        "uri": "/dk/atira/pure/person/personsources/scopusauthor",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Scopus Author ID"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pureId": 100877570,
+      "externalId": "autoid:3568-employee-1164667",
+      "externalIdSource": "synchronisedUnifiedPerson",
+      "externallyManaged": true,
+      "value": {
+        "formatted": false,
+        "value": "1164667"
+      },
+      "type": {
+        "pureId": 3434254,
+        "uri": "/dk/atira/pure/person/personsources/employee",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Employee ID"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pureId": 100877571,
+      "externalId": "autoid:3568-umn-fransen",
+      "externalIdSource": "synchronisedUnifiedPerson",
+      "externallyManaged": true,
+      "value": {
+        "formatted": false,
+        "value": "fransen"
+      },
+      "type": {
+        "pureId": 4214816,
+        "uri": "/dk/atira/pure/person/personsources/umn",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Internet ID"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "profilePhotos": [
+    {
+      "pureId": 134537174,
+      "url": "https://experts.umn.edu/ws/files/134537174/Fransen_2018_Full.jpg",
+      "filename": "Fransen_2018_Full.jpg",
+      "mimetype": "image/jpeg",
+      "size": 1412085,
+      "type": {
+        "pureId": 3434269,
+        "uri": "/dk/atira/pure/person/personfiles/portrait",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Portrait"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "profileInformations": [
+    {
+      "pureId": 102551109,
+      "value": {
+        "formatted": true,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "<p><span>I am the Service Lead for Research Information Management Systems for University of Minnesota Libraries in the Twin Cities. In that role, I work across Libraries divisions and with campus partners to provide library systems that save researchers' and students' time and improve their access to the materials they need to get to their next steps.</span></p>"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 4214804,
+        "uri": "/dk/atira/pure/person/customfields/professionalinformation",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Professional Information"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pureId": 221525929,
+      "value": {
+        "formatted": true,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "<p>Currently investigating the roles of different stakeholders in Research Information Management systems at public research universities in the US.</p>"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 4738,
+        "uri": "/dk/atira/pure/person/customfields/researchinterests",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Research interests"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "staffOrganisationAssociations": [
+    {
+      "pureId": 248270155,
+      "externalId": "autoid:3568-GGMQFNVJKKZIQ-Librarian-libraries-2018-06-11",
+      "externalIdSource": "synchronisedUnifiedPerson",
+      "externallyManaged": true,
+      "person": {
+        "uuid": "01edf3d8-7e44-4dfa-bec4-8e3472965e1f",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/520/persons/01edf3d8-7e44-4dfa-bec4-8e3472965e1f"
+        },
+        "externalId": "3568",
+        "externalIdSource": "synchronisedUnifiedPerson",
+        "externallyManaged": true,
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "Jan Fransen"
+            }
+          ]
+        }
+      },
+      "affiliationId": "9713",
+      "period": {
+        "startDate": "2018-06-11T12:00:00.000+0000"
+      },
+      "isPrimaryAssociation": true,
+      "employmentType": {
+        "pureId": 85639246,
+        "uri": "/dk/atira/pure/person/employmenttypes/libraries",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Libraries Staff"
+            }
+          ]
+        }
+      },
+      "organisationalUnit": {
+        "uuid": "99e0d08c-3dab-41fa-9107-b1519f59203a",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/520/organisational-units/99e0d08c-3dab-41fa-9107-b1519f59203a"
+        },
+        "externalId": "GGMQFNVJKKZIQ",
+        "externalIdSource": "synchronisedUnifiedOrganisation",
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Research and Learning"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 855,
+          "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/department",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Department"
+              }
+            ]
+          }
+        }
+      },
+      "staffType": {
+        "pureId": 3434339,
+        "uri": "/dk/atira/pure/person/personstafftype/nonacademic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Non-academic"
+            }
+          ]
+        }
+      },
+      "jobDescription": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Librarian"
+          }
+        ]
+      },
+      "emails": [
+        {
+          "pureId": 248270156,
+          "externalId": "personStaffAssocEmail1",
+          "externalIdSource": "synchronisedUnifiedPerson",
+          "externallyManaged": true,
+          "value": {
+            "formatted": false,
+            "value": "fransen@umn.edu"
+          },
+          "type": {
+            "pureId": 3434321,
+            "uri": "/dk/atira/pure/person/personemailtype/email",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Email"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 116248897,
+      "externalId": "autoid:3568-GRQAGRQA-Librarian-libraries-2018-06-11",
+      "externalIdSource": "synchronisedUnifiedPerson",
+      "externallyManaged": true,
+      "person": {
+        "uuid": "01edf3d8-7e44-4dfa-bec4-8e3472965e1f",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/520/persons/01edf3d8-7e44-4dfa-bec4-8e3472965e1f"
+        },
+        "externalId": "3568",
+        "externalIdSource": "synchronisedUnifiedPerson",
+        "externallyManaged": true,
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "Jan Fransen"
+            }
+          ]
+        }
+      },
+      "affiliationId": "9713",
+      "period": {
+        "startDate": "2018-06-11T12:00:00.000+0000",
+        "endDate": "2018-06-11T12:00:00.000+0000"
+      },
+      "isPrimaryAssociation": false,
+      "employmentType": {
+        "pureId": 85639246,
+        "uri": "/dk/atira/pure/person/employmenttypes/libraries",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Libraries Staff"
+            }
+          ]
+        }
+      },
+      "organisationalUnit": {
+        "uuid": "ca31bad8-08c5-4192-b385-174ef80949f2",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/520/organisational-units/ca31bad8-08c5-4192-b385-174ef80949f2"
+        },
+        "externalId": "GRQAGRQA",
+        "externalIdSource": "synchronisedUnifiedOrganisation",
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Data and Technology"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 855,
+          "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/department",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Department"
+              }
+            ]
+          }
+        }
+      },
+      "staffType": {
+        "pureId": 3434339,
+        "uri": "/dk/atira/pure/person/personstafftype/nonacademic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Non-academic"
+            }
+          ]
+        }
+      },
+      "jobDescription": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Librarian"
+          }
+        ]
+      },
+      "emails": [
+        {
+          "pureId": 241633768,
+          "value": {
+            "formatted": false,
+            "value": "fransen@umn.edu"
+          },
+          "type": {
+            "pureId": 3434321,
+            "uri": "/dk/atira/pure/person/personemailtype/email",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Email"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "pureId": 244873732,
+          "externalId": "personStaffAssocEmail1",
+          "externalIdSource": "synchronisedUnifiedPerson",
+          "externallyManaged": true,
+          "value": {
+            "formatted": false,
+            "value": "fransen@umn.edu"
+          },
+          "type": {
+            "pureId": 3434321,
+            "uri": "/dk/atira/pure/person/personemailtype/email",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Email"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 40588467,
+      "person": {
+        "uuid": "01edf3d8-7e44-4dfa-bec4-8e3472965e1f",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/520/persons/01edf3d8-7e44-4dfa-bec4-8e3472965e1f"
+        },
+        "externalId": "3568",
+        "externalIdSource": "synchronisedUnifiedPerson",
+        "externallyManaged": true,
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "Jan Fransen"
+            }
+          ]
+        }
+      },
+      "period": {
+        "startDate": "2013-06-17T12:00:00.000+0000",
+        "endDate": "2014-12-16T12:00:00.000+0000"
+      },
+      "isPrimaryAssociation": false,
+      "organisationalUnit": {
+        "uuid": "99e0d08c-3dab-41fa-9107-b1519f59203a",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/520/organisational-units/99e0d08c-3dab-41fa-9107-b1519f59203a"
+        },
+        "externalId": "GGMQFNVJKKZIQ",
+        "externalIdSource": "synchronisedUnifiedOrganisation",
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Research and Learning"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 855,
+          "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/department",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Department"
+              }
+            ]
+          }
+        }
+      },
+      "staffType": {
+        "pureId": 3434337,
+        "uri": "/dk/atira/pure/person/personstafftype/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      },
+      "jobDescription": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Associate Librarian"
+          }
+        ]
+      }
+    },
+    {
+      "pureId": 129697363,
+      "externalId": "autoid:3568-GRQAGRQA-Associate Librarian-libraries-2013-06-17",
+      "externalIdSource": "synchronisedUnifiedPerson",
+      "externallyManaged": true,
+      "person": {
+        "uuid": "01edf3d8-7e44-4dfa-bec4-8e3472965e1f",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/520/persons/01edf3d8-7e44-4dfa-bec4-8e3472965e1f"
+        },
+        "externalId": "3568",
+        "externalIdSource": "synchronisedUnifiedPerson",
+        "externallyManaged": true,
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "Jan Fransen"
+            }
+          ]
+        }
+      },
+      "affiliationId": "9714",
+      "period": {
+        "startDate": "2013-06-17T12:00:00.000+0000",
+        "endDate": "2018-06-11T12:00:00.000+0000"
+      },
+      "isPrimaryAssociation": false,
+      "employmentType": {
+        "pureId": 85639246,
+        "uri": "/dk/atira/pure/person/employmenttypes/libraries",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Libraries Staff"
+            }
+          ]
+        }
+      },
+      "organisationalUnit": {
+        "uuid": "ca31bad8-08c5-4192-b385-174ef80949f2",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/520/organisational-units/ca31bad8-08c5-4192-b385-174ef80949f2"
+        },
+        "externalId": "GRQAGRQA",
+        "externalIdSource": "synchronisedUnifiedOrganisation",
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Data and Technology"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 855,
+          "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/department",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Department"
+              }
+            ]
+          }
+        }
+      },
+      "staffType": {
+        "pureId": 3434339,
+        "uri": "/dk/atira/pure/person/personstafftype/nonacademic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Non-academic"
+            }
+          ]
+        }
+      },
+      "jobDescription": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Associate Librarian"
+          }
+        ]
+      },
+      "emails": [
+        {
+          "pureId": 244873733,
+          "externalId": "personStaffAssocEmail1",
+          "externalIdSource": "synchronisedUnifiedPerson",
+          "externallyManaged": true,
+          "value": {
+            "formatted": false,
+            "value": "fransen@umn.edu"
+          },
+          "type": {
+            "pureId": 3434321,
+            "uri": "/dk/atira/pure/person/personemailtype/email",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Email"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 103808144,
+      "person": {
+        "uuid": "01edf3d8-7e44-4dfa-bec4-8e3472965e1f",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/520/persons/01edf3d8-7e44-4dfa-bec4-8e3472965e1f"
+        },
+        "externalId": "3568",
+        "externalIdSource": "synchronisedUnifiedPerson",
+        "externallyManaged": true,
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "Jan Fransen"
+            }
+          ]
+        }
+      },
+      "period": {
+        "startDate": "2008-05-20T12:00:00.000+0000",
+        "endDate": "2013-06-17T12:00:00.000+0000"
+      },
+      "isPrimaryAssociation": false,
+      "organisationalUnit": {
+        "uuid": "99e0d08c-3dab-41fa-9107-b1519f59203a",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/520/organisational-units/99e0d08c-3dab-41fa-9107-b1519f59203a"
+        },
+        "externalId": "GGMQFNVJKKZIQ",
+        "externalIdSource": "synchronisedUnifiedOrganisation",
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Research and Learning"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 855,
+          "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/department",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Department"
+              }
+            ]
+          }
+        }
+      },
+      "staffType": {
+        "pureId": 3434337,
+        "uri": "/dk/atira/pure/person/personstafftype/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      },
+      "jobDescription": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Assistant Librarian"
+          }
+        ]
+      }
+    }
+  ],
+  "keywordGroups": [
+    {
+      "pureId": 22840977,
+      "logicalName": "researchinterests",
+      "type": {
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Research Interest Keywords"
+            }
+          ]
+        }
+      },
+      "keywordContainers": [
+        {
+          "pureId": 22840978,
+          "freeKeywords": [
+            {
+              "pureId": 22840979,
+              "locale": "en_US",
+              "freeKeywords": [
+                "Research Networking Systems",
+                "Research Information Management Systems",
+                "Discovery Systems"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pureId": 271530123,
+      "logicalName": "sustainabledevelopmentgoals",
+      "type": {
+        "uri": "/dk/atira/pure/sustainabledevelopmentgoals",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Sustainable Development Goals"
+            }
+          ]
+        }
+      },
+      "keywordContainers": [
+        {
+          "pureId": 271530124,
+          "structuredKeyword": {
+            "pureId": 241939370,
+            "uri": "/dk/atira/pure/sustainabledevelopmentgoals/quality_education",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "SDG 4 - Quality Education"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
