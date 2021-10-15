@@ -88,6 +88,7 @@ def test_person(version):
     jan_fransen_uuid = '01edf3d8-7e44-4dfa-bec4-8e3472965e1f'
     with open(f'tests/fixtures/{version}/person/{jan_fransen_uuid}.json') as f:
         p3 = transformer(json.load(f))
+        assert isinstance(p3.uuid, str)
         assert p3.uuid == jan_fransen_uuid
         id_type_uri_value_map = {
             '/dk/atira/pure/person/personsources/scopusauthor': '36713379400',
@@ -96,10 +97,15 @@ def test_person(version):
         }
         for _id in p3.ids:
             if _id.type.uri in id_type_uri_value_map:
+                assert isinstance(_id.value.value, str)
                 assert _id.value.value == id_type_uri_value_map[_id.type.uri]
+        assert isinstance(p3.externalId, str)
         assert p3.externalId == '3568'
+        assert isinstance(p3.name.firstName, str)
         assert p3.name.firstName == 'Jan'
+        assert isinstance(p3.name.lastName, str)
         assert p3.name.lastName == 'Fransen'
+        assert isinstance(p3.orcid, str)
         assert p3.orcid == '0000-0002-0302-2761'
         assert isinstance(p3.scopusHIndex, int)
         assert isinstance(iso_8601_string_to_datetime(p3.info.modifiedDate), datetime)
