@@ -230,6 +230,36 @@ def test_external_organisation(version):
     assert eo.info.previousUuids == []
     assert eo.pureId == None
 
+    # Test that we can correctly find existing, populated fields:
+    rutherford_lab_uuid = '53c9eb4e-01cf-48b2-86cd-58581aa8a7ab'
+    with open(f'tests/fixtures/{version}/external_organisation/{rutherford_lab_uuid}.json') as f:
+        eo2 = transformer(json.load(f))
+        assert isinstance(eo2.uuid, str)
+        assert eo2.uuid == rutherford_lab_uuid
+        assert isinstance(iso_8601_string_to_datetime(eo2.info.modifiedDate), datetime)
+
+        eo2_name = next(
+            (name_text.value
+                for name_text
+                in eo2.name.text
+                if name_text.locale =='en_US'
+            ),
+            None
+        )
+        assert isinstance(eo2_name, str)
+        assert eo2_name == 'Rutherford Appleton Laboratory'
+
+        eo2_type = next(
+            (type_text.value
+                for type_text
+                in eo2.type.term.text
+                if type_text.locale =='en_US'
+            ),
+            None
+        ).lower()
+        assert isinstance(eo2_type, str)
+        assert eo2_type == 'government'
+
 def test_research_output(version):
     transformer = getattr(response, 'research_output_' + version)
     ro1_citation_count = 100
