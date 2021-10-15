@@ -98,7 +98,6 @@ def test_person(version):
             if _id.type.uri in id_type_uri_value_map:
                 assert _id.value.value == id_type_uri_value_map[_id.type.uri]
         assert p3.externalId == '3568'
-        # assert p3.info.modifiedDate matches some regex
         assert p3.name.firstName == 'Jan'
         assert p3.name.lastName == 'Fransen'
         assert p3.orcid == '0000-0002-0302-2761'
@@ -162,6 +161,61 @@ def test_organisational_unit(version):
     assert ou.externalId == None
     assert ou.ids == []
     assert ou.parents[0].uuid == None
+
+    # Test that we can correctly find existing, populated fields:
+    libraries_uuid = '3f714cea-399a-4fec-971f-45e047806367'
+    with open(f'tests/fixtures/{version}/organisational_unit/{libraries_uuid}.json') as f:
+        ou2 = transformer(json.load(f))
+        assert isinstance(ou2.uuid, str)
+        assert ou2.uuid == libraries_uuid
+        assert isinstance(ou2.externalId, str)
+        assert ou2.externalId == 'LKTQDNVXHPZC'
+        assert isinstance(iso_8601_string_to_datetime(ou2.info.modifiedDate), datetime)
+        assert isinstance(ou2.parents[0].uuid, str)
+        assert ou2.parents[0].uuid == '0db47450-6e7d-464b-a1cb-9c8b571ca060' # UMN Twin Cities
+
+        ou2_name = next(
+            (name_text.value
+                for name_text
+                in ou2.name.text
+                if name_text.locale =='en_US'
+            ),
+            None
+        )
+        assert isinstance(ou2_name, str)
+        assert ou2_name == 'University Libraries'
+
+        ou2_type = next(
+            (type_text.value
+                for type_text
+                in ou2.type.term.text
+                if type_text.locale =='en_US'
+            ),
+            None
+        ).lower()
+        assert isinstance(ou2_type, str)
+        assert ou2_type == 'college'
+
+    # externalId is not always defined, in which case we look for our UMN-defined organisation IDs,
+    # which we call the "pure ID", in the "ids" list instead:
+    clawriting_uuid = 'cb612e38-13be-4496-aafa-02ea96ddeca4'
+    clawriting_pure_id = 'CLAWRITING'
+    with open(f'tests/fixtures/{version}/organisational_unit/{clawriting_uuid}.json') as f:
+        ou3 = transformer(json.load(f))
+        assert isinstance(ou3.uuid, str)
+        assert ou3.uuid == clawriting_uuid
+        assert isinstance(ou3.externalId, str)
+        assert ou3.externalId == clawriting_pure_id
+        ou3_pure_id = next(
+            (
+                _id.value.value
+                for _id in ou3.ids
+                if _id.type.uri =='/dk/atira/pure/organisation/organisationsources/organisationid'
+            ),
+            None
+        )
+        assert isinstance(ou3_pure_id, str)
+        assert ou3_pure_id == clawriting_pure_id
 
 def test_external_organisation(version):
     transformer = getattr(response, 'external_organisation_' + version)
