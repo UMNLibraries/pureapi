@@ -1,4 +1,5 @@
 from datetime import datetime
+import itertools
 import json
 import re
 
@@ -278,3 +279,123 @@ def test_research_output(version):
     assert isinstance(ro2, Dict)
     assert ro2.info.previousUuids == []
     assert ro2.totalScopusCitations == ro2_citation_count
+
+    # Test that we can correctly find existing, populated fields:
+    cabbibo_decays_uuid = 'f145e583-7d49-415e-aefb-381905b58ae7'
+    with open(f'tests/fixtures/{version}/research_output/{cabbibo_decays_uuid}.json') as f:
+        ro3 = transformer(json.load(f))
+        assert isinstance(ro3.uuid, str)
+        assert ro3.uuid == cabbibo_decays_uuid
+
+        assert isinstance(iso_8601_string_to_datetime(ro3.info.modifiedDate), datetime)
+
+        assert isinstance(ro3.externalId, str)
+        assert ro3.externalId == '85002158060'
+
+        assert isinstance(ro3.externalIdSource, str)
+        assert ro3.externalIdSource == 'Scopus'
+
+        ro3_doi = None
+        for version in ro3.electronicVersions:
+            if 'doi' in version:
+                ro3_doi = version.doi
+        assert isinstance(ro3_doi, str)
+        assert ro3_doi == 'https://doi.org/10.1103/PhysRevLett.117.232002'
+
+        ro3_pmid = None
+        ro3_qabo_id = None
+        for _id in ro3.info.additionalExternalIds:
+            if _id.idSource == 'PubMed':
+                ro3_pmid = _id.value
+            if _id.idSource == 'QABO':
+                ro3_qabo_id = _id.value
+        assert isinstance(ro3_pmid, str)
+        assert ro3_pmid == '27982610'
+        assert isinstance(ro3_qabo_id, str)
+        assert ro3_qabo_id == '85002158060'
+
+        type_uri_parts = ro3.type.uri.split('/')
+        type_uri_parts.reverse()
+        pure_subtype, pure_type, pure_parent_type = type_uri_parts[0:3]
+        assert isinstance(pure_type, str)
+        assert pure_type == 'contributiontojournal'
+        assert isinstance(pure_subtype, str)
+        assert pure_subtype == 'article'
+
+        assert isinstance(ro3.title.value, str)
+        assert ro3.title.value == 'Measurement of Singly Cabibbo Suppressed Decays Λc+ →pπ+π- and Λc+ →pK+K-'
+
+        assert isinstance(ro3.journalAssociation.title.value, str)
+        assert ro3.journalAssociation.title.value == 'Physical review letters'
+
+        assert isinstance(ro3.journalAssociation.issn.value, str)
+        assert ro3.journalAssociation.issn.value == '0031-9007'
+
+        pub_state = ro3.publicationStatuses[0]
+        state_uri_parts = pub_state.publicationStatus.uri.split('/')
+        state_uri_parts.reverse()
+        assert isinstance(state_uri_parts[0], str)
+        assert state_uri_parts[0] == 'published'
+        assert isinstance(pub_state.current, bool)
+        assert pub_state.current is True
+        assert isinstance(pub_state.publicationDate.year, int)
+        assert pub_state.publicationDate.year == 2016
+        assert isinstance(pub_state.publicationDate.month, int)
+        assert pub_state.publicationDate.month == 12
+        assert isinstance(pub_state.publicationDate.day, int)
+        assert pub_state.publicationDate.day == 2
+
+        assert isinstance(ro3.volume, str)
+        assert ro3.volume == '117'
+        assert isinstance(ro3.journalNumber, str)
+        assert ro3.journalNumber == '23'
+        assert ro3.pages is None # TODO: Replace with an article where pages is defined!
+        assert isinstance(ro3.totalScopusCitations, int)
+        assert ro3.totalScopusCitations == 21
+
+        assert isinstance(ro3.managingOrganisationalUnit.uuid, str)
+        assert ro3.managingOrganisationalUnit.uuid == '02b1196e-a592-4f52-8667-b94610d81b8e'
+
+        found_author_collab = False
+        for author_assoc in ro3.personAssociations:
+            if 'authorCollaboration' in author_assoc:
+                found_author_collab = True
+                assert isinstance(author_assoc.authorCollaboration.uuid, str)
+                assert author_assoc.authorCollaboration.uuid == '965013d0-149d-4178-b54a-a43d3be26f12'
+                author_collab_name = next(
+                    (author_collab_text.value
+                        for author_collab_text
+                        in author_assoc.authorCollaboration.name.text
+                        if author_collab_text.locale =='en_US'
+                    ),
+                    None
+                )
+                assert isinstance(author_collab_name, str)
+                assert author_collab_name == '(BESIII Collaboration)'
+            if 'person' in author_assoc:
+                assert isinstance(author_assoc.person.uuid, str)
+            if 'externalPerson' in author_assoc:
+                assert isinstance(author_assoc.externalPerson.uuid, str)
+            if 'person' in author_assoc or 'externalPerson' in author_assoc:
+                assert isinstance(author_assoc.name.firstName, str)
+                assert isinstance(author_assoc.name.lastName, str)
+                for pure_org in itertools.chain(author_assoc.organisationalUnits, author_assoc.externalOrganisations):
+                    assert isinstance(pure_org.uuid, str)
+
+
+            author_role = next(
+                (author_role_text.value
+                    for author_role_text
+                    in author_assoc.personRole.term.text
+                    if author_role_text.locale =='en_US'
+                ),
+                None
+            ).lower()
+            assert isinstance(author_role, str)
+
+        assert found_author_collab is True
+
+
+
+
+
