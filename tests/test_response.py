@@ -112,6 +112,7 @@ def test_person(version):
         assert isinstance(iso_8601_string_to_datetime(p3.info.modifiedDate), datetime)
 
         for org_assoc in p3.staffOrganisationAssociations:
+            assert isinstance(org_assoc.organisationalUnit.uuid, str)
             assert uuid_regex.match(org_assoc.organisationalUnit.uuid) is not None
             assert isinstance(iso_8601_string_to_datetime(org_assoc.period.startDate), datetime)
             assert isinstance(org_assoc.isPrimaryAssociation, bool)
