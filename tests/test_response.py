@@ -349,9 +349,16 @@ def test_research_output(version):
         assert ro3.volume == '117'
         assert isinstance(ro3.journalNumber, str)
         assert ro3.journalNumber == '23'
-        assert ro3.pages is None # TODO: Replace with an article where pages is defined!
         assert isinstance(ro3.totalScopusCitations, int)
         assert ro3.totalScopusCitations == 21
+
+        # Forgot to query for 'pages' when searching for an example record with
+        # values for all the fields we use. Doesn't seem worth it to start over
+        # with a different record just for this field. To see that 'pages' is
+        # where we expect in the schema, with values we expect, at least
+        # through API version 5.21, refer to record with uuid:
+        # dd5ff80a-0725-43e4-aaa3-47f4ebb2b998.
+        assert ro3.pages is None
 
         assert isinstance(ro3.managingOrganisationalUnit.uuid, str)
         assert ro3.managingOrganisationalUnit.uuid == '02b1196e-a592-4f52-8667-b94610d81b8e'
