@@ -160,6 +160,29 @@ def test_external_person(version):
     assert p2.name.firstName == 'Darth'
     assert p2.name.lastName == 'Vader'
 
+    # Test that we can correctly find existing, populated fields:
+    sambrano_uuid = 'f6aa0ce4-66b4-4e42-b355-709a7d7bfa48'
+    with open(f'tests/fixtures/{version}/external_person/{sambrano_uuid}.json') as f:
+        p3 = transformer(json.load(f))
+        assert isinstance(p3.uuid, str)
+        assert p3.uuid == sambrano_uuid
+        id_type_uri_value_map = {
+            '/dk/atira/pure/externalperson/externalpersonsources/scopusauthor': '6603637835',
+        }
+        for _id in p3.ids:
+            if _id.type.uri in id_type_uri_value_map:
+                assert isinstance(_id.value.value, str)
+                assert _id.value.value == id_type_uri_value_map[_id.type.uri]
+        assert isinstance(p3.name.firstName, str)
+        assert p3.name.firstName == 'Gilberto R.'
+        assert isinstance(p3.name.lastName, str)
+        assert p3.name.lastName == 'Sambrano'
+        assert isinstance(iso_8601_string_to_datetime(p3.info.modifiedDate), datetime)
+
+        for org_assoc in p3.externalOrganisations:
+            assert isinstance(org_assoc.uuid, str)
+            assert uuid_regex.match(org_assoc.uuid) is not None
+
 def test_organisational_unit(version):
     transformer = getattr(response, 'organisational_unit_' + version)
     ou = transformer({})
