@@ -87,7 +87,7 @@ def test_person(version):
 
     # Test that we can correctly find existing, populated fields:
     jan_fransen_uuid = '01edf3d8-7e44-4dfa-bec4-8e3472965e1f'
-    with open(f'tests/fixtures/{version}/person/{jan_fransen_uuid}.json') as f:
+    with open(f'tests/data/{version}/person/{jan_fransen_uuid}.json') as f:
         p3 = transformer(json.load(f))
         assert isinstance(p3.uuid, str)
         assert p3.uuid == jan_fransen_uuid
@@ -163,7 +163,7 @@ def test_external_person(version):
 
     # Test that we can correctly find existing, populated fields:
     sambrano_uuid = 'f6aa0ce4-66b4-4e42-b355-709a7d7bfa48'
-    with open(f'tests/fixtures/{version}/external_person/{sambrano_uuid}.json') as f:
+    with open(f'tests/data/{version}/external_person/{sambrano_uuid}.json') as f:
         p3 = transformer(json.load(f))
         assert isinstance(p3.uuid, str)
         assert p3.uuid == sambrano_uuid
@@ -195,7 +195,7 @@ def test_organisational_unit(version):
 
     # Test that we can correctly find existing, populated fields:
     libraries_uuid = '3f714cea-399a-4fec-971f-45e047806367'
-    with open(f'tests/fixtures/{version}/organisational_unit/{libraries_uuid}.json') as f:
+    with open(f'tests/data/{version}/organisational_unit/{libraries_uuid}.json') as f:
         ou2 = transformer(json.load(f))
         assert isinstance(ou2.uuid, str)
         assert ou2.uuid == libraries_uuid
@@ -231,7 +231,7 @@ def test_organisational_unit(version):
     # which we call the "pure ID", in the "ids" list instead:
     clawriting_uuid = 'cb612e38-13be-4496-aafa-02ea96ddeca4'
     clawriting_pure_id = 'CLAWRITING'
-    with open(f'tests/fixtures/{version}/organisational_unit/{clawriting_uuid}.json') as f:
+    with open(f'tests/data/{version}/organisational_unit/{clawriting_uuid}.json') as f:
         ou3 = transformer(json.load(f))
         assert isinstance(ou3.uuid, str)
         assert ou3.uuid == clawriting_uuid
@@ -257,7 +257,7 @@ def test_external_organisation(version):
 
     # Test that we can correctly find existing, populated fields:
     rutherford_lab_uuid = '53c9eb4e-01cf-48b2-86cd-58581aa8a7ab'
-    with open(f'tests/fixtures/{version}/external_organisation/{rutherford_lab_uuid}.json') as f:
+    with open(f'tests/data/{version}/external_organisation/{rutherford_lab_uuid}.json') as f:
         eo2 = transformer(json.load(f))
         assert isinstance(eo2.uuid, str)
         assert eo2.uuid == rutherford_lab_uuid
@@ -306,7 +306,7 @@ def test_research_output(version):
 
     # Test that we can correctly find existing, populated fields:
     cabbibo_decays_uuid = 'f145e583-7d49-415e-aefb-381905b58ae7'
-    with open(f'tests/fixtures/{version}/research_output/{cabbibo_decays_uuid}.json') as f:
+    with open(f'tests/data/{version}/research_output/{cabbibo_decays_uuid}.json') as f:
         ro3 = transformer(json.load(f))
         assert isinstance(ro3.uuid, str)
         assert ro3.uuid == cabbibo_decays_uuid
