@@ -24,7 +24,7 @@ response = client.get(
 )
 test_repsonse = client.get(
     'persons',
-    config=Config(domain='test.example.com', key='456-def', version='518')
+    config=Config(domain='test.example.com', key='456-def', version='521')
 )
 ```
 
@@ -65,7 +65,7 @@ For more details, see the documentation for each module. For more examples, see
 
 ## Pure API Versions
 
-Successfully tested against Pure API versions 5.16.x - 5.18.x.
+Successfully tested against Pure API versions 5.18.x - 5.21.x.
 
 ## Requirements and Recommendations
 
