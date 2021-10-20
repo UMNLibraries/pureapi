@@ -26,6 +26,7 @@ wheels/
 *.egg
 
 # poetry
+poetry.lock
 pyproject.lock
 
 # PyInstaller
