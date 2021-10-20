@@ -1,0 +1,86 @@
+{
+  "pureId": 4214930,
+  "externalId": "LKTQDNVXHPZC",
+  "externalIdSource": "synchronisedUnifiedOrganisation",
+  "uuid": "3f714cea-399a-4fec-971f-45e047806367",
+  "period": {
+    "startDate": "1969-12-29T12:00:00.000+0000"
+  },
+  "info": {
+    "createdBy": "atira",
+    "createdDate": "2015-06-24T18:36:18.262+0000",
+    "modifiedBy": "fransen@umn.edu",
+    "modifiedDate": "2020-01-09T17:15:41.370+0000",
+    "portalUrl": "https://experts.umn.edu/en/organisations/3f714cea-399a-4fec-971f-45e047806367",
+    "prettyURLIdentifiers": [
+      "university-libraries"
+    ]
+  },
+  "name": {
+    "formatted": false,
+    "text": [
+      {
+        "locale": "en_US",
+        "value": "University Libraries"
+      }
+    ]
+  },
+  "type": {
+    "pureId": 847,
+    "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/college",
+    "term": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "College"
+        }
+      ]
+    }
+  },
+  "visibility": {
+    "key": "FREE",
+    "value": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "Public - No restriction"
+        }
+      ]
+    }
+  },
+  "parents": [
+    {
+      "uuid": "0db47450-6e7d-464b-a1cb-9c8b571ca060",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/518/organisational-units/0db47450-6e7d-464b-a1cb-9c8b571ca060"
+      },
+      "externalId": "UMNTC",
+      "externalIdSource": "synchronisedUnifiedOrganisation",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "University of Minnesota Twin Cities"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 91845215,
+        "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/campus",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Campus"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

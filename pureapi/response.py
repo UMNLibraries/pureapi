@@ -29,8 +29,8 @@ def change(record: MutableMapping) -> Dict:
     '''
     d = Dict(record)
     return d
-change_518 = change_517 = change
-'''``change_518()`` and ``change_517()`` are aliases of ``change()``.'''
+change_521 = change_520 = change_519 = change_518 = change
+'''``change_521()``, ``change_520()``, ``change_519()``, and ``change_518()`` are aliases of ``change()``.'''
 
 def external_organisation(record: MutableMapping) -> Dict:
     '''Transforms a record from the ``external-organisations`` collection.
@@ -48,8 +48,8 @@ def external_organisation(record: MutableMapping) -> Dict:
     d.info.setdefault('previousUuids', [])
     d.setdefault('pureId', None)
     return d
-external_organisation_518 = external_organisation_517 = external_organisation
-'''``external_organisation_518()`` and ``external_organisation_517()`` are
+external_organisation_521 = external_organisation_520 = external_organisation_519 = external_organisation_518 = external_organisation
+'''``external_organisation_521``, ``external_organisation_520``, ``external_organisation_519()``, and ``external_organisation_518()`` are
 aliases of ``external_organisation()``.'''
 
 def external_person(record: MutableMapping) -> Dict:
@@ -70,8 +70,8 @@ def external_person(record: MutableMapping) -> Dict:
     d.name.setdefault('firstName', None)
     d.name.setdefault('lastName', None)
     return d
-external_person_518 = external_person_517 = external_person
-'''``external_person_518()`` and ``external_person_517()`` are
+external_person_521 = external_person_520 = external_person_519 = external_person_518 = external_person
+'''``external_person_521``, ``external_person_520``, ``external_person_519()``, and ``external_person_518()`` are
 aliases of ``external_person()``.'''
 
 def organisational_unit(record: MutableMapping) -> Dict:
@@ -104,8 +104,8 @@ def organisational_unit(record: MutableMapping) -> Dict:
     d.setdefault('parents', [Dict({'uuid': None})])
 
     return d
-organisational_unit_518 = organisational_unit_517 = organisational_unit
-'''``organisational_unit_518()`` and ``organisational_unit_517()`` are
+organisational_unit_521 = organisational_unit_520 = organisational_unit_519 = organisational_unit_518 = organisational_unit
+'''``organisational_unit_521``, ``organisational_unit_520``, ``organisational_unit_519()``, and ``organisational_unit_518()`` are
 aliases of ``organisational_unit()``.'''
 
 def person(record: MutableMapping) -> Dict:
@@ -135,8 +135,8 @@ def person(record: MutableMapping) -> Dict:
     d.setdefault('scopusHIndex', None)
     d.setdefault('orcid', None)
     return d
-person_518 = person_517 = person
-'''``person_518()`` and ``person_517()`` are aliases of ``person()``.'''
+person_521 = person_520 = person_519 = person_518 = person
+'''``person_521``, ``person_520``, ``person_519()``, and ``person_518()`` are aliases of ``person()``.'''
 
 def research_output(record: MutableMapping) -> Dict:
     '''Transforms a record from the ``research-outputs`` collection.
@@ -162,8 +162,8 @@ def research_output(record: MutableMapping) -> Dict:
     d.setdefault('pages', None)
     d.setdefault('totalScopusCitations', None)
     return d
-research_output_518 = research_output_517 = research_output
-'''``research_output_518()`` and ``research_output_517()`` are aliases of
+research_output_521 = research_output_520 = research_output_519 = research_output_518 = research_output
+'''``research_output_521``, ``research_output_520``, ``research_output_519()``, and ``research_output_518()`` are aliases of
 ``research_output()``.'''
 
 @validate_collection

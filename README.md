@@ -144,6 +144,24 @@ to pytest, and set the environment variables described in
 
 ## Contributing
 
+### Testing Strategy and Tactics
+
+Testing existing clients against new Pure API schema versions presents significant
+challenges. Elsevier releases new versions of the Pure API every few months, and
+supports only three versions older than the current version. Also, the JSON schema
+for each API version is quite large, such that attempting to load them in some
+schema browsers will cause them to crash. Much of this size is due to documentation,
+which tends to change significantly between versions, making it difficult to find
+the signal of actual schema changes when diffing schema versions against each other.
+
+Our strategy for solving these problems is to test against only the fraction of
+an API schema that we actually use, ignoring changes to parts of that schema we
+do not use. The tactics we use here are to find sample records that contain all
+of the fields we use for a given record type, and to run automated tests against
+downloads of the same record from each supported API version endpoint. The sample
+records are in [tests/data/](tests/data/), and the tests are in
+[tests/test_response.py](tests/test_response.py).
+
 ### Google-Style Docstrings
 
 We use [Google-style docstrings](https://github.com/google/styleguide/blob/gh-pages/pyguide.md#38-comments-and-docstrings).

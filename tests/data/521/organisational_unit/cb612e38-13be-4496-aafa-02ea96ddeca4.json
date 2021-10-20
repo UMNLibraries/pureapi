@@ -1,0 +1,224 @@
+{
+  "pureId": 152908441,
+  "externalId": "CLAWRITING",
+  "externalIdSource": "synchronisedUnifiedOrganisation",
+  "uuid": "cb612e38-13be-4496-aafa-02ea96ddeca4",
+  "period": {
+    "startDate": "1960-01-01T12:00:00.000+0000"
+  },
+  "info": {
+    "createdBy": "fransen@umn.edu",
+    "createdDate": "2019-06-20T18:38:43.369+0000",
+    "modifiedBy": "fransen@umn.edu",
+    "modifiedDate": "2019-11-16T12:20:55.087+0000",
+    "portalUrl": "https://experts.umn.edu/en/organisations/cb612e38-13be-4496-aafa-02ea96ddeca4",
+    "prettyURLIdentifiers": [
+      "center-for-writing"
+    ]
+  },
+  "name": {
+    "formatted": false,
+    "text": [
+      {
+        "locale": "en_US",
+        "value": "Center for Writing"
+      }
+    ]
+  },
+  "type": {
+    "pureId": 857,
+    "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/institute",
+    "term": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "Institute/Center"
+        }
+      ]
+    }
+  },
+  "visibility": {
+    "key": "FREE",
+    "value": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "Public - No restriction"
+        }
+      ]
+    }
+  },
+  "nameVariants": [
+    {
+      "pureId": 152908457,
+      "value": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Writing, Center for"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 48,
+        "uri": "/dk/atira/pure/organisation/namevariants/sortname",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Sort name"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "profileInformations": [
+    {
+      "pureId": 152908459,
+      "value": {
+        "formatted": true,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "<p><span><span>Through individual consultations and in partnership with academic departments, the Center for Writing supports students and educators who practice, teach with, and research writing at the University of Minnesota, throughout the state, and around the world. To fulfill this mission, the Center encourages the development of writers and the use of writing as a tool for critical thinking, learning, and communicating in all fields; promotes expanded understandings of what writing is and how it works in the world; and develops and communicates current knowledge and research about writing and writing pedagogy.</span></span></p>"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 864,
+        "uri": "/dk/atira/pure/organisation/customfields/organisation_profile",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Organization profile"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "ids": [
+    {
+      "pureId": 152908460,
+      "value": {
+        "formatted": false,
+        "value": "10995"
+      },
+      "type": {
+        "pureId": 133874277,
+        "uri": "/dk/atira/pure/organisation/organisationsources/peoplesoft_deptid",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "PeopleSoft DeptID"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pureId": 155297016,
+      "value": {
+        "formatted": false,
+        "value": "CLAWRITING"
+      },
+      "type": {
+        "pureId": 80,
+        "uri": "/dk/atira/pure/organisation/organisationsources/organisationid",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Organization ID"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "emails": [
+    {
+      "pureId": 152908443,
+      "value": {
+        "formatted": false,
+        "value": "writing@umn.edu"
+      },
+      "type": {
+        "pureId": 75,
+        "uri": "/dk/atira/pure/organisation/organisationemailtype/email",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "E-mail"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "parents": [
+    {
+      "uuid": "c584c3f9-c4ba-4a97-a102-9558ccec89ee",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/521/organisational-units/c584c3f9-c4ba-4a97-a102-9558ccec89ee"
+      },
+      "externalId": "CJMMPFFWUTQ",
+      "externalIdSource": "synchronisedUnifiedOrganisation",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "College of Liberal Arts"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 847,
+        "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/college",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "College"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "contactPersons": [
+    {
+      "uuid": "d9e43283-f100-4c5a-abd8-9a7f9f0cb416",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/521/persons/d9e43283-f100-4c5a-abd8-9a7f9f0cb416"
+      },
+      "externalId": "2979292",
+      "externalIdSource": "synchronisedUnifiedPerson",
+      "externallyManaged": true,
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "value": "Kirsten Jamsen"
+          }
+        ]
+      }
+    }
+  ]
+}

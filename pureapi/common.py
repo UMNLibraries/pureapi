@@ -8,7 +8,7 @@ from pureapi.exceptions import PureAPIException
 
 schemas_path: Path = Path(__file__).parent / 'schemas'
 '''Parent path of swagger.io/json schema files for Pure API versions. Child
-directories are named for versions, without the periods, e.g., ``517`` for
+directories are named for versions, without the periods, e.g., ``518`` for
 version 5.17.'''
 
 # The commented out version seems more elegant, but using map() and filter() as an
@@ -90,14 +90,24 @@ def validate_version(func: F) -> F:
         return func(*args, **kwargs)
     return cast(F, wrapper_validate_version)
 
-def schema_518() -> MutableMapping:
-    '''Returns a mapping representation of the Pure API version 5.18 schema.'''
-    with open(schemas_path  / '518/swagger.json') as json_file:
+def schema_521() -> MutableMapping:
+    '''Returns a mapping representation of the Pure API version 5.21 schema.'''
+    with open(schemas_path  / '521/swagger.json') as json_file:
         return json.load(json_file)
 
-def schema_517() -> MutableMapping:
+def schema_520() -> MutableMapping:
+    '''Returns a mapping representation of the Pure API version 5.20 schema.'''
+    with open(schemas_path  / '520/swagger.json') as json_file:
+        return json.load(json_file)
+
+def schema_519() -> MutableMapping:
+    '''Returns a mapping representation of the Pure API version 5.19 schema.'''
+    with open(schemas_path  / '519/swagger.json') as json_file:
+        return json.load(json_file)
+
+def schema_518() -> MutableMapping:
     '''Returns a mapping representation of the Pure API version 5.17 schema.'''
-    with open(schemas_path  / '517/swagger.json') as json_file:
+    with open(schemas_path  / '518/swagger.json') as json_file:
         return json.load(json_file)
 
 @functools.lru_cache(maxsize=None)
@@ -107,15 +117,25 @@ def schema_for(*, version: str = None) -> MutableMapping:
     ``version``.'''
     return globals()[f'schema_{version}']()
 
+def collections_521() -> Tuple[str]:
+    '''Returns a tuple of all collection names in the Pure API version 5.21
+    schema.'''
+    return tuple(map(lambda tag: tag['name'], schema_for(version='521')['tags']))
+
+def collections_520() -> Tuple[str]:
+    '''Returns a tuple of all collection names in the Pure API version 5.20
+    schema.'''
+    return tuple(map(lambda tag: tag['name'], schema_for(version='520')['tags']))
+
+def collections_519() -> Tuple[str]:
+    '''Returns a tuple of all collection names in the Pure API version 5.19
+    schema.'''
+    return tuple(map(lambda tag: tag['name'], schema_for(version='519')['tags']))
+
 def collections_518() -> Tuple[str]:
     '''Returns a tuple of all collection names in the Pure API version 5.18
     schema.'''
     return tuple(map(lambda tag: tag['name'], schema_for(version='518')['tags']))
-
-def collections_517() -> Tuple[str]:
-    '''Returns a tuple of all collection names in the Pure API version 5.17
-    schema.'''
-    return tuple(map(lambda tag: tag['name'], schema_for(version='517')['tags']))
 
 @functools.lru_cache(maxsize=None)
 @validate_version
