@@ -85,8 +85,9 @@ variables. One to set them is with a `.env` file. See `env.dist` for an example.
 
 ### pyenv, venv, and poetry
 
-To install and manage Python versions we use [pyenv](https://github.com/pyenv/pyenv), and to manage
-dependencies we use [poetry](https://poetry.eustace.io/). While alternative tools will work, we document
+To manage dependencies we use [poetry](https://python-poetry.org/), and to manage Python versions
+we use [pyenv](https://github.com/pyenv/pyenv). Some of us also use [anyenv](https://github.com/anyenv/anyenv)
+to manage pyenv as well as other language version managers. While alternative tools will work, we document
 here only the tools we use. We will document the use of other tools if demand arises.
 
 One way to set up all these tools to work together, for a new project, is to follow the workflow below.
