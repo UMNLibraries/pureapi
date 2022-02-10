@@ -145,10 +145,15 @@ to pytest, and set the environment variables described in
 
 ## Contributing
 
+### Updating Supported Pure API Versions
+
+Elsevier releases a new version of Pure, including a new version of the Pure API,
+every four months.
+
 ### Testing Strategy and Tactics
 
 Testing existing clients against new Pure API schema versions presents significant
-challenges. Elsevier releases new versions of the Pure API every few months, and
+challenges. Elsevier releases new versions of the Pure API every four months, and
 supports only three versions older than the current version. Also, the JSON schema
 for each API version is quite large, such that attempting to load them in some
 schema browsers will cause them to crash. Much of this size is due to documentation,
@@ -179,8 +184,8 @@ poetry build
 tar -zxf dist/pureapi-1.0.0.tar.gz pureapi-1.0.0/setup.py --strip-components 1
 ```
 
-### Do not commit `pyproject.lock`.
+### Do not commit `poetry.lock`.
 
-To allow for flexibility in dependency versions, do _not_ commit `pyproject.lock`.
+To allow for flexibility in dependency versions, do _not_ commit `poetry.lock`.
 If multiple developers encounter problems with conflicting dependency versions, we may
 consider committing `pyproject.lock` at that point.
