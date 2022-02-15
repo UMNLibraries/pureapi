@@ -90,6 +90,11 @@ def validate_version(func: F) -> F:
         return func(*args, **kwargs)
     return cast(F, wrapper_validate_version)
 
+def schema_522() -> MutableMapping:
+    '''Returns a mapping representation of the Pure API version 5.22 schema.'''
+    with open(schemas_path  / '521/swagger.json') as json_file:
+        return json.load(json_file)
+
 def schema_521() -> MutableMapping:
     '''Returns a mapping representation of the Pure API version 5.21 schema.'''
     with open(schemas_path  / '521/swagger.json') as json_file:
@@ -100,22 +105,17 @@ def schema_520() -> MutableMapping:
     with open(schemas_path  / '520/swagger.json') as json_file:
         return json.load(json_file)
 
-def schema_519() -> MutableMapping:
-    '''Returns a mapping representation of the Pure API version 5.19 schema.'''
-    with open(schemas_path  / '519/swagger.json') as json_file:
-        return json.load(json_file)
-
-def schema_518() -> MutableMapping:
-    '''Returns a mapping representation of the Pure API version 5.17 schema.'''
-    with open(schemas_path  / '518/swagger.json') as json_file:
-        return json.load(json_file)
-
 @functools.lru_cache(maxsize=None)
 @validate_version
 def schema_for(*, version: str = None) -> MutableMapping:
     '''Returns a mapping representation of the schema for the given Pure API
     ``version``.'''
     return globals()[f'schema_{version}']()
+
+def collections_522() -> Tuple[str]:
+    '''Returns a tuple of all collection names in the Pure API version 5.22
+    schema.'''
+    return tuple(map(lambda tag: tag['name'], schema_for(version='521')['tags']))
 
 def collections_521() -> Tuple[str]:
     '''Returns a tuple of all collection names in the Pure API version 5.21
@@ -126,16 +126,6 @@ def collections_520() -> Tuple[str]:
     '''Returns a tuple of all collection names in the Pure API version 5.20
     schema.'''
     return tuple(map(lambda tag: tag['name'], schema_for(version='520')['tags']))
-
-def collections_519() -> Tuple[str]:
-    '''Returns a tuple of all collection names in the Pure API version 5.19
-    schema.'''
-    return tuple(map(lambda tag: tag['name'], schema_for(version='519')['tags']))
-
-def collections_518() -> Tuple[str]:
-    '''Returns a tuple of all collection names in the Pure API version 5.18
-    schema.'''
-    return tuple(map(lambda tag: tag['name'], schema_for(version='518')['tags']))
 
 @functools.lru_cache(maxsize=None)
 @validate_version

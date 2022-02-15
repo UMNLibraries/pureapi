@@ -372,7 +372,7 @@ def test_research_output(version):
     assert isinstance(ro3.journalNumber, str)
     assert ro3.journalNumber == '23'
     assert isinstance(ro3.totalScopusCitations, int)
-    assert ro3.totalScopusCitations == 21
+    assert ro3.totalScopusCitations >= 21
 
     # Forgot to query for 'pages' when searching for an example record with
     # values for all the fields we use. Doesn't seem worth it to start over
