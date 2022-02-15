@@ -1,0 +1,5632 @@
+{
+  "pureId": 85414559,
+  "externalId": "85002158060",
+  "externalIdSource": "Scopus",
+  "uuid": "f145e583-7d49-415e-aefb-381905b58ae7",
+  "title": {
+    "formatted": true,
+    "value": "Measurement of Singly Cabibbo Suppressed Decays Λc+ →pπ+π- and Λc+ →pK+K-"
+  },
+  "peerReview": true,
+  "managingOrganisationalUnit": {
+    "uuid": "02b1196e-a592-4f52-8667-b94610d81b8e",
+    "link": {
+      "ref": "content",
+      "href": "https://experts.umn.edu/ws/api/522/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
+    },
+    "externalId": "EOGBVRFLJD",
+    "externalIdSource": "synchronisedUnifiedOrganisation",
+    "name": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "Physics and Astronomy (Twin Cities)"
+        }
+      ]
+    },
+    "type": {
+      "pureId": 855,
+      "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/department",
+      "term": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Department"
+          }
+        ]
+      }
+    }
+  },
+  "confidential": false,
+  "info": {
+    "createdBy": "root",
+    "createdDate": "2017-03-18T22:17:13.346-05:00",
+    "modifiedBy": "root",
+    "modifiedDate": "2022-02-04T17:15:22.751-06:00",
+    "portalUrl": "https://experts.umn.edu/en/publications/f145e583-7d49-415e-aefb-381905b58ae7",
+    "prettyURLIdentifiers": [
+      "measurement-of-singly-cabibbo-suppressed-decays-λc-pππ-and-λc-pkk"
+    ],
+    "additionalExternalIds": [
+      {
+        "value": "85002158060",
+        "idSource": "QABO"
+      },
+      {
+        "value": "27982610",
+        "idSource": "PubMed"
+      },
+      {
+        "value": "/0000-0003-0305-4461/work/67721225",
+        "idSource": "ORCID"
+      }
+    ]
+  },
+  "totalScopusCitations": 25,
+  "volume": "117",
+  "journalAssociation": {
+    "pureId": 206018019,
+    "title": {
+      "value": "Physical review letters"
+    },
+    "issn": {
+      "value": "0031-9007"
+    },
+    "journal": {
+      "uuid": "e8f449dd-03b4-4b2c-ba4c-c41051f861cd",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/journals/e8f449dd-03b4-4b2c-ba4c-c41051f861cd"
+      },
+      "externalId": "29150",
+      "externalIdSource": "Scopus",
+      "externallyManaged": true,
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "value": "Physical Review Letters"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 910,
+        "uri": "/dk/atira/pure/journal/journaltypes/journal/journal",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Journal"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "articleNumber": "232002",
+  "journalNumber": "23",
+  "type": {
+    "pureId": 4664,
+    "uri": "/dk/atira/pure/researchoutput/researchoutputtypes/contributiontojournal/article",
+    "term": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "Article"
+        }
+      ]
+    }
+  },
+  "category": {
+    "pureId": 6885,
+    "uri": "/dk/atira/pure/researchoutput/category/research",
+    "term": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "Research"
+        }
+      ]
+    }
+  },
+  "language": {
+    "pureId": 4214728,
+    "uri": "/dk/atira/pure/core/languages/en_US",
+    "term": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "English (US)"
+        }
+      ]
+    }
+  },
+  "abstract": {
+    "formatted": true,
+    "text": [
+      {
+        "locale": "en_US",
+        "value": "<p>Using 567 pb-1 of data collected with the BESIII detector at a center-of-mass energy of s=4.599 GeV, near the Λc+Λc- threshold, we study the singly Cabibbo-suppressed decays Λc+→pπ+π- and Λc+→pK+K-. By normalizing with respect to the Cabibbo-favored decay Λc+→pK-π+, we obtain ratios of branching fractions: [B(Λc+→pπ+π-)/B(Λc+→pK-π+)]=(6.70±0.48±0.25)%, [B(Λc+→pφ)/B(Λc+→pK-π+)]=(1.81±0.33±0.13)%, and [B(Λc+→pK+Knon-φ-)/B(Λc+→pK-π+)]=(9.36±2.22±0.71)×10-3, where the uncertainties are statistical and systematic, respectively. The absolute branching fractions are also presented. Among these measurements, the decay Λc+→pπ+π- is observed for the first time, and the precision of the branching fraction for Λc+→pK+Knon-φ- and Λc+→pφ is significantly improved.</p>"
+      }
+    ]
+  },
+  "totalNumberOfAuthors": 439,
+  "openAccessPermission": {
+    "pureId": 3435853,
+    "uri": "/dk/atira/pure/researchoutput/openaccesspermission/open",
+    "term": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "Open"
+        }
+      ]
+    }
+  },
+  "bibliographicalNote": {
+    "formatted": false,
+    "text": [
+      {
+        "locale": "en_US",
+        "value": "Funding Information:\nThe BESIII Collaboration thanks the staff of BEPCII, the IHEP computing center, and the supercomputing center of USTC for their strong support. This work is supported in part by National Key Basic Research Program of China under Contract No. 2015CB856700; National Natural Science Foundation of China (NSFC) under Contracts No. 11125525, No. 11235011, No. 11322544, No. 11335008, No. 11425524, No. 11322544, No. 11375170, No. 11275189, No. 11475169, and No. 11475164; the Chinese Academy of Sciences (CAS) Large-Scale Scientific Facility Program; the CAS Center for Excellence in Particle Physics (CCEPP); the Collaborative Innovation Center for Particles and Interactions (CICPI); Joint Large-Scale Scientific Facility Funds of the NSFC and CAS under Contracts No. 11179007, No. U1232201, and No. U1332201; CAS under Contracts No. KJCX2-YW-N29 and No. KJCX2-YW-N45; 100 Talents Program of CAS; INPAC and Shanghai Key Laboratory for Particle Physics and Cosmology; German Research Foundation DFG under Collaborative Research Center Contract No. CRC-1044, FOR 2359; Istituto Nazionale di Fisica Nucleare, Italy; Ministry of Development of Turkey under Contract No. DPT2006K-120470; Russian Foundation for Basic Research under Contract No. 14-07-91152; U.S. Department of Energy under Contracts No. DE-FG02-04ER41291, No. DE-FG02-05ER41374, No. DE-FG02-94ER40823, and No. DESC0010118; U.S. National Science Foundation; University of Groningen (RuG) and the Helmholtz Centre for Heavy Ion Research GmbH (GSI), Darmstadt; and WCU Program of National Research Foundation of Korea under Contract No. R32-2008-000-10155-0.\n\nPublisher Copyright:\n© 2016 American Physical Society."
+      }
+    ]
+  },
+  "visibility": {
+    "key": "FREE",
+    "value": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "Public - No restriction"
+        }
+      ]
+    }
+  },
+  "workflow": {
+    "workflowStep": "approved",
+    "value": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "Validated"
+        }
+      ]
+    }
+  },
+  "publicationStatuses": [
+    {
+      "pureId": 85414559,
+      "externalId": "85002158060",
+      "externalIdSource": "Scopus",
+      "current": true,
+      "publicationDate": {
+        "year": 2016,
+        "month": 12,
+        "day": 2
+      },
+      "publicationStatus": {
+        "pureId": 798,
+        "uri": "/dk/atira/pure/researchoutput/status/published",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Published"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "personAssociations": [
+    {
+      "pureId": 85414567,
+      "externalPerson": {
+        "uuid": "7f463842-f49b-48c8-98cf-5dfc4b1efe83",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/7f463842-f49b-48c8-98cf-5dfc4b1efe83"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "M. Ablikim"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "M.",
+        "lastName": "Ablikim"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414568,
+      "externalPerson": {
+        "uuid": "9566f8c8-6de3-43e2-8ea8-6e647fa14c9b",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/9566f8c8-6de3-43e2-8ea8-6e647fa14c9b"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "M. N. Achasov"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "M. N.",
+        "lastName": "Achasov"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "cbee7a1f-3f2d-4c0a-86a3-756c056a5a40",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/cbee7a1f-3f2d-4c0a-86a3-756c056a5a40"
+          },
+          "externalId": "331048",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Budker Institute of Nuclear Physics"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "f4aa6f24-1c15-4718-b189-d4ee8dbff693",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/f4aa6f24-1c15-4718-b189-d4ee8dbff693"
+          },
+          "externalId": "331014",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Novosibirsk State University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414569,
+      "externalPerson": {
+        "uuid": "c94aa825-7799-4106-a70d-8f1c5b76f032",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/c94aa825-7799-4106-a70d-8f1c5b76f032"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "S. Ahmed"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "S.",
+        "lastName": "Ahmed"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "11434c4a-90c7-4245-a75e-7344224516b7",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/11434c4a-90c7-4245-a75e-7344224516b7"
+          },
+          "externalId": "703381",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Helmholtz-Institute Mainz"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414570,
+      "externalPerson": {
+        "uuid": "c477e87b-a751-44ff-b514-4c843a3a112f",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/c477e87b-a751-44ff-b514-4c843a3a112f"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "X. C. Ai"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "X. C.",
+        "lastName": "Ai"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414571,
+      "externalPerson": {
+        "uuid": "05598595-c188-44c6-99e0-debc726365eb",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/05598595-c188-44c6-99e0-debc726365eb"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "O. Albayrak"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "O.",
+        "lastName": "Albayrak"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "f6da3886-3ea7-4b76-a7ec-b727e0c009eb",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/f6da3886-3ea7-4b76-a7ec-b727e0c009eb"
+          },
+          "externalId": "508031",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Carnegie Mellon University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414572,
+      "externalPerson": {
+        "uuid": "ba02211f-9460-470d-b4be-21956de13e64",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/ba02211f-9460-470d-b4be-21956de13e64"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "M. Albrecht"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "M.",
+        "lastName": "Albrecht"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "719386b1-30e4-4f0d-8da2-aa347f4e9f3a",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/719386b1-30e4-4f0d-8da2-aa347f4e9f3a"
+          },
+          "externalId": "309047",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Ruhr University Bochum"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414573,
+      "person": {
+        "uuid": "35f331bb-7688-47ac-bdc3-941049471b4f",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/persons/35f331bb-7688-47ac-bdc3-941049471b4f"
+        },
+        "externalId": "7977",
+        "externalIdSource": "synchronisedUnifiedPerson",
+        "externallyManaged": true,
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "Daniel J Ambrose"
+            }
+          ]
+        }
+      },
+      "name": {
+        "firstName": "D. J.",
+        "lastName": "Ambrose"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "organisationalUnits": [
+        {
+          "uuid": "02b1196e-a592-4f52-8667-b94610d81b8e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
+          },
+          "externalId": "EOGBVRFLJD",
+          "externalIdSource": "synchronisedUnifiedOrganisation",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Physics and Astronomy (Twin Cities)"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 855,
+            "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/department",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Department"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414575,
+      "externalPerson": {
+        "uuid": "d7e0ebc1-bcec-4a10-af03-c95936dd5750",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/d7e0ebc1-bcec-4a10-af03-c95936dd5750"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "A. Amoroso"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "A.",
+        "lastName": "Amoroso"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "4a73a2dc-a9c5-4834-8938-11f8e65df4c5",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/4a73a2dc-a9c5-4834-8938-11f8e65df4c5"
+          },
+          "externalId": "321071",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "University of Turin"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+          },
+          "externalId": "321006",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Istituto Nazionale Fisica Nucleare"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414576,
+      "externalPerson": {
+        "uuid": "17a5c45d-cb82-45df-82a3-7e968c10068a",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/17a5c45d-cb82-45df-82a3-7e968c10068a"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "F. F. An"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "F. F.",
+        "lastName": "An"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414577,
+      "externalPerson": {
+        "uuid": "11ca4c8d-e822-4db7-a7f8-c0261bde51a1",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/11ca4c8d-e822-4db7-a7f8-c0261bde51a1"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "Q. An"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "Q.",
+        "lastName": "An"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "d26b745f-079c-4c69-8230-bd09d2dcc10d",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/d26b745f-079c-4c69-8230-bd09d2dcc10d"
+          },
+          "externalId": "203213",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "University of Science and Technology of China"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+          },
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "State Key Laboratory of Particle Detection and Electronics"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4847,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Unknown"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414578,
+      "externalPerson": {
+        "uuid": "17e70d73-0b33-42c8-8448-d40382027b4d",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/17e70d73-0b33-42c8-8448-d40382027b4d"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "J. Z. Bai"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "J. Z.",
+        "lastName": "Bai"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414579,
+      "externalPerson": {
+        "uuid": "9c1f8588-984b-4e59-b4ad-922e521d3f7c",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/9c1f8588-984b-4e59-b4ad-922e521d3f7c"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "O. Bakina"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "O.",
+        "lastName": "Bakina"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
+          },
+          "externalId": "331003",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Joint Institute for Nuclear Research"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414580,
+      "externalPerson": {
+        "uuid": "b58b8754-2e94-4dba-b391-bda867d41e09",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/b58b8754-2e94-4dba-b391-bda867d41e09"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "R. Baldini Ferroli"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "R.",
+        "lastName": "Baldini Ferroli"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+          },
+          "externalId": "321006",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Istituto Nazionale Fisica Nucleare"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414581,
+      "externalPerson": {
+        "uuid": "ef645ef9-ec3d-49cb-b8bc-c4e8d1349103",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/ef645ef9-ec3d-49cb-b8bc-c4e8d1349103"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "Y. Ban"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "Y.",
+        "lastName": "Ban"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "c20d4db5-979d-4291-b3c1-c381b510fd47",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/c20d4db5-979d-4291-b3c1-c381b510fd47"
+          },
+          "externalId": "203152",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Peking University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414582,
+      "externalPerson": {
+        "uuid": "472eb258-7d18-40a6-88cb-f81f78b0a738",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/472eb258-7d18-40a6-88cb-f81f78b0a738"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "D. W. Bennett"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "D. W.",
+        "lastName": "Bennett"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "b8e18d1b-4e22-4a05-9d31-b13a84c26c7c",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/b8e18d1b-4e22-4a05-9d31-b13a84c26c7c"
+          },
+          "externalId": "508085",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Indiana University Bloomington"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414583,
+      "externalPerson": {
+        "uuid": "312bc8cc-fa86-4998-b2f6-74408746c087",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/312bc8cc-fa86-4998-b2f6-74408746c087"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "J. V. Bennett"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "J. V.",
+        "lastName": "Bennett"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "f6da3886-3ea7-4b76-a7ec-b727e0c009eb",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/f6da3886-3ea7-4b76-a7ec-b727e0c009eb"
+          },
+          "externalId": "508031",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Carnegie Mellon University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414584,
+      "externalPerson": {
+        "uuid": "0c9b1f9f-f485-4d62-a504-81711431af3a",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/0c9b1f9f-f485-4d62-a504-81711431af3a"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "N. Berger"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "N.",
+        "lastName": "Berger"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "c7317503-7eb9-45ee-8b08-da0bb630d67f",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/c7317503-7eb9-45ee-8b08-da0bb630d67f"
+          },
+          "externalId": "309084",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Johannes Gutenberg University Mainz"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414585,
+      "externalPerson": {
+        "uuid": "3cdd4fc8-3888-48bf-9e20-7c8cd8f8653b",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/3cdd4fc8-3888-48bf-9e20-7c8cd8f8653b"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "M. Bertani"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "M.",
+        "lastName": "Bertani"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+          },
+          "externalId": "321006",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Istituto Nazionale Fisica Nucleare"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414586,
+      "externalPerson": {
+        "uuid": "ae407e17-9916-4b85-b156-e2a7831a0ed8",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/ae407e17-9916-4b85-b156-e2a7831a0ed8"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "D. Bettoni"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "D.",
+        "lastName": "Bettoni"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+          },
+          "externalId": "321006",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Istituto Nazionale Fisica Nucleare"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414587,
+      "externalPerson": {
+        "uuid": "56634c09-2631-44c9-90ee-84378ef18a64",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/56634c09-2631-44c9-90ee-84378ef18a64"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "E. Boger"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "J. M.",
+        "lastName": "Bian"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "5014c61f-5583-4c49-93b9-74394bb546a2",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/5014c61f-5583-4c49-93b9-74394bb546a2"
+          },
+          "externalId": "Goldstein Gallery, University of Minnesota",
+          "externalIdSource": "experts",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "University of Minnesota"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414588,
+      "externalPerson": {
+        "uuid": "4e436eec-7802-4b78-b2ef-7910b1972408",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/4e436eec-7802-4b78-b2ef-7910b1972408"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "F. Bianchi"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "F.",
+        "lastName": "Bianchi"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "4a73a2dc-a9c5-4834-8938-11f8e65df4c5",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/4a73a2dc-a9c5-4834-8938-11f8e65df4c5"
+          },
+          "externalId": "321071",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "University of Turin"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+          },
+          "externalId": "321006",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Istituto Nazionale Fisica Nucleare"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414589,
+      "externalPerson": {
+        "uuid": "90ffbe64-1d48-4817-9ff9-9220c3fa5b14",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/90ffbe64-1d48-4817-9ff9-9220c3fa5b14"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "E. Boger"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "E.",
+        "lastName": "Boger"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
+          },
+          "externalId": "331003",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Joint Institute for Nuclear Research"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "5416a32e-fc61-4209-bd80-fecdb1d70f3e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/5416a32e-fc61-4209-bd80-fecdb1d70f3e"
+          },
+          "externalId": "331007",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Moscow Institute of Physics and Technology"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414590,
+      "externalPerson": {
+        "uuid": "b75fba54-f219-4757-9151-a6e6057c2f45",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/b75fba54-f219-4757-9151-a6e6057c2f45"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "I. Boyko"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "I.",
+        "lastName": "Boyko"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
+          },
+          "externalId": "331003",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Joint Institute for Nuclear Research"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414591,
+      "externalPerson": {
+        "uuid": "4a09d3d1-d046-418d-8b81-3f61b96eaa2c",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/4a09d3d1-d046-418d-8b81-3f61b96eaa2c"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "R. A. Briere"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "R. A.",
+        "lastName": "Briere"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "f6da3886-3ea7-4b76-a7ec-b727e0c009eb",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/f6da3886-3ea7-4b76-a7ec-b727e0c009eb"
+          },
+          "externalId": "508031",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Carnegie Mellon University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414592,
+      "externalPerson": {
+        "uuid": "a06e7e7a-acfe-4f2b-b8ea-dacd2e377dc1",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/a06e7e7a-acfe-4f2b-b8ea-dacd2e377dc1"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "H. Cai"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "H.",
+        "lastName": "Cai"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "0e4a48fe-f49d-44a3-9f52-64a9dac379ba",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/0e4a48fe-f49d-44a3-9f52-64a9dac379ba"
+          },
+          "externalId": "203219",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Wuhan University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414593,
+      "externalPerson": {
+        "uuid": "2e80e392-0e44-4ca9-b22e-0c907d70206d",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/2e80e392-0e44-4ca9-b22e-0c907d70206d"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "X. Cai"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "X.",
+        "lastName": "Cai"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+          },
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "State Key Laboratory of Particle Detection and Electronics"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4847,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Unknown"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414594,
+      "externalPerson": {
+        "uuid": "a78cf08d-2e8d-48af-ac03-70af39705412",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/a78cf08d-2e8d-48af-ac03-70af39705412"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "O. Cakir"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "O.",
+        "lastName": "Cakir"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "2f743aa8-6e79-4e00-81a9-2b554471e4a7",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/2f743aa8-6e79-4e00-81a9-2b554471e4a7"
+          },
+          "externalId": "410006",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Ankara University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414595,
+      "externalPerson": {
+        "uuid": "b471b74f-fb7d-4fe4-9b36-54ff68fbf108",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/b471b74f-fb7d-4fe4-9b36-54ff68fbf108"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "A. Calcaterra"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "A.",
+        "lastName": "Calcaterra"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+          },
+          "externalId": "321006",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Istituto Nazionale Fisica Nucleare"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414596,
+      "externalPerson": {
+        "uuid": "b5a9933d-8d3c-48a2-b2db-e9b84eea80a3",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/b5a9933d-8d3c-48a2-b2db-e9b84eea80a3"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "G. F. Cao"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "G. F.",
+        "lastName": "Cao"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414597,
+      "externalPerson": {
+        "uuid": "4ef4f02a-6919-4350-af6f-586dff271784",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/4ef4f02a-6919-4350-af6f-586dff271784"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "S. A. Cetin"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "S. A.",
+        "lastName": "Cetin"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "bf1a3456-be2e-4d8e-bce0-a5da18c32674",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/bf1a3456-be2e-4d8e-bce0-a5da18c32674"
+          },
+          "externalId": "702205",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Istanbul Bilgi University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414598,
+      "externalPerson": {
+        "uuid": "58809918-8be3-46a0-8089-e2019dbdda1c",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/58809918-8be3-46a0-8089-e2019dbdda1c"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "J. Chai"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "J.",
+        "lastName": "Chai"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+          },
+          "externalId": "321006",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Istituto Nazionale Fisica Nucleare"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414599,
+      "externalPerson": {
+        "uuid": "1344d7f2-015a-4216-bec0-7f8b88c0ab51",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/1344d7f2-015a-4216-bec0-7f8b88c0ab51"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "J. F. Chang"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "J. F.",
+        "lastName": "Chang"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+          },
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "State Key Laboratory of Particle Detection and Electronics"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4847,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Unknown"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414600,
+      "externalPerson": {
+        "uuid": "571768ca-1c93-47e2-a141-a8799aeee798",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/571768ca-1c93-47e2-a141-a8799aeee798"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "G. A. Chelkov"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "G.",
+        "lastName": "Chelkov"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
+          },
+          "externalId": "331003",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Joint Institute for Nuclear Research"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "5416a32e-fc61-4209-bd80-fecdb1d70f3e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/5416a32e-fc61-4209-bd80-fecdb1d70f3e"
+          },
+          "externalId": "331007",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Moscow Institute of Physics and Technology"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "79d73e0b-3637-4327-b0db-fc6ca298c115",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/79d73e0b-3637-4327-b0db-fc6ca298c115"
+          },
+          "externalId": "331022",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Tomsk State University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414601,
+      "externalPerson": {
+        "uuid": "73553398-b9e5-4f4b-bfc5-8e95d2a77569",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/73553398-b9e5-4f4b-bfc5-8e95d2a77569"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "G. P. Chen"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "G.",
+        "lastName": "Chen"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414602,
+      "externalPerson": {
+        "uuid": "39f7ec47-be6b-4d99-a19e-5e8635807993",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/39f7ec47-be6b-4d99-a19e-5e8635807993"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "H. S. Chen"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "H. S.",
+        "lastName": "Chen"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414603,
+      "externalPerson": {
+        "uuid": "477d7cad-2ab3-4971-b85d-ad93a122c92e",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/477d7cad-2ab3-4971-b85d-ad93a122c92e"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "J. C. Chen"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "J. C.",
+        "lastName": "Chen"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414604,
+      "externalPerson": {
+        "uuid": "9794bd61-9c2e-444d-9f45-eb8ef45e448f",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/9794bd61-9c2e-444d-9f45-eb8ef45e448f"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "M. L. Chen"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "M. L.",
+        "lastName": "Chen"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+          },
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "State Key Laboratory of Particle Detection and Electronics"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4847,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Unknown"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414605,
+      "externalPerson": {
+        "uuid": "658a0445-b251-495d-9f8a-c03dcc99574e",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/658a0445-b251-495d-9f8a-c03dcc99574e"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "S. Chen"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "S.",
+        "lastName": "Chen"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "bdca37ff-6bdb-423b-81f7-0137bf652bba",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/bdca37ff-6bdb-423b-81f7-0137bf652bba"
+          },
+          "externalId": "700714",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Chinese Academy of Sciences"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414606,
+      "externalPerson": {
+        "uuid": "55bd29e5-ed99-48b3-8993-d10cff0a5af5",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/55bd29e5-ed99-48b3-8993-d10cff0a5af5"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "S. J. Chen"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "S. J.",
+        "lastName": "Chen"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "78025711-e2da-4a78-98f0-6acfdca35d06",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/78025711-e2da-4a78-98f0-6acfdca35d06"
+          },
+          "externalId": "203129",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Nanjing University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414607,
+      "externalPerson": {
+        "uuid": "339991f6-4d15-4d1a-8bc9-31dc938a693f",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/339991f6-4d15-4d1a-8bc9-31dc938a693f"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "X. Chen"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "X.",
+        "lastName": "Chen"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+          },
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "State Key Laboratory of Particle Detection and Electronics"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4847,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Unknown"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414608,
+      "externalPerson": {
+        "uuid": "4ab2091e-5857-4a33-8199-78441ee05518",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/4ab2091e-5857-4a33-8199-78441ee05518"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "X. R. Chen"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "X. R.",
+        "lastName": "Chen"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "e83d26f0-85bd-4236-a7c1-2ea4403c4050",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/e83d26f0-85bd-4236-a7c1-2ea4403c4050"
+          },
+          "externalId": "203116",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Lanzhou University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414609,
+      "externalPerson": {
+        "uuid": "54295bf5-1af3-4a4e-a224-cd48dfd459fd",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/54295bf5-1af3-4a4e-a224-cd48dfd459fd"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "Y. B. Chen"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "Y. B.",
+        "lastName": "Chen"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+          },
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "State Key Laboratory of Particle Detection and Electronics"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4847,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Unknown"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414610,
+      "externalPerson": {
+        "uuid": "0a768dea-1f89-4df9-81f4-0342eef46772",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/0a768dea-1f89-4df9-81f4-0342eef46772"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "H. P. Cheng"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "H. P.",
+        "lastName": "Cheng"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "82716ec8-232e-414b-8b84-e2d560f4608d",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/82716ec8-232e-414b-8b84-e2d560f4608d"
+          },
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Huangshan College"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4847,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Unknown"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414611,
+      "externalPerson": {
+        "uuid": "8b9f0f38-ed13-4729-97c4-4d268c47957f",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/8b9f0f38-ed13-4729-97c4-4d268c47957f"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "X. K. Chu"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "X. K.",
+        "lastName": "Chu"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "c20d4db5-979d-4291-b3c1-c381b510fd47",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/c20d4db5-979d-4291-b3c1-c381b510fd47"
+          },
+          "externalId": "203152",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Peking University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414612,
+      "externalPerson": {
+        "uuid": "038d609f-5d13-4ee9-97f1-f7f4a8433104",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/038d609f-5d13-4ee9-97f1-f7f4a8433104"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "G. Cibinetto"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "G.",
+        "lastName": "Cibinetto"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+          },
+          "externalId": "321006",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Istituto Nazionale Fisica Nucleare"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414613,
+      "externalPerson": {
+        "uuid": "d59bbec4-56c0-4081-b0ee-982a54cf9596",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/d59bbec4-56c0-4081-b0ee-982a54cf9596"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "H. L. Dai"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "H. L.",
+        "lastName": "Dai"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+          },
+          "externalId": "203278",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Institute of High Energy Physics - CAS"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+          },
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "State Key Laboratory of Particle Detection and Electronics"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4847,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Unknown"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414614,
+      "externalPerson": {
+        "uuid": "e6fa222f-6411-4669-8756-e92a030df362",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/e6fa222f-6411-4669-8756-e92a030df362"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "J. P. Dai"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "J. P.",
+        "lastName": "Dai"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "023c5f22-17b1-4885-b755-13a738fe934f",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/023c5f22-17b1-4885-b755-13a738fe934f"
+          },
+          "externalId": "203168",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Shanghai Jiao Tong University"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 3438401,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Academic"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414615,
+      "externalPerson": {
+        "uuid": "0cd00ffe-8479-4eea-8812-3b632843dca6",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/external-persons/0cd00ffe-8479-4eea-8812-3b632843dca6"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "A. Dbeyssi"
+            }
+          ]
+        },
+        "type": {
+          "pureId": 4855,
+          "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+          "term": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "External person"
+              }
+            ]
+          }
+        }
+      },
+      "name": {
+        "firstName": "A.",
+        "lastName": "Dbeyssi"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "externalOrganisations": [
+        {
+          "uuid": "11434c4a-90c7-4245-a75e-7344224516b7",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/external-organisations/11434c4a-90c7-4245-a75e-7344224516b7"
+          },
+          "externalId": "703381",
+          "externalIdSource": "scival",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Helmholtz-Institute Mainz"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 4841,
+            "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Government"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414808,
+      "person": {
+        "uuid": "b639540e-5a15-4bbd-ae86-95dffc433cac",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/persons/b639540e-5a15-4bbd-ae86-95dffc433cac"
+        },
+        "externalId": "6090",
+        "externalIdSource": "synchronisedUnifiedPerson",
+        "externallyManaged": true,
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "Hajime Muramatsu"
+            }
+          ]
+        }
+      },
+      "name": {
+        "firstName": "H.",
+        "lastName": "Muramatsu"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "organisationalUnits": [
+        {
+          "uuid": "02b1196e-a592-4f52-8667-b94610d81b8e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
+          },
+          "externalId": "EOGBVRFLJD",
+          "externalIdSource": "synchronisedUnifiedOrganisation",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Physics and Astronomy (Twin Cities)"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 855,
+            "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/department",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Department"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 85414829,
+      "person": {
+        "uuid": "9710f513-9553-4ad9-8f29-11ccb1861949",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/persons/9710f513-9553-4ad9-8f29-11ccb1861949"
+        },
+        "externalId": "2219",
+        "externalIdSource": "synchronisedUnifiedPerson",
+        "externallyManaged": true,
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "value": "Ron Poling"
+            }
+          ]
+        }
+      },
+      "name": {
+        "firstName": "R.",
+        "lastName": "Poling"
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      },
+      "organisationalUnits": [
+        {
+          "uuid": "02b1196e-a592-4f52-8667-b94610d81b8e",
+          "link": {
+            "ref": "content",
+            "href": "https://experts.umn.edu/ws/api/522/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
+          },
+          "externalId": "EOGBVRFLJD",
+          "externalIdSource": "synchronisedUnifiedOrganisation",
+          "name": {
+            "formatted": false,
+            "text": [
+              {
+                "locale": "en_US",
+                "value": "Physics and Astronomy (Twin Cities)"
+              }
+            ]
+          },
+          "type": {
+            "pureId": 855,
+            "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/department",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Department"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 86803047,
+      "authorCollaboration": {
+        "uuid": "965013d0-149d-4178-b54a-a43d3be26f12",
+        "link": {
+          "ref": "content",
+          "href": "https://experts.umn.edu/ws/api/522/author-collaborations/965013d0-149d-4178-b54a-a43d3be26f12"
+        },
+        "name": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "(BESIII Collaboration)"
+            }
+          ]
+        }
+      },
+      "personRole": {
+        "pureId": 4891,
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Author"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "organisationalUnits": [
+    {
+      "uuid": "02b1196e-a592-4f52-8667-b94610d81b8e",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
+      },
+      "externalId": "EOGBVRFLJD",
+      "externalIdSource": "synchronisedUnifiedOrganisation",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Physics and Astronomy (Twin Cities)"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 855,
+        "uri": "/dk/atira/pure/organisation/organisationtypes/organisation/department",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Department"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "externalOrganisations": [
+    {
+      "uuid": "2f743aa8-6e79-4e00-81a9-2b554471e4a7",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/2f743aa8-6e79-4e00-81a9-2b554471e4a7"
+      },
+      "externalId": "410006",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Ankara University"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "79d73e0b-3637-4327-b0db-fc6ca298c115",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/79d73e0b-3637-4327-b0db-fc6ca298c115"
+      },
+      "externalId": "331022",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Tomsk State University"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+      },
+      "externalId": "203278",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Institute of High Energy Physics - CAS"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "cbee7a1f-3f2d-4c0a-86a3-756c056a5a40",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/cbee7a1f-3f2d-4c0a-86a3-756c056a5a40"
+      },
+      "externalId": "331048",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Budker Institute of Nuclear Physics"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "f4aa6f24-1c15-4718-b189-d4ee8dbff693",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/f4aa6f24-1c15-4718-b189-d4ee8dbff693"
+      },
+      "externalId": "331014",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Novosibirsk State University"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "11434c4a-90c7-4245-a75e-7344224516b7",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/11434c4a-90c7-4245-a75e-7344224516b7"
+      },
+      "externalId": "703381",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Helmholtz-Institute Mainz"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 4841,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Government"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "f6da3886-3ea7-4b76-a7ec-b727e0c009eb",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/f6da3886-3ea7-4b76-a7ec-b727e0c009eb"
+      },
+      "externalId": "508031",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Carnegie Mellon University"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "719386b1-30e4-4f0d-8da2-aa347f4e9f3a",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/719386b1-30e4-4f0d-8da2-aa347f4e9f3a"
+      },
+      "externalId": "309047",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Ruhr University Bochum"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "4a73a2dc-a9c5-4834-8938-11f8e65df4c5",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/4a73a2dc-a9c5-4834-8938-11f8e65df4c5"
+      },
+      "externalId": "321071",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "University of Turin"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+      },
+      "externalId": "321006",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Istituto Nazionale Fisica Nucleare"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 4841,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Government"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "d26b745f-079c-4c69-8230-bd09d2dcc10d",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/d26b745f-079c-4c69-8230-bd09d2dcc10d"
+      },
+      "externalId": "203213",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "University of Science and Technology of China"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+      },
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "State Key Laboratory of Particle Detection and Electronics"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 4847,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Unknown"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
+      },
+      "externalId": "331003",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Joint Institute for Nuclear Research"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 4841,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Government"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "c20d4db5-979d-4291-b3c1-c381b510fd47",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/c20d4db5-979d-4291-b3c1-c381b510fd47"
+      },
+      "externalId": "203152",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Peking University"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "b8e18d1b-4e22-4a05-9d31-b13a84c26c7c",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/b8e18d1b-4e22-4a05-9d31-b13a84c26c7c"
+      },
+      "externalId": "508085",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Indiana University Bloomington"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "c7317503-7eb9-45ee-8b08-da0bb630d67f",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/c7317503-7eb9-45ee-8b08-da0bb630d67f"
+      },
+      "externalId": "309084",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Johannes Gutenberg University Mainz"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "5014c61f-5583-4c49-93b9-74394bb546a2",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/5014c61f-5583-4c49-93b9-74394bb546a2"
+      },
+      "externalId": "Goldstein Gallery, University of Minnesota",
+      "externalIdSource": "experts",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "University of Minnesota"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "5416a32e-fc61-4209-bd80-fecdb1d70f3e",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/5416a32e-fc61-4209-bd80-fecdb1d70f3e"
+      },
+      "externalId": "331007",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Moscow Institute of Physics and Technology"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 4841,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/government",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Government"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "0e4a48fe-f49d-44a3-9f52-64a9dac379ba",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/0e4a48fe-f49d-44a3-9f52-64a9dac379ba"
+      },
+      "externalId": "203219",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Wuhan University"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "bf1a3456-be2e-4d8e-bce0-a5da18c32674",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/bf1a3456-be2e-4d8e-bce0-a5da18c32674"
+      },
+      "externalId": "702205",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Istanbul Bilgi University"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "bdca37ff-6bdb-423b-81f7-0137bf652bba",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/bdca37ff-6bdb-423b-81f7-0137bf652bba"
+      },
+      "externalId": "700714",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Chinese Academy of Sciences"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "78025711-e2da-4a78-98f0-6acfdca35d06",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/78025711-e2da-4a78-98f0-6acfdca35d06"
+      },
+      "externalId": "203129",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Nanjing University"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "e83d26f0-85bd-4236-a7c1-2ea4403c4050",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/e83d26f0-85bd-4236-a7c1-2ea4403c4050"
+      },
+      "externalId": "203116",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Lanzhou University"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "82716ec8-232e-414b-8b84-e2d560f4608d",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/82716ec8-232e-414b-8b84-e2d560f4608d"
+      },
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Huangshan College"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 4847,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Unknown"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "023c5f22-17b1-4885-b755-13a738fe934f",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/023c5f22-17b1-4885-b755-13a738fe934f"
+      },
+      "externalId": "203168",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Shanghai Jiao Tong University"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "electronicVersions": [
+    {
+      "pureId": 85414561,
+      "visibleOnPortalDate": "2020-03-28T12:00:00.000-0500",
+      "doi": "https://doi.org/10.1103/PhysRevLett.117.232002",
+      "accessType": {
+        "pureId": 6776,
+        "uri": "/dk/atira/pure/core/openaccesspermission/open",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Open"
+            }
+          ]
+        }
+      },
+      "versionType": {
+        "pureId": 3435922,
+        "uri": "/dk/atira/pure/researchoutput/electronicversion/versiontype/publishersversion",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Final published version"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "additionalLinks": [
+    {
+      "pureId": 231594542,
+      "url": "http://www.scopus.com/inward/record.url?scp=85002158060&partnerID=8YFLogxK",
+      "description": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Link to publication in Scopus"
+          }
+        ]
+      },
+      "linkType": {
+        "pureId": 3435910,
+        "uri": "/dk/atira/pure/links/researchoutput/scopuspublication",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Scopus publication"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "pureId": 231594543,
+      "url": "http://www.scopus.com/inward/citedby.url?scp=85002158060&partnerID=8YFLogxK",
+      "description": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Link to the citations in Scopus"
+          }
+        ]
+      },
+      "linkType": {
+        "pureId": 3435912,
+        "uri": "/dk/atira/pure/links/researchoutput/scopuscitations",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Scopus citations"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "keywordGroups": [
+    {
+      "pureId": 102318771,
+      "logicalName": "ASJCSubjectAreas",
+      "type": {
+        "uri": "/dk/atira/pure/subjectarea/asjc",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "ASJC Scopus subject areas"
+            }
+          ]
+        }
+      },
+      "keywordContainers": [
+        {
+          "pureId": 102318772,
+          "structuredKeyword": {
+            "pureId": 6486,
+            "uri": "/dk/atira/pure/subjectarea/asjc/3100",
+            "term": {
+              "formatted": false,
+              "text": [
+                {
+                  "locale": "en_US",
+                  "value": "Physics and Astronomy(all)"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "scopusMetrics": [
+    {
+      "value": 1,
+      "year": 2022
+    },
+    {
+      "value": 3,
+      "year": 2021
+    },
+    {
+      "value": 5,
+      "year": 2020
+    },
+    {
+      "value": 6,
+      "year": 2019
+    },
+    {
+      "value": 6,
+      "year": 2018
+    },
+    {
+      "value": 3,
+      "year": 2017
+    },
+    {
+      "value": 1,
+      "year": 2016
+    }
+  ]
+}
