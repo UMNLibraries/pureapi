@@ -7,9 +7,9 @@
   },
   "info": {
     "createdBy": "root",
-    "createdDate": "2015-06-24T20:39:16.632+0000",
+    "createdDate": "2015-06-24T20:39:16.632-05:00",
     "modifiedBy": "root",
-    "modifiedDate": "2019-10-28T09:37:56.739+0000"
+    "modifiedDate": "2019-10-28T09:37:56.739-05:00"
   },
   "type": {
     "pureId": 4855,
@@ -63,7 +63,7 @@
       "uuid": "c011c05a-b9b8-4723-b9a5-ec9dd66d1b0a",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/519/external-organisations/c011c05a-b9b8-4723-b9a5-ec9dd66d1b0a"
+        "href": "https://experts.umn.edu/ws/api/523/external-organisations/c011c05a-b9b8-4723-b9a5-ec9dd66d1b0a"
       },
       "externalId": "508265",
       "externalIdSource": "scival",
@@ -94,7 +94,7 @@
       "uuid": "ca3cfc8b-0bba-4b71-b50c-115dba77719f",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/519/external-organisations/ca3cfc8b-0bba-4b71-b50c-115dba77719f"
+        "href": "https://experts.umn.edu/ws/api/523/external-organisations/ca3cfc8b-0bba-4b71-b50c-115dba77719f"
       },
       "name": {
         "formatted": false,
@@ -123,7 +123,7 @@
       "uuid": "1fc58227-16ed-40d5-acfd-69341bfd78af",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/519/external-organisations/1fc58227-16ed-40d5-acfd-69341bfd78af"
+        "href": "https://experts.umn.edu/ws/api/523/external-organisations/1fc58227-16ed-40d5-acfd-69341bfd78af"
       },
       "name": {
         "formatted": false,
@@ -152,7 +152,7 @@
       "uuid": "0170f44d-42a4-4a4f-8504-64fec969dac2",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/519/external-organisations/0170f44d-42a4-4a4f-8504-64fec969dac2"
+        "href": "https://experts.umn.edu/ws/api/523/external-organisations/0170f44d-42a4-4a4f-8504-64fec969dac2"
       },
       "name": {
         "formatted": false,
