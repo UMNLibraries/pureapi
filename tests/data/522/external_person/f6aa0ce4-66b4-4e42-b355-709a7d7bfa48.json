@@ -1,0 +1,181 @@
+{
+  "pureId": 4395423,
+  "uuid": "f6aa0ce4-66b4-4e42-b355-709a7d7bfa48",
+  "name": {
+    "firstName": "Gilberto R.",
+    "lastName": "Sambrano"
+  },
+  "info": {
+    "createdBy": "root",
+    "createdDate": "2015-06-24T20:39:16.632-05:00",
+    "modifiedBy": "root",
+    "modifiedDate": "2019-10-28T09:37:56.739-05:00"
+  },
+  "type": {
+    "pureId": 4855,
+    "uri": "/dk/atira/pure/externalperson/externalpersontypes/externalperson/externalperson",
+    "term": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "External person"
+        }
+      ]
+    }
+  },
+  "workflow": {
+    "workflowStep": "forApproval",
+    "value": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "For approval"
+        }
+      ]
+    }
+  },
+  "ids": [
+    {
+      "pureId": 115553431,
+      "value": {
+        "formatted": false,
+        "value": "6603637835"
+      },
+      "type": {
+        "pureId": 114639691,
+        "uri": "/dk/atira/pure/externalperson/externalpersonsources/scopusauthor",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Scopus Author ID"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "externalOrganisations": [
+    {
+      "uuid": "c011c05a-b9b8-4723-b9a5-ec9dd66d1b0a",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/c011c05a-b9b8-4723-b9a5-ec9dd66d1b0a"
+      },
+      "externalId": "508265",
+      "externalIdSource": "scival",
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "University of California at San Francisco"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 3438401,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/academic",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Academic"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "ca3cfc8b-0bba-4b71-b50c-115dba77719f",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/ca3cfc8b-0bba-4b71-b50c-115dba77719f"
+      },
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Cardiovascular Research Institute"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 4847,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Unknown"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "1fc58227-16ed-40d5-acfd-69341bfd78af",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/1fc58227-16ed-40d5-acfd-69341bfd78af"
+      },
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Department of Cellular and Molecular Pharmacology"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 4847,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Unknown"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uuid": "0170f44d-42a4-4a4f-8504-64fec969dac2",
+      "link": {
+        "ref": "content",
+        "href": "https://experts.umn.edu/ws/api/522/external-organisations/0170f44d-42a4-4a4f-8504-64fec969dac2"
+      },
+      "name": {
+        "formatted": false,
+        "text": [
+          {
+            "locale": "en_US",
+            "value": "Cardiovascular Research Institute"
+          }
+        ]
+      },
+      "type": {
+        "pureId": 4847,
+        "uri": "/dk/atira/pure/ueoexternalorganisation/ueoexternalorganisationtypes/ueoexternalorganisation/unknown",
+        "term": {
+          "formatted": false,
+          "text": [
+            {
+              "locale": "en_US",
+              "value": "Unknown"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
