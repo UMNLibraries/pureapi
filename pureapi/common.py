@@ -90,9 +90,14 @@ def validate_version(func: F) -> F:
         return func(*args, **kwargs)
     return cast(F, wrapper_validate_version)
 
+def schema_523() -> MutableMapping:
+    '''Returns a mapping representation of the Pure API version 5.23 schema.'''
+    with open(schemas_path  / '523/swagger.json') as json_file:
+        return json.load(json_file)
+
 def schema_522() -> MutableMapping:
     '''Returns a mapping representation of the Pure API version 5.22 schema.'''
-    with open(schemas_path  / '521/swagger.json') as json_file:
+    with open(schemas_path  / '522/swagger.json') as json_file:
         return json.load(json_file)
 
 def schema_521() -> MutableMapping:
@@ -112,10 +117,15 @@ def schema_for(*, version: str = None) -> MutableMapping:
     ``version``.'''
     return globals()[f'schema_{version}']()
 
+def collections_523() -> Tuple[str]:
+    '''Returns a tuple of all collection names in the Pure API version 5.23
+    schema.'''
+    return tuple(map(lambda tag: tag['name'], schema_for(version='523')['tags']))
+
 def collections_522() -> Tuple[str]:
     '''Returns a tuple of all collection names in the Pure API version 5.22
     schema.'''
-    return tuple(map(lambda tag: tag['name'], schema_for(version='521')['tags']))
+    return tuple(map(lambda tag: tag['name'], schema_for(version='522')['tags']))
 
 def collections_521() -> Tuple[str]:
     '''Returns a tuple of all collection names in the Pure API version 5.21
