@@ -8,12 +8,12 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.6.3"
-addict = "*"
+addict = "^2.4.0"
 attrs = "^19.3.0"
 requests = "^2.20.0"
-tenacity = "*"
+tenacity = "^8.0.1"
 
 [tool.poetry.dev-dependencies]
-pytest = "*"
-pytest-forked = "*"
-python_dotenv = "*"
+pytest = "^7.0.1"
+pytest-forked = "^1.4.0"
+python_dotenv = "^0.19.2"
