@@ -114,13 +114,13 @@ When using `poetry shell`, exit the shell to deactivate the virtual environment.
 Add to `pyproject.toml`:
 
 ```
-pureapi = {git = "git://github.com/UMNLibraries/pureapi.git"}
+pureapi = {git = "https://github.com/UMNLibraries/pureapi.git"}
 ```
 
 To specify a version, include the `tag` parameter:
 
 ```
-pureapi = {git = "git://github.com/UMNLibraries/pureapi.git", tag = "1.0.0"}
+pureapi = {git = "https://github.com/UMNLibraries/pureapi.git", tag = "1.0.0"}
 ```
 
 To install, run `poetry install`.
