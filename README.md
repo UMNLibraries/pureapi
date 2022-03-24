@@ -111,6 +111,12 @@ When using `poetry shell`, exit the shell to deactivate the virtual environment.
 
 ## Installing
 
+### Deprecated Dependency Specification (versions <= 4.3.2)
+
+Poetry seems to no longer reliably support git-repository-based dependencies.
+While this method of specifying a dependency may still work for versions <= 4.3.1,
+we recommended using the preferred method, with versions >= 4.3.2, below.
+
 Add to `pyproject.toml`:
 
 ```
@@ -120,7 +126,16 @@ pureapi = {git = "https://github.com/UMNLibraries/pureapi.git"}
 To specify a version, include the `tag` parameter:
 
 ```
-pureapi = {git = "https://github.com/UMNLibraries/pureapi.git", tag = "1.0.0"}
+pureapi = {git = "https://github.com/UMNLibraries/pureapi.git", tag = "4.3.2"}
+```
+
+### Preferred Dependency Specification (versions >= 4.3.3)
+
+Add to `pyproject.toml` a URL-based dependency, with a path to a `tar.gz` file
+in this repository's `dist/' directory:
+
+```
+pureapi = {url = "https://github.com/UMNLibraries/pureapi/raw/main/dist/pureapi-4.3.3.tar.gz"}
 ```
 
 To install, run `poetry install`.
@@ -174,7 +189,12 @@ We use [Google-style docstrings](https://github.com/google/styleguide/blob/gh-pa
 The [Napoleon extension for Sphinx](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/index.html)
 has some [good examples](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html#example-google).
 
-### Include an updated `setup.py`.
+### Building - Deprecated Method (versions <= 4.3.2)
+
+Poetry seems to no longer reliably support git-repository-based dependencies. Below is
+a method of building packages we used previously for such dependencies.
+
+#### Include an updated `setup.py`.
 
 Python package managers, including poetry, will be unable to install a VCS-based package without a
 `setup.py` file in the project root. To generate `setup.py`:
@@ -182,6 +202,15 @@ Python package managers, including poetry, will be unable to install a VCS-based
 ```
 poetry build
 tar -zxf dist/pureapi-1.0.0.tar.gz pureapi-1.0.0/setup.py --strip-components 1
+```
+
+### Building - Preferred Method (versions >= 4.3.3)
+
+When specifying a dependency on this package, use a URL to a `tar.gz` file produced by
+the following, as described in [Installing](#installing).
+
+```
+poetry build
 ```
 
 ### Do not commit `poetry.lock`.
