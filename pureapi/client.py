@@ -1,3 +1,4 @@
+from functools import partial
 import math
 import os
 from typing import Callable, Iterator, List, Mapping, MutableMapping
@@ -184,6 +185,26 @@ class Config:
     def __attrs_post_init__(self) -> None:
         self.headers['api-key'] = self.key
         object.__setattr__(self, 'base_url', f'{self.protocol}://{self.domain}/{self.base_path}/{self.version}/')
+
+def preconfig(config: Config, *args: Callable) -> List[Callable]:
+    '''Preconfigures functions that require a Config parameter.
+
+    When using more than one function that requires configuration, or
+    calling such functions multiple times, this function helps avoid
+    repetition, allowing multiple functions to be configured only once,
+    then re-used multiple times.
+
+    Example:
+        get, get_all = client.preconfig(Config(), client.get, client.get_all)
+
+    Args:
+        config: An instance of Config.
+        *args: A list of functions that accept a config=Config parameter.
+
+    Returns:
+        A list of preconfigured functions.
+    '''
+    return [partial(function, config=config) for function in args]
 
 def get(resource_path: str, params: Mapping = None, config: Config = None) -> requests.Response:
     '''Makes an HTTP GET request for Pure API resources.

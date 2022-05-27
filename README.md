@@ -24,12 +24,33 @@ response = client.get(
 )
 test_repsonse = client.get(
     'persons',
-    config=Config(domain='test.example.com', key='456-def', version='521')
+    config=Config(domain='test.example.com', key='456-def', version='523')
 )
 ```
 
 All functions that make requests of a Pure API server accept a `config`
 parameter. See the documentation for `client.Config` for more details.
+
+When using more than one function that requires configuration, or
+calling such functions multiple times, `preconfig()` helps avoid
+repetition, allowing multiple functions to be configured only once,
+then re-used multiple times:
+
+```python
+# Pre-configure a single function:
+[preconfigured_get] = client.preconfig(Config(version='523'), client.get)
+
+# Another way to configure a single function:
+preconfigured_get_all = client.preconfig(Config(version='523'), client.get_all)[0]
+
+# Preconfigure multiple functions:
+get, get_all, get_all_transformed = client.preconfig(
+    Config(version='523'),
+    client.get,
+    client.get_all,
+    client.get_all_transformed
+) 
+```
 
 ### Multi-Request Functions
 

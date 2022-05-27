@@ -67,6 +67,21 @@ def test_config():
             f'{client.default_protocol()}://{test_domain}/{client.default_base_path()}/{common.oldest_version}/'
         )
 
+def test_preconfig():
+    config = client.Config()
+
+    # Pre-configure a single function:
+    [get] = client.preconfig(config, client.get)
+    assert get.keywords['config'] is config
+
+    # Another way to configure a single function:
+    get_all = client.preconfig(config, client.get_all)[0]
+    assert get_all.keywords['config'] is config
+
+    # Preconfigure multiple functions:
+    for function in client.preconfig(config, client.get, client.get_all, client.get_all_transformed): 
+       assert function.keywords['config'] is config
+
 def test_get_collection_from_resource_path():
     for resource_path in ('persons', 'persons/12345'):
         collection = client._get_collection_from_resource_path(
@@ -80,11 +95,11 @@ def test_get_collection_from_resource_path():
 
 @pytest.mark.integration
 def test_get(version):
-    config = client.Config(version=version)
-    r_persons = client.get('persons', {'size':1, 'offset':0}, config)
+    [get] = client.preconfig(client.Config(version=version), client.get)
+    r_persons = get('persons', {'size':1, 'offset':0})
     assert r_persons.status_code == 200
 
-    r = client.get('organisational-units', {'size':1, 'offset':0}, config)
+    r = get('organisational-units', {'size':1, 'offset':0})
     assert r.status_code == 200
 
     d = r.json()
@@ -94,7 +109,7 @@ def test_get(version):
     org = d['items'][0]
     uuid = org['uuid']
 
-    r_uuid = client.get('organisational-units/' + uuid, {'size':1, 'offset':0}, config)
+    r_uuid = get('organisational-units/' + uuid, {'size':1, 'offset':0})
     assert r_uuid.status_code == 200
 
     d_uuid = r.json()
@@ -140,9 +155,9 @@ def test_get(version):
 
 @pytest.mark.integration
 def test_get_person_by_classified_source_id(version):
-    config = client.Config(version=version)
+    [get] = client.preconfig(client.Config(version=version), client.get)
     emplid = '2110454'
-    r = client.get('persons/' + emplid, {'idClassification':'classified_source'}, config)
+    r = get('persons/' + emplid, {'idClassification':'classified_source'})
     assert r.status_code == 200
 
     person = r.json()
@@ -188,10 +203,10 @@ def test_get_person_by_classified_source_id(version):
 
 @pytest.mark.integration
 def test_get_all_changes(version):
-    config = client.Config(version=version)
+    [get_all_changes] = client.preconfig(client.Config(version=version), client.get_all_changes)
     yesterday = date.today() - timedelta(days=1)
     request_count = 0
-    for r in client.get_all_changes(yesterday.isoformat(), config=config):
+    for r in get_all_changes(yesterday.isoformat()):
         assert r.status_code == 200
         json = r.json()
         assert json['count'] > 0
@@ -223,7 +238,10 @@ def test_get_all_changes_skipping_zero_counts(monkeypatch):
 
 @pytest.mark.integration
 def test_get_all_changes_transformed(version):
-    config = client.Config(version=version)
+    [get_all_changes_transformed] = client.preconfig(
+        client.Config(version=version),
+        client.get_all_changes_transformed
+    )
     """
     Strange change records:
     {'family': 'dk.atira.pure.api.shared.model.event.Event', 'familySystemName': 'Event'}
@@ -232,7 +250,7 @@ def test_get_all_changes_transformed(version):
     yesterday = date.today() - timedelta(days=1)
     transformed_count = 0
     transformed_limit = 10
-    for change in client.get_all_changes_transformed(yesterday.isoformat(), config=config):
+    for change in get_all_changes_transformed(yesterday.isoformat()):
         assert isinstance(change, Dict)
         if 'configurationType' in change:
             assert 'identifier' in change
@@ -251,28 +269,36 @@ def test_get_all_changes_transformed(version):
 
 @pytest.mark.integration
 def test_get_all_transformed(version):
-    config = client.Config(version=version)
-    r = client.get('organisational-units', {'size':1, 'offset':0}, config)
+    get, get_all_transformed = client.preconfig(
+        client.Config(version=version),
+        client.get,
+        client.get_all_transformed
+    )
+    r = get('organisational-units', {'size':1, 'offset':0})
     d = r.json()
     count = d['count']
 
     transformed_count = 0
-    for org in client.get_all_transformed('organisational-units', config=config):
+    for org in get_all_transformed('organisational-units'):
         assert isinstance(org, Dict)
         assert 'uuid' in org
         transformed_count += 1
     assert transformed_count == count
 
-    for person in client.get_all_transformed('persons', config=config):
+    for person in get_all_transformed('persons'):
         assert isinstance(person, Dict)
         assert 'uuid' in person
         break
 
 @pytest.mark.integration
 def test_filter(version):
-    config = client.Config(version=version)
+    _filter, get_all_transformed = client.preconfig(
+        client.Config(version=version),
+        client.filter,
+        client.get_all_transformed
+    )
     org_uuid = None
-    for org in client.get_all_transformed('organisational-units', params={'size':1, 'offset':0}, config=config):
+    for org in get_all_transformed('organisational-units', params={'size':1, 'offset':0}):
         org_uuid = org.uuid
         break
 
@@ -285,7 +311,7 @@ def test_filter(version):
             ]
         }
     }
-    r = client.filter('research-outputs', payload, config)
+    r = _filter('research-outputs', payload)
     assert r.status_code == 200
 
     d = r.json()
@@ -407,16 +433,20 @@ def test_group_items(test_group_items_params):
 
 @pytest.mark.integration
 def test_filter_all_by_uuid(version):
-    config = client.Config(version=version)
+    filter_all_by_uuid, get_all_transformed = client.preconfig(
+        client.Config(version=version),
+        client.filter_all_by_uuid,
+        client.get_all_transformed
+    )
     expected_count = 14
     ro_uuid_with_author_collaboration = '16e1efc1-92a2-4eca-a8d0-628bb2deda8a' # Not many records have these.
     uuids = [ro_uuid_with_author_collaboration]
-    for ro in client.get_all_transformed('research-outputs', params={'size': expected_count}, config=config):
+    for ro in get_all_transformed('research-outputs', params={'size': expected_count}):
         uuids.append(ro.uuid)
         if len(uuids) == expected_count:
             break
     downloaded_count = 0
-    for r in client.filter_all_by_uuid('research-outputs', uuids=uuids, uuids_per_request=10, config=config):
+    for r in filter_all_by_uuid('research-outputs', uuids=uuids, uuids_per_request=10):
         assert r.status_code == 200
         d = r.json()
         downloaded_count += d['count']
@@ -443,31 +473,39 @@ def test_filter_all_by_uuid(version):
 
 @pytest.mark.integration
 def test_filter_all_by_uuid_transformed(version):
-    config = client.Config(version=version)
+    filter_all_by_uuid_transformed, get_all_transformed = client.preconfig(
+        client.Config(version=version),
+        client.filter_all_by_uuid_transformed,
+        client.get_all_transformed
+    )
     limit = 10
     uuids = []
-    for ro in client.get_all_transformed('research-outputs', params={'size': limit}, config=config):
+    for ro in get_all_transformed('research-outputs', params={'size': limit}):
         uuids.append(ro.uuid)
         if len(uuids) == limit:
             break
     ros_by_uuid = []
-    for ro in client.filter_all_by_uuid_transformed('research-outputs', uuids=uuids, config=config):
+    for ro in filter_all_by_uuid_transformed('research-outputs', uuids=uuids):
         assert ro.uuid in uuids
         ros_by_uuid.append(ro)
     assert len(ros_by_uuid) == len(uuids)
 
 @pytest.mark.integration
 def test_filter_all_by_id(version):
-    config = client.Config(version=version)
+    filter_all_by_id, get_all_transformed = client.preconfig(
+        client.Config(version=version),
+        client.filter_all_by_id,
+        client.get_all_transformed
+    )
     expected_count = 10
     ids = []
-    for person in client.get_all_transformed('persons', params={'size': expected_count}, config=config):
+    for person in get_all_transformed('persons', params={'size': expected_count}):
         for _id in person.ids:
             if _id.type.uri == '/dk/atira/pure/person/personsources/employee':
                 ids.append(_id.value.value)
         if len(ids) == expected_count:
             break
-    for r in client.filter_all_by_id('persons', ids=ids, config=config):
+    for r in filter_all_by_id('persons', ids=ids):
         assert r.status_code == 200
         d = r.json()
         # Should get only one response:
@@ -476,17 +514,21 @@ def test_filter_all_by_id(version):
 
 @pytest.mark.integration
 def test_filter_all_by_id_transformed(version):
-    config = client.Config(version=version)
+    filter_all_by_id_transformed, get_all_transformed = client.preconfig(
+        client.Config(version=version),
+        client.filter_all_by_id_transformed,
+        client.get_all_transformed
+    )
     limit = 10
     ids = []
-    for person in client.get_all_transformed('persons', params={'size': limit}, config=config):
+    for person in get_all_transformed('persons', params={'size': limit}):
         for _id in person.ids:
             if _id.type.uri == '/dk/atira/pure/person/personsources/employee':
                 ids.append(_id.value.value)
         if len(ids) == limit:
             break
     persons_by_id = []
-    for person in client.filter_all_by_id_transformed('persons', ids=ids, config=config):
+    for person in filter_all_by_id_transformed('persons', ids=ids):
         for _id in person.ids:
             if _id.type.uri == '/dk/atira/pure/person/personsources/employee':
                 assert _id.value.value in ids
@@ -495,19 +537,23 @@ def test_filter_all_by_id_transformed(version):
 
 @pytest.mark.integration
 def test_filter_all_transformed(version):
-    config = client.Config(version=version)
+    _filter, filter_all_transformed= client.preconfig(
+        client.Config(version=version),
+        client.filter,
+        client.filter_all_transformed
+    )
     type_uri = "/dk/atira/pure/organisation/organisationtypes/organisation/peoplesoft_deptid"
     payload = {
         "organisationalUnitTypeUris": [
             type_uri
         ]
     }
-    r = client.filter('organisational-units', payload, config)
+    r = _filter('organisational-units', payload)
     d = r.json()
     count = d['count']
 
     transformed_count = 0
-    for org in client.filter_all_transformed('organisational-units', payload, config=config):
+    for org in filter_all_transformed('organisational-units', payload):
         assert isinstance(org, Dict)
         assert 'uuid' in org
         assert org['type'][0]['uri'] == type_uri
