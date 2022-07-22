@@ -246,20 +246,17 @@ def test_get_all_changes_transformed(version):
     Strange change records:
     {'family': 'dk.atira.pure.api.shared.model.event.Event', 'familySystemName': 'Event'}
     {'family': 'dk.atira.pure.api.shared.model.researchoutput.ResearchOutput', 'familySystemName': 'ResearchOutput'}
+    {'changeType': 'UPDATE', 'family': 'dk.atira.pure.api.shared.model.classification.ClassificationScheme', 'version': 0}
     """
     yesterday = date.today() - timedelta(days=1)
     transformed_count = 0
     transformed_limit = 10
     for change in get_all_changes_transformed(yesterday.isoformat()):
         assert isinstance(change, Dict)
-        if 'configurationType' in change:
-            assert 'identifier' in change
-        elif change.familySystemName == 'Event':
-            assert change.family == 'dk.atira.pure.api.shared.model.event.Event'
-        elif change.familySystemName == 'ResearchOutput':
-            assert change.family == 'dk.atira.pure.api.shared.model.researchoutput.ResearchOutput'
+        if 'uuid' not in change:
+            continue
         else:
-            for k in ['uuid', 'changeType', 'familySystemName', 'version']:
+            for k in ['changeType', 'familySystemName', 'version']:
                 assert k in change
         transformed_count += 1
         # There could be thousands of changes in a day, so we limit the records under test:
