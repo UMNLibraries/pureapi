@@ -4,13 +4,13 @@
   "externalIdSource": "synchronisedUnifiedOrganisation",
   "uuid": "3f714cea-399a-4fec-971f-45e047806367",
   "period": {
-    "startDate": "1969-12-29T12:00:00.000+0000"
+    "startDate": "1969-12-29T12:00:00.000-0600"
   },
   "info": {
     "createdBy": "atira",
-    "createdDate": "2015-06-24T18:36:18.262+0000",
+    "createdDate": "2015-06-24T18:36:18.262-0500",
     "modifiedBy": "fransen@umn.edu",
-    "modifiedDate": "2020-01-09T17:15:41.370+0000",
+    "modifiedDate": "2020-01-09T17:15:41.370-0600",
     "portalUrl": "https://experts.umn.edu/en/organisations/3f714cea-399a-4fec-971f-45e047806367",
     "prettyURLIdentifiers": [
       "university-libraries"
@@ -55,7 +55,7 @@
       "uuid": "0db47450-6e7d-464b-a1cb-9c8b571ca060",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/organisational-units/0db47450-6e7d-464b-a1cb-9c8b571ca060"
+        "href": "https://experts.umn.edu/ws/api/524/organisational-units/0db47450-6e7d-464b-a1cb-9c8b571ca060"
       },
       "externalId": "UMNTC",
       "externalIdSource": "synchronisedUnifiedOrganisation",

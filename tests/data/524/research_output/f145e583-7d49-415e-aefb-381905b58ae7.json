@@ -12,7 +12,7 @@
     "uuid": "02b1196e-a592-4f52-8667-b94610d81b8e",
     "link": {
       "ref": "content",
-      "href": "https://experts.umn.edu/ws/api/520/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
+      "href": "https://experts.umn.edu/ws/api/524/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
     },
     "externalId": "EOGBVRFLJD",
     "externalIdSource": "synchronisedUnifiedOrganisation",
@@ -42,9 +42,9 @@
   "confidential": false,
   "info": {
     "createdBy": "root",
-    "createdDate": "2017-03-18T22:17:13.346+0000",
-    "modifiedBy": "sync_user",
-    "modifiedDate": "2021-06-13T08:08:21.400+0000",
+    "createdDate": "2017-03-18T22:17:13.346-0500",
+    "modifiedBy": "fransen@umn.edu",
+    "modifiedDate": "2022-04-26T12:59:10.458-0500",
     "portalUrl": "https://experts.umn.edu/en/publications/f145e583-7d49-415e-aefb-381905b58ae7",
     "prettyURLIdentifiers": [
       "measurement-of-singly-cabibbo-suppressed-decays-λc-pππ-and-λc-pkk"
@@ -64,7 +64,7 @@
       }
     ]
   },
-  "totalScopusCitations": 21,
+  "totalScopusCitations": 25,
   "volume": "117",
   "journalAssociation": {
     "pureId": 206018019,
@@ -78,7 +78,7 @@
       "uuid": "e8f449dd-03b4-4b2c-ba4c-c41051f861cd",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/journals/e8f449dd-03b4-4b2c-ba4c-c41051f861cd"
+        "href": "https://experts.umn.edu/ws/api/524/journals/e8f449dd-03b4-4b2c-ba4c-c41051f861cd"
       },
       "externalId": "29150",
       "externalIdSource": "Scopus",
@@ -191,6 +191,18 @@
       ]
     }
   },
+  "workflow": {
+    "workflowStep": "approved",
+    "value": {
+      "formatted": false,
+      "text": [
+        {
+          "locale": "en_US",
+          "value": "Validated"
+        }
+      ]
+    }
+  },
   "publicationStatuses": [
     {
       "pureId": 85414559,
@@ -224,7 +236,7 @@
         "uuid": "7f463842-f49b-48c8-98cf-5dfc4b1efe83",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/7f463842-f49b-48c8-98cf-5dfc4b1efe83"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/7f463842-f49b-48c8-98cf-5dfc4b1efe83"
         },
         "name": {
           "formatted": false,
@@ -270,7 +282,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -279,7 +291,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -305,7 +317,7 @@
         "uuid": "9566f8c8-6de3-43e2-8ea8-6e647fa14c9b",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/9566f8c8-6de3-43e2-8ea8-6e647fa14c9b"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/9566f8c8-6de3-43e2-8ea8-6e647fa14c9b"
         },
         "name": {
           "formatted": false,
@@ -351,7 +363,7 @@
           "uuid": "cbee7a1f-3f2d-4c0a-86a3-756c056a5a40",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/cbee7a1f-3f2d-4c0a-86a3-756c056a5a40"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/cbee7a1f-3f2d-4c0a-86a3-756c056a5a40"
           },
           "externalId": "331048",
           "externalIdSource": "scival",
@@ -360,7 +372,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "RAS - Budker Institute of Nuclear Physics"
+                "value": "Budker Institute of Nuclear Physics"
               }
             ]
           },
@@ -382,7 +394,7 @@
           "uuid": "f4aa6f24-1c15-4718-b189-d4ee8dbff693",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/f4aa6f24-1c15-4718-b189-d4ee8dbff693"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/f4aa6f24-1c15-4718-b189-d4ee8dbff693"
           },
           "externalId": "331014",
           "externalIdSource": "scival",
@@ -417,7 +429,7 @@
         "uuid": "c94aa825-7799-4106-a70d-8f1c5b76f032",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/c94aa825-7799-4106-a70d-8f1c5b76f032"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/c94aa825-7799-4106-a70d-8f1c5b76f032"
         },
         "name": {
           "formatted": false,
@@ -460,10 +472,10 @@
       },
       "externalOrganisations": [
         {
-          "uuid": "11434c4a-90c7-4245-a75e-7344224516b7",
+          "uuid": "884fd672-870c-40d0-9ae1-fe484374c6bd",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/11434c4a-90c7-4245-a75e-7344224516b7"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/884fd672-870c-40d0-9ae1-fe484374c6bd"
           },
           "externalId": "703381",
           "externalIdSource": "scival",
@@ -472,7 +484,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "Helmholtz-Institute Mainz"
+                "value": "Helmholtz Institute Mainz"
               }
             ]
           },
@@ -498,7 +510,7 @@
         "uuid": "c477e87b-a751-44ff-b514-4c843a3a112f",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/c477e87b-a751-44ff-b514-4c843a3a112f"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/c477e87b-a751-44ff-b514-4c843a3a112f"
         },
         "name": {
           "formatted": false,
@@ -544,7 +556,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -553,7 +565,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -579,7 +591,7 @@
         "uuid": "05598595-c188-44c6-99e0-debc726365eb",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/05598595-c188-44c6-99e0-debc726365eb"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/05598595-c188-44c6-99e0-debc726365eb"
         },
         "name": {
           "formatted": false,
@@ -625,7 +637,7 @@
           "uuid": "f6da3886-3ea7-4b76-a7ec-b727e0c009eb",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/f6da3886-3ea7-4b76-a7ec-b727e0c009eb"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/f6da3886-3ea7-4b76-a7ec-b727e0c009eb"
           },
           "externalId": "508031",
           "externalIdSource": "scival",
@@ -660,7 +672,7 @@
         "uuid": "ba02211f-9460-470d-b4be-21956de13e64",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/ba02211f-9460-470d-b4be-21956de13e64"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/ba02211f-9460-470d-b4be-21956de13e64"
         },
         "name": {
           "formatted": false,
@@ -706,7 +718,7 @@
           "uuid": "719386b1-30e4-4f0d-8da2-aa347f4e9f3a",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/719386b1-30e4-4f0d-8da2-aa347f4e9f3a"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/719386b1-30e4-4f0d-8da2-aa347f4e9f3a"
           },
           "externalId": "309047",
           "externalIdSource": "scival",
@@ -741,7 +753,7 @@
         "uuid": "35f331bb-7688-47ac-bdc3-941049471b4f",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/persons/35f331bb-7688-47ac-bdc3-941049471b4f"
+          "href": "https://experts.umn.edu/ws/api/524/persons/35f331bb-7688-47ac-bdc3-941049471b4f"
         },
         "externalId": "7977",
         "externalIdSource": "synchronisedUnifiedPerson",
@@ -777,7 +789,7 @@
           "uuid": "02b1196e-a592-4f52-8667-b94610d81b8e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
+            "href": "https://experts.umn.edu/ws/api/524/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
           },
           "externalId": "EOGBVRFLJD",
           "externalIdSource": "synchronisedUnifiedOrganisation",
@@ -812,7 +824,7 @@
         "uuid": "d7e0ebc1-bcec-4a10-af03-c95936dd5750",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/d7e0ebc1-bcec-4a10-af03-c95936dd5750"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/d7e0ebc1-bcec-4a10-af03-c95936dd5750"
         },
         "name": {
           "formatted": false,
@@ -858,7 +870,7 @@
           "uuid": "4a73a2dc-a9c5-4834-8938-11f8e65df4c5",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/4a73a2dc-a9c5-4834-8938-11f8e65df4c5"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/4a73a2dc-a9c5-4834-8938-11f8e65df4c5"
           },
           "externalId": "321071",
           "externalIdSource": "scival",
@@ -889,7 +901,7 @@
           "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
           },
           "externalId": "321006",
           "externalIdSource": "scival",
@@ -898,7 +910,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "INFN"
+                "value": "Istituto Nazionale Fisica Nucleare"
               }
             ]
           },
@@ -924,7 +936,7 @@
         "uuid": "17a5c45d-cb82-45df-82a3-7e968c10068a",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/17a5c45d-cb82-45df-82a3-7e968c10068a"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/17a5c45d-cb82-45df-82a3-7e968c10068a"
         },
         "name": {
           "formatted": false,
@@ -970,7 +982,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -979,7 +991,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -1005,7 +1017,7 @@
         "uuid": "11ca4c8d-e822-4db7-a7f8-c0261bde51a1",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/11ca4c8d-e822-4db7-a7f8-c0261bde51a1"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/11ca4c8d-e822-4db7-a7f8-c0261bde51a1"
         },
         "name": {
           "formatted": false,
@@ -1051,7 +1063,7 @@
           "uuid": "d26b745f-079c-4c69-8230-bd09d2dcc10d",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/d26b745f-079c-4c69-8230-bd09d2dcc10d"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/d26b745f-079c-4c69-8230-bd09d2dcc10d"
           },
           "externalId": "203213",
           "externalIdSource": "scival",
@@ -1082,7 +1094,7 @@
           "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
           },
           "name": {
             "formatted": false,
@@ -1115,7 +1127,7 @@
         "uuid": "17e70d73-0b33-42c8-8448-d40382027b4d",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/17e70d73-0b33-42c8-8448-d40382027b4d"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/17e70d73-0b33-42c8-8448-d40382027b4d"
         },
         "name": {
           "formatted": false,
@@ -1161,7 +1173,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -1170,7 +1182,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -1196,7 +1208,7 @@
         "uuid": "9c1f8588-984b-4e59-b4ad-922e521d3f7c",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/9c1f8588-984b-4e59-b4ad-922e521d3f7c"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/9c1f8588-984b-4e59-b4ad-922e521d3f7c"
         },
         "name": {
           "formatted": false,
@@ -1242,7 +1254,7 @@
           "uuid": "bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
           },
           "externalId": "331003",
           "externalIdSource": "scival",
@@ -1277,7 +1289,7 @@
         "uuid": "b58b8754-2e94-4dba-b391-bda867d41e09",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/b58b8754-2e94-4dba-b391-bda867d41e09"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/b58b8754-2e94-4dba-b391-bda867d41e09"
         },
         "name": {
           "formatted": false,
@@ -1323,7 +1335,7 @@
           "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
           },
           "externalId": "321006",
           "externalIdSource": "scival",
@@ -1332,7 +1344,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "INFN"
+                "value": "Istituto Nazionale Fisica Nucleare"
               }
             ]
           },
@@ -1358,7 +1370,7 @@
         "uuid": "ef645ef9-ec3d-49cb-b8bc-c4e8d1349103",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/ef645ef9-ec3d-49cb-b8bc-c4e8d1349103"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/ef645ef9-ec3d-49cb-b8bc-c4e8d1349103"
         },
         "name": {
           "formatted": false,
@@ -1404,7 +1416,7 @@
           "uuid": "c20d4db5-979d-4291-b3c1-c381b510fd47",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/c20d4db5-979d-4291-b3c1-c381b510fd47"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/c20d4db5-979d-4291-b3c1-c381b510fd47"
           },
           "externalId": "203152",
           "externalIdSource": "scival",
@@ -1439,7 +1451,7 @@
         "uuid": "472eb258-7d18-40a6-88cb-f81f78b0a738",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/472eb258-7d18-40a6-88cb-f81f78b0a738"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/472eb258-7d18-40a6-88cb-f81f78b0a738"
         },
         "name": {
           "formatted": false,
@@ -1482,19 +1494,19 @@
       },
       "externalOrganisations": [
         {
-          "uuid": "b8e18d1b-4e22-4a05-9d31-b13a84c26c7c",
+          "uuid": "e27b3bb0-efbe-460c-a714-c558a483a398",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/b8e18d1b-4e22-4a05-9d31-b13a84c26c7c"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/e27b3bb0-efbe-460c-a714-c558a483a398"
           },
-          "externalId": "508085",
+          "externalId": "508084",
           "externalIdSource": "scival",
           "name": {
             "formatted": false,
             "text": [
               {
                 "locale": "en_US",
-                "value": "Indiana University Bloomington"
+                "value": "Indiana University"
               }
             ]
           },
@@ -1520,7 +1532,7 @@
         "uuid": "312bc8cc-fa86-4998-b2f6-74408746c087",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/312bc8cc-fa86-4998-b2f6-74408746c087"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/312bc8cc-fa86-4998-b2f6-74408746c087"
         },
         "name": {
           "formatted": false,
@@ -1566,7 +1578,7 @@
           "uuid": "f6da3886-3ea7-4b76-a7ec-b727e0c009eb",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/f6da3886-3ea7-4b76-a7ec-b727e0c009eb"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/f6da3886-3ea7-4b76-a7ec-b727e0c009eb"
           },
           "externalId": "508031",
           "externalIdSource": "scival",
@@ -1601,7 +1613,7 @@
         "uuid": "0c9b1f9f-f485-4d62-a504-81711431af3a",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/0c9b1f9f-f485-4d62-a504-81711431af3a"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/0c9b1f9f-f485-4d62-a504-81711431af3a"
         },
         "name": {
           "formatted": false,
@@ -1647,7 +1659,7 @@
           "uuid": "c7317503-7eb9-45ee-8b08-da0bb630d67f",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/c7317503-7eb9-45ee-8b08-da0bb630d67f"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/c7317503-7eb9-45ee-8b08-da0bb630d67f"
           },
           "externalId": "309084",
           "externalIdSource": "scival",
@@ -1682,7 +1694,7 @@
         "uuid": "3cdd4fc8-3888-48bf-9e20-7c8cd8f8653b",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/3cdd4fc8-3888-48bf-9e20-7c8cd8f8653b"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/3cdd4fc8-3888-48bf-9e20-7c8cd8f8653b"
         },
         "name": {
           "formatted": false,
@@ -1728,7 +1740,7 @@
           "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
           },
           "externalId": "321006",
           "externalIdSource": "scival",
@@ -1737,7 +1749,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "INFN"
+                "value": "Istituto Nazionale Fisica Nucleare"
               }
             ]
           },
@@ -1763,7 +1775,7 @@
         "uuid": "ae407e17-9916-4b85-b156-e2a7831a0ed8",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/ae407e17-9916-4b85-b156-e2a7831a0ed8"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/ae407e17-9916-4b85-b156-e2a7831a0ed8"
         },
         "name": {
           "formatted": false,
@@ -1809,7 +1821,7 @@
           "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
           },
           "externalId": "321006",
           "externalIdSource": "scival",
@@ -1818,7 +1830,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "INFN"
+                "value": "Istituto Nazionale Fisica Nucleare"
               }
             ]
           },
@@ -1844,7 +1856,7 @@
         "uuid": "56634c09-2631-44c9-90ee-84378ef18a64",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/56634c09-2631-44c9-90ee-84378ef18a64"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/56634c09-2631-44c9-90ee-84378ef18a64"
         },
         "name": {
           "formatted": false,
@@ -1887,19 +1899,19 @@
       },
       "externalOrganisations": [
         {
-          "uuid": "5b61cc30-0bde-41c9-8592-30076fe54662",
+          "uuid": "5014c61f-5583-4c49-93b9-74394bb546a2",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/5b61cc30-0bde-41c9-8592-30076fe54662"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/5014c61f-5583-4c49-93b9-74394bb546a2"
           },
-          "externalId": "508305",
-          "externalIdSource": "scival",
+          "externalId": "Goldstein Gallery, University of Minnesota",
+          "externalIdSource": "experts",
           "name": {
             "formatted": false,
             "text": [
               {
                 "locale": "en_US",
-                "value": "University of Minnesota Twin Cities"
+                "value": "University of Minnesota"
               }
             ]
           },
@@ -1925,7 +1937,7 @@
         "uuid": "4e436eec-7802-4b78-b2ef-7910b1972408",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/4e436eec-7802-4b78-b2ef-7910b1972408"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/4e436eec-7802-4b78-b2ef-7910b1972408"
         },
         "name": {
           "formatted": false,
@@ -1971,7 +1983,7 @@
           "uuid": "4a73a2dc-a9c5-4834-8938-11f8e65df4c5",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/4a73a2dc-a9c5-4834-8938-11f8e65df4c5"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/4a73a2dc-a9c5-4834-8938-11f8e65df4c5"
           },
           "externalId": "321071",
           "externalIdSource": "scival",
@@ -2002,7 +2014,7 @@
           "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
           },
           "externalId": "321006",
           "externalIdSource": "scival",
@@ -2011,7 +2023,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "INFN"
+                "value": "Istituto Nazionale Fisica Nucleare"
               }
             ]
           },
@@ -2037,7 +2049,7 @@
         "uuid": "90ffbe64-1d48-4817-9ff9-9220c3fa5b14",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/90ffbe64-1d48-4817-9ff9-9220c3fa5b14"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/90ffbe64-1d48-4817-9ff9-9220c3fa5b14"
         },
         "name": {
           "formatted": false,
@@ -2083,7 +2095,7 @@
           "uuid": "bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
           },
           "externalId": "331003",
           "externalIdSource": "scival",
@@ -2114,7 +2126,7 @@
           "uuid": "5416a32e-fc61-4209-bd80-fecdb1d70f3e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/5416a32e-fc61-4209-bd80-fecdb1d70f3e"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/5416a32e-fc61-4209-bd80-fecdb1d70f3e"
           },
           "externalId": "331007",
           "externalIdSource": "scival",
@@ -2149,7 +2161,7 @@
         "uuid": "b75fba54-f219-4757-9151-a6e6057c2f45",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/b75fba54-f219-4757-9151-a6e6057c2f45"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/b75fba54-f219-4757-9151-a6e6057c2f45"
         },
         "name": {
           "formatted": false,
@@ -2195,7 +2207,7 @@
           "uuid": "bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
           },
           "externalId": "331003",
           "externalIdSource": "scival",
@@ -2230,7 +2242,7 @@
         "uuid": "4a09d3d1-d046-418d-8b81-3f61b96eaa2c",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/4a09d3d1-d046-418d-8b81-3f61b96eaa2c"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/4a09d3d1-d046-418d-8b81-3f61b96eaa2c"
         },
         "name": {
           "formatted": false,
@@ -2276,7 +2288,7 @@
           "uuid": "f6da3886-3ea7-4b76-a7ec-b727e0c009eb",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/f6da3886-3ea7-4b76-a7ec-b727e0c009eb"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/f6da3886-3ea7-4b76-a7ec-b727e0c009eb"
           },
           "externalId": "508031",
           "externalIdSource": "scival",
@@ -2311,7 +2323,7 @@
         "uuid": "a06e7e7a-acfe-4f2b-b8ea-dacd2e377dc1",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/a06e7e7a-acfe-4f2b-b8ea-dacd2e377dc1"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/a06e7e7a-acfe-4f2b-b8ea-dacd2e377dc1"
         },
         "name": {
           "formatted": false,
@@ -2357,7 +2369,7 @@
           "uuid": "0e4a48fe-f49d-44a3-9f52-64a9dac379ba",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/0e4a48fe-f49d-44a3-9f52-64a9dac379ba"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/0e4a48fe-f49d-44a3-9f52-64a9dac379ba"
           },
           "externalId": "203219",
           "externalIdSource": "scival",
@@ -2392,7 +2404,7 @@
         "uuid": "2e80e392-0e44-4ca9-b22e-0c907d70206d",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/2e80e392-0e44-4ca9-b22e-0c907d70206d"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/2e80e392-0e44-4ca9-b22e-0c907d70206d"
         },
         "name": {
           "formatted": false,
@@ -2438,7 +2450,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -2447,7 +2459,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -2469,7 +2481,7 @@
           "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
           },
           "name": {
             "formatted": false,
@@ -2502,7 +2514,7 @@
         "uuid": "a78cf08d-2e8d-48af-ac03-70af39705412",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/a78cf08d-2e8d-48af-ac03-70af39705412"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/a78cf08d-2e8d-48af-ac03-70af39705412"
         },
         "name": {
           "formatted": false,
@@ -2548,7 +2560,7 @@
           "uuid": "2f743aa8-6e79-4e00-81a9-2b554471e4a7",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/2f743aa8-6e79-4e00-81a9-2b554471e4a7"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/2f743aa8-6e79-4e00-81a9-2b554471e4a7"
           },
           "externalId": "410006",
           "externalIdSource": "scival",
@@ -2583,7 +2595,7 @@
         "uuid": "b471b74f-fb7d-4fe4-9b36-54ff68fbf108",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/b471b74f-fb7d-4fe4-9b36-54ff68fbf108"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/b471b74f-fb7d-4fe4-9b36-54ff68fbf108"
         },
         "name": {
           "formatted": false,
@@ -2629,7 +2641,7 @@
           "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
           },
           "externalId": "321006",
           "externalIdSource": "scival",
@@ -2638,7 +2650,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "INFN"
+                "value": "Istituto Nazionale Fisica Nucleare"
               }
             ]
           },
@@ -2664,7 +2676,7 @@
         "uuid": "b5a9933d-8d3c-48a2-b2db-e9b84eea80a3",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/b5a9933d-8d3c-48a2-b2db-e9b84eea80a3"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/b5a9933d-8d3c-48a2-b2db-e9b84eea80a3"
         },
         "name": {
           "formatted": false,
@@ -2710,7 +2722,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -2719,7 +2731,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -2745,7 +2757,7 @@
         "uuid": "4ef4f02a-6919-4350-af6f-586dff271784",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/4ef4f02a-6919-4350-af6f-586dff271784"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/4ef4f02a-6919-4350-af6f-586dff271784"
         },
         "name": {
           "formatted": false,
@@ -2791,7 +2803,7 @@
           "uuid": "bf1a3456-be2e-4d8e-bce0-a5da18c32674",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/bf1a3456-be2e-4d8e-bce0-a5da18c32674"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/bf1a3456-be2e-4d8e-bce0-a5da18c32674"
           },
           "externalId": "702205",
           "externalIdSource": "scival",
@@ -2826,7 +2838,7 @@
         "uuid": "58809918-8be3-46a0-8089-e2019dbdda1c",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/58809918-8be3-46a0-8089-e2019dbdda1c"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/58809918-8be3-46a0-8089-e2019dbdda1c"
         },
         "name": {
           "formatted": false,
@@ -2872,7 +2884,7 @@
           "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
           },
           "externalId": "321006",
           "externalIdSource": "scival",
@@ -2881,7 +2893,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "INFN"
+                "value": "Istituto Nazionale Fisica Nucleare"
               }
             ]
           },
@@ -2907,7 +2919,7 @@
         "uuid": "1344d7f2-015a-4216-bec0-7f8b88c0ab51",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/1344d7f2-015a-4216-bec0-7f8b88c0ab51"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/1344d7f2-015a-4216-bec0-7f8b88c0ab51"
         },
         "name": {
           "formatted": false,
@@ -2953,7 +2965,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -2962,7 +2974,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -2984,7 +2996,7 @@
           "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
           },
           "name": {
             "formatted": false,
@@ -3017,7 +3029,7 @@
         "uuid": "571768ca-1c93-47e2-a141-a8799aeee798",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/571768ca-1c93-47e2-a141-a8799aeee798"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/571768ca-1c93-47e2-a141-a8799aeee798"
         },
         "name": {
           "formatted": false,
@@ -3063,7 +3075,7 @@
           "uuid": "bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
           },
           "externalId": "331003",
           "externalIdSource": "scival",
@@ -3094,7 +3106,7 @@
           "uuid": "5416a32e-fc61-4209-bd80-fecdb1d70f3e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/5416a32e-fc61-4209-bd80-fecdb1d70f3e"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/5416a32e-fc61-4209-bd80-fecdb1d70f3e"
           },
           "externalId": "331007",
           "externalIdSource": "scival",
@@ -3125,7 +3137,7 @@
           "uuid": "79d73e0b-3637-4327-b0db-fc6ca298c115",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/79d73e0b-3637-4327-b0db-fc6ca298c115"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/79d73e0b-3637-4327-b0db-fc6ca298c115"
           },
           "externalId": "331022",
           "externalIdSource": "scival",
@@ -3160,7 +3172,7 @@
         "uuid": "73553398-b9e5-4f4b-bfc5-8e95d2a77569",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/73553398-b9e5-4f4b-bfc5-8e95d2a77569"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/73553398-b9e5-4f4b-bfc5-8e95d2a77569"
         },
         "name": {
           "formatted": false,
@@ -3206,7 +3218,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -3215,7 +3227,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -3241,7 +3253,7 @@
         "uuid": "39f7ec47-be6b-4d99-a19e-5e8635807993",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/39f7ec47-be6b-4d99-a19e-5e8635807993"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/39f7ec47-be6b-4d99-a19e-5e8635807993"
         },
         "name": {
           "formatted": false,
@@ -3287,7 +3299,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -3296,7 +3308,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -3322,7 +3334,7 @@
         "uuid": "477d7cad-2ab3-4971-b85d-ad93a122c92e",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/477d7cad-2ab3-4971-b85d-ad93a122c92e"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/477d7cad-2ab3-4971-b85d-ad93a122c92e"
         },
         "name": {
           "formatted": false,
@@ -3368,7 +3380,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -3377,7 +3389,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -3403,7 +3415,7 @@
         "uuid": "9794bd61-9c2e-444d-9f45-eb8ef45e448f",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/9794bd61-9c2e-444d-9f45-eb8ef45e448f"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/9794bd61-9c2e-444d-9f45-eb8ef45e448f"
         },
         "name": {
           "formatted": false,
@@ -3449,7 +3461,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -3458,7 +3470,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -3480,7 +3492,7 @@
           "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
           },
           "name": {
             "formatted": false,
@@ -3513,7 +3525,7 @@
         "uuid": "658a0445-b251-495d-9f8a-c03dcc99574e",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/658a0445-b251-495d-9f8a-c03dcc99574e"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/658a0445-b251-495d-9f8a-c03dcc99574e"
         },
         "name": {
           "formatted": false,
@@ -3559,7 +3571,7 @@
           "uuid": "bdca37ff-6bdb-423b-81f7-0137bf652bba",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/bdca37ff-6bdb-423b-81f7-0137bf652bba"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/bdca37ff-6bdb-423b-81f7-0137bf652bba"
           },
           "externalId": "700714",
           "externalIdSource": "scival",
@@ -3594,7 +3606,7 @@
         "uuid": "55bd29e5-ed99-48b3-8993-d10cff0a5af5",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/55bd29e5-ed99-48b3-8993-d10cff0a5af5"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/55bd29e5-ed99-48b3-8993-d10cff0a5af5"
         },
         "name": {
           "formatted": false,
@@ -3640,7 +3652,7 @@
           "uuid": "78025711-e2da-4a78-98f0-6acfdca35d06",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/78025711-e2da-4a78-98f0-6acfdca35d06"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/78025711-e2da-4a78-98f0-6acfdca35d06"
           },
           "externalId": "203129",
           "externalIdSource": "scival",
@@ -3675,7 +3687,7 @@
         "uuid": "339991f6-4d15-4d1a-8bc9-31dc938a693f",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/339991f6-4d15-4d1a-8bc9-31dc938a693f"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/339991f6-4d15-4d1a-8bc9-31dc938a693f"
         },
         "name": {
           "formatted": false,
@@ -3721,7 +3733,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -3730,7 +3742,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -3752,7 +3764,7 @@
           "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
           },
           "name": {
             "formatted": false,
@@ -3785,7 +3797,7 @@
         "uuid": "4ab2091e-5857-4a33-8199-78441ee05518",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/4ab2091e-5857-4a33-8199-78441ee05518"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/4ab2091e-5857-4a33-8199-78441ee05518"
         },
         "name": {
           "formatted": false,
@@ -3831,7 +3843,7 @@
           "uuid": "e83d26f0-85bd-4236-a7c1-2ea4403c4050",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/e83d26f0-85bd-4236-a7c1-2ea4403c4050"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/e83d26f0-85bd-4236-a7c1-2ea4403c4050"
           },
           "externalId": "203116",
           "externalIdSource": "scival",
@@ -3866,7 +3878,7 @@
         "uuid": "54295bf5-1af3-4a4e-a224-cd48dfd459fd",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/54295bf5-1af3-4a4e-a224-cd48dfd459fd"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/54295bf5-1af3-4a4e-a224-cd48dfd459fd"
         },
         "name": {
           "formatted": false,
@@ -3912,7 +3924,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -3921,7 +3933,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -3943,7 +3955,7 @@
           "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
           },
           "name": {
             "formatted": false,
@@ -3976,7 +3988,7 @@
         "uuid": "0a768dea-1f89-4df9-81f4-0342eef46772",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/0a768dea-1f89-4df9-81f4-0342eef46772"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/0a768dea-1f89-4df9-81f4-0342eef46772"
         },
         "name": {
           "formatted": false,
@@ -4022,7 +4034,7 @@
           "uuid": "82716ec8-232e-414b-8b84-e2d560f4608d",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/82716ec8-232e-414b-8b84-e2d560f4608d"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/82716ec8-232e-414b-8b84-e2d560f4608d"
           },
           "name": {
             "formatted": false,
@@ -4055,7 +4067,7 @@
         "uuid": "8b9f0f38-ed13-4729-97c4-4d268c47957f",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/8b9f0f38-ed13-4729-97c4-4d268c47957f"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/8b9f0f38-ed13-4729-97c4-4d268c47957f"
         },
         "name": {
           "formatted": false,
@@ -4101,7 +4113,7 @@
           "uuid": "c20d4db5-979d-4291-b3c1-c381b510fd47",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/c20d4db5-979d-4291-b3c1-c381b510fd47"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/c20d4db5-979d-4291-b3c1-c381b510fd47"
           },
           "externalId": "203152",
           "externalIdSource": "scival",
@@ -4136,7 +4148,7 @@
         "uuid": "038d609f-5d13-4ee9-97f1-f7f4a8433104",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/038d609f-5d13-4ee9-97f1-f7f4a8433104"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/038d609f-5d13-4ee9-97f1-f7f4a8433104"
         },
         "name": {
           "formatted": false,
@@ -4182,7 +4194,7 @@
           "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
           },
           "externalId": "321006",
           "externalIdSource": "scival",
@@ -4191,7 +4203,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "INFN"
+                "value": "Istituto Nazionale Fisica Nucleare"
               }
             ]
           },
@@ -4217,7 +4229,7 @@
         "uuid": "d59bbec4-56c0-4081-b0ee-982a54cf9596",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/d59bbec4-56c0-4081-b0ee-982a54cf9596"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/d59bbec4-56c0-4081-b0ee-982a54cf9596"
         },
         "name": {
           "formatted": false,
@@ -4263,7 +4275,7 @@
           "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
           },
           "externalId": "203278",
           "externalIdSource": "scival",
@@ -4272,7 +4284,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "CAS - Institute of High Energy Physics"
+                "value": "Institute of High Energy Physics - CAS"
               }
             ]
           },
@@ -4294,7 +4306,7 @@
           "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
           },
           "name": {
             "formatted": false,
@@ -4327,7 +4339,7 @@
         "uuid": "e6fa222f-6411-4669-8756-e92a030df362",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/e6fa222f-6411-4669-8756-e92a030df362"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/e6fa222f-6411-4669-8756-e92a030df362"
         },
         "name": {
           "formatted": false,
@@ -4373,7 +4385,7 @@
           "uuid": "023c5f22-17b1-4885-b755-13a738fe934f",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/023c5f22-17b1-4885-b755-13a738fe934f"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/023c5f22-17b1-4885-b755-13a738fe934f"
           },
           "externalId": "203168",
           "externalIdSource": "scival",
@@ -4408,7 +4420,7 @@
         "uuid": "0cd00ffe-8479-4eea-8812-3b632843dca6",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/external-persons/0cd00ffe-8479-4eea-8812-3b632843dca6"
+          "href": "https://experts.umn.edu/ws/api/524/external-persons/0cd00ffe-8479-4eea-8812-3b632843dca6"
         },
         "name": {
           "formatted": false,
@@ -4451,10 +4463,10 @@
       },
       "externalOrganisations": [
         {
-          "uuid": "11434c4a-90c7-4245-a75e-7344224516b7",
+          "uuid": "884fd672-870c-40d0-9ae1-fe484374c6bd",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/external-organisations/11434c4a-90c7-4245-a75e-7344224516b7"
+            "href": "https://experts.umn.edu/ws/api/524/external-organisations/884fd672-870c-40d0-9ae1-fe484374c6bd"
           },
           "externalId": "703381",
           "externalIdSource": "scival",
@@ -4463,7 +4475,7 @@
             "text": [
               {
                 "locale": "en_US",
-                "value": "Helmholtz-Institute Mainz"
+                "value": "Helmholtz Institute Mainz"
               }
             ]
           },
@@ -4489,7 +4501,7 @@
         "uuid": "b639540e-5a15-4bbd-ae86-95dffc433cac",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/persons/b639540e-5a15-4bbd-ae86-95dffc433cac"
+          "href": "https://experts.umn.edu/ws/api/524/persons/b639540e-5a15-4bbd-ae86-95dffc433cac"
         },
         "externalId": "6090",
         "externalIdSource": "synchronisedUnifiedPerson",
@@ -4525,7 +4537,7 @@
           "uuid": "02b1196e-a592-4f52-8667-b94610d81b8e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
+            "href": "https://experts.umn.edu/ws/api/524/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
           },
           "externalId": "EOGBVRFLJD",
           "externalIdSource": "synchronisedUnifiedOrganisation",
@@ -4560,7 +4572,7 @@
         "uuid": "9710f513-9553-4ad9-8f29-11ccb1861949",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/persons/9710f513-9553-4ad9-8f29-11ccb1861949"
+          "href": "https://experts.umn.edu/ws/api/524/persons/9710f513-9553-4ad9-8f29-11ccb1861949"
         },
         "externalId": "2219",
         "externalIdSource": "synchronisedUnifiedPerson",
@@ -4596,7 +4608,7 @@
           "uuid": "02b1196e-a592-4f52-8667-b94610d81b8e",
           "link": {
             "ref": "content",
-            "href": "https://experts.umn.edu/ws/api/520/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
+            "href": "https://experts.umn.edu/ws/api/524/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
           },
           "externalId": "EOGBVRFLJD",
           "externalIdSource": "synchronisedUnifiedOrganisation",
@@ -4631,7 +4643,7 @@
         "uuid": "965013d0-149d-4178-b54a-a43d3be26f12",
         "link": {
           "ref": "content",
-          "href": "https://experts.umn.edu/ws/api/520/author-collaborations/965013d0-149d-4178-b54a-a43d3be26f12"
+          "href": "https://experts.umn.edu/ws/api/524/author-collaborations/965013d0-149d-4178-b54a-a43d3be26f12"
         },
         "name": {
           "formatted": false,
@@ -4663,7 +4675,7 @@
       "uuid": "02b1196e-a592-4f52-8667-b94610d81b8e",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
+        "href": "https://experts.umn.edu/ws/api/524/organisational-units/02b1196e-a592-4f52-8667-b94610d81b8e"
       },
       "externalId": "EOGBVRFLJD",
       "externalIdSource": "synchronisedUnifiedOrganisation",
@@ -4696,7 +4708,7 @@
       "uuid": "2f743aa8-6e79-4e00-81a9-2b554471e4a7",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/2f743aa8-6e79-4e00-81a9-2b554471e4a7"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/2f743aa8-6e79-4e00-81a9-2b554471e4a7"
       },
       "externalId": "410006",
       "externalIdSource": "scival",
@@ -4727,7 +4739,7 @@
       "uuid": "79d73e0b-3637-4327-b0db-fc6ca298c115",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/79d73e0b-3637-4327-b0db-fc6ca298c115"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/79d73e0b-3637-4327-b0db-fc6ca298c115"
       },
       "externalId": "331022",
       "externalIdSource": "scival",
@@ -4758,7 +4770,7 @@
       "uuid": "64020665-df0c-4eaa-ac1a-85821d0eacf9",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/64020665-df0c-4eaa-ac1a-85821d0eacf9"
       },
       "externalId": "203278",
       "externalIdSource": "scival",
@@ -4767,7 +4779,7 @@
         "text": [
           {
             "locale": "en_US",
-            "value": "CAS - Institute of High Energy Physics"
+            "value": "Institute of High Energy Physics - CAS"
           }
         ]
       },
@@ -4789,7 +4801,7 @@
       "uuid": "cbee7a1f-3f2d-4c0a-86a3-756c056a5a40",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/cbee7a1f-3f2d-4c0a-86a3-756c056a5a40"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/cbee7a1f-3f2d-4c0a-86a3-756c056a5a40"
       },
       "externalId": "331048",
       "externalIdSource": "scival",
@@ -4798,7 +4810,7 @@
         "text": [
           {
             "locale": "en_US",
-            "value": "RAS - Budker Institute of Nuclear Physics"
+            "value": "Budker Institute of Nuclear Physics"
           }
         ]
       },
@@ -4820,7 +4832,7 @@
       "uuid": "f4aa6f24-1c15-4718-b189-d4ee8dbff693",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/f4aa6f24-1c15-4718-b189-d4ee8dbff693"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/f4aa6f24-1c15-4718-b189-d4ee8dbff693"
       },
       "externalId": "331014",
       "externalIdSource": "scival",
@@ -4848,10 +4860,10 @@
       }
     },
     {
-      "uuid": "11434c4a-90c7-4245-a75e-7344224516b7",
+      "uuid": "884fd672-870c-40d0-9ae1-fe484374c6bd",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/11434c4a-90c7-4245-a75e-7344224516b7"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/884fd672-870c-40d0-9ae1-fe484374c6bd"
       },
       "externalId": "703381",
       "externalIdSource": "scival",
@@ -4860,7 +4872,7 @@
         "text": [
           {
             "locale": "en_US",
-            "value": "Helmholtz-Institute Mainz"
+            "value": "Helmholtz Institute Mainz"
           }
         ]
       },
@@ -4882,7 +4894,7 @@
       "uuid": "f6da3886-3ea7-4b76-a7ec-b727e0c009eb",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/f6da3886-3ea7-4b76-a7ec-b727e0c009eb"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/f6da3886-3ea7-4b76-a7ec-b727e0c009eb"
       },
       "externalId": "508031",
       "externalIdSource": "scival",
@@ -4913,7 +4925,7 @@
       "uuid": "719386b1-30e4-4f0d-8da2-aa347f4e9f3a",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/719386b1-30e4-4f0d-8da2-aa347f4e9f3a"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/719386b1-30e4-4f0d-8da2-aa347f4e9f3a"
       },
       "externalId": "309047",
       "externalIdSource": "scival",
@@ -4944,7 +4956,7 @@
       "uuid": "4a73a2dc-a9c5-4834-8938-11f8e65df4c5",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/4a73a2dc-a9c5-4834-8938-11f8e65df4c5"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/4a73a2dc-a9c5-4834-8938-11f8e65df4c5"
       },
       "externalId": "321071",
       "externalIdSource": "scival",
@@ -4975,7 +4987,7 @@
       "uuid": "6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/6dfc2b6a-4f67-4931-8ab1-0424b34e4d8e"
       },
       "externalId": "321006",
       "externalIdSource": "scival",
@@ -4984,7 +4996,7 @@
         "text": [
           {
             "locale": "en_US",
-            "value": "INFN"
+            "value": "Istituto Nazionale Fisica Nucleare"
           }
         ]
       },
@@ -5006,7 +5018,7 @@
       "uuid": "d26b745f-079c-4c69-8230-bd09d2dcc10d",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/d26b745f-079c-4c69-8230-bd09d2dcc10d"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/d26b745f-079c-4c69-8230-bd09d2dcc10d"
       },
       "externalId": "203213",
       "externalIdSource": "scival",
@@ -5037,7 +5049,7 @@
       "uuid": "6e4c5cc2-8dae-4706-9b8f-bd985a254d71",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/6e4c5cc2-8dae-4706-9b8f-bd985a254d71"
       },
       "name": {
         "formatted": false,
@@ -5066,7 +5078,7 @@
       "uuid": "bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/bfa42e70-02c7-4f24-a8ac-bbfa8b58b72d"
       },
       "externalId": "331003",
       "externalIdSource": "scival",
@@ -5097,7 +5109,7 @@
       "uuid": "c20d4db5-979d-4291-b3c1-c381b510fd47",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/c20d4db5-979d-4291-b3c1-c381b510fd47"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/c20d4db5-979d-4291-b3c1-c381b510fd47"
       },
       "externalId": "203152",
       "externalIdSource": "scival",
@@ -5125,19 +5137,19 @@
       }
     },
     {
-      "uuid": "b8e18d1b-4e22-4a05-9d31-b13a84c26c7c",
+      "uuid": "e27b3bb0-efbe-460c-a714-c558a483a398",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/b8e18d1b-4e22-4a05-9d31-b13a84c26c7c"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/e27b3bb0-efbe-460c-a714-c558a483a398"
       },
-      "externalId": "508085",
+      "externalId": "508084",
       "externalIdSource": "scival",
       "name": {
         "formatted": false,
         "text": [
           {
             "locale": "en_US",
-            "value": "Indiana University Bloomington"
+            "value": "Indiana University"
           }
         ]
       },
@@ -5159,7 +5171,7 @@
       "uuid": "c7317503-7eb9-45ee-8b08-da0bb630d67f",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/c7317503-7eb9-45ee-8b08-da0bb630d67f"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/c7317503-7eb9-45ee-8b08-da0bb630d67f"
       },
       "externalId": "309084",
       "externalIdSource": "scival",
@@ -5187,19 +5199,19 @@
       }
     },
     {
-      "uuid": "5b61cc30-0bde-41c9-8592-30076fe54662",
+      "uuid": "5014c61f-5583-4c49-93b9-74394bb546a2",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/5b61cc30-0bde-41c9-8592-30076fe54662"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/5014c61f-5583-4c49-93b9-74394bb546a2"
       },
-      "externalId": "508305",
-      "externalIdSource": "scival",
+      "externalId": "Goldstein Gallery, University of Minnesota",
+      "externalIdSource": "experts",
       "name": {
         "formatted": false,
         "text": [
           {
             "locale": "en_US",
-            "value": "University of Minnesota Twin Cities"
+            "value": "University of Minnesota"
           }
         ]
       },
@@ -5221,7 +5233,7 @@
       "uuid": "5416a32e-fc61-4209-bd80-fecdb1d70f3e",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/5416a32e-fc61-4209-bd80-fecdb1d70f3e"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/5416a32e-fc61-4209-bd80-fecdb1d70f3e"
       },
       "externalId": "331007",
       "externalIdSource": "scival",
@@ -5252,7 +5264,7 @@
       "uuid": "0e4a48fe-f49d-44a3-9f52-64a9dac379ba",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/0e4a48fe-f49d-44a3-9f52-64a9dac379ba"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/0e4a48fe-f49d-44a3-9f52-64a9dac379ba"
       },
       "externalId": "203219",
       "externalIdSource": "scival",
@@ -5283,7 +5295,7 @@
       "uuid": "bf1a3456-be2e-4d8e-bce0-a5da18c32674",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/bf1a3456-be2e-4d8e-bce0-a5da18c32674"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/bf1a3456-be2e-4d8e-bce0-a5da18c32674"
       },
       "externalId": "702205",
       "externalIdSource": "scival",
@@ -5314,7 +5326,7 @@
       "uuid": "bdca37ff-6bdb-423b-81f7-0137bf652bba",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/bdca37ff-6bdb-423b-81f7-0137bf652bba"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/bdca37ff-6bdb-423b-81f7-0137bf652bba"
       },
       "externalId": "700714",
       "externalIdSource": "scival",
@@ -5345,7 +5357,7 @@
       "uuid": "78025711-e2da-4a78-98f0-6acfdca35d06",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/78025711-e2da-4a78-98f0-6acfdca35d06"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/78025711-e2da-4a78-98f0-6acfdca35d06"
       },
       "externalId": "203129",
       "externalIdSource": "scival",
@@ -5376,7 +5388,7 @@
       "uuid": "e83d26f0-85bd-4236-a7c1-2ea4403c4050",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/e83d26f0-85bd-4236-a7c1-2ea4403c4050"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/e83d26f0-85bd-4236-a7c1-2ea4403c4050"
       },
       "externalId": "203116",
       "externalIdSource": "scival",
@@ -5407,7 +5419,7 @@
       "uuid": "82716ec8-232e-414b-8b84-e2d560f4608d",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/82716ec8-232e-414b-8b84-e2d560f4608d"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/82716ec8-232e-414b-8b84-e2d560f4608d"
       },
       "name": {
         "formatted": false,
@@ -5436,7 +5448,7 @@
       "uuid": "023c5f22-17b1-4885-b755-13a738fe934f",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/external-organisations/023c5f22-17b1-4885-b755-13a738fe934f"
+        "href": "https://experts.umn.edu/ws/api/524/external-organisations/023c5f22-17b1-4885-b755-13a738fe934f"
       },
       "externalId": "203168",
       "externalIdSource": "scival",
@@ -5467,7 +5479,7 @@
   "electronicVersions": [
     {
       "pureId": 85414561,
-      "visibleOnPortalDate": "2020-03-28T15:27:45.924+0000",
+      "visibleOnPortalDate": "2020-03-28T12:00:00.000-0500",
       "doi": "https://doi.org/10.1103/PhysRevLett.117.232002",
       "accessType": {
         "pureId": 6776,
@@ -5590,10 +5602,14 @@
   "scopusMetrics": [
     {
       "value": 1,
+      "year": 2022
+    },
+    {
+      "value": 3,
       "year": 2021
     },
     {
-      "value": 4,
+      "value": 5,
       "year": 2020
     },
     {

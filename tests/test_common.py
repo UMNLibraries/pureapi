@@ -8,6 +8,16 @@ import pytest
 
 from pureapi import common
 
+def test_valid_mode():
+    modes = common.modes
+    assert len(modes) > 0
+    assert all(common.valid_mode(mode) for mode in modes)
+    assert not common.valid_mode('bogus')
+
+def test_default_mode():
+    assert common.default_mode in common.modes
+    assert common.valid_mode(common.default_mode)
+
 def test_valid_version():
     versions = common.versions
     assert len(versions) > 0

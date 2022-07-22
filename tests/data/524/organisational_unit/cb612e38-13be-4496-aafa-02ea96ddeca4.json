@@ -4,13 +4,13 @@
   "externalIdSource": "synchronisedUnifiedOrganisation",
   "uuid": "cb612e38-13be-4496-aafa-02ea96ddeca4",
   "period": {
-    "startDate": "1960-01-01T12:00:00.000+0000"
+    "startDate": "1960-01-01T12:00:00.000-0600"
   },
   "info": {
     "createdBy": "fransen@umn.edu",
-    "createdDate": "2019-06-20T18:38:43.369+0000",
+    "createdDate": "2019-06-20T18:38:43.369-0500",
     "modifiedBy": "fransen@umn.edu",
-    "modifiedDate": "2019-11-16T12:20:55.087+0000",
+    "modifiedDate": "2019-11-16T12:20:55.087-0600",
     "portalUrl": "https://experts.umn.edu/en/organisations/cb612e38-13be-4496-aafa-02ea96ddeca4",
     "prettyURLIdentifiers": [
       "center-for-writing"
@@ -173,7 +173,7 @@
       "uuid": "c584c3f9-c4ba-4a97-a102-9558ccec89ee",
       "link": {
         "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/organisational-units/c584c3f9-c4ba-4a97-a102-9558ccec89ee"
+        "href": "https://experts.umn.edu/ws/api/524/organisational-units/c584c3f9-c4ba-4a97-a102-9558ccec89ee"
       },
       "externalId": "CJMMPFFWUTQ",
       "externalIdSource": "synchronisedUnifiedOrganisation",
@@ -198,26 +198,6 @@
             }
           ]
         }
-      }
-    }
-  ],
-  "contactPersons": [
-    {
-      "uuid": "d9e43283-f100-4c5a-abd8-9a7f9f0cb416",
-      "link": {
-        "ref": "content",
-        "href": "https://experts.umn.edu/ws/api/520/persons/d9e43283-f100-4c5a-abd8-9a7f9f0cb416"
-      },
-      "externalId": "2979292",
-      "externalIdSource": "synchronisedUnifiedPerson",
-      "externallyManaged": true,
-      "name": {
-        "formatted": false,
-        "text": [
-          {
-            "value": "Kirsten Jamsen"
-          }
-        ]
       }
     }
   ]

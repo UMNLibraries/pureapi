@@ -29,8 +29,8 @@ def change(record: MutableMapping) -> Dict:
     '''
     d = Dict(record)
     return d
-change_523 = change_522 = change_521 = change_520 = change
-'''``change_523()``, ``change_522()``, ``change_521()``, and ``change_520()`` are aliases of ``change()``.'''
+change_524 = change_523 = change_522 = change_521 = change
+'''``change_524()``, ``change_523()``, ``change_522()``, and ``change_521()`` are aliases of ``change()``.'''
 
 def external_organisation(record: MutableMapping) -> Dict:
     '''Transforms a record from the ``external-organisations`` collection.
@@ -48,8 +48,8 @@ def external_organisation(record: MutableMapping) -> Dict:
     d.info.setdefault('previousUuids', [])
     d.setdefault('pureId', None)
     return d
-external_organisation_523 = external_organisation_522 = external_organisation_521 = external_organisation_520 = external_organisation
-'''``external_organisation_523``, ``external_organisation_522``, ``external_organisation_521``, and ``external_organisation_520``  are
+external_organisation_524 = external_organisation_523 = external_organisation_522 = external_organisation_521 = external_organisation
+'''``external_organisation_524``, ``external_organisation_523``, ``external_organisation_522``, and ``external_organisation_521`` are
 aliases of ``external_organisation()``.'''
 
 def external_person(record: MutableMapping) -> Dict:
@@ -70,8 +70,8 @@ def external_person(record: MutableMapping) -> Dict:
     d.name.setdefault('firstName', None)
     d.name.setdefault('lastName', None)
     return d
-external_person_523 = external_person_522 = external_person_521 = external_person_520 = external_person
-'''``external_person_523``, ``external_person_522``, ``external_person_521``,  and ``external_person_520`` are
+external_person_524 = external_person_523 = external_person_522 = external_person_521 = external_person
+'''``external_person_524``, ``external_person_523``, ``external_person_522``, and ``external_person_521`` are
 aliases of ``external_person()``.'''
 
 def organisational_unit(record: MutableMapping) -> Dict:
@@ -104,9 +104,9 @@ def organisational_unit(record: MutableMapping) -> Dict:
     d.setdefault('parents', [Dict({'uuid': None})])
 
     return d
-organisational_unit_523 = organisational_unit_522 = organisational_unit_521 = organisational_unit_520 = organisational_unit
-'''``organisational_unit_523``, ``organisational_unit_522``, ``organisational_unit_521``, and ``organisational_unit_520``
-aliases of ``organisational_unit()``.'''
+organisational_unit_524 = organisational_unit_523 = organisational_unit_522 = organisational_unit_521 = organisational_unit
+'''``organisational_unit_524``, ``organisational_unit_523``, ``organisational_unit_522``, and ``organisational_unit_521``
+are aliases of ``organisational_unit()``.'''
 
 def person(record: MutableMapping) -> Dict:
     '''Transforms a record from the ``persons`` collection.
@@ -135,8 +135,8 @@ def person(record: MutableMapping) -> Dict:
     d.setdefault('scopusHIndex', None)
     d.setdefault('orcid', None)
     return d
-person_523 = person_522 = person_521 = person_520 = person_519 = person_518 = person
-'''``person_523``, ``person_522``, ``person_521``, and ``person_520`` are aliases of ``person()``.'''
+person_524 = person_523 = person_522 = person_521 = person
+'''``person_524``, ``person_523``, ``person_522``, and ``person_521`` are aliases of ``person()``.'''
 
 def research_output(record: MutableMapping) -> Dict:
     '''Transforms a record from the ``research-outputs`` collection.
@@ -162,8 +162,8 @@ def research_output(record: MutableMapping) -> Dict:
     d.setdefault('pages', None)
     d.setdefault('totalScopusCitations', None)
     return d
-research_output_523 = research_output_522 = research_output_521 = research_output_520 = research_output
-'''``research_output_523``, ``research_output_522``, ``research_output_521``, and ``research_output_520`` are aliases of
+research_output_524 = research_output_523 = research_output_522 = research_output_521 = research_output
+'''``research_output_524``, ``research_output_523``, ``research_output_522``, and ``research_output_521`` are aliases of
 ``research_output()``.'''
 
 @validate_collection

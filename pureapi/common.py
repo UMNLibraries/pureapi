@@ -11,6 +11,62 @@ schemas_path: Path = Path(__file__).parent / 'schemas'
 directories are named for versions, without the periods, e.g., ``518`` for
 version 5.17.'''
 
+modes: Tuple[str] = ('r','rw')
+'''Temporary attribute to indicate whether an operation is to be performed on
+the old, soon-to-be deprecated read-only API, or on the new read-write API.
+Valid values are ``r`` for read-only and ``rw`` for read-write.'''
+
+default_mode: str = 'rw'
+'''Default to using the new read-write API (``rw``).'''
+
+def valid_mode(mode: str) -> bool:
+    '''For the given ``mode``, returns ``True`` or ``False`` according to its
+    validity.'''
+    return (mode in modes)
+
+class PureAPIMissingModeError(ValueError, PureAPIException):
+    '''Raised when a Pure API mode is expected but missing.'''
+    def __init__(self, *args, **kwargs):
+        super().__init__(f'No mode found in kwargs or default_mode', *args, **kwargs)
+
+class PureAPIInvalidModeError(ValueError, PureAPIException):
+    '''Raised when a Pure API mode is unrecognized.'''
+    def __init__(self, mode, *args, **kwargs):
+        super().__init__(f'Invalid mode "{mode}"', *args, **kwargs)
+
+F = TypeVar('F', bound=Callable[..., Any])
+
+def validate_mode(func: F) -> F:
+    '''A decorator wrapper that validates a kwarg Pure API mode.
+
+    Args:
+        func: The function to be wrapped.
+
+    Return:
+        The wrapped function.
+
+    Raises:
+        PureAPIMissingModeError: If the ``mode`` kwarg is missing or
+            the value is None.
+        PureAPIInvalidModeError: If the ``mode`` is unrecognized.
+    '''
+    @functools.wraps(func)
+    def wrapper_validate_mode(*args, **kwargs):
+        if 'mode' in kwargs and kwargs['mode'] is not None:
+            if not valid_mode(kwargs['mode']):
+                raise PureAPIInvalidModeError(kwargs['mode'])
+        else:
+            kwargs['mode'] = None
+        if kwargs['mode'] is None and default_mode is not None:
+            if valid_mode(default_mode):
+                kwargs['mode'] = default_mode
+            else:
+                raise PureAPIInvalidModeError(default_mode)
+        if kwargs['mode'] is None:
+            raise PureAPIMissingModeError()
+        return func(*args, **kwargs)
+    return cast(F, wrapper_validate_mode)
+
 # The commented out version seems more elegant, but using map() and filter() as an
 # exercise in functional programming in Python.
 #versions = tuple((item.name for item in os.scandir(schemas_path) if item.is_dir()))
@@ -57,8 +113,6 @@ class PureAPIInvalidVersionError(ValueError, PureAPIException):
     def __init__(self, version, *args, **kwargs):
         super().__init__(f'Invalid version "{version}"', *args, **kwargs)
 
-F = TypeVar('F', bound=Callable[..., Any])
-
 def validate_version(func: F) -> F:
     '''A decorator wrapper that validates a kwarg Pure API version.
 
@@ -90,6 +144,11 @@ def validate_version(func: F) -> F:
         return func(*args, **kwargs)
     return cast(F, wrapper_validate_version)
 
+def schema_524() -> MutableMapping:
+    '''Returns a mapping representation of the Pure API version 5.24 schema.'''
+    with open(schemas_path  / '524/swagger.json') as json_file:
+        return json.load(json_file)
+
 def schema_523() -> MutableMapping:
     '''Returns a mapping representation of the Pure API version 5.23 schema.'''
     with open(schemas_path  / '523/swagger.json') as json_file:
@@ -105,17 +164,17 @@ def schema_521() -> MutableMapping:
     with open(schemas_path  / '521/swagger.json') as json_file:
         return json.load(json_file)
 
-def schema_520() -> MutableMapping:
-    '''Returns a mapping representation of the Pure API version 5.20 schema.'''
-    with open(schemas_path  / '520/swagger.json') as json_file:
-        return json.load(json_file)
-
 @functools.lru_cache(maxsize=None)
 @validate_version
 def schema_for(*, version: str = None) -> MutableMapping:
     '''Returns a mapping representation of the schema for the given Pure API
     ``version``.'''
     return globals()[f'schema_{version}']()
+
+def collections_524() -> Tuple[str]:
+    '''Returns a tuple of all collection names in the Pure API version 5.24
+    schema.'''
+    return tuple(map(lambda tag: tag['name'], schema_for(version='524')['tags']))
 
 def collections_523() -> Tuple[str]:
     '''Returns a tuple of all collection names in the Pure API version 5.23
@@ -131,11 +190,6 @@ def collections_521() -> Tuple[str]:
     '''Returns a tuple of all collection names in the Pure API version 5.21
     schema.'''
     return tuple(map(lambda tag: tag['name'], schema_for(version='521')['tags']))
-
-def collections_520() -> Tuple[str]:
-    '''Returns a tuple of all collection names in the Pure API version 5.20
-    schema.'''
-    return tuple(map(lambda tag: tag['name'], schema_for(version='520')['tags']))
 
 @functools.lru_cache(maxsize=None)
 @validate_version
