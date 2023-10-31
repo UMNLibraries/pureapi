@@ -95,11 +95,6 @@ def schema_524() -> MutableMapping:
     with open(schemas_path  / '524/swagger.json') as json_file:
         return json.load(json_file)
 
-def schema_523() -> MutableMapping:
-    '''Returns a mapping representation of the Pure API version 5.23 schema.'''
-    with open(schemas_path  / '523/swagger.json') as json_file:
-        return json.load(json_file)
-
 @functools.lru_cache(maxsize=None)
 @validate_version
 def schema_for(*, version: str = None) -> MutableMapping:
@@ -111,11 +106,6 @@ def collections_524() -> Tuple[str]:
     '''Returns a tuple of all collection names in the Pure API version 5.24
     schema.'''
     return tuple(map(lambda tag: tag['name'], schema_for(version='524')['tags']))
-
-def collections_523() -> Tuple[str]:
-    '''Returns a tuple of all collection names in the Pure API version 5.23
-    schema.'''
-    return tuple(map(lambda tag: tag['name'], schema_for(version='523')['tags']))
 
 @functools.lru_cache(maxsize=None)
 @validate_version
