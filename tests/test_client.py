@@ -206,16 +206,21 @@ def test_get_all_changes(version):
     [get_all_changes] = client.preconfig(client.Config(version=version), client.get_all_changes)
     yesterday = date.today() - timedelta(days=1)
     request_count = 0
+    got_last_page = False
     for r in get_all_changes(yesterday.isoformat()):
         assert r.status_code == 200
         json = r.json()
         assert json['count'] > 0
         assert len(json['items']) > 0
 
-        # There could be thousands of changes in a day, so we limit the number of requests:
-        request_count += 1
-        if request_count > 2:
-            break
+        if json['moreChanges'] is False:
+            got_last_page = True
+
+#        # There could be thousands of changes in a day, so we limit the number of requests:
+#        request_count += 1
+#        if request_count > 2:
+#            break
+    assert got_last_page
 
 class MockResponse:
     def __init__(self, token_or_date):

@@ -206,7 +206,7 @@ def preconfig(config: Config, *args: Callable) -> List[Callable]:
     '''
     return [partial(function, config=config) for function in args]
 
-def get(resource_path: str, params: Mapping = None, config: Config = None) -> requests.Response:
+def get(resource_path: str, params: Mapping = None, config: Config = Config()) -> requests.Response:
     '''Makes an HTTP GET request for Pure API resources.
 
     Note that many collections likely contain more resources than can be
@@ -237,9 +237,6 @@ def get(resource_path: str, params: Mapping = None, config: Config = None) -> re
     if params is None:
         params = {}
 
-    if config is None:
-        config = Config()
-
     collection = _get_collection_from_resource_path(resource_path, config.version)
     with requests.Session() as s:
         prepped = s.prepare_request(requests.Request('GET', config.base_url + resource_path, params=params))
@@ -266,7 +263,7 @@ def get(resource_path: str, params: Mapping = None, config: Config = None) -> re
                 f'Unexpected exception for GET request for resource path {resource_path} with params {params}'
             ) from e
 
-def get_all(resource_path: str, params: Mapping = None, config: Config = None) -> Iterator[requests.Response]:
+def get_all(resource_path: str, params: Mapping = None, config: Config = Config()) -> Iterator[requests.Response]:
     '''Makes as many HTTP GET requests as necessary to get all resources in a
     collection, possibly restricted by the ``params``.
 
@@ -298,9 +295,6 @@ def get_all(resource_path: str, params: Mapping = None, config: Config = None) -
     if params is None:
         params = {}
 
-    if config is None:
-        config = Config()
-
     count_params = {
         **params,
         'size': 0,
@@ -323,7 +317,7 @@ def get_all(resource_path: str, params: Mapping = None, config: Config = None) -
 def get_all_transformed(
     resource_path: str,
     params: Mapping = None,
-    config: Config = None
+    config: Config = Config()
 ) -> Iterator[addict.Dict]:
     '''Like ``get_all()``, but with the added convenience of yielding
     individual records, transformed from raw JSON into ``addict.Dict`` objects,
@@ -354,15 +348,12 @@ def get_all_transformed(
     if params is None:
         params = {}
 
-    if config is None:
-        config = Config()
-
     collection = _get_collection_from_resource_path(resource_path, config.version)
     for r in get_all(resource_path, params, config):
         for item in r.json()['items']:
             yield response.transform(collection, item, version=config.version)
 
-def get_all_changes(start_date: str, params: Mapping = None, config: Config = None) -> Iterator[requests.Response]:
+def get_all_changes(start_date: str, params: Mapping = None, config: Config = Config()) -> Iterator[requests.Response]:
     '''Makes as many HTTP GET requests as necessary to get all resources from
     the changes collection, from a start date forward.
 
@@ -395,37 +386,38 @@ def get_all_changes(start_date: str, params: Mapping = None, config: Config = No
     if params is None:
         params = {}
 
-    if config is None:
-        config = Config()
-
     next_token_or_date = start_date
     while(True):
         r = get('changes/' + next_token_or_date, params, config)
         json = r.json()
 
-        if json['moreChanges'] is True:
-            next_token_or_date = str(json['resumptionToken'])
-            if int(json['count']) == 0 or 'items' not in json:
-                # We skip these responses, under the assumption that a caller wanting all changes will
-                # have no use for a response that contains no changes.
-                # The "count" in changes responses has different semantics from all other endpoints.
-                # While for all others "count" is the total number of records that matched the request,
-                # for changes it is the number of records in the current response. According to Elsevier,
-                # "In an extreme scenario the count can be 0 while moreChanges is true, if for example
-                # all 100 changes are on confidential content"
-                # -- https://support.pure.elsevier.com/browse/PURESUPPORT-63657?focusedCommentId=560888&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-560888
-                # We have seen counts of 0, sometimes in multiple, consecutive responses. When "count"
-                # is zero, there will be no "items", so we check for that, too, for some extra protection.
+        next_token_or_date = str(json['resumptionToken'])
+
+        if int(json['count']) == 0 or 'items' not in json:
+            # We skip these responses, under the assumption that a caller wanting all changes will
+            # have no use for a response that contains no changes.
+            # The "count" in changes responses has different semantics from all other endpoints.
+            # While for all others "count" is the total number of records that matched the request,
+            # for changes it is the number of records in the current response. According to Elsevier,
+            # "In an extreme scenario the count can be 0 while moreChanges is true, if for example
+            # all 100 changes are on confidential content"
+            # -- https://support.pure.elsevier.com/browse/PURESUPPORT-63657?focusedCommentId=560888&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-560888
+            # We have seen counts of 0, sometimes in multiple, consecutive responses. When "count"
+            # is zero, there will be no "items", so we check for that, too, for some extra protection.
+            if json['moreChanges'] is True:
                 continue
-        else:
-            break
+            else:
+                return
 
         yield r
+
+        if json['moreChanges'] is False:
+            return
 
 def get_all_changes_transformed(
     start_date: str,
     params: Mapping = None,
-    config: Config = None
+    config: Config = Config()
 ) -> Iterator[addict.Dict]:
     '''Like ``get_all_changes()``, but with the added convenience of yielding
     individual records, transformed from raw JSON into ``addict.Dict`` objects,
@@ -455,14 +447,11 @@ def get_all_changes_transformed(
     if params is None:
         params = {}
 
-    if config is None:
-        config = Config()
-
     for r in get_all_changes(start_date, params, config):
         for item in r.json()['items']:
             yield response.transform('changes', item, version=config.version)
 
-def filter(resource_path: str, payload: Mapping = None, config: Config = None) -> requests.Response:
+def filter(resource_path: str, payload: Mapping = None, config: Config = Config()) -> requests.Response:
     '''Makes an HTTP POST request for Pure API resources, filtered according to
         the ``payload``.
 
@@ -494,9 +483,6 @@ def filter(resource_path: str, payload: Mapping = None, config: Config = None) -
     if payload is None:
         payload = {}
 
-    if config is None:
-        config = Config()
-
     collection = _get_collection_from_resource_path(resource_path, config.version)
     with requests.Session() as s:
         prepped = s.prepare_request(requests.Request('POST', config.base_url + resource_path, json=payload))
@@ -523,7 +509,7 @@ def filter(resource_path: str, payload: Mapping = None, config: Config = None) -
                 f'Unexpected exception for POST request for resource path {resource_path} with payload {payload}'
             ) from e
 
-def filter_all(resource_path: str, payload: Mapping = None, config: Config = None) -> Iterator[requests.Response]:
+def filter_all(resource_path: str, payload: Mapping = None, config: Config = Config()) -> Iterator[requests.Response]:
     '''Makes as many HTTP POST requests as necessary to retrieve all resources in
     a collection, filtered according to the ``payload``.
 
@@ -554,9 +540,6 @@ def filter_all(resource_path: str, payload: Mapping = None, config: Config = Non
     '''
     if payload is None:
         payload = {}
-
-    if config is None:
-        config = Config()
 
     count_payload = {
         **payload,
@@ -607,7 +590,7 @@ def filter_all_by_uuid(
     payload: Mapping = None,
     uuids: List = None,
     uuids_per_request: int = 100,
-    config: Config = None
+    config: Config = Config()
 ) -> Iterator[requests.Response]:
     '''Like ``filter_all()``, but with added convenience for requesting a set of
     records by uuid.
@@ -643,9 +626,6 @@ def filter_all_by_uuid(
     if uuids is None:
         uuids = []
 
-    if config is None:
-        config = Config()
-
     for uuid_group in _group_items(items=uuids, items_per_group=uuids_per_request):
         group_payload = {
             **payload,
@@ -659,7 +639,7 @@ def filter_all_by_id(
     payload: Mapping = None,
     ids: List = None,
     ids_per_request: int = 100,
-    config: Config = None
+    config: Config = Config()
 ) -> Iterator[requests.Response]:
     '''Like ``filter_all()``, but with added convenience for requesting a set of
     records by some non-uuid identifier.
@@ -695,9 +675,6 @@ def filter_all_by_id(
     if ids is None:
         ids = []
 
-    if config is None:
-        config = Config()
-
     for id_group in _group_items(items=ids, items_per_group=ids_per_request):
         group_payload = {
             **payload,
@@ -709,7 +686,7 @@ def filter_all_by_id(
 def filter_all_transformed(
     resource_path: str,
     payload: Mapping = None,
-    config: Config = None
+    config: Config = Config()
 ) -> Iterator[addict.Dict]:
     '''Like ``filter_all()``, but with the added convenience of yielding
     individual records, transformed from raw JSON into ``addict.Dict`` objects,
@@ -740,9 +717,6 @@ def filter_all_transformed(
     if payload is None:
         payload = {}
 
-    if config is None:
-        config = Config()
-
     collection = _get_collection_from_resource_path(resource_path, config.version)
     for r in filter_all(resource_path, payload, config):
         for item in r.json()['items']:
@@ -753,7 +727,7 @@ def filter_all_by_uuid_transformed(
     payload: Mapping = None,
     uuids: List = None,
     uuids_per_request: int = 100,
-    config: Config = None
+    config: Config = Config()
 ) -> Iterator[addict.Dict]:
     '''Like ``filter_all_by_uuid()``, but with the added convenience of yielding
     individual records, transformed from raw JSON into ``addict.Dict`` objects,
@@ -790,9 +764,6 @@ def filter_all_by_uuid_transformed(
     if uuids is None:
         uuids = []
 
-    if config is None:
-        config = Config()
-
     collection = _get_collection_from_resource_path(resource_path, config.version)
     for r in filter_all_by_uuid(
         resource_path,
@@ -809,7 +780,7 @@ def filter_all_by_id_transformed(
     payload: Mapping = None,
     ids: List = None,
     ids_per_request: int = 100,
-    config: Config = None
+    config: Config = Config()
 ) -> Iterator[addict.Dict]:
     '''Like ``filter_all_by_id()``, but with the added convenience of yielding
     individual records, transformed from raw JSON into ``addict.Dict`` objects,
@@ -845,9 +816,6 @@ def filter_all_by_id_transformed(
 
     if ids is None:
         ids = []
-
-    if config is None:
-        config = Config()
 
     collection = _get_collection_from_resource_path(resource_path, config.version)
     for r in filter_all_by_id(
