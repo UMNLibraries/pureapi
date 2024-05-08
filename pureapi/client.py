@@ -243,7 +243,7 @@ def get(resource_path: str, params: Mapping = None, config: Config = Config()) -
         prepped.headers = {**prepped.headers, **config.headers}
 
         try:
-            r = config.retryer(s.send, prepped)
+            r = config.retryer(s.send, prepped, timeout=(10, 360))
             r.raise_for_status()
             return r
         except HTTPError as http_exc:
@@ -489,7 +489,7 @@ def filter(resource_path: str, payload: Mapping = None, config: Config = Config(
         prepped.headers = {**prepped.headers, **config.headers}
 
         try:
-            r = config.retryer(s.send, prepped)
+            r = config.retryer(s.send, prepped, timeout=(10, 360))
             r.raise_for_status()
             return r
         except HTTPError as http_exc:
