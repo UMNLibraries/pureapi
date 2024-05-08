@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pureapi"
-version = "4.6.0"
+version = "4.6.1"
 description = "Tools for working with Elsevier's Pure API."
 readme = "README.md"
 authors = ["David Naughton <naughton@umn.edu>"]
@@ -17,3 +17,6 @@ tenacity = "^8.0.1"
 pytest = "^7.0.1"
 pytest-forked = "^1.4.0"
 python_dotenv = "^0.19.2"
+
+[tool.poetry.build]
+generate-setup-file = true
