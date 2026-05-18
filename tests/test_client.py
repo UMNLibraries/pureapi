@@ -539,7 +539,7 @@ def test_filter_all_by_id_transformed(version):
 
 @pytest.mark.integration
 def test_filter_all_transformed(version):
-    _filter, filter_all_transformed= client.preconfig(
+    _filter, filter_all_transformed = client.preconfig(
         client.Config(version=version),
         client.filter,
         client.filter_all_transformed
