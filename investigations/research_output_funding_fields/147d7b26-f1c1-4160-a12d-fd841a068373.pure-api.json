@@ -1,0 +1,883 @@
+{
+  "typeDiscriminator": "ContributionToJournal",
+  "pureId": 3398125616,
+  "uuid": "147d7b26-f1c1-4160-a12d-fd841a068373",
+  "createdBy": "root",
+  "createdDate": "2026-02-01T22:43:36.719-06:00",
+  "modifiedBy": "root",
+  "modifiedDate": "2026-02-09T10:41:53.322-06:00",
+  "portalUrl": "https://experts.umn.edu/en/publications/147d7b26-f1c1-4160-a12d-fd841a068373",
+  "prettyUrlIdentifiers": [
+    "proteomic-aging-clocks-and-the-risk-of-mortality-among-long-term-"
+  ],
+  "version": "f22cea01cb3a2f46c3f8a53c8e2cd587190de1f0",
+  "title": {
+    "value": "Proteomic aging clocks and the risk of mortality among long-term cancer survivors"
+  },
+  "type": {
+    "uri": "/dk/atira/pure/researchoutput/researchoutputtypes/contributiontojournal/article",
+    "term": {
+      "en_US": "Article"
+    }
+  },
+  "category": {
+    "uri": "/dk/atira/pure/researchoutput/category/research",
+    "term": {
+      "en_US": "Research"
+    }
+  },
+  "peerReview": true,
+  "publicationStatuses": [
+    {
+      "pureId": 3398125677,
+      "current": true,
+      "publicationStatus": {
+        "uri": "/dk/atira/pure/researchoutput/status/published",
+        "term": {
+          "en_US": "Published"
+        }
+      },
+      "publicationDate": {
+        "year": 2026,
+        "month": 1,
+        "day": 1
+      }
+    }
+  ],
+  "language": {
+    "uri": "/dk/atira/pure/core/languages/en_US",
+    "term": {
+      "en_US": "English (US)"
+    }
+  },
+  "contributors": [
+    {
+      "typeDiscriminator": "InternalContributorAssociation",
+      "pureId": 3412561024,
+      "hidden": false,
+      "correspondingAuthor": true,
+      "name": {
+        "firstName": "Shuo",
+        "lastName": "Wang"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "person": {
+        "systemName": "Person",
+        "uuid": "97e59933-71ed-47dc-8dbb-de8597be9415"
+      },
+      "organizations": [
+        {
+          "systemName": "Organization",
+          "uuid": "6a3ae8ba-7fc4-46cc-9e66-32fad8312720"
+        }
+      ]
+    },
+    {
+      "typeDiscriminator": "InternalContributorAssociation",
+      "pureId": 3412561026,
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Zexi",
+        "lastName": "Rao"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "person": {
+        "systemName": "Person",
+        "uuid": "22f9d7c0-1d0b-444d-b605-3d2f334d9915"
+      },
+      "organizations": [
+        {
+          "systemName": "Organization",
+          "uuid": "34038e85-c79a-4e82-8599-ed655022d1c0"
+        }
+      ]
+    },
+    {
+      "typeDiscriminator": "InternalContributorAssociation",
+      "pureId": 3412561028,
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Anne H.",
+        "lastName": "Blaes"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "person": {
+        "systemName": "Person",
+        "uuid": "e3ee8857-fb87-45b9-9661-e9af0aa4b4af"
+      },
+      "organizations": [
+        {
+          "systemName": "Organization",
+          "uuid": "a0168442-4681-4bf3-8f4a-1496ad3c3877"
+        }
+      ]
+    },
+    {
+      "typeDiscriminator": "ExternalContributorAssociation",
+      "pureId": 3412561030,
+      "externalOrganizations": [
+        {
+          "systemName": "ExternalOrganization",
+          "uuid": "554edc96-c5cc-4ccc-9975-fa62a37d1655"
+        }
+      ],
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Josef",
+        "lastName": "Coresh"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "externalPerson": {
+        "systemName": "ExternalPerson",
+        "uuid": "87a1c08c-5f92-4f71-946f-301978721f0a"
+      }
+    },
+    {
+      "typeDiscriminator": "ExternalContributorAssociation",
+      "pureId": 3412561031,
+      "externalOrganizations": [
+        {
+          "systemName": "ExternalOrganization",
+          "uuid": "189de3f9-695c-4bdb-b0fd-bbec6dac6ba6"
+        }
+      ],
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Corinne E.",
+        "lastName": "Joshu"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "externalPerson": {
+        "systemName": "ExternalPerson",
+        "uuid": "56ada53c-a8cb-4c1e-8444-b13f82be04b5"
+      }
+    },
+    {
+      "typeDiscriminator": "InternalContributorAssociation",
+      "pureId": 3412561032,
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "James S.",
+        "lastName": "Pankow"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "person": {
+        "systemName": "Person",
+        "uuid": "b4270155-6c0a-474b-9353-9bdf3ee4f184"
+      },
+      "organizations": [
+        {
+          "systemName": "Organization",
+          "uuid": "b9513a4d-0829-4345-bd9d-ba582857d240"
+        }
+      ]
+    },
+    {
+      "typeDiscriminator": "InternalContributorAssociation",
+      "pureId": 3412561034,
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Bharat",
+        "lastName": "Thyagarajan"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "person": {
+        "systemName": "Person",
+        "uuid": "4a4a9c2a-2e63-4a3e-ab51-8dee0cd6690a"
+      },
+      "organizations": [
+        {
+          "systemName": "Organization",
+          "uuid": "6a3ae8ba-7fc4-46cc-9e66-32fad8312720"
+        }
+      ]
+    },
+    {
+      "typeDiscriminator": "ExternalContributorAssociation",
+      "pureId": 3412561036,
+      "externalOrganizations": [
+        {
+          "systemName": "ExternalOrganization",
+          "uuid": "dc69e232-4617-44c5-a053-f1437024b5a1"
+        }
+      ],
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Ruth",
+        "lastName": "Dubin"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "externalPerson": {
+        "systemName": "ExternalPerson",
+        "uuid": "33058ad5-32e6-4065-bead-cc7c6befc6ce"
+      }
+    },
+    {
+      "typeDiscriminator": "ExternalContributorAssociation",
+      "pureId": 3412561037,
+      "externalOrganizations": [
+        {
+          "systemName": "ExternalOrganization",
+          "uuid": "f06d6120-0b3d-4f96-8d88-9850aa2b205b"
+        }
+      ],
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Rajat",
+        "lastName": "Deo"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "externalPerson": {
+        "systemName": "ExternalPerson",
+        "uuid": "d71fe290-b693-446b-9701-1c957d8e7733"
+      }
+    },
+    {
+      "typeDiscriminator": "ExternalContributorAssociation",
+      "pureId": 3412561038,
+      "externalOrganizations": [
+        {
+          "systemName": "ExternalOrganization",
+          "uuid": "189de3f9-695c-4bdb-b0fd-bbec6dac6ba6"
+        }
+      ],
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Seamus P.",
+        "lastName": "Whelton"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "externalPerson": {
+        "systemName": "ExternalPerson",
+        "uuid": "f0ded1a3-803f-49be-b0ae-b499e0d69f30"
+      }
+    },
+    {
+      "typeDiscriminator": "ExternalContributorAssociation",
+      "pureId": 3412561039,
+      "externalOrganizations": [
+        {
+          "systemName": "ExternalOrganization",
+          "uuid": "189de3f9-695c-4bdb-b0fd-bbec6dac6ba6"
+        }
+      ],
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Michael J.",
+        "lastName": "Blaha"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "externalPerson": {
+        "systemName": "ExternalPerson",
+        "uuid": "75b27c77-6f61-476d-8e8d-a3c7082279f0"
+      }
+    },
+    {
+      "typeDiscriminator": "ExternalContributorAssociation",
+      "pureId": 3412561040,
+      "externalOrganizations": [
+        {
+          "systemName": "ExternalOrganization",
+          "uuid": "189de3f9-695c-4bdb-b0fd-bbec6dac6ba6"
+        }
+      ],
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Catherine H.",
+        "lastName": "Marshall"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "externalPerson": {
+        "systemName": "ExternalPerson",
+        "uuid": "242a35cc-65c3-428d-bc64-a1cdd8e34d5e"
+      }
+    },
+    {
+      "typeDiscriminator": "ExternalContributorAssociation",
+      "pureId": 3412561041,
+      "externalOrganizations": [
+        {
+          "systemName": "ExternalOrganization",
+          "uuid": "ac5071df-74d6-44bb-8553-3b527a5b5af3"
+        }
+      ],
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Jerome I.",
+        "lastName": "Rotter"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "externalPerson": {
+        "systemName": "ExternalPerson",
+        "uuid": "781591eb-6632-4cf1-8ce9-029963460166"
+      }
+    },
+    {
+      "typeDiscriminator": "ExternalContributorAssociation",
+      "pureId": 3412561042,
+      "externalOrganizations": [
+        {
+          "systemName": "ExternalOrganization",
+          "uuid": "c011c05a-b9b8-4723-b9a5-ec9dd66d1b0a"
+        }
+      ],
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Peter",
+        "lastName": "Ganz"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "externalPerson": {
+        "systemName": "ExternalPerson",
+        "uuid": "316341ff-aa61-4b09-9620-c5d5b509276e"
+      }
+    },
+    {
+      "typeDiscriminator": "InternalContributorAssociation",
+      "pureId": 3412561043,
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Weihua",
+        "lastName": "Guan"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "person": {
+        "systemName": "Person",
+        "uuid": "f40bae85-3e25-4f51-a885-55299e1687b1"
+      },
+      "organizations": [
+        {
+          "systemName": "Organization",
+          "uuid": "34038e85-c79a-4e82-8599-ed655022d1c0"
+        }
+      ]
+    },
+    {
+      "typeDiscriminator": "ExternalContributorAssociation",
+      "pureId": 3412561045,
+      "externalOrganizations": [
+        {
+          "systemName": "ExternalOrganization",
+          "uuid": "189de3f9-695c-4bdb-b0fd-bbec6dac6ba6"
+        }
+      ],
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Elizabeth A.",
+        "lastName": "Platz"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "externalPerson": {
+        "systemName": "ExternalPerson",
+        "uuid": "d8c47534-c2ef-44ed-81ae-5733f8b441ed"
+      }
+    },
+    {
+      "typeDiscriminator": "InternalContributorAssociation",
+      "pureId": 3412561046,
+      "hidden": false,
+      "correspondingAuthor": false,
+      "name": {
+        "firstName": "Anna",
+        "lastName": "Prizment"
+      },
+      "role": {
+        "uri": "/dk/atira/pure/researchoutput/roles/contributiontojournal/author",
+        "term": {
+          "en_US": "Author"
+        }
+      },
+      "person": {
+        "systemName": "Person",
+        "uuid": "18d3ce65-2d58-480d-8ab9-663c96c7ff1a"
+      },
+      "organizations": [
+        {
+          "systemName": "Organization",
+          "uuid": "6a3ae8ba-7fc4-46cc-9e66-32fad8312720"
+        }
+      ]
+    }
+  ],
+  "organizations": [
+    {
+      "systemName": "Organization",
+      "uuid": "6a3ae8ba-7fc4-46cc-9e66-32fad8312720"
+    },
+    {
+      "systemName": "Organization",
+      "uuid": "34038e85-c79a-4e82-8599-ed655022d1c0"
+    },
+    {
+      "systemName": "Organization",
+      "uuid": "a0168442-4681-4bf3-8f4a-1496ad3c3877"
+    },
+    {
+      "systemName": "Organization",
+      "uuid": "b9513a4d-0829-4345-bd9d-ba582857d240"
+    }
+  ],
+  "externalOrganizations": [
+    {
+      "systemName": "ExternalOrganization",
+      "uuid": "554edc96-c5cc-4ccc-9975-fa62a37d1655"
+    },
+    {
+      "systemName": "ExternalOrganization",
+      "uuid": "189de3f9-695c-4bdb-b0fd-bbec6dac6ba6"
+    },
+    {
+      "systemName": "ExternalOrganization",
+      "uuid": "dc69e232-4617-44c5-a053-f1437024b5a1"
+    },
+    {
+      "systemName": "ExternalOrganization",
+      "uuid": "f06d6120-0b3d-4f96-8d88-9850aa2b205b"
+    },
+    {
+      "systemName": "ExternalOrganization",
+      "uuid": "ac5071df-74d6-44bb-8553-3b527a5b5af3"
+    },
+    {
+      "systemName": "ExternalOrganization",
+      "uuid": "c011c05a-b9b8-4723-b9a5-ec9dd66d1b0a"
+    }
+  ],
+  "totalNumberOfContributors": 17,
+  "managingOrganization": {
+    "systemName": "Organization",
+    "uuid": "6a3ae8ba-7fc4-46cc-9e66-32fad8312720"
+  },
+  "submissionYear": 2026,
+  "electronicVersions": [
+    {
+      "typeDiscriminator": "DoiElectronicVersion",
+      "pureId": 3398125619,
+      "accessType": {
+        "uri": "/dk/atira/pure/core/openaccesspermission/open",
+        "term": {
+          "en_US": "Open"
+        }
+      },
+      "visibleOnPortalDate": "2026-02-01",
+      "doi": "10.1093/jnci/djaf286",
+      "versionType": {
+        "uri": "/dk/atira/pure/researchoutput/electronicversion/versiontype/publishersversion",
+        "term": {
+          "en_US": "Final published version"
+        }
+      }
+    }
+  ],
+  "links": [
+    {
+      "pureId": 3398125647,
+      "url": "https://www.scopus.com/pages/publications/105027250398",
+      "description": {
+        "en_US": "Link to publication in Scopus"
+      },
+      "linkType": {
+        "uri": "/dk/atira/pure/links/researchoutput/scopuspublication",
+        "term": {
+          "en_US": "Scopus publication"
+        }
+      }
+    },
+    {
+      "pureId": 3398125648,
+      "url": "https://www.scopus.com/pages/publications/105027250398#tab=citedBy",
+      "description": {
+        "en_US": "Link to the citations in Scopus"
+      },
+      "linkType": {
+        "uri": "/dk/atira/pure/links/researchoutput/scopuscitations",
+        "term": {
+          "en_US": "Scopus citations"
+        }
+      }
+    }
+  ],
+  "keywordGroups": [
+    {
+      "typeDiscriminator": "ClassificationsKeywordGroup",
+      "pureId": 3412560822,
+      "logicalName": "ASJCSubjectAreas",
+      "name": {
+        "en_US": "ASJC Scopus subject areas"
+      },
+      "classifications": [
+        {
+          "uri": "/dk/atira/pure/subjectarea/asjc/2700/2730",
+          "term": {
+            "en_US": "Oncology"
+          }
+        },
+        {
+          "uri": "/dk/atira/pure/subjectarea/asjc/1300/1306",
+          "term": {
+            "en_US": "Cancer Research"
+          }
+        }
+      ]
+    }
+  ],
+  "bibliographicalNote": {
+    "en_US": "Publisher Copyright:\n© 2025 The Author(s). Published by Oxford University Press. All rights reserved."
+  },
+  "visibility": {
+    "key": "FREE",
+    "description": {
+      "en_US": "Public - No restriction"
+    }
+  },
+  "workflow": {
+    "step": "forApproval",
+    "description": {
+      "en_US": "For validation"
+    }
+  },
+  "identifiers": [
+    {
+      "typeDiscriminator": "PrimaryId",
+      "idSource": "Scopus",
+      "value": "105027250398"
+    },
+    {
+      "typeDiscriminator": "Id",
+      "pureId": 3398125678,
+      "idSource": "PubMed",
+      "value": "41032251"
+    },
+    {
+      "typeDiscriminator": "Id",
+      "pureId": 3398125679,
+      "idSource": "QABO",
+      "value": "105027250398"
+    },
+    {
+      "typeDiscriminator": "Id",
+      "pureId": 3398981835,
+      "idSource": "PubMedCentral",
+      "value": "PMC12794209"
+    },
+    {
+      "typeDiscriminator": "Id",
+      "pureId": 3407602030,
+      "idSource": "ORCID",
+      "value": "/0000-0001-7076-483X/work/204883686"
+    },
+    {
+      "typeDiscriminator": "Id",
+      "pureId": 3407612148,
+      "idSource": "ORCID",
+      "value": "/0000-0001-6968-6985/work/204884189"
+    }
+  ],
+  "customDefinedFields": {},
+  "fundingText": {
+    "en_US": "The authors thank the staff and participants of the ARIC study for their important contributions. Cancer data were provided by the Maryland Cancer Registry, Center for Cancer Prevention and Control, Maryland Department of Health, with funding from the State of Maryland and the Maryland Cigarette Restitution Fund. The collection and availability of cancer registry data are also supported by the Cooperative Agreement NU58DP007114, funded by the Centers for Disease Control and Prevention.\n\nThe Atherosclerosis Risk in Communities study has been funded in whole or in part with Federal funds from the National Heart, Lung, and Blood Institute, National Institutes of Health, and Department of Health and Human Services (under contract nos. 75N92022D00001, 75N92022D00002, 75N92022D00003, 75N92022D00004, and 75N92022D00005). SomaLogic Inc. conducted the SomaScan assays in exchange for the use of ARIC data. This work was also supported in part by NHLBI grant R01 HL134320. Cancer data in ARIC are also supported by the National Cancer Institute (U01 CA164975).\n\nThe MESA projects are conducted and supported by the National Heart, Lung, and Blood Institute (NHLBI) in collaboration with MESA investigators. Support for MESA is provided by contracts 75N92020D00001, HHSN268201500003I, N01-HC-95159, 75N92020D00005, N01-HC-95160, 75N92020D00002, N01-HC-95161, 75N92020D00003, N01-HC-95162, 75N92020D00006, N01-HC-95163, 75N92020D00004, N01-HC-95164, 75N92020D00007, N01-HC-95165, N01-HC-95166, N01-HC-95167, N01-HC-95168, N01-HC-95169, UL1-TR-000040, UL1-TR-001079, UL1-TR-001420, UL1TR001881, DK063491, and R01HL105756.\n\nP.G. is a member of the medical advisory board to SomaLogic for which he does not accept any financial renumeration. J.C. served on the SomaLogic scientific advisory committee during 2021-2023. A.H.B., who is a JNCI Associate Editor and co-author on this paper, was not involved in the editorial review or decision to publish the manuscript. C.H.M. reports receiving honorarium from Tempus and Pfizer; travel support from DAVA Oncology; and speaking fees from Onc Live. All the other authors report no relevant conflicts of interest.\n\nThis study was supported by the National Center for Advancing Translational Sciences grant UM1TR004405, the National Cancer Institute grant R01CA267977, and the National Heart Lung and Blood Institute grant R01HL159081."
+  },
+  "fundingDetails": [
+    {
+      "pureId": 3398125620,
+      "fundingOrganizations": [
+        {
+          "externalOrganizationRef": {
+            "systemName": "ExternalOrganization",
+            "uuid": "621e1e09-4b88-4d2b-8605-70b4c7868cd0"
+          }
+        }
+      ],
+      "fundingOrganizationAcronym": "CDC"
+    },
+    {
+      "pureId": 3398125622,
+      "fundingOrganizations": [
+        {
+          "externalOrganizationRef": {
+            "systemName": "ExternalOrganization",
+            "uuid": "a69d36b5-1c63-4cfd-9316-8a52ef6d306c"
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 3398125624,
+      "fundingOrganizations": [
+        {
+          "externalOrganizationRef": {
+            "systemName": "ExternalOrganization",
+            "uuid": "84236791-1445-48f9-b644-3cddc6de4a05"
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 3398125626,
+      "fundingOrganizations": [
+        {
+          "externalOrganizationRef": {
+            "systemName": "ExternalOrganization",
+            "uuid": "7b629cb1-ee3a-485b-b4c9-ca7de23e31be"
+          }
+        }
+      ],
+      "fundingOrganizationAcronym": "NHLBI",
+      "fundingNumbers": [
+        "UL1-TR-001079",
+        "UL1TR001881",
+        "UL1-TR-000040",
+        "N01-HC-95161",
+        "N01-HC-95162",
+        "N01-HC-95163",
+        "N01-HC-95164",
+        "N01-HC-95160",
+        "N01-HC-95159",
+        "R01HL105756",
+        "75N92020D00007",
+        "75N92020D00001",
+        "75N92020D00002",
+        "75N92020D00005",
+        "75N92020D00006",
+        "75N92020D00003",
+        "75N92020D00004",
+        "UL1-TR-001420",
+        "N01-HC-95169",
+        "N01-HC-95165",
+        "N01-HC-95166",
+        "N01-HC-95167",
+        "N01-HC-95168",
+        "DK063491",
+        "HHSN268201500003I",
+        "R01HL159081"
+      ]
+    },
+    {
+      "pureId": 3398125628,
+      "fundingOrganizations": [
+        {
+          "externalOrganizationRef": {
+            "systemName": "ExternalOrganization",
+            "uuid": "b3bcdde6-c418-450c-aec6-3569f12d9478"
+          }
+        }
+      ],
+      "fundingOrganizationAcronym": "MDH"
+    },
+    {
+      "pureId": 3398125630,
+      "fundingOrganizations": [
+        {
+          "externalOrganizationRef": {
+            "systemName": "ExternalOrganization",
+            "uuid": "f43d6c16-f6c0-4b4f-8519-f5da0235d6f1"
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 3398125632,
+      "fundingOrganizations": [
+        {
+          "externalOrganizationRef": {
+            "systemName": "ExternalOrganization",
+            "uuid": "9d3d974e-8a75-4b9b-a1b9-bde6f59a4ddd"
+          }
+        }
+      ]
+    },
+    {
+      "pureId": 3398125634,
+      "fundingOrganizations": [
+        {
+          "externalOrganizationRef": {
+            "systemName": "ExternalOrganization",
+            "uuid": "93eb2f3a-73e6-49bf-bd5f-c73acb9bf53f"
+          }
+        }
+      ],
+      "fundingNumbers": [
+        "U01 CA164975",
+        "R01CA267977"
+      ]
+    },
+    {
+      "pureId": 3398125636,
+      "fundingOrganizations": [
+        {
+          "externalOrganizationRef": {
+            "systemName": "ExternalOrganization",
+            "uuid": "a2b16d5f-27ad-4224-9be1-e0023a4cd159"
+          }
+        }
+      ],
+      "fundingNumbers": [
+        "75N92022D00003",
+        "75N92022D00004",
+        "75N92022D00001",
+        "75N92022D00002",
+        "75N92022D00005"
+      ]
+    },
+    {
+      "pureId": 3398125638,
+      "fundingOrganizations": [
+        {
+          "externalOrganizationRef": {
+            "systemName": "ExternalOrganization",
+            "uuid": "4e667dbb-228d-4a9f-81ef-945eac232ee0"
+          }
+        }
+      ],
+      "fundingNumbers": [
+        "R01 HL134320"
+      ]
+    },
+    {
+      "pureId": 3398125640,
+      "fundingOrganizations": [
+        {
+          "externalOrganizationRef": {
+            "systemName": "ExternalOrganization",
+            "uuid": "6a3a3d3f-024f-4fa0-8168-daad8fb1fed3"
+          }
+        }
+      ],
+      "fundingNumbers": [
+        "UM1TR004405"
+      ]
+    },
+    {
+      "pureId": 3398125642,
+      "fundingOrganizations": [
+        {
+          "externalOrganizationRef": {
+            "systemName": "ExternalOrganization",
+            "uuid": "978129f8-a0b8-43ad-9060-622eb70d71e1"
+          }
+        }
+      ],
+      "fundingNumbers": [
+        "NU58DP007114"
+      ]
+    }
+  ],
+  "pages": "102-112",
+  "volume": "118",
+  "journalAssociation": {
+    "pureId": 3398125617,
+    "title": {
+      "pureId": 4497061,
+      "title": "Journal of the National Cancer Institute"
+    },
+    "issn": {
+      "pureId": 4497060,
+      "issn": "0027-8874"
+    },
+    "journal": {
+      "systemName": "Journal",
+      "uuid": "37397060-4827-4018-9f24-a237c5fcb54d"
+    }
+  },
+  "journalNumber": "1",
+  "numberOfPages": 11,
+  "systemName": "ResearchOutput",
+  "abstract": {
+    "en_US": "<p>Background To estimate biological age, we developed a proteomic aging clock in cancer-free participants (CaPAC) and examined its association with mortality in long-term cancer survivors (LTCS, &gt;2 years between cancer diagnosis and blood collection) and cancer-free participants in the Atherosclerosis Risk in Communities (ARIC) and Multi-Ethnic Study of Atherosclerosis (MESA) studies. Methods ARIC measured 4712 proteins using SomaScan in plasma samples collected at 3 visits, including Visit 5 (2011-2013) from 806 LTCS and 3699 cancer-free participants, all aged 66-90. Among 2466 randomly selected cancer-free participants, we developed CaPAC using elastic net regression. Age acceleration was calculated as residuals of CaPAC regressed on chronological age (CaPAC<sub>Accel</sub>). We used multivariable Cox proportional hazards regression to calculate hazard ratios (HRs) for the associations of CaPAC<sub>Accel</sub> with all-cause and cancer mortality in LTCS and all-cause mortality in the remaining cancer-free participants. We replicated the analysis of all-cause mortality in MESA. Results In LCTS, CaPAC<sub>Accel</sub> was associated with increased all-cause mortality in both ARIC (HR per 1 SD = 1.42, 95% confidence interval [CI] = 1.24 to 1.62; P &lt;. 001) and MESA (1.62, 1.12 to 2.33; P =. 009). Also, in ARIC, CaPAC<sub>Accel</sub> was associated with all-cause mortality in breast (1.54, 1.05 to 2.25; P =. 028) and colorectal LTCS (1.96, 1.19 to 3.22; P =. 008). Additionally, CaPAC<sub>Accel</sub> was associated with cancer mortality in LTCS (1.34, 1.09 to 1.64; P =. 005) in ARIC. In MESA, limited sample size precluded us from examining individual cancers and cause-specific mortality. In cancer-free participants, the associations of CaPAC<sub>Accel</sub> with all-cause mortality were similar across studies. Conclusion Proteomic aging clocks hold promise as a predictor of all-cause and cancer mortality in LTCS.</p>"
+  }
+}
